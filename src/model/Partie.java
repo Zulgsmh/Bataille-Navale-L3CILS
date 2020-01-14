@@ -38,6 +38,9 @@ public class Partie {
     public void placerBateauJ1(Joueur j1) {
         // TODO implement here
  	   Scanner in = new Scanner(System.in);
+ 	   System.out.println("COMBIEN DE BATEAU?");
+   	   int nbbateau = in.nextInt();
+   	   for (int nb = 0; nb < nbbateau; nb++) {
  	   System.out.print("quel bateau : \n 1)portes avion \n 2)sous-marin \n 3)cuirassé \n 4)zodiac\n");
         int typebateau = in.nextInt();
    	   System.out.print("pos x :");
@@ -102,7 +105,7 @@ public class Partie {
         	}
         }
         j1.displayMaGrille();
-        
+   	   }
     }
 
     /**
