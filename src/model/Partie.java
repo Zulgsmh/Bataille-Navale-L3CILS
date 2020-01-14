@@ -40,21 +40,46 @@ public class Partie {
  	   Scanner in = new Scanner(System.in);
  	   System.out.println("COMBIEN DE BATEAU?");
    	   int nbbateau = in.nextInt();
+   	int typebateau = 0;
+   	int x = 0;
+   	int y = 0;
+   	boolean verticale = true;
    	   for (int nb = 0; nb < nbbateau; nb++) {
+   		boolean valid = false;
+   		   while (!valid) {
  	   System.out.print("quel bateau : \n 1)portes avion \n 2)sous-marin \n 3)cuirassé \n 4)zodiac\n");
-        int typebateau = in.nextInt();
+        typebateau = in.nextInt();
    	   System.out.print("pos x :");
-        int x = in.nextInt()-1;
+        x = in.nextInt()-1;
    	   System.out.print("pos y :");
-        int y = in.nextInt()-1;
+        y = in.nextInt()-1;
    	   System.out.print("dir : \n 1)verticale \n 2)horizontale\n");
         int dir = in.nextInt();
-        boolean verticale = true;
+        verticale = true;
         if(dir == 1) {
         	verticale = true;
         }else {
         	verticale = false;
         }
+        
+        int taillebat = 6-typebateau;
+    	if(verticale) {
+    		if(y+taillebat > 10) {
+    		valid = false;
+    		System.out.println("INVALIDE");
+    	}else {
+    		valid = true;
+    	}
+    }else{
+    		if(x+taillebat > 10) {
+    		valid = false;
+    		System.out.println("INVALIDE");
+    	}else {
+    		valid = true;
+    	}
+   		}
+    	}
+        
         if(typebateau == 1) {
         	j1.p1.utilisable = false;
         	int t = j1.p1.getTaille();
