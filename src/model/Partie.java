@@ -10,7 +10,9 @@ public class Partie {
     /**
      * Default constructor
      */
-    public Partie() {
+    public Partie(Joueur j1, Joueur j2) {
+    	this.j1 = j1;
+    	this.j2 = j2;
     }
 
     /**
@@ -22,7 +24,9 @@ public class Partie {
      * 
      */
     public ModeJeu ModeJ;
-
+    
+    public Joueur j1;
+    public Joueur j2;
 
 
     /**
@@ -35,111 +39,56 @@ public class Partie {
     /**
      * 
      */
-    public void placerBateauJ1(Joueur j1) {
+    public void placerBateauJ1() {
         // TODO implement here
- 	   Scanner in = new Scanner(System.in);
- 	   System.out.println("COMBIEN DE BATEAU?");
-   	   int nbbateau = in.nextInt();
-   	int typebateau = 0;
-   	int x = 0;
-   	int y = 0;
-   	boolean verticale = true;
-   	   for (int nb = 0; nb < nbbateau; nb++) {
-   		boolean valid = false;
-   		   while (!valid) {
- 	   System.out.print("quel bateau : \n 1)portes avion \n 2)sous-marin \n 3)cuirassé \n 4)zodiac\n");
-        typebateau = in.nextInt();
-   	   System.out.print("pos x :");
-        x = in.nextInt()-1;
-   	   System.out.print("pos y :");
-        y = in.nextInt()-1;
-   	   System.out.print("dir : \n 1)verticale \n 2)horizontale\n");
-        int dir = in.nextInt();
-        verticale = true;
-        if(dir == 1) {
-        	verticale = true;
-        }else {
-        	verticale = false;
-        }
-        
-        int taillebat = 6-typebateau;
-    	if(verticale) {
-    		if(y+taillebat > 10) {
-    		valid = false;
-    		System.out.println("INVALIDE");
-    	}else {
-    		valid = true;
-    	}
-    }else{
-    		if(x+taillebat > 10) {
-    		valid = false;
-    		System.out.println("INVALIDE");
-    	}else {
-    		valid = true;
-    	}
-   		}
-    	}
-        
-        if(typebateau == 1) {
-        	j1.p1.utilisable = false;
-        	int t = j1.p1.getTaille();
-        	if(verticale) {
-        		for(int i = 0; i < t; i++) {
-        			j1.setMaGrille(x, y+i, "PUTE");
-        		}
-        	}else {
-        		for(int i = 0; i < t; i++) {
-        			j1.setMaGrille(x+i, y, "PUTE");
-        		}
-        	}
-        }else if(typebateau == 2) {
-        	j1.s1.utilisable = false;
-        	int t = j1.s1.getTaille();
-        	if(verticale) {
-        		for(int i = 0; i < t; i++) {
-        			j1.setMaGrille(x, y+i, "SOUS");
-        		}
-        	}else {
-        		for(int i = 0; i < t; i++) {
-        			j1.setMaGrille(x+i, y, "SOUS");
-        		}
-        	}
-        }else if(typebateau == 3) {
-        	j1.c1.utilisable = false;
-        	int t = j1.c1.getTaille();
-        	if(verticale) {
-        		for(int i = 0; i < t; i++) {
-        			j1.setMaGrille(x, y+i, "CUIR");
-        		}
-        	}else {
-        		for(int i = 0; i < t; i++) {
-        			j1.setMaGrille(x+i, y, "CUIR");
-        		}
-        	}
-        }else if(typebateau == 4) {
-        	j1.z1.utilisable = false;
-        	int t = j1.z1.getTaille();
-        	if(verticale) {
-        		for(int i = 0; i < t; i++) {
-        			j1.setMaGrille(x, y+i, "ZODI");
-        		}
-        	}else {
-        		for(int i = 0; i < t; i++) {
-        			j1.setMaGrille(x+i, y, "ZODI");
-        		}
-        	}
-        }
-        j1.displayMaGrille();
-   	   }
-    }
+    	System.out.println("Placement des bateau de j1");
+    	this.j1.placerbateau();
+    	
 
+    }
+    public void placerBateauJ2() {
+        // TODO implement here
+    	System.out.println("Placement des bateau de j2");
+    	this.j2.placerbateau();
+    	
+    }
     /**
      * 
      */
-    public void placerBateauJ2() {
+    
+    
+    public void J1tirer() {
+    	
         // TODO implement here
+        System.out.println("\n\n\nTour de J1 :");
+    	   Scanner in = new Scanner(System.in);
+    	   System.out.print("ou veux-tu tirer en x : ");
+           int x = in.nextInt();
+    	   System.out.print("ou veux-tu tirer en y : ");
+           int y = in.nextInt();
+           this.j1.setGrilleAdverse(this.j2.maGrille);
+           this.j1.setGrilleAdverse(x, y);
+           this.j1.displayGrilleAdverse();
+           this.j2.setMaGrille(this.j1.grilleAdverse);
+           this.j1.displayMaGrille();
     }
-
+    public void J2tirer() {
+    	
+        // TODO implement here
+        System.out.println("\n\n\n Tour de J2 :");
+    	   Scanner in = new Scanner(System.in);
+    	   System.out.print("ou veux-tu tirer en x : ");
+           String sx = in.nextLine();
+    	   System.out.print("ou veux-tu tirer en y : ");
+           String sy = in.nextLine();
+           int x = Integer.parseInt(sx);
+           int y = Integer.parseInt(sy);
+           this.j2.setGrilleAdverse(this.j1.maGrille);
+           this.j2.setGrilleAdverse(x, y);
+           this.j2.displayGrilleAdverse();
+           this.j1.setMaGrille(this.j2.grilleAdverse);
+           this.j2.displayMaGrille();
+    }
     /**
      * 
      */

@@ -19,11 +19,19 @@ public class Main {
 Joueur j1=new Joueur();
 ////j1.displayMaGrille();
 //
-//Joueur j2=new Joueur();
+Joueur j2=new Joueur();
 //
-//j2.tirer(j1);
-		Partie p = new Partie();
-		p.placerBateauJ1(j1);
+		Partie p = new Partie(j1,j2);
+//		placement des bateau
+		p.placerBateauJ1();
+		p.placerBateauJ2();
+		
+//		boucle de la game
+		for(int i = 0; i < 10; i++) {
+			p.J1tirer();
+			p.J2tirer();
+		}
+		
 
 	}
 
