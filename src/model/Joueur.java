@@ -32,7 +32,14 @@ public class Joueur {
      * 
      */
     public String [][]grilleAdverse = new String [10][10];
-
+    
+    
+    public PorteAvion p1 = new PorteAvion();
+    public CuirasseFurtif c1 = new CuirasseFurtif();
+    public CuirasseFurtif c2 = new CuirasseFurtif();
+    public SousMarinNucleaire s1 = new SousMarinNucleaire();
+    public Zodiac z1 = new Zodiac();
+    
 
 
 
@@ -61,6 +68,9 @@ public class Joueur {
 	public void setMaGrille(String[][] maGrille) {
 		this.maGrille = maGrille;
 	}
+	public void setMaGrille(int x, int y, String truc) {
+		this.maGrille[x][y] = truc;
+	}
 
 	public String[][] getGrilleAdverse() {
 		return grilleAdverse;
@@ -70,6 +80,7 @@ public class Joueur {
 		this.grilleAdverse = grilleAdverse;
 	}
 	public void setGrilleAdverse(int x, int y) {
+		//DOTO : mettre condition de tire
 		this.grilleAdverse[x-1][y-1] = "plouf";
 	}
 

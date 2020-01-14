@@ -34,6 +34,9 @@ public abstract class Navire {
      * 
      */
     private Boolean estCoule;
+    
+    
+    public Boolean utilisable;
 
 
 //---------------ACCESSEURS-------------------------
