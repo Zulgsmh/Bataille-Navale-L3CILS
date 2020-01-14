@@ -69,6 +69,9 @@ public class Joueur {
 	public void setGrilleAdverse(String[][] grilleAdverse) {
 		this.grilleAdverse = grilleAdverse;
 	}
+	public void setGrilleAdverse(int x, int y) {
+		this.grilleAdverse[x-1][y-1] = "plouf";
+	}
 
 	/**
      * 
@@ -80,14 +83,22 @@ public class Joueur {
     /**
      * 
      */
-    public void tirer() {
+    public void tirer(Joueur adversaire) {
     	
         // TODO implement here
     	   Scanner in = new Scanner(System.in);
     	   System.out.print("Où veux-tu tirer en x : ");
-           String s = in.nextLine();
-           
-           System.out.println("You entered string "+s);
+           String sx = in.nextLine();
+           System.out.println("You entered string "+sx);
+    	   System.out.print("Où veux-tu tirer en y : ");
+           String sy = in.nextLine();
+           System.out.println("You entered string "+sy);
+           int x = Integer.parseInt(sx);
+           int y = Integer.parseInt(sy);
+           this.setGrilleAdverse(x, y);
+           this.displayGrilleAdverse();
+           adversaire.setMaGrille(this.grilleAdverse);
+           adversaire.displayMaGrille();
     }
     
     public void displayMaGrille() {

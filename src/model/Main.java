@@ -20,9 +20,9 @@ Joueur j1=new Joueur();
 //j1.displayMaGrille();
 
 Joueur j2=new Joueur();
-//j2.displayGrilleAdverse();
+j2.displayGrilleAdverse();
 
-j2.tirer();
+j2.tirer(j1);
 
 	}
 
