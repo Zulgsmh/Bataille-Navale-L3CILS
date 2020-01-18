@@ -34,8 +34,8 @@ public abstract class Navire {
      * 
      */
     private Boolean estCoule;
-    
-    
+    private String nom;
+    public int taille;
     public Boolean utilisable;
 
 
@@ -45,11 +45,12 @@ public abstract class Navire {
     public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
+    public String getNom() {
+    	return nom;
+    }
 	public Position getPosition() {
 		return position;
 	}
@@ -73,7 +74,9 @@ public abstract class Navire {
 	public void setEstCoule(Boolean estCoule) {
 		this.estCoule = estCoule;
 	}
-
+    public int getTaille() {
+		return taille;
+	}
    
 
    

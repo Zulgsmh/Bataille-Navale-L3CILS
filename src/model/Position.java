@@ -10,7 +10,7 @@ public class Position {
     /**
      * Default constructor
      */
-    public Position(int posX,int posY, String sens) {
+    public Position(int posX,int posY, boolean sens) {
     	this.posX=posX;
     	this.posY=posY;
     	this.sens=sens;
@@ -32,28 +32,28 @@ public class Position {
 		this.posY = posY;
 	}
 
-	public String getSens() {
+	public boolean getSens() {
 		return sens;
 	}
 
-	public void setSens(String sens) {
+	public void setSens(boolean sens) {
 		this.sens = sens;
 	}
 
 	/**
      * 
      */
-    private int posX;
+    private int posX = -1;
 
     /**
      * 
      */
-    private int posY;
+    private int posY = -1;
 
     /**
      * 
      */
-    private String sens;
+    private boolean sens = true;
 
 
     /**

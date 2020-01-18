@@ -19,11 +19,15 @@ public class CuirasseFurtif extends Navire {
 	public void setTaille(int taille) {
 		this.taille = taille;
 	}
-
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
 	/**
      * 
      */
-    private int taille;
-
-
+    public int taille;
+    public String nom = "CUIR";
+    public String getNom() {
+    	return this.nom;
+    }
 }
