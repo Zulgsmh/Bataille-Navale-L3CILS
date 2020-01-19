@@ -145,8 +145,10 @@ public class Joueur {
 					} else {
 						valid = true;
 						for (int j = y; j < y+taillebat; j++) {
+							this.displayMaGrille();
+							System.out.print(x);
+							System.out.println(this.maGrille[x][j]);
 							if (this.maGrille[x][j] != null) {
-								
 								valid = false;
 								break;
 							}
@@ -167,6 +169,7 @@ public class Joueur {
 						}
 					}
 				}
+				System.out.println(valid);
 				if(!valid) {
 					System.out.println("INVALIDE");
 				}
@@ -201,10 +204,10 @@ public class Joueur {
 					String nom = listNavire[i].getNom();
 					//verticale
 					if(listNavire[i].getPosition().getSens()) {
-						this.setMaGrille(x + j, y, nom);
+						this.setMaGrille(x, y + j, nom);
 					//Horizontale
 					}else {
-						this.setMaGrille(x, y + j, nom);
+						this.setMaGrille(x + j, y, nom);
 					}
 				}
 			}
