@@ -14,7 +14,7 @@ public class Main {
 //Position pos=pa.getPosition();
 ////System.out.println(pos.getPosX());
 //
-Joueur j1=new Joueur();
+/*Joueur j1=new Joueur();
 ////j1.displayMaGrille();
 //
 Joueur j2=new Joueur();
@@ -29,8 +29,9 @@ Joueur j2=new Joueur();
 			p.J1tirer();
 			p.J2tirer();
 		}
-		
 
+*/System.out.println("java.runtime.version: " + System.getProperty("java.runtime.version", "(undefined)"));
+System.out.println("javafx.version: " + System.getProperty("javafx.version", "(undefined)"));
 	}
 
 }

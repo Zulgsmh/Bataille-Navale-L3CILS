@@ -10,9 +10,12 @@ public class Joueur {
 	/**
 	 * Default constructor
 	 */
-	public Joueur() {
+	public Joueur(Boolean J) {
+		this.setOrdi(!J);
 	}
 
+	
+	private boolean isOrdi;
 	/**
 	 * 
 	 */
@@ -40,6 +43,15 @@ public class Joueur {
 	public Zodiac z1 = new Zodiac();
 	public Navire[] listNavire = {p1, c1, c2, s1, z1}; 
 
+	
+	public boolean isOrdi() {
+		return isOrdi;
+	}
+
+	public void setOrdi(boolean isOrdi) {
+		this.isOrdi = isOrdi;
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -109,7 +121,7 @@ public class Joueur {
 		for (int nb = 0; nb < nbbateau; nb++) {
 			boolean valid = false;
 			while (!valid) {
-				System.out.print("quel bateau : \n 1)portes avion \n 2)sous-marin \n 3)cuirassé1 \n 4)cuirassé2 \n 5)zodiac\n");
+				System.out.print("quel bateau : \n 1)portes avion \n 2)sous-marin \n 3)cuirassï¿½1 \n 4)cuirassï¿½2 \n 5)zodiac\n");
 				typebateau = in.nextInt();
 				System.out.print("pos x :");
 				x = in.nextInt() - 1;
@@ -246,4 +258,6 @@ public class Joueur {
 		}
 
 	}
+
+
 }
