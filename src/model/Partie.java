@@ -66,10 +66,9 @@ public class Partie {
            int x = in.nextInt();
     	   System.out.print("ou veux-tu tirer en y : ");
            int y = in.nextInt();
+           this.j2.getShot(x,y);
            this.j1.setGrilleAdverse(this.j2.maGrille);
-           this.j1.setGrilleAdverse(x, y);
            this.j1.displayGrilleAdverse();
-           this.j2.setMaGrille(this.j1.grilleAdverse);
            this.j1.displayMaGrille();
     }
     public void J2tirer() {
@@ -83,11 +82,10 @@ public class Partie {
            String sy = in.nextLine();
            int x = Integer.parseInt(sx);
            int y = Integer.parseInt(sy);
-           this.j2.setGrilleAdverse(this.j1.maGrille);
-           this.j2.setGrilleAdverse(x, y);
-           this.j2.displayGrilleAdverse();
-           this.j1.setMaGrille(this.j2.grilleAdverse);
-           this.j2.displayMaGrille();
+        this.j1.getShot(x,y);
+        this.j2.setGrilleAdverse(this.j1.maGrille);
+        this.j2.displayGrilleAdverse();
+        this.j2.displayMaGrille();
     }
     /**
      * 

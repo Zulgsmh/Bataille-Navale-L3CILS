@@ -84,6 +84,9 @@ public class Joueur {
 
 	public void setGrilleAdverse(int x, int y) {
 		// DOTO : mettre condition de tire
+		System.out.println(this.grilleAdverse[x-1][y-1]);
+		String cellule =  this.grilleAdverse[x-1][y-1];
+
 		this.grilleAdverse[x - 1][y - 1] = "PLOF";
 	}
 
@@ -94,6 +97,13 @@ public class Joueur {
 		// TODO implement here
 	}
 
+	public void getShot(int x, int y) {
+		String cellule = this.maGrille[x-1][y-1];
+		if(cellule.equals("PORT")){
+			this.p1.setEstTouche(true);
+			this.setMaGrille(x-1,y-1, "SHOT");
+		}
+	}
 	/**
 	 * 
 	 */
@@ -109,7 +119,7 @@ public class Joueur {
 		for (int nb = 0; nb < nbbateau; nb++) {
 			boolean valid = false;
 			while (!valid) {
-				System.out.print("quel bateau : \n 1)portes avion \n 2)sous-marin \n 3)cuirassé1 \n 4)cuirassé2 \n 5)zodiac\n");
+				System.out.print("quel bateau : \n 1)portes avion \n 2)sous-marin \n 3)cuirassï¿½1 \n 4)cuirassï¿½2 \n 5)zodiac\n");
 				typebateau = in.nextInt();
 				System.out.print("pos x :");
 				x = in.nextInt() - 1;

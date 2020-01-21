@@ -10,6 +10,7 @@ public class Zodiac extends Navire {
      */
     public Zodiac() {
     	this.setTaille(2);
+    	this.setVie(2);
     }
 
     public int getTaille() {

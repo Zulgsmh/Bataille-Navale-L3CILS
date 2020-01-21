@@ -9,7 +9,8 @@ public class PorteAvion extends Navire {
      * Default constructor
      */
     public PorteAvion() {
-    	this.setTaille(5);
+        this.setTaille(5);
+        this.setVie(5);
     }
 
     public int getTaille() {

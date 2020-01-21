@@ -10,6 +10,7 @@ public class SousMarinNucleaire extends Navire {
      */
     public SousMarinNucleaire() {
     	this.setTaille(4);
+    	this.setVie(4);
     }
 
     public int getTaille() {

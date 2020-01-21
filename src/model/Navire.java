@@ -13,6 +13,7 @@ public abstract class Navire {
     public Navire() {
     }
 
+    private int vie;
    
 
 	/**
@@ -65,6 +66,8 @@ public abstract class Navire {
 
 	public void setEstTouche(Boolean estTouche) {
 		this.estTouche = estTouche;
+		this.vie --;
+		System.out.println(this.vie);
 	}
 
 	public Boolean getEstCoule() {
@@ -78,7 +81,9 @@ public abstract class Navire {
 		return taille;
 	}
    
-
+	public void setVie(int taille) {
+    	this.vie = taille;
+	}
    
 
   

@@ -10,6 +10,7 @@ public class CuirasseFurtif extends Navire {
      */
     public CuirasseFurtif() {
     	this.setTaille(3);
+    	this.setVie(3);
     }
 
     public int getTaille() {
