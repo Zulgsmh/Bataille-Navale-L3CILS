@@ -134,6 +134,9 @@ public class Joueur {
 		else if(cellule.equals("SHOT")||cellule.equals("PLOF")) {
 			this.dejaCible=true;
 		}
+		for(Navire bateau : this.listNavire){
+			System.out.println(bateau.getNom()+" "+bateau.getVie());
+			}
 	}
 	/**
 	 * 
