@@ -67,6 +67,10 @@ public class Partie {
     	   System.out.print("ou veux-tu tirer en y : ");
            int y = in.nextInt();
            this.j2.getShot(x,y);
+           if(this.j2.getDejaCible()) {
+        	   this.j2.setDejaCible(false);
+        	   this.J1tirer();
+           }
            this.j1.setGrilleAdverse(this.j2.maGrille);
            this.j1.displayGrilleAdverse();
            this.j1.displayMaGrille();
@@ -83,6 +87,10 @@ public class Partie {
            int x = Integer.parseInt(sx);
            int y = Integer.parseInt(sy);
         this.j1.getShot(x,y);
+        if(this.j1.getDejaCible()) {
+        	this.j1.setDejaCible(false);
+        	this.J2tirer();
+        }
         this.j2.setGrilleAdverse(this.j1.maGrille);
         this.j2.displayGrilleAdverse();
         this.j2.displayMaGrille();

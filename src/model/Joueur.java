@@ -39,6 +39,7 @@ public class Joueur {
 	public SousMarinNucleaire s1 = new SousMarinNucleaire();
 	public Zodiac z1 = new Zodiac();
 	public Navire[] listNavire = {p1, c1, c2, s1, z1}; 
+	public boolean dejaCible= false;
 
 	public int getId() {
 		return id;
@@ -89,6 +90,14 @@ public class Joueur {
 
 		this.grilleAdverse[x - 1][y - 1] = "PLOF";
 	}
+	
+	public void setDejaCible(boolean cible) {
+		this.dejaCible=cible;
+		
+	}
+	public boolean getDejaCible() {
+		return this.dejaCible;
+	}
 
 	/**
 	 * 
@@ -99,9 +108,31 @@ public class Joueur {
 
 	public void getShot(int x, int y) {
 		String cellule = this.maGrille[x-1][y-1];
-		if(cellule.equals("PORT")){
+		if(cellule==null) {
+			this.setMaGrille(x-1,y-1,"PLOF");
+		}
+		else if(cellule.equals("PORT")){
 			this.p1.setEstTouche(true);
 			this.setMaGrille(x-1,y-1, "SHOT");
+		}
+		else if(cellule.equals("SOUS")){
+			this.s1.setEstTouche(true);
+			this.setMaGrille(x-1,y-1, "SHOT");
+		}
+		else if(cellule.equals("CUIS1")){
+			this.c1.setEstTouche(true);
+			this.setMaGrille(x-1,y-1, "SHOT");
+		}
+		else if(cellule.equals("CUIS2")){
+			this.c2.setEstTouche(true);
+			this.setMaGrille(x-1,y-1, "SHOT");
+		}
+		else if(cellule.equals("ZODI")){
+			this.z1.setEstTouche(true);
+			this.setMaGrille(x-1,y-1, "SHOT");
+		}
+		else if(cellule.equals("SHOT")||cellule.equals("PLOF")) {
+			this.dejaCible=true;
 		}
 	}
 	/**
@@ -155,7 +186,7 @@ public class Joueur {
 					} else {
 						valid = true;
 						for (int j = y; j < y+taillebat; j++) {
-							this.displayMaGrille();
+							//this.displayMaGrille();
 							System.out.print(x);
 							System.out.println(this.maGrille[x][j]);
 							if (this.maGrille[x][j] != null) {

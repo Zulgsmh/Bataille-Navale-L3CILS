@@ -68,6 +68,10 @@ public abstract class Navire {
 		this.estTouche = estTouche;
 		this.vie --;
 		System.out.println(this.vie);
+		if(this.vie==0) {
+			this.getEstCoule();
+			System.out.println("bateau coule");
+		}
 	}
 
 	public Boolean getEstCoule() {
@@ -75,8 +79,9 @@ public abstract class Navire {
 	}
 
 	public void setEstCoule(Boolean estCoule) {
-		this.estCoule = estCoule;
+		this.estCoule = estCoule;	
 	}
+	
     public int getTaille() {
 		return taille;
 	}
