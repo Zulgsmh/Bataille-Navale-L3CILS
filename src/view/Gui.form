@@ -22,8 +22,8 @@
           <background color="-9549085"/>
           <borderPainted value="false"/>
           <focusable value="true"/>
-          <label value="CONTRE IA"/>
-          <text value="CONTRE IA"/>
+          <label value="DEMO"/>
+          <text value="DEMO"/>
           <verifyInputWhenFocusTarget value="true"/>
           <visible value="true"/>
         </properties>
@@ -35,8 +35,8 @@
         <properties>
           <background color="-9549085"/>
           <borderPainted value="false"/>
-          <label value="UN CONTRE UN"/>
-          <text value="UN CONTRE UN"/>
+          <label value="VS IA"/>
+          <text value="VS IA"/>
         </properties>
       </component>
       <component id="d4325" class="javax.swing.JButton" binding="DEUX">
@@ -46,8 +46,8 @@
         <properties>
           <background color="-9549085"/>
           <borderPainted value="false"/>
-          <label value="DEMO"/>
-          <text value="DEMO"/>
+          <label value="UN CONTRE UN"/>
+          <text value="UN CONTRE UN"/>
         </properties>
       </component>
     </children>

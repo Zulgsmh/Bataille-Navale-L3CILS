@@ -16,7 +16,7 @@ public class Gui extends JFrame {
     public Gui(){
         add(rootPanel);
         setTitle("BATAILLE NAVALE");
-        setSize(800,500);
+        setSize(800,300);
 
         UN.addMouseListener(new MouseAdapter() {
             @Override
@@ -58,6 +58,16 @@ public class Gui extends JFrame {
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
                 DEMO.setBackground(purple);
+            }
+        });
+        DEUX.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                ChoixMode m1 = new ChoixMode();
+                m1.setVisible(true);
+                dispose();
+
             }
         });
     }
