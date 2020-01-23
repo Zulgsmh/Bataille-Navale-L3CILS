@@ -20,6 +20,7 @@
           <enabled value="true"/>
           <focusPainted value="true"/>
           <font name="Arial Black" size="26"/>
+          <foreground color="-1"/>
           <text value="BATAILLE NAVALE"/>
         </properties>
       </component>
@@ -32,6 +33,7 @@
           <borderPainted value="false"/>
           <contentAreaFilled value="true"/>
           <font name="Arial Black" size="26"/>
+          <foreground color="-1"/>
           <text value="MISSION RADAR"/>
         </properties>
       </component>
@@ -45,6 +47,7 @@
           <contentAreaFilled value="true"/>
           <focusPainted value="true"/>
           <font name="Arial Black" size="26"/>
+          <foreground color="-1"/>
           <text value="OPERATION ARTILLERIE"/>
         </properties>
       </component>
@@ -56,6 +59,7 @@
           <background color="-9549085"/>
           <borderPainted value="false"/>
           <font name="Arial Black" size="26"/>
+          <foreground color="-1"/>
           <text value="RETOUR"/>
         </properties>
       </component>
@@ -68,6 +72,7 @@
           <borderPainted value="false"/>
           <contentAreaFilled value="true"/>
           <font name="Arial Black" size="26"/>
+          <foreground color="-1"/>
           <text value="ALERTE ROUGE"/>
         </properties>
       </component>
