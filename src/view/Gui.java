@@ -22,9 +22,9 @@ public class Gui extends JFrame {
             @Override
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
-                UN.setBackground(Color.white);
-            }
-        });
+        UN.setBackground(Color.white);
+    }
+});
         UN.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseExited(MouseEvent e) {
