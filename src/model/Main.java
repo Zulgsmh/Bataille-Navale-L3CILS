@@ -27,8 +27,14 @@ Joueur j2=new Joueur();
 		
 //		boucle de la game
 		for(int i = 0; i < 10; i++) {
-			p.J1tirer();
-			p.J2tirer();
+			if(p.J1tirer()) {
+				System.out.println("Joueur 1 a GAGNE !");
+				break;
+			}
+			if(p.J2tirer()) {
+				System.out.println ("Joueur 2 a GAGNE !");
+				break;
+			}
 		}
 		
 

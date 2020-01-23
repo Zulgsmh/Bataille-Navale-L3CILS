@@ -98,7 +98,7 @@ public class Joueur {
 	public boolean getDejaCible() {
 		return this.dejaCible;
 	}
-
+	
 	/**
 	 * 
 	 */
@@ -106,8 +106,9 @@ public class Joueur {
 		// TODO implement here
 	}
 
-	public void getShot(int x, int y) {
+	public Boolean getShot(int x, int y) {
 		String cellule = this.maGrille[x-1][y-1];
+		Boolean estMort=true;
 		if(cellule==null) {
 			this.setMaGrille(x-1,y-1,"PLOF");
 		}
@@ -137,8 +138,13 @@ public class Joueur {
 		for(Navire bateau : this.listNavire){
 			if(bateau.getEstPose()) {
 			System.out.println(bateau.getNom()+" "+bateau.getVie());
+			if(bateau.getVie()!=0) {
+				return estMort=false;
+							}
 					}
 			}	
+
+		return estMort;
 	}
 	/**
 	 * 

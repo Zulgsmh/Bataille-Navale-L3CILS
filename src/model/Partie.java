@@ -57,7 +57,7 @@ public class Partie {
      */
     
     
-    public void J1tirer() {
+    public Boolean J1tirer() {
     	
         // TODO implement here
         System.out.println("\n\n\nTour de J1 :");
@@ -66,7 +66,7 @@ public class Partie {
            int x = in.nextInt();
     	   System.out.print("ou veux-tu tirer en y : ");
            int y = in.nextInt();
-           this.j2.getShot(x,y);
+           Boolean mort = this.j2.getShot(x,y);
            if(this.j2.getDejaCible()) {
         	   this.j2.setDejaCible(false);
         	   System.out.println("Tu as déja tiré ici mon khey !");
@@ -75,8 +75,10 @@ public class Partie {
            this.j1.setGrilleAdverse(this.j2.maGrille);
            this.j1.displayGrilleAdverse();
            this.j1.displayMaGrille();
+           
+           return mort;
     }
-    public void J2tirer() {
+    public Boolean J2tirer() {
     	
         // TODO implement here
         System.out.println("\n\n\n Tour de J2 :");
@@ -87,7 +89,7 @@ public class Partie {
            String sy = in.nextLine();
            int x = Integer.parseInt(sx);
            int y = Integer.parseInt(sy);
-        this.j1.getShot(x,y);
+        Boolean mort=this.j1.getShot(x,y);
         if(this.j1.getDejaCible()) {
         	this.j1.setDejaCible(false);
      	    System.out.println("Tu as déja tiré ici mon khey !");
@@ -96,6 +98,8 @@ public class Partie {
         this.j2.setGrilleAdverse(this.j1.maGrille);
         this.j2.displayGrilleAdverse();
         this.j2.displayMaGrille();
+        
+        return mort;
     }
     /**
      * 
