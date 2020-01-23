@@ -3,13 +3,12 @@ package view;
 import javax.swing.*;
 
 
-public class test extends JFrame {
+public class Gui extends JFrame {
     
     private JPanel rootPanel;
     private JButton test;
-    private JPanel panel1;
 
-    public test(){
+    public Gui(){
         add(rootPanel);
         setTitle("pute pute pute");
         setSize(400,500);

@@ -3,7 +3,7 @@ package view;
 public class Main {
 
     public static void main(String[] args) {
-        test t1 = new test();
+        Gui t1 = new Gui();
         t1.setVisible(true);
     }
 
