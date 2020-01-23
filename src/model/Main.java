@@ -14,31 +14,29 @@ public class Main {
 //Position pos=pa.getPosition();
 ////System.out.println(pos.getPosX());
 //
-		//test de git
-Joueur j1=new Joueur();
+		// test de git
+		Joueur j1 = new Joueur();
 ////j1.displayMaGrille();
 //
-Joueur j2=new Joueur();
+		Joueur j2 = new Joueur();
 //
-		Partie p = new Partie(j1,j2);
+		Partie p = new Partie(j1, j2);
 //		placement des bateau
 		p.placerBateauJ1();
 		p.placerBateauJ2();
-		
+
 //		boucle de la game
-		for(int i = 0; i < 10; i++) {
-			if(p.J1tirer()) {
+		for (int i = 0; i < 10; i++) {
+			if (p.J1tirer()) {
 				System.out.println("Joueur 1 a GAGNE !");
 				break;
 			}
-			if(p.J2tirer()) {
-				System.out.println ("Joueur 2 a GAGNE !");
+			if (p.J2tirer()) {
+				System.out.println("Joueur 2 a GAGNE !");
 				break;
 			}
 		}
-		
 
 	}
 
 }
- 

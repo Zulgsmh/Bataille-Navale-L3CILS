@@ -7,52 +7,52 @@ import java.util.*;
  */
 public abstract class Navire {
 
-    /**
-     * Default constructor
-     */
-    public Navire() {
-    }
+	/**
+	 * Default constructor
+	 */
+	public Navire() {
+	}
 
-    private int vie;
-   
+	private int vie;
 
 	/**
-     * 
-     */
-    private int id;
+	 * 
+	 */
+	private int id;
 
-    /**
-     * 
-     */
-    private Position position;
+	/**
+	 * 
+	 */
+	private Position position;
 
-    /**
-     * 
-     */
-    private Boolean estTouche;
+	/**
+	 * 
+	 */
+	private Boolean estTouche;
 
-    /**
-     * 
-     */
-    private Boolean estCoule;
-    private String nom;
-    public int taille;
-    public Boolean utilisable=true;
-    public Boolean estPose=false;
-
+	/**
+	 * 
+	 */
+	private Boolean estCoule;
+	private String nom;
+	public int taille;
+	public Boolean utilisable = true;
+	public Boolean estPose = false;
 
 //---------------ACCESSEURS-------------------------
-    
-    
-    public int getId() {
+
+	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
-    public String getNom() {
-    	return nom;
-    }
+
+	public String getNom() {
+		return nom;
+	}
+
 	public Position getPosition() {
 		return position;
 	}
@@ -67,16 +67,17 @@ public abstract class Navire {
 
 	public void setEstTouche(Boolean estTouche) {
 		this.estTouche = estTouche;
-		this.vie --;
-		if(this.vie==0) {
+		this.vie--;
+		if (this.vie == 0) {
 			this.getEstCoule();
 			System.out.println("bateau coule");
 		}
 	}
-	
+
 	public void setVie(int v) {
-    	this.vie = v;
+		this.vie = v;
 	}
+
 	public int getVie() {
 		return this.vie;
 	}
@@ -86,19 +87,19 @@ public abstract class Navire {
 	}
 
 	public void setEstCoule(Boolean estCoule) {
-		this.estCoule = estCoule;	
+		this.estCoule = estCoule;
 	}
-	
-    public int getTaille() {
+
+	public int getTaille() {
 		return taille;
 	}
-    
-    public Boolean getEstPose() {
-    	return this.estPose;
-    }
-    public void setEstPose(Boolean pose) {
-    	this.estPose=pose;
-    }
-   
+
+	public Boolean getEstPose() {
+		return this.estPose;
+	}
+
+	public void setEstPose(Boolean pose) {
+		this.estPose = pose;
+	}
 
 }

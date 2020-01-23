@@ -38,8 +38,8 @@ public class Joueur {
 	public CuirasseFurtif c2 = new CuirasseFurtif();
 	public SousMarinNucleaire s1 = new SousMarinNucleaire();
 	public Zodiac z1 = new Zodiac();
-	public Navire[] listNavire = {p1, c1, c2, s1, z1}; 
-	public boolean dejaCible= false;
+	public Navire[] listNavire = { p1, c1, c2, s1, z1 };
+	public boolean dejaCible = false;
 
 	public int getId() {
 		return id;
@@ -68,13 +68,15 @@ public class Joueur {
 	public void setMaGrille(int x, int y, String truc) {
 		this.maGrille[x][y] = truc;
 	}
+
 	public void clearMagrille() {
 		for (int row = 0; row < 10; row++) {
-			   for (int col = 0; col < 10; col++) {
-			      this.maGrille[row][col] = null;
-			   }
+			for (int col = 0; col < 10; col++) {
+				this.maGrille[row][col] = null;
 			}
+		}
 	}
+
 	public String[][] getGrilleAdverse() {
 		return grilleAdverse;
 	}
@@ -85,20 +87,21 @@ public class Joueur {
 
 	public void setGrilleAdverse(int x, int y) {
 		// DOTO : mettre condition de tire
-		System.out.println(this.grilleAdverse[x-1][y-1]);
-		String cellule =  this.grilleAdverse[x-1][y-1];
+		System.out.println(this.grilleAdverse[x - 1][y - 1]);
+		String cellule = this.grilleAdverse[x - 1][y - 1];
 
 		this.grilleAdverse[x - 1][y - 1] = "PLOF";
 	}
-	
+
 	public void setDejaCible(boolean cible) {
-		this.dejaCible=cible;
-		
+		this.dejaCible = cible;
+
 	}
+
 	public boolean getDejaCible() {
 		return this.dejaCible;
 	}
-	
+
 	/**
 	 * 
 	 */
@@ -107,45 +110,40 @@ public class Joueur {
 	}
 
 	public Boolean getShot(int x, int y) {
-		String cellule = this.maGrille[x-1][y-1];
-		Boolean estMort=true;
-		if(cellule==null) {
-			this.setMaGrille(x-1,y-1,"PLOF");
-		}
-		else if(cellule.equals("PORT")){
+		String cellule = this.maGrille[x - 1][y - 1];
+		Boolean estMort = true;
+		if (cellule == null) {
+			this.setMaGrille(x - 1, y - 1, "PLOF");
+		} else if (cellule.equals("PORT")) {
 			this.p1.setEstTouche(true);
-			this.setMaGrille(x-1,y-1, "SHOT");
-		}
-		else if(cellule.equals("SOUS")){
+			this.setMaGrille(x - 1, y - 1, "SHOT");
+		} else if (cellule.equals("SOUS")) {
 			this.s1.setEstTouche(true);
-			this.setMaGrille(x-1,y-1, "SHOT");
-		}
-		else if(cellule.equals("CUIS1")){
+			this.setMaGrille(x - 1, y - 1, "SHOT");
+		} else if (cellule.equals("CUIS1")) {
 			this.c1.setEstTouche(true);
-			this.setMaGrille(x-1,y-1, "SHOT");
-		}
-		else if(cellule.equals("CUIS2")){
+			this.setMaGrille(x - 1, y - 1, "SHOT");
+		} else if (cellule.equals("CUIS2")) {
 			this.c2.setEstTouche(true);
-			this.setMaGrille(x-1,y-1, "SHOT");
-		}
-		else if(cellule.equals("ZODI")){
+			this.setMaGrille(x - 1, y - 1, "SHOT");
+		} else if (cellule.equals("ZODI")) {
 			this.z1.setEstTouche(true);
-			this.setMaGrille(x-1,y-1, "SHOT");
+			this.setMaGrille(x - 1, y - 1, "SHOT");
+		} else if (cellule.equals("SHOT") || cellule.equals("PLOF")) {
+			this.dejaCible = true;
 		}
-		else if(cellule.equals("SHOT")||cellule.equals("PLOF")) {
-			this.dejaCible=true;
+		for (Navire bateau : this.listNavire) {
+			if (bateau.getEstPose()) {
+				System.out.println(bateau.getNom() + " " + bateau.getVie());
+				if (bateau.getVie() != 0) {
+					return estMort = false;
+				}
+			}
 		}
-		for(Navire bateau : this.listNavire){
-			if(bateau.getEstPose()) {
-			System.out.println(bateau.getNom()+" "+bateau.getVie());
-			if(bateau.getVie()!=0) {
-				return estMort=false;
-							}
-					}
-			}	
 
 		return estMort;
 	}
+
 	/**
 	 * 
 	 */
@@ -161,7 +159,8 @@ public class Joueur {
 		for (int nb = 0; nb < nbbateau; nb++) {
 			boolean valid = false;
 			while (!valid) {
-				System.out.print("quel bateau : \n 1)portes avion \n 2)sous-marin \n 3)cuirassï¿½1 \n 4)cuirassï¿½2 \n 5)zodiac\n");
+				System.out.print(
+						"quel bateau : \n 1)portes avion \n 2)sous-marin \n 3)cuirassï¿½1 \n 4)cuirassï¿½2 \n 5)zodiac\n");
 				typebateau = in.nextInt();
 				System.out.print("pos x :");
 				x = in.nextInt() - 1;
@@ -174,29 +173,29 @@ public class Joueur {
 				} else {
 					verticale = false;
 				}
-				
+
 				int taillebat = 0;
-				switch(typebateau) {
-					case 1:
-						taillebat = 5;
-						break;
-					case 2:
-						taillebat = 4;
-						break;
-					case 3:
-					case 4:
-						taillebat = 3;
-						break;
-					case 5:
-						taillebat = 2;
-						break;
+				switch (typebateau) {
+				case 1:
+					taillebat = 5;
+					break;
+				case 2:
+					taillebat = 4;
+					break;
+				case 3:
+				case 4:
+					taillebat = 3;
+					break;
+				case 5:
+					taillebat = 2;
+					break;
 				}
 				if (verticale) {
 					if (y + taillebat > 10) {
 						valid = false;
 					} else {
 						valid = true;
-						for (int j = y; j < y+taillebat; j++) {
+						for (int j = y; j < y + taillebat; j++) {
 							if (this.maGrille[x][j] != null) {
 								valid = false;
 								break;
@@ -206,52 +205,56 @@ public class Joueur {
 				} else {
 					if (x + taillebat > 10) {
 						valid = false;
-						
+
 					} else {
 						valid = true;
-						for (int i = x; i < x+taillebat; i++) {
+						for (int i = x; i < x + taillebat; i++) {
 							if (this.maGrille[i][y] != null) {
-								
+
 								valid = false;
 								break;
 							}
 						}
 					}
 				}
-				if(!valid) {
+				if (!valid) {
 					System.out.println("INVALIDE");
 				}
-				if(verticale){
-					for(int i=x-1;i<=x+1;i++){
-						for(int j=y-1;j<=taillebat+y;j++){
-							if(0<=i && i<10 && 0<=j && j<10) {
-							String cellule=this.maGrille [i][j];
-							if(cellule!=null){
-								System.out.println(i + " " + j + "Le bateau que tu viens de placer est à coté d'un autre ! Replace le de nouveau");
-								valid=false;
-								break;
+				if (verticale) {
+					for (int i = x - 1; i <= x + 1; i++) {
+						for (int j = y - 1; j <= taillebat + y; j++) {
+							if (0 <= i && i < 10 && 0 <= j && j < 10) {
+								String cellule = this.maGrille[i][j];
+								if (cellule != null) {
+									System.out.println(i + " " + j
+											+ "Le bateau que tu viens de placer est à coté d'un autre ! Replace le de nouveau");
+									valid = false;
+									break;
 								}
 							}
-							if(!valid) {
+							if (!valid) {
 								break;
 							}
-							}
-						}
-					}else{
-					for(int j=y-1;j<=y+1;j++){
-						for(int i=x-1;i<=taillebat+x;i++){
-							String cellule=this.maGrille [i][j];
-							if(cellule!=null){
-								System.out.println("2Le bateau que tu viens de placer est à coté d'un autre ! Replace le de nouveau");
-								valid=false;
-								break;
-								}
-							}
-						if(!valid) {
-							break;
-						}
 						}
 					}
+				} else {
+					for (int j = y - 1; j <= y + 1; j++) {
+						for (int i = x - 1; i <= taillebat + x; i++) {
+							if (0 <= i && i < 10 && 0 <= j && j < 10) {
+								String cellule = this.maGrille[i][j];
+								if (cellule != null) {
+									System.out.println(
+											"2Le bateau que tu viens de placer est à coté d'un autre ! Replace le de nouveau");
+									valid = false;
+									break;
+								}
+							}
+							if (!valid) {
+								break;
+							}
+						}
+					}
+				}
 			}
 			Position posNavire = new Position(x, y, verticale);
 			if (typebateau == 1) {
@@ -268,30 +271,30 @@ public class Joueur {
 				this.c2.setPosition(posNavire);
 				this.c2.setNom("CUI2");
 				this.c2.setEstPose(true);
-			}else if (typebateau == 5) {
+			} else if (typebateau == 5) {
 				this.z1.setPosition(posNavire);
 				this.z1.setEstPose(true);
 			}
 			this.remplissage();
 			this.displayMaGrille();
-			
+
 		}
 	}
 
 	public void remplissage() {
 		this.clearMagrille();
 		for (int i = 0; i < listNavire.length; i++) {
-			if(listNavire[i].getPosition() != null) {
-				for(int j = 0; j < listNavire[i].getTaille(); j++) {
-					
+			if (listNavire[i].getPosition() != null) {
+				for (int j = 0; j < listNavire[i].getTaille(); j++) {
+
 					int x = listNavire[i].getPosition().getPosX();
 					int y = listNavire[i].getPosition().getPosY();
 					String nom = listNavire[i].getNom();
-					//Verticale
-					if(listNavire[i].getPosition().getSens()) {
+					// Verticale
+					if (listNavire[i].getPosition().getSens()) {
 						this.setMaGrille(x, y + j, nom);
-					//Horizontale
-					}else {
+						// Horizontale
+					} else {
 						this.setMaGrille(x + j, y, nom);
 					}
 				}
