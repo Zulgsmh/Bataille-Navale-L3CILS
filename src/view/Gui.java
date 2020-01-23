@@ -13,6 +13,7 @@ public class Gui extends JFrame {
     private JButton UN;
     private JButton DEUX;
     private JPanel img;
+    private JTextField BATAILLENAVALETextField;
 
     public Gui(){
         add(rootPanel);
