@@ -22,6 +22,7 @@
           <background color="-9549085"/>
           <borderPainted value="false"/>
           <focusable value="true"/>
+          <font name="Arial Black" size="26"/>
           <label value="DEMO"/>
           <text value="DEMO"/>
           <verifyInputWhenFocusTarget value="true"/>
@@ -35,6 +36,7 @@
         <properties>
           <background color="-9549085"/>
           <borderPainted value="false"/>
+          <font name="Arial Black" size="26"/>
           <label value="VS IA"/>
           <text value="VS IA"/>
         </properties>
@@ -46,6 +48,7 @@
         <properties>
           <background color="-9549085"/>
           <borderPainted value="false"/>
+          <font name="Arial Black" size="26"/>
           <label value="UN CONTRE UN"/>
           <text value="UN CONTRE UN"/>
         </properties>

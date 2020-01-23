@@ -86,6 +86,15 @@ public class ChoixMode extends JFrame {
                 button1.setBackground(purple);
             }
         });
+        button1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                Gui g1 = new Gui();
+                g1.setVisible(true);
+                dispose();
+            }
+        });
     }
 
 }
