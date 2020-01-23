@@ -14,6 +14,7 @@ public class Main {
 //Position pos=pa.getPosition();
 ////System.out.println(pos.getPosX());
 //
+		//test
 		// test de git
 		Joueur j1 = new Joueur();
 ////j1.displayMaGrille();
