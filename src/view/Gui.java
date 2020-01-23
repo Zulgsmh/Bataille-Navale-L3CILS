@@ -65,6 +65,8 @@ public class Gui extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 ChoixMode m1 = new ChoixMode();
+                m1.setLocationRelativeTo(null);
+
                 m1.setVisible(true);
                 dispose();
 
@@ -75,6 +77,8 @@ public class Gui extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 ChoixMode m1 = new ChoixMode();
+                m1.setLocationRelativeTo(null);
+
                 m1.setVisible(true);
                 dispose();
 
@@ -85,6 +89,8 @@ public class Gui extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 ChoixMode m1 = new ChoixMode();
+                m1.setLocationRelativeTo(null);
+
                 m1.setVisible(true);
                 dispose();
 

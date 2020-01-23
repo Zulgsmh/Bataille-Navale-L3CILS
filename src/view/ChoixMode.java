@@ -13,6 +13,7 @@ public class ChoixMode extends JFrame {
     private JButton MISSIONRADARButton;
     private JButton button1;
     Color purple = new Color(110,74,227);
+    Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
     public ChoixMode() {
         setSize(800, 300);
@@ -91,6 +92,8 @@ public class ChoixMode extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 Gui g1 = new Gui();
+                g1.setLocationRelativeTo(null);
+
                 g1.setVisible(true);
                 dispose();
             }
