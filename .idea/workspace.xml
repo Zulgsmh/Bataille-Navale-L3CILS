@@ -62,12 +62,25 @@
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="C:/Program Files/Java/jdk-13.0.2" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="model.Main" />
       <module name="ProjetBatailleNavaleL3CILS" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main1" type="Application" factoryName="Application" temporary="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="13.0.2" />
+      <option name="MAIN_CLASS_NAME" value="view.Main" />
+      <module name="ProjetBatailleNavaleL3CILS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -103,9 +116,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main (1)" />
+      <item itemvalue="Application.Main1" />
+      <item itemvalue="Application.Main" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main (1)" />
+        <item itemvalue="Application.Main1" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>
@@ -141,11 +160,11 @@
       <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="226" y="16" key="#Project_Structure/0.0.1360.728@0.0.1360.728" timestamp="1579801671694" />
-    <state x="2334" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579801485389">
+    <state x="2334" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579802348484">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579783457495" />
-    <state x="2334" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579801485389" />
+    <state x="2334" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579802348484" />
     <state x="2685" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1579794863362">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -154,10 +173,11 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2609" y="312" key="#com.intellij.ide.util.TreeFileChooserDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579797236440" />
-    <state x="811" y="411" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1579781920372">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2731" y="411" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1579802152549">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="811" y="411" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579781920372" />
+    <state x="2731" y="411" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579802152549" />
     <state x="761" y="411" width="398" height="224" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1579784092333">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -170,38 +190,39 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2753" y="415" key="#com.intellij.uiDesigner.palette.ComponentItemDialog.OneOff/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579797564818" />
-    <state x="2660" y="263" key="FileChooserDialogImpl" timestamp="1579801483957">
+    <state x="2660" y="263" key="FileChooserDialogImpl" timestamp="1579802095742">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2660" y="263" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579801483957" />
-    <state width="1877" height="273" key="GridCell.Tab.0.bottom" timestamp="1579801493361">
+    <state x="2660" y="263" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579802095742" />
+    <state width="1877" height="273" key="GridCell.Tab.0.bottom" timestamp="1579802295881">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579785926211" />
-    <state width="1877" height="273" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579801493361" />
-    <state width="1877" height="273" key="GridCell.Tab.0.center" timestamp="1579801493361">
+    <state width="1877" height="273" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579802295881" />
+    <state width="1877" height="273" key="GridCell.Tab.0.center" timestamp="1579802295881">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579785926211" />
-    <state width="1877" height="273" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579801493361" />
-    <state width="1877" height="273" key="GridCell.Tab.0.left" timestamp="1579801493361">
+    <state width="1877" height="273" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579802295881" />
+    <state width="1877" height="273" key="GridCell.Tab.0.left" timestamp="1579802295881">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579785926211" />
-    <state width="1877" height="273" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579801493361" />
-    <state width="1877" height="273" key="GridCell.Tab.0.right" timestamp="1579801493361">
+    <state width="1877" height="273" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579802295881" />
+    <state width="1877" height="273" key="GridCell.Tab.0.right" timestamp="1579802295881">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579785926211" />
-    <state width="1877" height="273" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579801493361" />
+    <state width="1877" height="273" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579802295881" />
     <state x="2383" y="165" key="SettingsEditor" timestamp="1579800902685">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2383" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579800902685" />
-    <state x="388" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1579801772067">
-      <screen x="0" y="0" width="1360" height="728" />
+    <state x="2468" y="273" key="com.intellij.ide.util.TipDialog" timestamp="1579802324661">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="388" y="191" key="com.intellij.ide.util.TipDialog/0.0.1360.728@0.0.1360.728" timestamp="1579801772067" />
+    <state x="2468" y="273" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579802324661" />
     <state x="2652" y="413" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog" timestamp="1579797117936">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
