@@ -274,7 +274,7 @@ public class Joueur {
 					int x = listNavire[i].getPosition().getPosX();
 					int y = listNavire[i].getPosition().getPosY();
 					String nom = listNavire[i].getNom();
-					//verticale
+					//Verticale
 					if(listNavire[i].getPosition().getSens()) {
 						this.setMaGrille(x, y + j, nom);
 					//Horizontale
