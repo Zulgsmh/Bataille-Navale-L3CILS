@@ -238,9 +238,9 @@ public class Joueur {
 							}
 						}
 					}else{
-					for(int i=y-1;i<=y+1;i++){
-						for(int j=x-1;j<=taillebat+x;j++){
-							String cellule=this.maGrille [j][i];
+					for(int j=y-1;j<=y+1;j++){
+						for(int i=x-1;i<=taillebat+x;i++){
+							String cellule=this.maGrille [i][j];
 							if(cellule!=null){
 								System.out.println("2Le bateau que tu viens de placer est à coté d'un autre ! Replace le de nouveau");
 								valid=false;
