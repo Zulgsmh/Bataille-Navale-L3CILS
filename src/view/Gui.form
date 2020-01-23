@@ -1,24 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="view.Gui">
-  <grid id="27dc6" binding="rootPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="rootPanel" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="825" height="529"/>
     </constraints>
     <properties>
-      <background color="-11513774"/>
+      <background color="-14024653"/>
+      <enabled value="true"/>
     </properties>
+    <clientProperties>
+      <html.disable class="java.lang.Boolean" value="false"/>
+    </clientProperties>
     <border type="none"/>
     <children>
-      <component id="ad752" class="javax.swing.JButton" binding="test">
+      <component id="ad752" class="javax.swing.JButton" binding="DEMO">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-9549085"/>
+          <borderPainted value="false"/>
+          <focusable value="true"/>
+          <label value="CONTRE IA"/>
+          <text value="CONTRE IA"/>
+          <verifyInputWhenFocusTarget value="true"/>
+          <visible value="true"/>
+        </properties>
+      </component>
+      <component id="e3cd7" class="javax.swing.JButton" binding="UN">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-9549085"/>
+          <borderPainted value="false"/>
+          <label value="UN CONTRE UN"/>
+          <text value="UN CONTRE UN"/>
+        </properties>
+      </component>
+      <component id="d4325" class="javax.swing.JButton" binding="DEUX">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <focusable value="true"/>
-          <text value="Button"/>
-          <verifyInputWhenFocusTarget value="true"/>
-          <visible value="true"/>
+          <background color="-9549085"/>
+          <borderPainted value="false"/>
+          <label value="DEMO"/>
+          <text value="DEMO"/>
         </properties>
       </component>
     </children>
