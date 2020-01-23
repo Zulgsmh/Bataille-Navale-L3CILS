@@ -28,6 +28,7 @@ public class Partie {
 
 	public Joueur j1;
 	public Joueur j2;
+	public Joueur o1;
 
 	/**
 	 * 
@@ -90,6 +91,24 @@ public class Partie {
 		String sy = in.nextLine();
 		int x = Integer.parseInt(sx);
 		int y = Integer.parseInt(sy);
+		Boolean mort = this.j1.getShot(x, y);
+		if (this.j1.getDejaCible()) {
+			this.j1.setDejaCible(false);
+			System.out.println("Tu as déja tiré ici mon khey !");
+			this.J2tirer();
+		}
+		this.j2.setGrilleAdverse(this.j1.maGrille);
+		this.j2.displayGrilleAdverse();
+		this.j2.displayMaGrille();
+
+		return mort;
+	}
+	
+	public Boolean O1tirer() {
+
+		// TODO implement here
+		int x=new Random().nextInt(10);
+		int y = new Random().nextInt(10);
 		Boolean mort = this.j1.getShot(x, y);
 		if (this.j1.getDejaCible()) {
 			this.j1.setDejaCible(false);
