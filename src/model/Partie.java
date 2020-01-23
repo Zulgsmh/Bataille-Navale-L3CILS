@@ -42,14 +42,14 @@ public class Partie {
     public void placerBateauJ1() {
         // TODO implement here
     	System.out.println("Placement des bateau de j1");
-    	this.j1.placerbateau();
+    	this.j1.placerBateau();
     	
 
     }
     public void placerBateauJ2() {
         // TODO implement here
     	System.out.println("Placement des bateau de j2");
-    	this.j2.placerbateau();
+    	this.j2.placerBateau();
     	
     }
     /**

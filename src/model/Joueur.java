@@ -141,7 +141,7 @@ public class Joueur {
 	/**
 	 * 
 	 */
-	public void placerbateau() {
+	public void placerBateau() {
 		Scanner in = new Scanner(System.in);
 		System.out.println("COMBIEN DE BATEAU?");
 		int nbbateau = in.nextInt();
@@ -149,6 +149,7 @@ public class Joueur {
 		int x = 0;
 		int y = 0;
 		int taille = 0;
+		int t=taille; 
 		boolean verticale = true;
 		for (int nb = 0; nb < nbbateau; nb++) {
 			boolean valid = false;
@@ -213,6 +214,30 @@ public class Joueur {
 				if(!valid) {
 					System.out.println("INVALIDE");
 				}
+				
+				if(verticale){
+					for(int i=x-1;i<x+1;i++){
+						for(int j=y-1;j<t+y;j++){
+							String cellule=this.maGrille [x][y];
+							if(cellule!=null){
+								System.out.println("1Le bateau que tu viens de placer est à coté d'un autre ! Replace le de nouveau");
+								valid=false;
+								}
+							}
+						}
+					}
+
+					else{
+					for(int i=y-1;i<y+1;i++){
+						for(int j=x-1;j<t+x;j++){
+							String cellule=this.maGrille [x][y];
+							if(cellule!=null){
+								System.out.println("2Le bateau que tu viens de placer est à coté d'un autre ! Replace le de nouveau");
+								valid=false;
+								}
+							}
+						}
+					}
 			}
 			Position posNavire = new Position(x, y, verticale);
 			if (typebateau == 1) {
@@ -230,6 +255,7 @@ public class Joueur {
 			}
 			this.remplissage();
 			this.displayMaGrille();
+			
 		}
 	}
 
