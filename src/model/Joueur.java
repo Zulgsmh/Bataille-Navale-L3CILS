@@ -218,11 +218,13 @@ public class Joueur {
 				if(verticale){
 					for(int i=x-1;i<x+1;i++){
 						for(int j=y-1;j<t+y;j++){
-							String cellule=this.maGrille [x][y];
+							if(0<=i && i<10 && 0<=j && j<10) {
+							String cellule=this.maGrille [i][j];
 							if(cellule!=null){
 								System.out.println("1Le bateau que tu viens de placer est à coté d'un autre ! Replace le de nouveau");
 								valid=false;
 								}
+							}
 							}
 						}
 					}
@@ -230,7 +232,7 @@ public class Joueur {
 					else{
 					for(int i=y-1;i<y+1;i++){
 						for(int j=x-1;j<t+x;j++){
-							String cellule=this.maGrille [x][y];
+							String cellule=this.maGrille [i][j];
 							if(cellule!=null){
 								System.out.println("2Le bateau que tu viens de placer est à coté d'un autre ! Replace le de nouveau");
 								valid=false;
