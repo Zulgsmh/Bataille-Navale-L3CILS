@@ -28,12 +28,26 @@ public class Partie {
 
 	public Joueur j1;
 	public Joueur j2;
-	public Joueur o1;
+	public int nbBateau=0;
 
 	/**
 	 * 
 	 */
 	public void startBataille() {
+		System.out.println("Quelle mode voulez-vous: \n1)Joueur1 VS Joueur2  \n2)Joueur1 VS Ordinateur  \n3)Demo");
+		Scanner in = new Scanner(System.in);
+		String sx = in.nextLine();
+		int x = Integer.parseInt(sx);
+		if(x==2) {	
+			j2.setEstOrdi(true);
+		}
+		else if(x==3) {
+			j1.setEstOrdi(true);
+			j2.setEstOrdi(true);
+		}
+		System.out.println("COMBIEN DE BATEAU?");
+		this.nbBateau = in.nextInt();
+		System.out.println(this.nbBateau);
 		// TODO implement here
 	}
 
@@ -43,14 +57,14 @@ public class Partie {
 	public void placerBateauJ1() {
 		// TODO implement here
 		System.out.println("Placement des bateau de j1");
-		this.j1.placerBateau();
+		this.j1.placerBateau(this.nbBateau);
 
 	}
 
 	public void placerBateauJ2() {
 		// TODO implement here
 		System.out.println("Placement des bateau de j2");
-		this.j2.placerBateau();
+		this.j2.placerBateau(this.nbBateau);
 
 	}
 

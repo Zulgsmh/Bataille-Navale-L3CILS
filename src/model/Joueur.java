@@ -12,6 +12,13 @@ public class Joueur {
 	 */
 	public Joueur() {
 	}
+//	private void setJ2ordi(boolean o2) {
+//		this.J2
+//	}
+//
+//	private Boolean getJ2ordi() {
+//		return this.getJ2ordi;
+//	}
 
 	/**
 	 * 
@@ -22,7 +29,7 @@ public class Joueur {
 	 * 
 	 */
 	private String nom;
-
+	private Boolean estUnOrdi=false;
 	/**
 	 * 
 	 */
@@ -101,6 +108,15 @@ public class Joueur {
 	public boolean getDejaCible() {
 		return this.dejaCible;
 	}
+	
+	public void setEstOrdi(boolean o) {
+		this.estUnOrdi=o;
+
+	}
+
+	public Boolean getEstOrdi() {
+		return estUnOrdi;
+	}
 
 	/**
 	 * 
@@ -147,10 +163,10 @@ public class Joueur {
 	/**
 	 * 
 	 */
-	public void placerBateau() {
-		Scanner in = new Scanner(System.in);
-		System.out.println("COMBIEN DE BATEAU?");
-		int nbbateau = in.nextInt();
+	public void placerBateau(int nbbateau) {
+		if(this.estUnOrdi) {
+			
+		}
 		int typebateau = 0;
 		int x = 0;
 		int y = 0;
@@ -161,6 +177,7 @@ public class Joueur {
 			while (!valid) {
 				System.out.print(
 						"quel bateau : \n 1)portes avion \n 2)sous-marin \n 3)cuirass�1 \n 4)cuirass�2 \n 5)zodiac\n");
+				Scanner in = new Scanner(System.in);
 				typebateau = in.nextInt();
 				System.out.print("pos x :");
 				x = in.nextInt() - 1;
