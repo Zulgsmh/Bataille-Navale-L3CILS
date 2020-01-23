@@ -149,7 +149,6 @@ public class Joueur {
 		int x = 0;
 		int y = 0;
 		int taille = 0;
-		int t=taille; 
 		boolean verticale = true;
 		for (int nb = 0; nb < nbbateau; nb++) {
 			boolean valid = false;
@@ -214,30 +213,35 @@ public class Joueur {
 				if(!valid) {
 					System.out.println("INVALIDE");
 				}
-				
 				if(verticale){
-					for(int i=x-1;i<x+1;i++){
-						for(int j=y-1;j<t+y;j++){
+					for(int i=x-1;i<=x+1;i++){
+						for(int j=y-1;j<=taillebat+y;j++){
 							if(0<=i && i<10 && 0<=j && j<10) {
 							String cellule=this.maGrille [i][j];
 							if(cellule!=null){
-								System.out.println("1Le bateau que tu viens de placer est à coté d'un autre ! Replace le de nouveau");
+								System.out.println(i + " " + j + "Le bateau que tu viens de placer est à coté d'un autre ! Replace le de nouveau");
 								valid=false;
+								break;
 								}
+							}
+							if(!valid) {
+								break;
 							}
 							}
 						}
-					}
-
-					else{
-					for(int i=y-1;i<y+1;i++){
-						for(int j=x-1;j<t+x;j++){
+					}else{
+					for(int i=y-1;i<=y+1;i++){
+						for(int j=x-1;j<=taillebat+x;j++){
 							String cellule=this.maGrille [i][j];
 							if(cellule!=null){
 								System.out.println("2Le bateau que tu viens de placer est à coté d'un autre ! Replace le de nouveau");
 								valid=false;
+								break;
 								}
 							}
+						if(!valid) {
+							break;
+						}
 						}
 					}
 			}
