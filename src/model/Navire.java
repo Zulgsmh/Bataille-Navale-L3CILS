@@ -37,7 +37,8 @@ public abstract class Navire {
     private Boolean estCoule;
     private String nom;
     public int taille;
-    public Boolean utilisable;
+    public Boolean utilisable=true;
+    public Boolean estPose=false;
 
 
 //---------------ACCESSEURS-------------------------
@@ -91,6 +92,13 @@ public abstract class Navire {
     public int getTaille() {
 		return taille;
 	}
+    
+    public Boolean getEstPose() {
+    	return this.estPose;
+    }
+    public void setEstPose(Boolean pose) {
+    	this.estPose=pose;
+    }
    
 
 }

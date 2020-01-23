@@ -135,8 +135,10 @@ public class Joueur {
 			this.dejaCible=true;
 		}
 		for(Navire bateau : this.listNavire){
+			if(bateau.getEstPose()) {
 			System.out.println(bateau.getNom()+" "+bateau.getVie());
-			}
+					}
+			}	
 	}
 	/**
 	 * 
@@ -248,16 +250,21 @@ public class Joueur {
 			Position posNavire = new Position(x, y, verticale);
 			if (typebateau == 1) {
 				this.p1.setPosition(posNavire);
+				this.p1.setEstPose(true);
 			} else if (typebateau == 2) {
 				this.s1.setPosition(posNavire);
+				this.s1.setEstPose(true);
 			} else if (typebateau == 3) {
 				this.c1.setPosition(posNavire);
 				this.c1.setNom("CUI1");
+				this.c1.setEstPose(true);
 			} else if (typebateau == 4) {
 				this.c2.setPosition(posNavire);
 				this.c2.setNom("CUI2");
+				this.c2.setEstPose(true);
 			}else if (typebateau == 5) {
 				this.z1.setPosition(posNavire);
+				this.z1.setEstPose(true);
 			}
 			this.remplissage();
 			this.displayMaGrille();
