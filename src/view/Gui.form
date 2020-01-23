@@ -5,7 +5,9 @@
     <constraints>
       <xy x="20" y="20" width="500" height="400"/>
     </constraints>
-    <properties/>
+    <properties>
+      <background color="-11513774"/>
+    </properties>
     <border type="none"/>
     <children>
       <component id="ad752" class="javax.swing.JButton" binding="test">
@@ -13,7 +15,10 @@
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <focusable value="true"/>
           <text value="Button"/>
+          <verifyInputWhenFocusTarget value="true"/>
+          <visible value="true"/>
         </properties>
       </component>
     </children>
