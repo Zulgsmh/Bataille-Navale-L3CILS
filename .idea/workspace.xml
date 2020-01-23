@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="635642d4-1886-4456-858c-53f14de0c40e" name="Default Changelist" comment="" />
+    <list default="true" id="635642d4-1886-4456-858c-53f14de0c40e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,6 +36,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="configurable.group.build" />
   </component>
   <component name="RecentsManager">
@@ -117,6 +123,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="226" y="16" key="#Project_Structure" timestamp="1579801671694">
+      <screen x="0" y="0" width="1360" height="728" />
+    </state>
+    <state x="226" y="16" key="#Project_Structure/0.0.1360.728@0.0.1360.728" timestamp="1579801671694" />
     <state x="2334" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579801485389">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -174,6 +184,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2383" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579800902685" />
+    <state x="388" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1579801637094">
+      <screen x="0" y="0" width="1360" height="728" />
+    </state>
+    <state x="388" y="191" key="com.intellij.ide.util.TipDialog/0.0.1360.728@0.0.1360.728" timestamp="1579801637094" />
     <state x="2652" y="413" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog" timestamp="1579797117936">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
