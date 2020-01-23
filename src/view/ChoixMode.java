@@ -6,12 +6,14 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class ChoixMode extends JFrame {
+
     private JButton ALERTEROUGEButton;
     private JPanel rootPanel;
     private JButton BATAILLENAVALEButton;
     private JButton OPERATIONARTILLERIEButton;
     private JButton MISSIONRADARButton;
     private JButton button1;
+
     Color purple = new Color(110,74,227);
     Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -25,6 +27,7 @@ public class ChoixMode extends JFrame {
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
                 BATAILLENAVALEButton.setBackground(Color.white);
+
             }
         });
         BATAILLENAVALEButton.addMouseListener(new MouseAdapter() {
@@ -95,7 +98,6 @@ public class ChoixMode extends JFrame {
                 super.mouseClicked(e);
                 Gui g1 = new Gui();
                 g1.setLocationRelativeTo(null);
-
                 g1.setVisible(true);
                 dispose();
             }
