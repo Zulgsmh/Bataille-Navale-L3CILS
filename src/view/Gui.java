@@ -12,9 +12,11 @@ public class Gui extends JFrame {
     private JButton DEMO;
     private JButton UN;
     private JButton DEUX;
+    private JPanel img;
 
     public Gui(){
         add(rootPanel);
+        this.setUndecorated(true);
         setTitle("BATAILLE NAVALE");
         setSize(800,300);
 

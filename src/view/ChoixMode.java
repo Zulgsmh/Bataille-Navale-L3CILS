@@ -18,6 +18,8 @@ public class ChoixMode extends JFrame {
     public ChoixMode() {
         setSize(800, 300);
         add(rootPanel);
+        this.setUndecorated(true);
+
         BATAILLENAVALEButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
