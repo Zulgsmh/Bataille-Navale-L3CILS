@@ -23,6 +23,24 @@ public class Gui extends JFrame {
         setTitle("BATAILLE NAVALE");
         setSize(800,300);
 
+
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                final JFrame frame = new JFrame("Hello");
+                frame.setUndecorated(true);
+                frame.setBounds(0, 0, 800, 300);
+                frame.setContentPane(rootPane);
+                FrameDragListener frameDragListener = new FrameDragListener(frame);
+                frame.addMouseListener(frameDragListener);
+                frame.addMouseMotionListener(frameDragListener);
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);
+            }
+        };
+
+
+
         UN.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -31,7 +49,7 @@ public class Gui extends JFrame {
                 UN.setForeground(Color.black);
 
             }
-});
+        });
         UN.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseExited(MouseEvent e) {
@@ -136,6 +154,37 @@ public class Gui extends JFrame {
                 dispose();
             }
         });
+
+        SwingUtilities.invokeLater(runnable);
+
     }
+
+    public static class FrameDragListener extends MouseAdapter {
+
+        private final JFrame frame;
+        private Point mouseDownCompCoords = null;
+
+        public FrameDragListener(JFrame frame) {
+            this.frame = frame;
+        }
+
+        public void mouseReleased(MouseEvent e) {
+            mouseDownCompCoords = null;
+        }
+
+        public void mousePressed(MouseEvent e) {
+            mouseDownCompCoords = e.getPoint();
+            System.out.println(frame.getLocation());
+
+        }
+
+        public void mouseDragged(MouseEvent e) {
+            Point currCoords = e.getLocationOnScreen();
+            frame.setLocation(currCoords.x - mouseDownCompCoords.x, currCoords.y - mouseDownCompCoords.y);
+
+        }
+
+    }
+
 
 }

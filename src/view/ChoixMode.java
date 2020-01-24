@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class ChoixMode extends JFrame {
+public class ChoixMode extends JFrame  {
 
     private JButton ALERTEROUGEButton;
     private JPanel rootPanel;
