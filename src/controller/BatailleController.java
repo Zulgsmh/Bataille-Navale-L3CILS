@@ -50,8 +50,9 @@ public class BatailleController {
         public void actionPerformed(ActionEvent e) {
             partie.ModeJ = this.mode;
             affichage.setContainer("plateau");
-            //partie.placerBateauJ1(affichage.getNavire(), affichage.getx(), affichage.gety());
-            //partie.placerBateauJ2(affichage.getNavire(), affichage.getx(), affichage.gety());
+            partie.nbBateau = 1;
+            partie.placerBateauJ1();
+            partie.placerBateauJ2();
         }
     }
     public class ListenForMouse implements MouseListener {
@@ -67,10 +68,12 @@ public class BatailleController {
             System.out.println("Mouse Button: " + e.getButton()  + "\n");
             if (parent.getAppartient().equals("j1")){
                 System.out.println("Grille1");
-                partie.j1.getShot(parent.getx(), parent.gety());
+                partie.j1.getShot(parent.getx()+1, parent.gety()+1);
+                affichage.drawGrille1(partie.j1.maGrille);
             }else{
                 System.out.println("Grille2");
-                partie.j2.getShot(parent.getx(), parent.gety());
+                partie.j2.getShot(parent.getx()+1, parent.gety()+1);
+                affichage.drawGrille2(partie.j2.maGrille);
             }
 
             System.out.println("Mouse Clicks: " + e.getClickCount()  + "\n");

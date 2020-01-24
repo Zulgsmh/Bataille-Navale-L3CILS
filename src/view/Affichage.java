@@ -1,6 +1,6 @@
 package view;
 import controller.BatailleController;
-
+import java.util.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -65,8 +65,8 @@ public class Affichage extends JFrame {
         Grille1.setBackground(Color.black);
         Grille1.setPreferredSize( new Dimension( 400, 400 ) );
         Grille1.setLayout(new GridLayout(10,10));
-        for(int i = 0; i < 10; i++){
-            for(int j = 0; j < 10; j++){
+        for(int j = 0; j < 10; j++){
+            for(int i = 0; i < 10; i++){
                 CelluleGrille1[i][j] = new cellule(i, j, "j1");
                 CelluleGrille1[i][j].setBorder(BorderFactory.createLineBorder(Color.black));
 
@@ -76,10 +76,11 @@ public class Affichage extends JFrame {
         Grille2.setBackground(Color.BLUE);
         Grille2.setPreferredSize( new Dimension( 400, 400 ) );
         Grille2.setLayout(new GridLayout(10,10));
-        for(int i = 0; i < 10; i++){
-            for(int j = 0; j < 10; j++){
+        for(int j = 0; j < 10; j++){
+            for(int i = 0; i < 10; i++){
                 CelluleGrille2[i][j] = new cellule(i, j, "j2");
                 CelluleGrille2[i][j].setBorder(BorderFactory.createLineBorder(Color.black));
+                System.out.println(i+ " "+ j);
                 Grille2.add(CelluleGrille2[i][j]);
             }
         }
@@ -159,8 +160,10 @@ public class Affichage extends JFrame {
     public void drawGrille1(String[][] maGrille){
         for (int i = 0; i < 10; i++){
             for (int j=0; j < 10; j++){
-                if(maGrille[i][j].equals("PORT")){
-                CelluleGrille1[i][j].setColor(Color.YELLOW);
+                if(maGrille[i][j] == null){
+                    CelluleGrille1[i][j].setColor(Color.CYAN);
+                }else if(maGrille[i][j].equals("PLOF")){
+                CelluleGrille1[i][j].setColor(Color.black);
                 CelluleGrille1[i][j].setNom(maGrille[i][j]);
                 }
             }
@@ -169,8 +172,10 @@ public class Affichage extends JFrame {
     public void drawGrille2(String[][] maGrille){
         for (int i = 0; i < 10; i++){
             for (int j=0; j < 10; j++){
-                if(maGrille[i][j].equals("PORT")){
-                    CelluleGrille2[i][j].setColor(Color.YELLOW);
+                if(maGrille[i][j] == null){
+                    CelluleGrille2[i][j].setColor(Color.CYAN);
+                }else if(maGrille[i][j].equals("PLOF")){
+                    CelluleGrille2[i][j].setColor(Color.black);
                     CelluleGrille2[i][j].setNom(maGrille[i][j]);
                 }
             }

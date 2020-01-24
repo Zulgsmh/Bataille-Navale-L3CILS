@@ -156,6 +156,8 @@ public class Joueur {
 				}
 			}
 		}
+		System.out.println("getshot");
+		displayMaGrille();
 		return estMort;
 	}
 
