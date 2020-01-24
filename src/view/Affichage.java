@@ -38,7 +38,6 @@ public class Affichage extends JFrame {
     private cellule[][] CelluleGrille2 = new cellule[10][10];
     private JButton[] buttonBateauJ1 = new JButton[10];
     private JButton[] buttonBateauJ2 = new JButton[10];
-
     public Affichage(){
         ListenForMouse lForMouse = new ListenForMouse();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -86,12 +85,22 @@ public class Affichage extends JFrame {
         }
 
         listBateauJ1.setBackground(Color.GRAY);
-        listBateauJ1.setPreferredSize( new Dimension( 200, 400 ) );
-        listBateauJ1.setLayout (new BoxLayout (this, BoxLayout.Y_AXIS));
-        for (int i = 0;i<5;i++) {
-            buttonBateauJ1[i] = new JButton ("Button " + (i + 1));
-            add (buttons[i]);
+        listBateauJ1.setPreferredSize( new Dimension( 150, 400 ) );
+        for (int i = 0;i<10;i++) {
+            buttonBateauJ1[i] = new JButton ("Bateau " + (i + 1));
+            listBateauJ1.add(buttonBateauJ1[i]);
         }
+        listBateauJ1.setLayout (new BoxLayout (listBateauJ1, BoxLayout.Y_AXIS));
+
+        listBateauJ2.setBackground(Color.GRAY);
+        listBateauJ2.setPreferredSize( new Dimension( 150, 400 ) );
+        for (int i = 0;i<10;i++) {
+            buttonBateauJ2[i] = new JButton ("Bateau " + (i + 1));
+            listBateauJ2.add(buttonBateauJ2[i]);
+        }
+        listBateauJ2.setLayout (new BoxLayout (listBateauJ2, BoxLayout.Y_AXIS));
+
+
         plateau.add(listBateauJ1);
         plateau.add(Grille1);
         plateau.add(Grille2);
@@ -134,6 +143,16 @@ public class Affichage extends JFrame {
                 if(maGrille[i][j].equals("PORT")){
                 CelluleGrille1[i][j].setColor(Color.YELLOW);
                 CelluleGrille1[i][j].setNom(maGrille[i][j]);
+                }
+            }
+        }
+    }
+    public void drawGrille2(String[][] maGrille){
+        for (int i = 0; i < 10; i++){
+            for (int j=0; j < 10; j++){
+                if(maGrille[i][j].equals("PORT")){
+                    CelluleGrille2[i][j].setColor(Color.YELLOW);
+                    CelluleGrille2[i][j].setNom(maGrille[i][j]);
                 }
             }
         }
