@@ -30,11 +30,40 @@ public class Partie {
 	public Joueur j2 = new Joueur();
 	public int nbBateau=0;
 	public Boolean mort;
+	private Boolean typeNormal=false;
+	private Boolean typeRadar=false;
+	private Boolean typeArti=false;
+	private Boolean typeAR=false;
+
 
 
 	/**
 	 * 
 	 */
+	public void setTypeNormal(Boolean b){
+		this.typeNormal=b;
+	}
+	public boolean getTypeNormal(){
+		return typeNormal;
+	}
+	public void setTypeRadar(boolean b){
+		this.typeRadar=b;
+	}
+	public boolean getTypeRadar(){
+		return typeRadar;
+	}
+	public void setTypeArti(boolean b){
+		this.typeArti=b;
+	}
+	public boolean getTypeArti(){
+		return typeArti;
+	}
+	public void setTypeAR(boolean b){
+		this.typeAR=b;
+	}
+	public boolean getTypeAR(){
+		return typeAr;
+	}
 	public void startBataille() {
 		System.out.println("Quelle mode voulez-vous: \n1)Joueur1 VS Joueur2  \n2)Joueur1 VS Ordinateur  \n3)Demo");
 		Scanner in = new Scanner(System.in);
@@ -46,6 +75,26 @@ public class Partie {
 		else if(x==3) {
 			j1.setEstOrdi(true);
 			j2.setEstOrdi(true);
+		}
+		System.out.println("Quelle type de jeux voulez-vous: " +
+				"\n1)Normal " +
+				"\n2)Radar  " +
+				"\n3)Artiellerie"+
+				"\n4)Mode Alerte Rouge");
+		Scanner on = new Scanner(System.in);
+		String sy = on.nextLine();
+		int y = Integer.parseInt(sy);
+		if(y==1) {
+			p.setTypeNormal(true);
+		}
+		else if(y==2) {
+			p.setTypeRadar(true);
+		}
+		else if(y==3){
+			p.setTypeArti(true);
+		}
+		else if(y==4){
+			p.setTypeAR(true);
 		}
 		System.out.println("COMBIEN DE BATEAU?");
 		this.nbBateau = in.nextInt();
@@ -171,42 +220,7 @@ public class Partie {
 
 
 	}
-	
-	public Boolean O1tirer() {
 
-		// TODO implement here
-		int x=new Random().nextInt(10);
-		int y = new Random().nextInt(10);
-		Boolean mort = this.j1.getShot(x, y);
-		if (this.j1.getDejaCible()) {
-			this.j1.setDejaCible(false);
-			System.out.println("Tu as d�ja tir� ici mon khey !");
-			this.J2tirer();
-		}
-		this.j2.setGrilleAdverse(this.j1.maGrille);
-		this.j2.displayGrilleAdverse();
-		this.j2.displayMaGrille();
-
-		return mort;
-	}
-
-	public Boolean O2tirer() {
-
-		// TODO implement here
-		int x=new Random().nextInt(10);
-		int y = new Random().nextInt(10);
-		Boolean mort = this.j1.getShot(x, y);
-		if (this.j1.getDejaCible()) {
-			this.j1.setDejaCible(false);
-			System.out.println("Tu as d�ja tir� ici mon khey !");
-			this.J2tirer();
-		}
-		this.j2.setGrilleAdverse(this.j1.maGrille);
-		this.j2.displayGrilleAdverse();
-		this.j2.displayMaGrille();
-
-		return mort;
-	}
 	/**
 	 * 
 	 */
