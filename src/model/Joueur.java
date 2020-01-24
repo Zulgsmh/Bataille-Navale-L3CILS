@@ -164,28 +164,35 @@ public class Joueur {
 	 * 
 	 */
 	public void placerBateau(int nbbateau) {
-		if(this.estUnOrdi) {
-			
-		}
 		int typebateau = 0;
 		int x = 0;
 		int y = 0;
 		int taille = 0;
+		int dir=0;
 		boolean verticale = true;
 		for (int nb = 0; nb < nbbateau; nb++) {
 			boolean valid = false;
 			this.displayMaGrille();
 			while (!valid) {
-				System.out.print(
-						"quel bateau : \n 1)portes avion \n 2)sous-marin \n 3)cuirass�1 \n 4)cuirass�2 \n 5)zodiac\n");
-				Scanner in = new Scanner(System.in);
-				typebateau = in.nextInt();
-				System.out.print("pos x :");
-				x = in.nextInt() - 1;
-				System.out.print("pos y :");
-				y = in.nextInt() - 1;
-				System.out.print("dir : \n 1)verticale \n 2)horizontale\n");
-				int dir = in.nextInt();
+				if(this.estUnOrdi) {
+					System.out.println("dans if ordi3");
+					typebateau=new Random().nextInt(5)+1;
+					x=new Random().nextInt(10);
+					y = new Random().nextInt(10);
+					dir = new Random().nextInt(2)+1;
+				}
+				else if(!this.estUnOrdi) {
+					System.out.print(
+							"quel bateau : \n 1)portes avion \n 2)sous-marin \n 3)cuirass�1 \n 4)cuirass�2 \n 5)zodiac\n");
+					Scanner in = new Scanner(System.in);
+					typebateau = in.nextInt();
+					System.out.print("pos x :");
+					x = in.nextInt() - 1;
+					System.out.print("pos y :");
+					y = in.nextInt() - 1;
+					System.out.print("dir : \n 1)verticale \n 2)horizontale\n");
+					dir = in.nextInt();
+				}
 				if (dir == 1) {
 					verticale = true;
 				} else {
@@ -236,7 +243,7 @@ public class Joueur {
 					}
 				}
 				if (!valid) {
-					System.out.println("INVALIDE");
+					System.out.println("INVALIDE Replacer le bateau");
 				}
 				if (verticale) {
 					for (int i = x - 1; i <= x + 1; i++) {
@@ -245,7 +252,7 @@ public class Joueur {
 								String cellule = this.maGrille[i][j];
 								if (cellule != null) {
 									System.out.println(i + " " + j
-											+ "Le bateau que tu viens de placer est � cot� d'un autre ! Replace le de nouveau");
+											+ "Le bateau que tu viens de placer est a cote d'un autre ! Replace le de nouveau");
 									valid = false;
 									break;
 								}
@@ -262,7 +269,7 @@ public class Joueur {
 								String cellule = this.maGrille[i][j];
 								if (cellule != null) {
 									System.out.println(
-											"2Le bateau que tu viens de placer est � cot� d'un autre ! Replace le de nouveau");
+											"2Le bateau que tu viens de placer est a cote d'un autre ! Replace le de nouveau");
 									valid = false;
 									break;
 								}
@@ -308,7 +315,7 @@ public class Joueur {
 					int x = listNavire[i].getPosition().getPosX();
 					int y = listNavire[i].getPosition().getPosY();
 					String nom = listNavire[i].getNom();
-					// Verticale
+						// Verticale
 					if (listNavire[i].getPosition().getSens()) {
 						this.setMaGrille(x, y + j, nom);
 						// Horizontale

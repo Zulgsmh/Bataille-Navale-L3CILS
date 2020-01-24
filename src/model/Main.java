@@ -1,11 +1,10 @@
-/*package model;
+package model;
 
 public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-//PorteAvion pa= new PorteAvion();
+        // PorteAvion pa= new PorteAvion();
 //
 ////System.out.println(pos);
 //
@@ -21,7 +20,7 @@ public class Main {
 //
 		Joueur j2 = new Joueur();
 //
-		Partie p = new Partie(j1, j2);
+		Partie p = new Partie();
 //		placement des bateau
 		p.startBataille();
 		p.placerBateauJ1();
@@ -42,4 +41,3 @@ public class Main {
 	}
 
 }
-*/
