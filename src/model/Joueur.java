@@ -283,26 +283,7 @@ public class Joueur {
 				}
 			}
 			Position posNavire = new Position(x, y, verticale);
-			if (typebateau == 1) {
-				this.p1.setPosition(posNavire);
-				this.p1.setEstPose(true);
-			} else if (typebateau == 2) {
-				this.s1.setPosition(posNavire);
-				this.s1.setEstPose(true);
-			} else if (typebateau == 3) {
-				this.c1.setPosition(posNavire);
-				this.c1.setNom("CUI1");
-				this.c1.setEstPose(true);
-			} else if (typebateau == 4) {
-				this.c2.setPosition(posNavire);
-				this.c2.setNom("CUI2");
-				this.c2.setEstPose(true);
-			} else if (typebateau == 5) {
-				this.z1.setPosition(posNavire);
-				this.z1.setEstPose(true);
-			}
-			this.remplissage();
-			this.displayMaGrille();
+			setBateauplacer(typebateau, posNavire);
 
 		}
 	}
@@ -343,7 +324,51 @@ public class Joueur {
 			System.out.println("");
 		}
 	}
-
+	public void setBateauplacer(int typebateau, Position posNavire){
+		if (typebateau == 1) {
+			this.p1.setPosition(posNavire);
+			this.p1.setEstPose(true);
+		} else if (typebateau == 2) {
+			this.s1.setPosition(posNavire);
+			this.s1.setEstPose(true);
+		} else if (typebateau == 3) {
+			this.c1.setPosition(posNavire);
+			this.c1.setNom("CUI1");
+			this.c1.setEstPose(true);
+		} else if (typebateau == 4) {
+			this.c2.setPosition(posNavire);
+			this.c2.setNom("CUI2");
+			this.c2.setEstPose(true);
+		} else if (typebateau == 5) {
+			this.z1.setPosition(posNavire);
+			this.z1.setEstPose(true);
+		}
+			this.remplissage();
+			this.displayMaGrille();
+	}
+	public void setBateauplacer(String typebateau, Position posNavire){
+		//"PorteAvion", "SousMarin", "CuirasséFurtif1", "CuirasséFurtif2","Zodiac"
+		if (typebateau.equals("PorteAvion")) {
+			this.p1.setPosition(posNavire);
+			this.p1.setEstPose(true);
+		} else if (typebateau.equals("SousMarin")){
+			this.s1.setPosition(posNavire);
+			this.s1.setEstPose(true);
+		} else if (typebateau.equals("PorteAvion")){
+			this.c1.setPosition(posNavire);
+			this.c1.setNom("CuirasséFurtif1");
+			this.c1.setEstPose(true);
+		} else if (typebateau.equals("CuirasséFurtif2")){
+			this.c2.setPosition(posNavire);
+			this.c2.setNom("CUI2");
+			this.c2.setEstPose(true);
+		} else if (typebateau.equals("Zodiac")) {
+			this.z1.setPosition(posNavire);
+			this.z1.setEstPose(true);
+		}
+		this.remplissage();
+		this.displayMaGrille();
+	}
 	public void displayGrilleAdverse() {
 		System.out.println("\n\n Grille Adverse : ");
 		for (int j = 0; j < 10; j++) {

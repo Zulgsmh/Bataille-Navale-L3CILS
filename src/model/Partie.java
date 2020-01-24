@@ -34,6 +34,10 @@ public class Partie {
 	private Boolean typeRadar=false;
 	private Boolean typeAR=false;
 	private Boolean typeArti=false;
+	private Boolean j1DoitPlacerBateau = true;
+	private Boolean j1DoitTirer = false;
+	private Boolean j2DoitPlacerBateau = false;
+	private Boolean j2DoitTirer = false;
 
 
 
@@ -63,6 +67,9 @@ public class Partie {
 	}
 	public boolean getTypeAR(){
 		return typeAR;
+	}
+	public boolean J1doitplacerBat(){
+		return j1DoitPlacerBateau;
 	}
 	public void startBataille() {
 		System.out.println("Quelle mode voulez-vous: \n1)Joueur1 VS Joueur2  \n2)Joueur1 VS Ordinateur  \n3)Demo");
@@ -121,7 +128,9 @@ public class Partie {
 	/**
 	 * 
 	 */
-
+	public Boolean getJ1DoitTirer(){
+		return j1DoitTirer;
+	}
 	public Boolean J1tirer() {
 
 		if(j1.getEstOrdi()){

@@ -27,6 +27,7 @@ public class BatailleController {
         this.affichage.addcoderougeListener(new modeListener("coderouge"));
         this.affichage.addGrille1Listener(new ListenForMouse());
         this.affichage.addGrille2Listener(new ListenForMouse());
+        this.affichage.addlistBateauJ1Listener(new ListenForBateauJ1());
         //this.affichage.addcelluleListener(new cellulListener());
 
     }
@@ -51,8 +52,8 @@ public class BatailleController {
         public void actionPerformed(ActionEvent e) {
             partie.ModeJ = this.mode;
             affichage.setContainer("plateau");
-            partie.placerBateauJ1();
-            partie.placerBateauJ2();
+            //partie.placerBateauJ1();
+            //partie.placerBateauJ2();
             affichage.drawGrille1(partie.j1.maGrille);
             affichage.drawGrille2(partie.j2.maGrille);
         }
@@ -63,8 +64,15 @@ public class BatailleController {
             partie.nbBateau = affichage.getComboBoxNbBat();
         }
     }
-
-    public class ListenForMouse implements MouseListener {
+    class ListenForBateauJ1 implements ActionListener{
+        public void actionPerformed(ActionEvent e) {
+            if(partie.J1doitplacerBat()){
+            JButton parent = (JButton)e.getSource();
+            System.out.println(parent);
+            affichage.setSelectBateau(parent.getText());
+            }
+        }
+    }    public class ListenForMouse implements MouseListener {
 
         // Called when a mouse button is clicked
 
@@ -76,16 +84,25 @@ public class BatailleController {
             System.out.println(parent.getx() + " " + parent.gety());
             System.out.println("Mouse Button: " + e.getButton()  + "\n");
             if (parent.getAppartient().equals("j1")){
+                System.out.println(partie.J1doitplacerBat() + " "+affichage.getSelectBateau());
+                if(partie.J1doitplacerBat() && affichage.getSelectBateau()!= null){
+                    String nomBat = affichage.getSelectBateau();
+                    Position pos = new Position(parent.getx(), parent.gety(), true);
+                    partie.j1.setBateauplacer(nomBat, pos);
+                    affichage.drawGrille1(partie.j1.maGrille);
+                }
                 System.out.println("Grille1");
-                partie.j1.getShot(parent.getx()+1, parent.gety()+1);
-                affichage.drawGrille1(partie.j1.maGrille);
+                if(partie.getJ1DoitTirer()) {
+                    partie.j1.getShot(parent.getx() + 1, parent.gety() + 1);
+                    affichage.drawGrille1(partie.j1.maGrille);
+                }
             }else{
                 System.out.println("Grille2");
                 partie.j2.getShot(parent.getx()+1, parent.gety()+1);
                 affichage.drawGrille2(partie.j2.maGrille);
             }
 
-            System.out.println("Mouse Clicks: " + e.getClickCount()  + "\n");
+            // System.out.println("Mouse Clicks: " + e.getClickCount()  + "\n");
 
         }
 
@@ -117,5 +134,5 @@ public class BatailleController {
 
         }
     }
-
 }
+

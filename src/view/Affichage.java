@@ -39,7 +39,7 @@ public class Affichage extends JFrame {
     private JButton[] buttonBateauJ1 = new JButton[10];
     private JButton[] buttonBateauJ2 = new JButton[10];
     private String[] bateauName = {"PorteAvion", "SousMarin", "CuirasséFurtif1", "CuirasséFurtif2","Zodiac"};
-
+    private String bateauSelect = "";
 
     public Affichage(){
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -118,6 +118,13 @@ public class Affichage extends JFrame {
     public void setContainer(String card){
         c.show(container, card);
     }
+
+    public void setSelectBateau(String nom){
+        this.bateauSelect = nom;
+    }
+    public String getSelectBateau(){
+        return this.bateauSelect;
+    }
     public void addjvjListener(ActionListener ListenForjvjButton){
         jvj.addActionListener(ListenForjvjButton);
     }
@@ -154,6 +161,11 @@ public class Affichage extends JFrame {
             for (int j = 0; j < 10; j++) {
                 CelluleGrille2[i][j].addMouseListener(lForMouse);
             }
+        }
+    }
+    public void addlistBateauJ1Listener(ActionListener ListenForBateauJ1){
+        for(int i = 0; i < 10; i++){
+            buttonBateauJ1[i].addActionListener(ListenForBateauJ1);
         }
     }
 
