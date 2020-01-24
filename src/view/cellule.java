@@ -11,7 +11,7 @@ public class cellule extends JPanel {
         this.x = x;
         this.y = y;
         this.appartient = appart;
-        this.setBackground(Color.green);
+        this.setBackground(Color.CYAN);
 
     }
 
@@ -24,5 +24,11 @@ public class cellule extends JPanel {
 
     public String getAppartient() {
         return appartient;
+    }
+    public void setColor(Color color){
+        this.setBackground(color);
+    }
+    public void setNom(String nom){
+        this.nom = nom;
     }
 }

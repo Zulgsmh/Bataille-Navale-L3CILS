@@ -32,7 +32,7 @@ public class ListenForMouse implements MouseListener {
 
     public void mouseEntered(MouseEvent e) {
         JPanel parent = (JPanel)e.getSource();
-        if (parent.getBackground().equals(Color.green)) {
+        if (parent.getBackground().equals(Color.CYAN)) {
             parent.setBackground(Color.RED);
         }
         //parent.revalidate();
@@ -43,7 +43,7 @@ public class ListenForMouse implements MouseListener {
     public void mouseExited(MouseEvent e) {
         JPanel parent = (JPanel)e.getSource();
         if (parent.getBackground().equals(Color.RED)) {
-            parent.setBackground(Color.green);
+            parent.setBackground(Color.CYAN);
         }
     }
     // Mouse button pressed

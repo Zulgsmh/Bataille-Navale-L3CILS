@@ -2,47 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="635642d4-1886-4456-858c-53f14de0c40e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controller/BatailleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/Affichage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/cellule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/model/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/model/Partie.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/model/Partie.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$10.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$11.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$8.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$9.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Gui$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Gui$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Gui$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Gui$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Gui$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Gui$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Gui$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Gui$8.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Gui$9.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Gui.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Plateau.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Partie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Partie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ChoixMode.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ChoixMode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Gui.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Gui.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Plateau.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Plateau.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/Affichage.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view/Affichage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/ListenForMouse.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view/ListenForMouse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/cellule.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view/cellule.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Affichage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Affichage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ListenForMouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ListenForMouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/cellule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cellule.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +57,7 @@
       <recent name="C:\Users\nathan\Desktop\Bataille-Navale-L3CILS\src\view" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.controller">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="C:/Program Files/Java/jdk-13.0.2" />
       <option name="MAIN_CLASS_NAME" value="model.Main" />
@@ -168,8 +134,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.controller" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main1" />
         <item itemvalue="Application.Main" />
       </list>
@@ -250,31 +216,31 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2660" y="263" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579802095742" />
-    <state width="501" height="735" key="GridCell.Tab.0.bottom" timestamp="1579865561300">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state width="498" height="600" key="GridCell.Tab.0.bottom" timestamp="1579866554868">
+      <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state width="1317" height="164" key="GridCell.Tab.0.bottom/0.0.1360.728@0.0.1360.728" timestamp="1579846704923" />
+    <state width="498" height="600" key="GridCell.Tab.0.bottom/0.0.1360.728@0.0.1360.728" timestamp="1579866554868" />
     <state width="501" height="735" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1579865561300" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579785926211" />
     <state width="1877" height="273" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579803027225" />
-    <state width="501" height="735" key="GridCell.Tab.0.center" timestamp="1579865561299">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state width="498" height="600" key="GridCell.Tab.0.center" timestamp="1579866554867">
+      <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state width="1317" height="164" key="GridCell.Tab.0.center/0.0.1360.728@0.0.1360.728" timestamp="1579846704923" />
+    <state width="498" height="600" key="GridCell.Tab.0.center/0.0.1360.728@0.0.1360.728" timestamp="1579866554867" />
     <state width="501" height="735" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1579865561299" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579785926211" />
     <state width="1877" height="273" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579803027225" />
-    <state width="501" height="735" key="GridCell.Tab.0.left" timestamp="1579865561299">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state width="498" height="600" key="GridCell.Tab.0.left" timestamp="1579866554867">
+      <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state width="1317" height="164" key="GridCell.Tab.0.left/0.0.1360.728@0.0.1360.728" timestamp="1579846704923" />
+    <state width="498" height="600" key="GridCell.Tab.0.left/0.0.1360.728@0.0.1360.728" timestamp="1579866554867" />
     <state width="501" height="735" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1579865561299" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579785926211" />
     <state width="1877" height="273" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579803027225" />
-    <state width="501" height="735" key="GridCell.Tab.0.right" timestamp="1579865561300">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state width="498" height="600" key="GridCell.Tab.0.right" timestamp="1579866554867">
+      <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state width="1317" height="164" key="GridCell.Tab.0.right/0.0.1360.728@0.0.1360.728" timestamp="1579846704923" />
+    <state width="498" height="600" key="GridCell.Tab.0.right/0.0.1360.728@0.0.1360.728" timestamp="1579866554867" />
     <state width="501" height="735" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1579865561300" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579785926211" />
     <state width="1877" height="273" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579803027225" />

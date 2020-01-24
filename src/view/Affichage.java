@@ -32,8 +32,12 @@ public class Affichage extends JFrame {
     private JPanel plateau = new JPanel();
     private JPanel Grille1 = new JPanel();
     private JPanel Grille2 = new JPanel();
+    private JPanel listBateauJ1 = new JPanel();
+    private JPanel listBateauJ2 = new JPanel();
     private cellule[][] CelluleGrille1 = new cellule[10][10];
     private cellule[][] CelluleGrille2 = new cellule[10][10];
+    private JButton[] buttonBateauJ1 = new JButton[10];
+    private JButton[] buttonBateauJ2 = new JButton[10];
 
     public Affichage(){
         ListenForMouse lForMouse = new ListenForMouse();
@@ -64,6 +68,8 @@ public class Affichage extends JFrame {
             for(int j = 0; j < 10; j++){
                 CelluleGrille1[i][j] = new cellule(i, j, "j1");
                 CelluleGrille1[i][j].addMouseListener(lForMouse);
+                CelluleGrille1[i][j].setBorder(BorderFactory.createLineBorder(Color.black));
+
                 Grille1.add(CelluleGrille1[i][j]);
             }
         }
@@ -74,14 +80,22 @@ public class Affichage extends JFrame {
             for(int j = 0; j < 10; j++){
                 CelluleGrille2[i][j] = new cellule(i, j, "j2");
                 CelluleGrille2[i][j].addMouseListener(lForMouse);
+                CelluleGrille2[i][j].setBorder(BorderFactory.createLineBorder(Color.black));
                 Grille2.add(CelluleGrille2[i][j]);
             }
         }
 
-
+        listBateauJ1.setBackground(Color.GRAY);
+        listBateauJ1.setPreferredSize( new Dimension( 200, 400 ) );
+        listBateauJ1.setLayout (new BoxLayout (this, BoxLayout.Y_AXIS));
+        for (int i = 0;i<5;i++) {
+            buttonBateauJ1[i] = new JButton ("Button " + (i + 1));
+            add (buttons[i]);
+        }
+        plateau.add(listBateauJ1);
         plateau.add(Grille1);
         plateau.add(Grille2);
-
+        plateau.add(listBateauJ2);
 
         container.add(Menu, "menu");
         container.add(Mode, "mode");
@@ -114,10 +128,13 @@ public class Affichage extends JFrame {
     public void addcoderougeListener(ActionListener ListenForcoderougeButton){
         coderouge.addActionListener(ListenForcoderougeButton);
     }
-    public void drawGrille1(String[][] Grille1){
+    public void drawGrille1(String[][] maGrille){
         for (int i = 0; i < 10; i++){
             for (int j=0; j < 10; j++){
-                //faire des truc sur les gru
+                if(maGrille[i][j].equals("PORT")){
+                CelluleGrille1[i][j].setColor(Color.YELLOW);
+                CelluleGrille1[i][j].setNom(maGrille[i][j]);
+                }
             }
         }
     }
