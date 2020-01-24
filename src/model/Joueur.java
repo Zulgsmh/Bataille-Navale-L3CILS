@@ -136,10 +136,10 @@ public class Joueur {
 		} else if (cellule.equals("SOUS")) {
 			this.s1.setEstTouche(true);
 			this.setMaGrille(x - 1, y - 1, "SHOT");
-		} else if (cellule.equals("CUIS1")) {
+		} else if (cellule.equals("CUI1")) {
 			this.c1.setEstTouche(true);
 			this.setMaGrille(x - 1, y - 1, "SHOT");
-		} else if (cellule.equals("CUIS2")) {
+		} else if (cellule.equals("CUI2")) {
 			this.c2.setEstTouche(true);
 			this.setMaGrille(x - 1, y - 1, "SHOT");
 		} else if (cellule.equals("ZODI")) {

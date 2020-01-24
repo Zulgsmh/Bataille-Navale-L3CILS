@@ -1,7 +1,9 @@
 package model;
+import java.util.*;
 
 import model.*;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 
@@ -74,6 +76,7 @@ public class Partie {
 	public Boolean J1tirer() {
 
 		if(j1.getEstOrdi()){
+			System.out.println("J1 joue !");
 			int x=new Random().nextInt(10)+1;
 			int y = new Random().nextInt(10)+1;
 			mort = this.j2.getShot(x, y);
@@ -85,6 +88,15 @@ public class Partie {
 			this.j1.setGrilleAdverse(this.j1.maGrille);
 			this.j1.displayGrilleAdverse();
 			this.j1.displayMaGrille();
+
+			try
+			{
+				Thread.sleep(1000);
+			}
+			catch(InterruptedException ex)
+			{
+				Thread.currentThread().interrupt();
+			}
 
 		}
 
@@ -113,6 +125,7 @@ public class Partie {
 
 
 		if(j2.getEstOrdi()){
+			System.out.println("J2 joue !");
 			int x=new Random().nextInt(10)+1;
 			int y = new Random().nextInt(10)+1;
 			mort = this.j1.getShot(x, y);
@@ -124,6 +137,14 @@ public class Partie {
 			this.j2.setGrilleAdverse(this.j1.maGrille);
 			this.j2.displayGrilleAdverse();
 			this.j2.displayMaGrille();
+			try
+			{
+				Thread.sleep(1000);
+			}
+			catch(InterruptedException ex)
+			{
+				Thread.currentThread().interrupt();
+			}
 		}
 		// TODO implement here
 		else if(!j2.getEstOrdi()) {

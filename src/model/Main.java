@@ -2,7 +2,7 @@ package model;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		// TODO Auto-generated method stub
         // PorteAvion pa= new PorteAvion();
 //
@@ -27,7 +27,7 @@ public class Main {
 		p.placerBateauJ2();
 
 //		boucle de la game
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 1000; i++) {
 			if (p.J1tirer()) {
 				System.out.println("Joueur 1 a GAGNE !");
 				break;
@@ -37,7 +37,6 @@ public class Main {
 				break;
 			}
 		}
-
 	}
 
 }
