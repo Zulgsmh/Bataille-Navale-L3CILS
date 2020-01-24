@@ -24,6 +24,8 @@ public class BatailleController {
         this.affichage.addradarListener(new modeListener("radar"));
         this.affichage.addartillerieListener(new modeListener("artillerie"));
         this.affichage.addcoderougeListener(new modeListener("coderouge"));
+        this.affichage.addGrille1Listener(new ListenForMouse());
+        this.affichage.addGrille2Listener(new ListenForMouse());
         //this.affichage.addcelluleListener(new cellulListener());
 
     }
@@ -65,8 +67,10 @@ public class BatailleController {
             System.out.println("Mouse Button: " + e.getButton()  + "\n");
             if (parent.getAppartient().equals("j1")){
                 System.out.println("Grille1");
+                partie.j1.getShot(parent.getx(), parent.gety());
             }else{
                 System.out.println("Grille2");
+                partie.j2.getShot(parent.getx(), parent.gety());
             }
 
             System.out.println("Mouse Clicks: " + e.getClickCount()  + "\n");
@@ -79,7 +83,7 @@ public class BatailleController {
 
         public void mouseEntered(MouseEvent e) {
             JPanel parent = (JPanel)e.getSource();
-            if (parent.getBackground().equals(Color.green)) {
+            if (parent.getBackground().equals(Color.CYAN)) {
                 parent.setBackground(Color.RED);
             }
             //parent.revalidate();
@@ -90,7 +94,7 @@ public class BatailleController {
         public void mouseExited(MouseEvent e) {
             JPanel parent = (JPanel)e.getSource();
             if (parent.getBackground().equals(Color.RED)) {
-                parent.setBackground(Color.green);
+                parent.setBackground(Color.CYAN);
             }
         }
         // Mouse button pressed

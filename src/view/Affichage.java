@@ -1,4 +1,6 @@
 package view;
+import controller.BatailleController;
+
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -38,8 +40,8 @@ public class Affichage extends JFrame {
     private cellule[][] CelluleGrille2 = new cellule[10][10];
     private JButton[] buttonBateauJ1 = new JButton[10];
     private JButton[] buttonBateauJ2 = new JButton[10];
+    private String[] bateauName = {"PorteAvion", "SousMarin", "CuirasséFurtif1", "CuirasséFurtif2","Zodiac"};
     public Affichage(){
-        ListenForMouse lForMouse = new ListenForMouse();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1200,600);
         container.setLayout(c);
@@ -66,7 +68,6 @@ public class Affichage extends JFrame {
         for(int i = 0; i < 10; i++){
             for(int j = 0; j < 10; j++){
                 CelluleGrille1[i][j] = new cellule(i, j, "j1");
-                CelluleGrille1[i][j].addMouseListener(lForMouse);
                 CelluleGrille1[i][j].setBorder(BorderFactory.createLineBorder(Color.black));
 
                 Grille1.add(CelluleGrille1[i][j]);
@@ -78,7 +79,6 @@ public class Affichage extends JFrame {
         for(int i = 0; i < 10; i++){
             for(int j = 0; j < 10; j++){
                 CelluleGrille2[i][j] = new cellule(i, j, "j2");
-                CelluleGrille2[i][j].addMouseListener(lForMouse);
                 CelluleGrille2[i][j].setBorder(BorderFactory.createLineBorder(Color.black));
                 Grille2.add(CelluleGrille2[i][j]);
             }
@@ -87,7 +87,7 @@ public class Affichage extends JFrame {
         listBateauJ1.setBackground(Color.GRAY);
         listBateauJ1.setPreferredSize( new Dimension( 150, 400 ) );
         for (int i = 0;i<10;i++) {
-            buttonBateauJ1[i] = new JButton ("Bateau " + (i + 1));
+            buttonBateauJ1[i] = new JButton (bateauName[i%5]);
             listBateauJ1.add(buttonBateauJ1[i]);
         }
         listBateauJ1.setLayout (new BoxLayout (listBateauJ1, BoxLayout.Y_AXIS));
@@ -95,7 +95,7 @@ public class Affichage extends JFrame {
         listBateauJ2.setBackground(Color.GRAY);
         listBateauJ2.setPreferredSize( new Dimension( 150, 400 ) );
         for (int i = 0;i<10;i++) {
-            buttonBateauJ2[i] = new JButton ("Bateau " + (i + 1));
+            buttonBateauJ2[i] = new JButton (bateauName[i%5]);
             listBateauJ2.add(buttonBateauJ2[i]);
         }
         listBateauJ2.setLayout (new BoxLayout (listBateauJ2, BoxLayout.Y_AXIS));
@@ -108,6 +108,7 @@ public class Affichage extends JFrame {
 
         container.add(Menu, "menu");
         container.add(Mode, "mode");
+        container.add(NombreBateau, "nbBat");
         container.add(plateau, "plateau");
         c.show(container, "menu");
         this.add(container);
@@ -137,6 +138,24 @@ public class Affichage extends JFrame {
     public void addcoderougeListener(ActionListener ListenForcoderougeButton){
         coderouge.addActionListener(ListenForcoderougeButton);
     }
+    public void addGrille1Listener(BatailleController.ListenForMouse lForMouse){
+        for(int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                CelluleGrille1[i][j].addMouseListener(lForMouse);
+            }
+        }
+    }
+    public void addGrille2Listener(BatailleController.ListenForMouse lForMouse){
+        for(int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                CelluleGrille2[i][j].addMouseListener(lForMouse);
+            }
+        }
+    }
+
+
+
+
     public void drawGrille1(String[][] maGrille){
         for (int i = 0; i < 10; i++){
             for (int j=0; j < 10; j++){

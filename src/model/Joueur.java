@@ -156,7 +156,6 @@ public class Joueur {
 				}
 			}
 		}
-
 		return estMort;
 	}
 
