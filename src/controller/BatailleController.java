@@ -17,17 +17,26 @@ public class BatailleController {
         this.affichage = affichage;
         this.partie = partie;
 
+        //*****************            Menu           *****************
         this.affichage.addjvjListener(new menuListener(false,false));
         this.affichage.addjvoListener(new menuListener(false, true));
         this.affichage.addovoListener(new menuListener(true, true));
+
+        //*****************          NbBateau           *****************
         this.affichage.addValidNBListener(new ValidNBListen());
+
+        //*****************          Mode           *****************
         this.affichage.addclassiqueListener(new modeListener("classique"));
         this.affichage.addradarListener(new modeListener("radar"));
         this.affichage.addartillerieListener(new modeListener("artillerie"));
         this.affichage.addcoderougeListener(new modeListener("coderouge"));
+
+        //*****************          Plateau           *****************
         this.affichage.addGrille1Listener(new ListenForMouse());
         this.affichage.addGrille2Listener(new ListenForMouse());
         this.affichage.addlistBateauJ1Listener(new ListenForBateauJ1());
+        this.affichage.addlistBateauJ2Listener(new ListenForBateauJ2());
+        this.affichage.addvaliderPlacementListener(new ListenForPlacement());
         //this.affichage.addcelluleListener(new cellulListener());
 
     }
@@ -72,7 +81,27 @@ public class BatailleController {
             affichage.setSelectBateau(parent.getText());
             }
         }
-    }    public class ListenForMouse implements MouseListener {
+    }
+    class ListenForBateauJ2 implements ActionListener{
+        public void actionPerformed(ActionEvent e) {
+            if(partie.J2doitplacerBat()){
+                JButton parent = (JButton)e.getSource();
+                System.out.println(parent);
+                affichage.setSelectBateau(parent.getText());
+            }
+        }
+    }
+
+
+    class ListenForPlacement implements ActionListener{
+        public void actionPerformed(ActionEvent e) {
+            partie.setJ1doitplacerBat(false);
+            partie.setJ2doitplacetBat(true);
+        }
+    }
+
+
+    public class ListenForMouse implements MouseListener {
 
         // Called when a mouse button is clicked
 
@@ -97,9 +126,18 @@ public class BatailleController {
                     affichage.drawGrille1(partie.j1.maGrille);
                 }
             }else{
+                System.out.println(partie.J2doitplacerBat() + " "+affichage.getSelectBateau());
+                if(partie.J2doitplacerBat() && affichage.getSelectBateau()!= null){
+                    String nomBat = affichage.getSelectBateau();
+                    Position pos = new Position(parent.getx(), parent.gety(), true);
+                    partie.j2.setBateauplacer(nomBat, pos);
+                    affichage.drawGrille2(partie.j2.maGrille);
+                }
                 System.out.println("Grille2");
-                partie.j2.getShot(parent.getx()+1, parent.gety()+1);
-                affichage.drawGrille2(partie.j2.maGrille);
+                if(partie.getJ2DoitTirer()) {
+                    partie.j2.getShot(parent.getx() + 1, parent.gety() + 1);
+                    affichage.drawGrille2(partie.j2.maGrille);
+                }
             }
 
             // System.out.println("Mouse Clicks: " + e.getClickCount()  + "\n");

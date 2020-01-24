@@ -82,7 +82,7 @@ public class Affichage extends JFrame {
 
         //*******************  Plateau de JEu ********************
 
-
+        //définition de la grille1
         Grille1.setBackground(Color.black);
         Grille1.setPreferredSize( new Dimension( 400, 400 ) );
         Grille1.setLayout(new GridLayout(10,10));
@@ -94,6 +94,7 @@ public class Affichage extends JFrame {
                 Grille1.add(CelluleGrille1[i][j]);
             }
         }
+        //définition de la grille2
         Grille2.setBackground(Color.BLUE);
         Grille2.setPreferredSize( new Dimension( 400, 400 ) );
         Grille2.setLayout(new GridLayout(10,10));
@@ -122,13 +123,17 @@ public class Affichage extends JFrame {
         }
         listBateauJ2.setLayout (new BoxLayout (listBateauJ2, BoxLayout.Y_AXIS));
 
+        validerPlacementBateau.setBackground(Color.green);
+        validerPlacementBateau.setPreferredSize(new Dimension(200,100));
+        validerPlacementBateau.setText("VALIDER");
 
         plateau.add(listBateauJ1);
         plateau.add(Grille1);
         plateau.add(Grille2);
         plateau.add(listBateauJ2);
+        plateau.add(validerPlacementBateau);
 
-        //****************** CardLayout ****************
+        //******************           CardLayout           ****************
         container.add(Menu, "menu");
         container.add(NombreBateau, "nbBat");
         container.add(Mode, "mode");
@@ -190,7 +195,15 @@ public class Affichage extends JFrame {
             buttonBateauJ1[i].addActionListener(ListenForBateauJ1);
         }
     }
+    public void addlistBateauJ2Listener(ActionListener ListenForBateauJ1){
+        for(int i = 0; i < 10; i++){
+            buttonBateauJ2[i].addActionListener(ListenForBateauJ1);
+        }
+    }
 
+    public void addvaliderPlacementListener(ActionListener ListenForPlacement){
+        validerPlacementBateau.addActionListener(ListenForPlacement);
+    }
 
     public int getComboBoxNbBat(){
         return Integer.parseInt(cb.getItemAt(cb.getSelectedIndex()).toString());
