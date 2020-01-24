@@ -18,11 +18,9 @@ public class Gui extends JFrame {
     private JButton xButton;
 
     public Gui(){
-        add(rootPanel);
         this.setUndecorated(true);
-        setTitle("BATAILLE NAVALE");
-        setSize(800,300);
-        final JFrame frame = new JFrame("Hello");
+        setSize(0,0);
+        final JFrame frame = new JFrame("BATAILLE NAVALE");
 
 
 
@@ -31,12 +29,14 @@ public class Gui extends JFrame {
             public void run() {
                 frame.setUndecorated(true);
                 frame.setBounds(0, 0, 800, 300);
-                frame.setContentPane(rootPane);
+                frame.setContentPane(rootPanel);
                 FrameDragListener frameDragListener = new FrameDragListener(frame);
                 frame.addMouseListener(frameDragListener);
                 frame.addMouseMotionListener(frameDragListener);
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
+                rootPanel.setVisible(true);
+                pack();
             }
         };
 
@@ -117,8 +117,7 @@ public class Gui extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 ChoixMode m1 = new ChoixMode();
-                m1.setLocationRelativeTo(null);
-
+                m1.setLocation(frame.getX(), frame.getY());
                 m1.setVisible(true);
                 dispose();
                 frame.dispose();
@@ -131,7 +130,7 @@ public class Gui extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 ChoixMode m1 = new ChoixMode();
-                m1.setLocationRelativeTo(null);
+                m1.setLocation(frame.getX(), frame.getY());
 
                 m1.setVisible(true);
                 dispose();
@@ -145,7 +144,7 @@ public class Gui extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 ChoixMode m1 = new ChoixMode();
-                m1.setLocationRelativeTo(null);
+                m1.setLocation(frame.getX(), frame.getY());
 
                 m1.setVisible(true);
                 dispose();

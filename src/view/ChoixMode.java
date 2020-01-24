@@ -22,6 +22,7 @@ public class ChoixMode extends JFrame  {
         add(rootPanel);
         this.setUndecorated(true);
 
+
         BATAILLENAVALEButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -117,7 +118,7 @@ public class ChoixMode extends JFrame  {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 Gui g1 = new Gui();
-                g1.setLocationRelativeTo(null);
+                g1.setLocation(rootPanel.getLocation());
                 g1.setVisible(true);
                 dispose();
             }
