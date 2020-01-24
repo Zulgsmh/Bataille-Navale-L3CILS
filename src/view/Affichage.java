@@ -165,6 +165,12 @@ public class Affichage extends JFrame {
                 }else if(maGrille[i][j].equals("PLOF")){
                 CelluleGrille1[i][j].setColor(Color.black);
                 CelluleGrille1[i][j].setNom(maGrille[i][j]);
+                }else if(maGrille[i][j].equals("SHOT")){
+                    CelluleGrille1[i][j].setColor(Color.orange);
+                    CelluleGrille1[i][j].setNom(maGrille[i][j]);
+                }else{
+                    CelluleGrille1[i][j].setColor(Color.red);
+                    CelluleGrille1[i][j].setNom(maGrille[i][j]);
                 }
             }
         }
@@ -176,6 +182,12 @@ public class Affichage extends JFrame {
                     CelluleGrille2[i][j].setColor(Color.CYAN);
                 }else if(maGrille[i][j].equals("PLOF")){
                     CelluleGrille2[i][j].setColor(Color.black);
+                    CelluleGrille2[i][j].setNom(maGrille[i][j]);
+                }else if(maGrille[i][j].equals("SHOT")){
+                    CelluleGrille2[i][j].setColor(Color.orange);
+                    CelluleGrille2[i][j].setNom(maGrille[i][j]);
+                }else{
+                    CelluleGrille2[i][j].setColor(Color.red);
                     CelluleGrille2[i][j].setNom(maGrille[i][j]);
                 }
             }

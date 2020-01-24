@@ -50,9 +50,11 @@ public class BatailleController {
         public void actionPerformed(ActionEvent e) {
             partie.ModeJ = this.mode;
             affichage.setContainer("plateau");
-            partie.nbBateau = 1;
+            partie.nbBateau = 5;
             partie.placerBateauJ1();
             partie.placerBateauJ2();
+            affichage.drawGrille1(partie.j1.maGrille);
+            affichage.drawGrille2(partie.j2.maGrille);
         }
     }
     public class ListenForMouse implements MouseListener {
@@ -87,7 +89,7 @@ public class BatailleController {
         public void mouseEntered(MouseEvent e) {
             JPanel parent = (JPanel)e.getSource();
             if (parent.getBackground().equals(Color.CYAN)) {
-                parent.setBackground(Color.RED);
+                parent.setBackground(Color.gray);
             }
             //parent.revalidate();
         }
@@ -96,7 +98,7 @@ public class BatailleController {
 
         public void mouseExited(MouseEvent e) {
             JPanel parent = (JPanel)e.getSource();
-            if (parent.getBackground().equals(Color.RED)) {
+            if (parent.getBackground().equals(Color.gray)) {
                 parent.setBackground(Color.CYAN);
             }
         }

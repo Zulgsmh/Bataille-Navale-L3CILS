@@ -224,9 +224,6 @@ public class Partie {
 	/**
 	 * 
 	 */
-	public void swapJoueur() {
-		// TODO implement here
-	}
 
 	/**
 	 * 
