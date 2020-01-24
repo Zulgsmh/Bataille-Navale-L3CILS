@@ -2,13 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="635642d4-1886-4456-858c-53f14de0c40e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/controller/BatailleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/Affichage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/cellule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/model/Joueur.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/model/Joueur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/model/Main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/model/Partie.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/model/Partie.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Joueur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/Gui$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/Gui$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/Gui$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/Gui$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/Gui$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/Gui$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/Gui$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/Gui$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/Gui$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/Gui.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/Plateau.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Partie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Partie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ChoixMode.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ChoixMode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Gui.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Gui.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Plateau.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Plateau.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +74,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="false" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="299" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -51,20 +88,7 @@
       <recent name="C:\Users\nathan\Desktop\Bataille-Navale-L3CILS\src\view" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.Main" />
-      <module name="ProjetBatailleNavaleL3CILS" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.controller">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="C:/Program Files/Java/jdk-13.0.2" />
       <option name="MAIN_CLASS_NAME" value="model.Main" />
@@ -121,15 +145,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="controller" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="controller.Main" />
+      <module name="ProjetBatailleNavaleL3CILS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.Main (1)" />
+      <item itemvalue="Application.controller" />
       <item itemvalue="Application.Main1" />
       <item itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.controller" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main1" />
         <item itemvalue="Application.Main" />
       </list>
@@ -166,16 +203,21 @@
     </state>
     <state x="226" y="16" key="#Project_Structure/0.0.1360.728@0.0.1360.728" timestamp="1579801671694" />
     <state x="2239" y="23" key="#Project_Structure/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579802817220" />
-    <state x="2334" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579802927925">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="181" y="43" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579840065877">
+      <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state x="181" y="43" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1360.728@0.0.1360.728" timestamp="1579802613544" />
+    <state x="181" y="43" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1360.728@0.0.1360.728" timestamp="1579840065877" />
     <state x="414" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579783457495" />
     <state x="2334" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579802927925" />
-    <state x="2685" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1579794863362">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="542" y="146" key="#com.intellij.ide.util.MemberChooser" timestamp="1579836595457">
+      <screen x="0" y="0" width="1360" height="728" />
     </state>
+    <state x="542" y="146" key="#com.intellij.ide.util.MemberChooser/0.0.1360.728@0.0.1360.728" timestamp="1579836595457" />
     <state x="2685" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579794863362" />
+    <state x="456" y="175" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1579839934371">
+      <screen x="0" y="0" width="1360" height="728" />
+    </state>
+    <state x="456" y="175" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1360.728@0.0.1360.728" timestamp="1579839934371" />
     <state x="2609" y="312" key="#com.intellij.ide.util.TreeFileChooserDialog" timestamp="1579797236440">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -193,6 +235,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="204" y="6" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579785151472" />
+    <state x="410" y="113" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1579828380723">
+      <screen x="0" y="0" width="1360" height="728" />
+    </state>
+    <state x="410" y="113" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1360.728@0.0.1360.728" timestamp="1579828380723" />
     <state x="2753" y="415" key="#com.intellij.uiDesigner.palette.ComponentItemDialog.OneOff" timestamp="1579797564818">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -201,30 +247,46 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2660" y="263" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579802095742" />
-    <state width="528" height="592" key="GridCell.Tab.0.bottom" timestamp="1579825590308">
+    <state width="1317" height="164" key="GridCell.Tab.0.bottom" timestamp="1579846704923">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state width="528" height="592" key="GridCell.Tab.0.bottom/0.0.1360.728@0.0.1360.728" timestamp="1579825590308" />
+    <state width="1317" height="164" key="GridCell.Tab.0.bottom/0.0.1360.728@0.0.1360.728" timestamp="1579846704923" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579785926211" />
     <state width="1877" height="273" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579803027225" />
-    <state width="528" height="592" key="GridCell.Tab.0.center" timestamp="1579825590308">
+    <state width="1317" height="164" key="GridCell.Tab.0.center" timestamp="1579846704923">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state width="528" height="592" key="GridCell.Tab.0.center/0.0.1360.728@0.0.1360.728" timestamp="1579825590308" />
+    <state width="1317" height="164" key="GridCell.Tab.0.center/0.0.1360.728@0.0.1360.728" timestamp="1579846704923" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579785926211" />
     <state width="1877" height="273" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579803027225" />
-    <state width="528" height="592" key="GridCell.Tab.0.left" timestamp="1579825590307">
+    <state width="1317" height="164" key="GridCell.Tab.0.left" timestamp="1579846704923">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state width="528" height="592" key="GridCell.Tab.0.left/0.0.1360.728@0.0.1360.728" timestamp="1579825590307" />
+    <state width="1317" height="164" key="GridCell.Tab.0.left/0.0.1360.728@0.0.1360.728" timestamp="1579846704923" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579785926211" />
     <state width="1877" height="273" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579803027225" />
-    <state width="528" height="592" key="GridCell.Tab.0.right" timestamp="1579825590308">
+    <state width="1317" height="164" key="GridCell.Tab.0.right" timestamp="1579846704923">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state width="528" height="592" key="GridCell.Tab.0.right/0.0.1360.728@0.0.1360.728" timestamp="1579825590308" />
+    <state width="1317" height="164" key="GridCell.Tab.0.right/0.0.1360.728@0.0.1360.728" timestamp="1579846704923" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579785926211" />
     <state width="1877" height="273" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579803027225" />
+    <state width="1317" height="223" key="GridCell.Tab.1.bottom" timestamp="1579840400212">
+      <screen x="0" y="0" width="1360" height="728" />
+    </state>
+    <state width="1317" height="223" key="GridCell.Tab.1.bottom/0.0.1360.728@0.0.1360.728" timestamp="1579840400212" />
+    <state width="1317" height="223" key="GridCell.Tab.1.center" timestamp="1579840400212">
+      <screen x="0" y="0" width="1360" height="728" />
+    </state>
+    <state width="1317" height="223" key="GridCell.Tab.1.center/0.0.1360.728@0.0.1360.728" timestamp="1579840400212" />
+    <state width="1317" height="223" key="GridCell.Tab.1.left" timestamp="1579840400211">
+      <screen x="0" y="0" width="1360" height="728" />
+    </state>
+    <state width="1317" height="223" key="GridCell.Tab.1.left/0.0.1360.728@0.0.1360.728" timestamp="1579840400211" />
+    <state width="1317" height="223" key="GridCell.Tab.1.right" timestamp="1579840400212">
+      <screen x="0" y="0" width="1360" height="728" />
+    </state>
+    <state width="1317" height="223" key="GridCell.Tab.1.right/0.0.1360.728@0.0.1360.728" timestamp="1579840400212" />
     <state x="2311" y="77" key="SettingsEditor" timestamp="1579802895725">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

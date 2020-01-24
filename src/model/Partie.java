@@ -11,9 +11,7 @@ public class Partie {
 	/**
 	 * Default constructor
 	 */
-	public Partie(Joueur j1, Joueur j2) {
-		this.j1 = j1;
-		this.j2 = j2;
+	public Partie() {
 	}
 
 	/**
@@ -24,10 +22,10 @@ public class Partie {
 	/**
 	 * 
 	 */
-	public ModeJeu ModeJ;
+	public String ModeJ;
 
-	public Joueur j1;
-	public Joueur j2;
+	public Joueur j1 = new Joueur();
+	public Joueur j2 = new Joueur();
 	public int nbBateau=0;
 
 	/**

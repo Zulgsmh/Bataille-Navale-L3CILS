@@ -1,4 +1,4 @@
-package model;
+/*package model;
 
 public class Main {
 
@@ -42,3 +42,4 @@ public class Main {
 	}
 
 }
+*/
