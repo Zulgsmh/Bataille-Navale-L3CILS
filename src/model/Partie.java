@@ -47,7 +47,6 @@ public class Partie {
 		}
 		System.out.println("COMBIEN DE BATEAU?");
 		this.nbBateau = in.nextInt();
-		System.out.println(this.nbBateau);
 		// TODO implement here
 	}
 
@@ -84,7 +83,7 @@ public class Partie {
 		Boolean mort = this.j2.getShot(x, y);
 		if (this.j2.getDejaCible()) {
 			this.j2.setDejaCible(false);
-			System.out.println("Tu as déja tiré ici mon khey !");
+			System.out.println("Tu as dï¿½ja tirï¿½ ici mon khey !");
 			this.J1tirer();
 		}
 		this.j1.setGrilleAdverse(this.j2.maGrille);
@@ -108,7 +107,7 @@ public class Partie {
 		Boolean mort = this.j1.getShot(x, y);
 		if (this.j1.getDejaCible()) {
 			this.j1.setDejaCible(false);
-			System.out.println("Tu as déja tiré ici mon khey !");
+			System.out.println("Tu as dï¿½ja tirï¿½ ici mon khey !");
 			this.J2tirer();
 		}
 		this.j2.setGrilleAdverse(this.j1.maGrille);
@@ -126,7 +125,7 @@ public class Partie {
 		Boolean mort = this.j1.getShot(x, y);
 		if (this.j1.getDejaCible()) {
 			this.j1.setDejaCible(false);
-			System.out.println("Tu as déja tiré ici mon khey !");
+			System.out.println("Tu as dï¿½ja tirï¿½ ici mon khey !");
 			this.J2tirer();
 		}
 		this.j2.setGrilleAdverse(this.j1.maGrille);
@@ -144,7 +143,7 @@ public class Partie {
 		Boolean mort = this.j1.getShot(x, y);
 		if (this.j1.getDejaCible()) {
 			this.j1.setDejaCible(false);
-			System.out.println("Tu as déja tiré ici mon khey !");
+			System.out.println("Tu as dï¿½ja tirï¿½ ici mon khey !");
 			this.J2tirer();
 		}
 		this.j2.setGrilleAdverse(this.j1.maGrille);

@@ -174,6 +174,7 @@ public class Joueur {
 		boolean verticale = true;
 		for (int nb = 0; nb < nbbateau; nb++) {
 			boolean valid = false;
+			this.displayMaGrille();
 			while (!valid) {
 				System.out.print(
 						"quel bateau : \n 1)portes avion \n 2)sous-marin \n 3)cuirassï¿½1 \n 4)cuirassï¿½2 \n 5)zodiac\n");
@@ -244,7 +245,7 @@ public class Joueur {
 								String cellule = this.maGrille[i][j];
 								if (cellule != null) {
 									System.out.println(i + " " + j
-											+ "Le bateau que tu viens de placer est à coté d'un autre ! Replace le de nouveau");
+											+ "Le bateau que tu viens de placer est ï¿½ cotï¿½ d'un autre ! Replace le de nouveau");
 									valid = false;
 									break;
 								}
@@ -261,7 +262,7 @@ public class Joueur {
 								String cellule = this.maGrille[i][j];
 								if (cellule != null) {
 									System.out.println(
-											"2Le bateau que tu viens de placer est à coté d'un autre ! Replace le de nouveau");
+											"2Le bateau que tu viens de placer est ï¿½ cotï¿½ d'un autre ! Replace le de nouveau");
 									valid = false;
 									break;
 								}

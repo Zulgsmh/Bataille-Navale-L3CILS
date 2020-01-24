@@ -24,8 +24,6 @@ public class Main {
 		Partie p = new Partie(j1, j2);
 //		placement des bateau
 		p.startBataille();
-		p.j1.placerBateau(p.nbBateau);
-		p.j2.placerBateau(p.nbBateau);
 		p.placerBateauJ1();
 		p.placerBateauJ2();
 
