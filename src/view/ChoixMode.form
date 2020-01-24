@@ -18,8 +18,7 @@
           <background color="-9549085"/>
           <borderPainted value="false"/>
           <enabled value="true"/>
-          <focusPainted value="false"/>
-          <focusable value="false"/>
+          <focusPainted value="true"/>
           <font name="Arial Black" size="26"/>
           <foreground color="-1"/>
           <text value="BATAILLE NAVALE"/>
@@ -33,8 +32,6 @@
           <background color="-9549085"/>
           <borderPainted value="false"/>
           <contentAreaFilled value="true"/>
-          <focusPainted value="false"/>
-          <focusable value="false"/>
           <font name="Arial Black" size="26"/>
           <foreground color="-1"/>
           <text value="MISSION RADAR"/>
@@ -48,8 +45,7 @@
           <background color="-9549085"/>
           <borderPainted value="false"/>
           <contentAreaFilled value="true"/>
-          <focusPainted value="false"/>
-          <focusable value="false"/>
+          <focusPainted value="true"/>
           <font name="Arial Black" size="26"/>
           <foreground color="-1"/>
           <text value="OPERATION ARTILLERIE"/>
@@ -62,8 +58,6 @@
         <properties>
           <background color="-9549085"/>
           <borderPainted value="false"/>
-          <focusPainted value="false"/>
-          <focusable value="false"/>
           <font name="Arial Black" size="26"/>
           <foreground color="-1"/>
           <text value="RETOUR"/>
@@ -77,8 +71,6 @@
           <background color="-9549085"/>
           <borderPainted value="false"/>
           <contentAreaFilled value="true"/>
-          <focusPainted value="false"/>
-          <focusable value="false"/>
           <font name="Arial Black" size="26"/>
           <foreground color="-1"/>
           <text value="ALERTE ROUGE"/>
