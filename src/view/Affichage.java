@@ -12,28 +12,39 @@ public class Affichage extends JFrame {
     private CardLayout c = new CardLayout();
     private JPanel container = new JPanel();
 
+
     private JPanel Menu = new JPanel();
+
     private JButton jvj = new JButton("JVJ");
     private JButton jvo = new JButton("JVO");
     private JButton ovo = new JButton("OVO");
 
 
+
     private JPanel Mode = new JPanel();
+
     private JButton classique = new JButton("Classique");
     private JButton radar = new JButton("Radar");
     private JButton artillerie = new JButton("artillerie");
     private JButton coderouge = new JButton("Code Rouge");
 
+
+
     private JPanel NombreBateau = new JPanel();
+
     private String num[]={"1","2","3","4","5"};
     private JComboBox cb=new JComboBox(num);
     private JButton validNB = new JButton();
 
+
+
     private JPanel plateau = new JPanel();
+
     private JPanel Grille1 = new JPanel();
     private JPanel Grille2 = new JPanel();
     private JPanel listBateauJ1 = new JPanel();
     private JPanel listBateauJ2 = new JPanel();
+    private JButton validerPlacementBateau = new JButton();
     private cellule[][] CelluleGrille1 = new cellule[10][10];
     private cellule[][] CelluleGrille2 = new cellule[10][10];
     private JButton[] buttonBateauJ1 = new JButton[10];
@@ -46,20 +57,30 @@ public class Affichage extends JFrame {
         this.setSize(1200,600);
         container.setLayout(c);
 
+        //*******************  MENU  ***********************
+
+
         Menu.add(jvj);
         Menu.add(jvo);
         Menu.add(ovo);
+
+        //*******************  MODE *************************
+
 
         Mode.add(classique);
         Mode.add(radar);
         Mode.add(artillerie);
         Mode.add(coderouge);
 
+        //*******************  NombreBateau *******************
+
 
         cb.setBounds(50, 50,100,400);
-
         NombreBateau.add(cb);
         NombreBateau.add(validNB);
+
+
+        //*******************  Plateau de JEu ********************
 
 
         Grille1.setBackground(Color.black);
@@ -107,6 +128,7 @@ public class Affichage extends JFrame {
         plateau.add(Grille2);
         plateau.add(listBateauJ2);
 
+        //****************** CardLayout ****************
         container.add(Menu, "menu");
         container.add(NombreBateau, "nbBat");
         container.add(Mode, "mode");

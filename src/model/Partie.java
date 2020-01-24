@@ -34,8 +34,8 @@ public class Partie {
 	private Boolean typeRadar=false;
 	private Boolean typeAR=false;
 	private Boolean typeArti=false;
-	private Boolean j1DoitPlacerBateau = true;
-	private Boolean j1DoitTirer = false;
+	private Boolean j1DoitPlacerBateau = false;
+	private Boolean j1DoitTirer = true;
 	private Boolean j2DoitPlacerBateau = false;
 	private Boolean j2DoitTirer = false;
 

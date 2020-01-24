@@ -354,9 +354,9 @@ public class Joueur {
 		} else if (typebateau.equals("SousMarin")){
 			this.s1.setPosition(posNavire);
 			this.s1.setEstPose(true);
-		} else if (typebateau.equals("PorteAvion")){
+		} else if (typebateau.equals("CuirasséFurtif1")){
 			this.c1.setPosition(posNavire);
-			this.c1.setNom("CuirasséFurtif1");
+			this.c1.setNom("CUI1");
 			this.c1.setEstPose(true);
 		} else if (typebateau.equals("CuirasséFurtif2")){
 			this.c2.setPosition(posNavire);
