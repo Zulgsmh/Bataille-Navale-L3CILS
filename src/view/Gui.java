@@ -22,12 +22,13 @@ public class Gui extends JFrame {
         this.setUndecorated(true);
         setTitle("BATAILLE NAVALE");
         setSize(800,300);
+        final JFrame frame = new JFrame("Hello");
+
 
 
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                final JFrame frame = new JFrame("Hello");
                 frame.setUndecorated(true);
                 frame.setBounds(0, 0, 800, 300);
                 frame.setContentPane(rootPane);
@@ -120,6 +121,8 @@ public class Gui extends JFrame {
 
                 m1.setVisible(true);
                 dispose();
+                frame.dispose();
+
 
             }
         });
@@ -132,6 +135,8 @@ public class Gui extends JFrame {
 
                 m1.setVisible(true);
                 dispose();
+                frame.dispose();
+
 
             }
         });
@@ -144,6 +149,7 @@ public class Gui extends JFrame {
 
                 m1.setVisible(true);
                 dispose();
+                frame.dispose();
 
             }
         });
@@ -152,6 +158,7 @@ public class Gui extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 dispose();
+                frame.dispose();
             }
         });
 
