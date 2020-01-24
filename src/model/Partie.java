@@ -85,7 +85,7 @@ public class Partie {
 				System.out.println("Tu as d�ja tir� ici mon khey !");
 				this.J1tirer();
 			}
-			this.j1.setGrilleAdverse(this.j1.maGrille);
+			this.j1.setGrilleAdverse(this.j2.maGrille);
 			this.j1.displayGrilleAdverse();
 			this.j1.displayMaGrille();
 
