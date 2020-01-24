@@ -27,7 +27,7 @@ public class Main {
 		p.placerBateauJ2();
 
 //		boucle de la game
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 100; i++) {
 			if (p.J1tirer()) {
 				System.out.println("Joueur 1 a GAGNE !");
 				break;
