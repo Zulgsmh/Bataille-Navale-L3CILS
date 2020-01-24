@@ -25,11 +25,9 @@ public class Affichage extends JFrame {
     private JButton coderouge = new JButton("Code Rouge");
 
     private JPanel NombreBateau = new JPanel();
-    private JButton n1 = new JButton("1");
-    private JButton n2 = new JButton("2");
-    private JButton n3 = new JButton("3");
-    private JButton n4 = new JButton("4");
-    private JButton n5 = new JButton("5");
+    private String num[]={"1","2","3","4","5"};
+    private JComboBox cb=new JComboBox(num);
+    private JButton validNB = new JButton();
 
     private JPanel plateau = new JPanel();
     private JPanel Grille1 = new JPanel();
@@ -41,6 +39,8 @@ public class Affichage extends JFrame {
     private JButton[] buttonBateauJ1 = new JButton[10];
     private JButton[] buttonBateauJ2 = new JButton[10];
     private String[] bateauName = {"PorteAvion", "SousMarin", "CuirasséFurtif1", "CuirasséFurtif2","Zodiac"};
+
+
     public Affichage(){
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1200,600);
@@ -55,11 +55,11 @@ public class Affichage extends JFrame {
         Mode.add(artillerie);
         Mode.add(coderouge);
 
-        NombreBateau.add(n1);
-        NombreBateau.add(n2);
-        NombreBateau.add(n3);
-        NombreBateau.add(n4);
-        NombreBateau.add(n5);
+
+        cb.setBounds(50, 50,100,400);
+
+        NombreBateau.add(cb);
+        NombreBateau.add(validNB);
 
 
         Grille1.setBackground(Color.black);
@@ -108,8 +108,8 @@ public class Affichage extends JFrame {
         plateau.add(listBateauJ2);
 
         container.add(Menu, "menu");
-        container.add(Mode, "mode");
         container.add(NombreBateau, "nbBat");
+        container.add(Mode, "mode");
         container.add(plateau, "plateau");
         c.show(container, "menu");
         this.add(container);
@@ -126,6 +126,9 @@ public class Affichage extends JFrame {
     }
     public void addovoListener(ActionListener ListenForovoButton){
         ovo.addActionListener(ListenForovoButton);
+    }
+    public void addValidNBListener(ActionListener ListenForValidNBButton){
+        validNB.addActionListener(ListenForValidNBButton);
     }
     public void addclassiqueListener(ActionListener ListenForclassiqueButton){
         classique.addActionListener(ListenForclassiqueButton);
@@ -155,7 +158,9 @@ public class Affichage extends JFrame {
     }
 
 
-
+    public int getComboBoxNbBat(){
+        return Integer.parseInt(cb.getItemAt(cb.getSelectedIndex()).toString());
+    }
 
     public void drawGrille1(String[][] maGrille){
         for (int i = 0; i < 10; i++){

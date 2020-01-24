@@ -20,6 +20,7 @@ public class BatailleController {
         this.affichage.addjvjListener(new menuListener(false,false));
         this.affichage.addjvoListener(new menuListener(false, true));
         this.affichage.addovoListener(new menuListener(true, true));
+        this.affichage.addValidNBListener(new ValidNBListen());
         this.affichage.addclassiqueListener(new modeListener("classique"));
         this.affichage.addradarListener(new modeListener("radar"));
         this.affichage.addartillerieListener(new modeListener("artillerie"));
@@ -39,7 +40,7 @@ public class BatailleController {
         public void actionPerformed(ActionEvent e) {
             partie.j1.setEstOrdi(this.j1);
             partie.j2.setEstOrdi(this.j2);
-            affichage.setContainer("mode");
+            affichage.setContainer("nbBat");
         }
     }
     class modeListener implements ActionListener{
@@ -50,13 +51,19 @@ public class BatailleController {
         public void actionPerformed(ActionEvent e) {
             partie.ModeJ = this.mode;
             affichage.setContainer("plateau");
-            partie.nbBateau = 5;
             partie.placerBateauJ1();
             partie.placerBateauJ2();
             affichage.drawGrille1(partie.j1.maGrille);
             affichage.drawGrille2(partie.j2.maGrille);
         }
     }
+    class ValidNBListen implements ActionListener{
+        public void actionPerformed(ActionEvent e) {
+            affichage.setContainer("mode");
+            partie.nbBateau = affichage.getComboBoxNbBat();
+        }
+    }
+
     public class ListenForMouse implements MouseListener {
 
         // Called when a mouse button is clicked
