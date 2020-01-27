@@ -153,7 +153,8 @@ public class Affichage extends JFrame {
         container.add(plateau, "plateau");
         c.show(container, "menu");
         this.add(container);
-        System.setProperty("marron", "0X5C452E");
+        System.setProperty("marron", "0XA95B23");
+        System.setProperty("orange", "0XFA5C00");
 
     }
     public void setContainer(String card){
@@ -232,7 +233,7 @@ public class Affichage extends JFrame {
                 }else if(maGrille[i][j].equals("PLOF")){
                 CelluleGrille1[i][j].setColor(Color.black);
                 }else if(maGrille[i][j].equals("SHOT")){
-                    CelluleGrille1[i][j].setColor(Color.orange);
+                    CelluleGrille1[i][j].setColor(Color.getColor("orange"));
                 }else if (!hide) {
                     if(maGrille[i][j].equals("PORT")){
                         CelluleGrille1[i][j].setColor(Color.getColor("marron"));
@@ -258,7 +259,7 @@ public class Affichage extends JFrame {
                 } else if (maGrille[i][j].equals("PLOF")) {
                     CelluleGrille2[i][j].setColor(Color.black);
                 } else if (maGrille[i][j].equals("SHOT")) {
-                    CelluleGrille2[i][j].setColor(Color.orange);
+                    CelluleGrille2[i][j].setColor(Color.getColor("orange"));
                 }else if (!hide) {
                     if (maGrille[i][j].equals("PORT")) {
                         CelluleGrille2[i][j].setColor(Color.getColor("marron"));
