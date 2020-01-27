@@ -165,9 +165,13 @@ public class BatailleController {
         // the MouseListener
 
         public void mouseEntered(MouseEvent e) {
-            JPanel parent = (JPanel)e.getSource();
+            cellule parent = (cellule)e.getSource();
             if (parent.getBackground().equals(Color.CYAN)) {
-                parent.setBackground(Color.gray);
+                boolean ciblerj2  = parent.getAppartient().equals("j2") && partie.getJ1DoitTirer();
+                boolean ciblerj1 = parent.getAppartient().equals("j1") && partie.getJ2DoitTirer();
+                if(ciblerj1 || ciblerj2){
+                    parent.setBackground(Color.red);
+                }else{ parent.setBackground(Color.gray);}
             }
             //parent.revalidate();
         }
@@ -177,6 +181,9 @@ public class BatailleController {
         public void mouseExited(MouseEvent e) {
             JPanel parent = (JPanel)e.getSource();
             if (parent.getBackground().equals(Color.gray)) {
+                parent.setBackground(Color.CYAN);
+            }
+            if((partie.getJ1DoitTirer()||partie.getJ2DoitTirer() )&& parent.getBackground().equals(Color.red)){
                 parent.setBackground(Color.CYAN);
             }
         }
