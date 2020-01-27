@@ -98,12 +98,12 @@ public class BatailleController {
             partie.setJ2doitplacetBat(true);
             affichage.drawGrille1(partie.j1.maGrille, true);
         }else if(partie.J2doitplacerBat()){
-                System.out.println("c'est l'heure du DUELLLLLLLL");
                 partie.setJ2doitplacetBat(false);
                 partie.setJ1DoitTirer(true);
                 JButton parent = (JButton)e.getSource();
                 parent.setVisible(false);
                 affichage.drawGrille2(partie.j2.maGrille, true);
+                affichage.drawGrille1(partie.j1.maGrille, false);
             }
         }
     }
@@ -130,12 +130,12 @@ public class BatailleController {
                     affichage.drawGrille1(partie.j1.maGrille, false);
                 }
 //                System.out.println("Grille1");
-                if(partie.getJ1DoitTirer()) {
+                if(partie.getJ2DoitTirer()) {
                     partie.j1.getShot(parent.getx() + 1, parent.gety() + 1);
-                    affichage.drawGrille1(partie.j1.maGrille, true);
-                    affichage.drawGrille1(partie.j1.maGrille, true);
-                    partie.setJ1DoitTirer(false);
-                    partie.setJ2DoitTirer(true);
+                    affichage.drawGrille2(partie.j2.maGrille, true);
+                    affichage.drawGrille1(partie.j1.maGrille, false);
+                    partie.setJ1DoitTirer(true);
+                    partie.setJ2DoitTirer(false);
                 }
             }else{
 //                System.out.println(partie.J2doitplacerBat() + " "+affichage.getSelectBateau().getText());
@@ -147,12 +147,12 @@ public class BatailleController {
                     affichage.drawGrille2(partie.j2.maGrille, false);
                 }
 //                System.out.println("Grille2");
-                if(partie.getJ2DoitTirer()) {
+                if(partie.getJ1DoitTirer()) {
                     partie.j2.getShot(parent.getx() + 1, parent.gety() + 1);
-                    affichage.drawGrille2(partie.j2.maGrille, true);
                     affichage.drawGrille1(partie.j1.maGrille, true);
-                    partie.setJ1DoitTirer(true);
-                    partie.setJ2DoitTirer(false);
+                    affichage.drawGrille2(partie.j2.maGrille, false);
+                    partie.setJ1DoitTirer(false);
+                    partie.setJ2DoitTirer(true);
                 }
             }
 
