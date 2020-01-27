@@ -7,8 +7,8 @@ import java.awt.event.MouseEvent;
 
 
 public class Gui extends JFrame {
-    Color purple = new Color(110,74,227);
-    Color dRed = new Color(227,64,88);
+    Color purple = new Color(110, 74, 227);
+    Color dRed = new Color(227, 64, 88);
     private JPanel rootPanel;
     private JButton DEMO;
     private JButton UN;
@@ -17,11 +17,10 @@ public class Gui extends JFrame {
     private JTextField BATAILLENAVALETextField;
     private JButton xButton;
 
-    public Gui(){
+    public Gui() {
         this.setUndecorated(true);
-        setSize(0,0);
+        setSize(0, 0);
         final JFrame frame = new JFrame("BATAILLE NAVALE");
-
 
 
         Runnable runnable = new Runnable() {
@@ -39,7 +38,6 @@ public class Gui extends JFrame {
                 pack();
             }
         };
-
 
 
         UN.addMouseListener(new MouseAdapter() {
@@ -131,7 +129,6 @@ public class Gui extends JFrame {
                 super.mouseClicked(e);
                 ChoixMode m1 = new ChoixMode();
                 m1.setLocation(frame.getX(), frame.getY());
-
                 m1.setVisible(true);
                 dispose();
                 frame.dispose();
@@ -191,6 +188,4 @@ public class Gui extends JFrame {
         }
 
     }
-
-
 }

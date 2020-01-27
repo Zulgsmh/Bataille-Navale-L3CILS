@@ -70,7 +70,7 @@ public abstract class Navire {
 		this.vie--;
 		if (this.vie == 0) {
 			this.getEstCoule();
-			System.out.println("bateau coule");
+			System.out.println("bateau coule : " + this.nom);
 		}
 	}
 

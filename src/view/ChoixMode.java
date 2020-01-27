@@ -1,11 +1,13 @@
 package view;
 
+import model.Partie;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class ChoixMode extends JFrame  {
+public class ChoixMode extends JFrame {
 
     private JButton ALERTEROUGEButton;
     private JPanel rootPanel;
@@ -14,7 +16,7 @@ public class ChoixMode extends JFrame  {
     private JButton MISSIONRADARButton;
     private JButton button1;
 
-    Color purple = new Color(110,74,227);
+    Color purple = new Color(110, 74, 227);
     Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
     public ChoixMode() {
@@ -59,7 +61,8 @@ public class ChoixMode extends JFrame  {
                 OPERATIONARTILLERIEButton.setForeground(Color.white);
 
             }
-        });  MISSIONRADARButton.addMouseListener(new MouseAdapter() {
+        });
+        MISSIONRADARButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
@@ -120,7 +123,25 @@ public class ChoixMode extends JFrame  {
                 Gui g1 = new Gui();
                 g1.setLocation(rootPanel.getLocation());
                 g1.setVisible(true);
+
                 dispose();
+            }
+        });
+        BATAILLENAVALEButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+
+            }
+        });
+        BATAILLENAVALEButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                Partie p = new Partie();
+                Affichage a = new Affichage();
+                BatailleController c = new BatailleController(a, p);
+                a.setVisible(true);
             }
         });
     }

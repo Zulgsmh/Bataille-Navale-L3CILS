@@ -1,4 +1,5 @@
 package view;
+import model.*;
 
 public class Main {
 

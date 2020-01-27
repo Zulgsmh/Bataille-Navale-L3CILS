@@ -2,10 +2,9 @@ package model;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		// TODO Auto-generated method stub
-
-//PorteAvion pa= new PorteAvion();
+        // PorteAvion pa= new PorteAvion();
 //
 ////System.out.println(pos);
 //
@@ -21,16 +20,14 @@ public class Main {
 //
 		Joueur j2 = new Joueur();
 //
-		Partie p = new Partie(j1, j2);
+		Partie p = new Partie();
 //		placement des bateau
 		p.startBataille();
-		p.j1.placerBateau(p.nbBateau);
-		p.j2.placerBateau(p.nbBateau);
 		p.placerBateauJ1();
 		p.placerBateauJ2();
 
 //		boucle de la game
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 1000; i++) {
 			if (p.J1tirer()) {
 				System.out.println("Joueur 1 a GAGNE !");
 				break;
@@ -40,7 +37,6 @@ public class Main {
 				break;
 			}
 		}
-
 	}
 
 }

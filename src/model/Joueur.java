@@ -126,6 +126,7 @@ public class Joueur {
 	}
 
 	public Boolean getShot(int x, int y) {
+		System.out.println("wtf");
 		String cellule = this.maGrille[x - 1][y - 1];
 		Boolean estMort = true;
 		if (cellule == null) {
@@ -136,10 +137,10 @@ public class Joueur {
 		} else if (cellule.equals("SOUS")) {
 			this.s1.setEstTouche(true);
 			this.setMaGrille(x - 1, y - 1, "SHOT");
-		} else if (cellule.equals("CUIS1")) {
+		} else if (cellule.equals("CUI1")) {
 			this.c1.setEstTouche(true);
 			this.setMaGrille(x - 1, y - 1, "SHOT");
-		} else if (cellule.equals("CUIS2")) {
+		} else if (cellule.equals("CUI2")) {
 			this.c2.setEstTouche(true);
 			this.setMaGrille(x - 1, y - 1, "SHOT");
 		} else if (cellule.equals("ZODI")) {
@@ -156,7 +157,8 @@ public class Joueur {
 				}
 			}
 		}
-
+		System.out.println("getshot");
+		//displayMaGrille();
 		return estMort;
 	}
 
@@ -164,27 +166,35 @@ public class Joueur {
 	 * 
 	 */
 	public void placerBateau(int nbbateau) {
-		if(this.estUnOrdi) {
-			
-		}
 		int typebateau = 0;
 		int x = 0;
 		int y = 0;
 		int taille = 0;
+		int dir=0;
 		boolean verticale = true;
 		for (int nb = 0; nb < nbbateau; nb++) {
 			boolean valid = false;
+			//this.displayMaGrille();
 			while (!valid) {
-				System.out.print(
-						"quel bateau : \n 1)portes avion \n 2)sous-marin \n 3)cuirass�1 \n 4)cuirass�2 \n 5)zodiac\n");
-				Scanner in = new Scanner(System.in);
-				typebateau = in.nextInt();
-				System.out.print("pos x :");
-				x = in.nextInt() - 1;
-				System.out.print("pos y :");
-				y = in.nextInt() - 1;
-				System.out.print("dir : \n 1)verticale \n 2)horizontale\n");
-				int dir = in.nextInt();
+				if(this.estUnOrdi) {
+					System.out.println("dans if ordi3");
+					typebateau=new Random().nextInt(5)+1;
+					x=new Random().nextInt(10);
+					y = new Random().nextInt(10);
+					dir = new Random().nextInt(2)+1;
+				}
+				else if(!this.estUnOrdi) {
+					System.out.print(
+							"quel bateau : \n 1)portes avion \n 2)sous-marin \n 3)cuirass�1 \n 4)cuirass�2 \n 5)zodiac\n");
+					Scanner in = new Scanner(System.in);
+					typebateau = in.nextInt();
+					System.out.print("pos x :");
+					x = in.nextInt() - 1;
+					System.out.print("pos y :");
+					y = in.nextInt() - 1;
+					System.out.print("dir : \n 1)verticale \n 2)horizontale\n");
+					dir = in.nextInt();
+				}
 				if (dir == 1) {
 					verticale = true;
 				} else {
@@ -235,7 +245,7 @@ public class Joueur {
 					}
 				}
 				if (!valid) {
-					System.out.println("INVALIDE");
+					System.out.println("INVALIDE Replacer le bateau");
 				}
 				if (verticale) {
 					for (int i = x - 1; i <= x + 1; i++) {
@@ -244,7 +254,7 @@ public class Joueur {
 								String cellule = this.maGrille[i][j];
 								if (cellule != null) {
 									System.out.println(i + " " + j
-											+ "Le bateau que tu viens de placer est � cot� d'un autre ! Replace le de nouveau");
+											+ "Le bateau que tu viens de placer est a cote d'un autre ! Replace le de nouveau");
 									valid = false;
 									break;
 								}
@@ -261,7 +271,7 @@ public class Joueur {
 								String cellule = this.maGrille[i][j];
 								if (cellule != null) {
 									System.out.println(
-											"2Le bateau que tu viens de placer est � cot� d'un autre ! Replace le de nouveau");
+											"2Le bateau que tu viens de placer est a cote d'un autre ! Replace le de nouveau");
 									valid = false;
 									break;
 								}
@@ -274,30 +284,10 @@ public class Joueur {
 				}
 			}
 			Position posNavire = new Position(x, y, verticale);
-			if (typebateau == 1) {
-				this.p1.setPosition(posNavire);
-				this.p1.setEstPose(true);
-			} else if (typebateau == 2) {
-				this.s1.setPosition(posNavire);
-				this.s1.setEstPose(true);
-			} else if (typebateau == 3) {
-				this.c1.setPosition(posNavire);
-				this.c1.setNom("CUI1");
-				this.c1.setEstPose(true);
-			} else if (typebateau == 4) {
-				this.c2.setPosition(posNavire);
-				this.c2.setNom("CUI2");
-				this.c2.setEstPose(true);
-			} else if (typebateau == 5) {
-				this.z1.setPosition(posNavire);
-				this.z1.setEstPose(true);
-			}
-			this.remplissage();
-			this.displayMaGrille();
+			setBateauplacer(typebateau, posNavire);
 
 		}
 	}
-
 	public void remplissage() {
 		this.clearMagrille();
 		for (int i = 0; i < listNavire.length; i++) {
@@ -307,7 +297,7 @@ public class Joueur {
 					int x = listNavire[i].getPosition().getPosX();
 					int y = listNavire[i].getPosition().getPosY();
 					String nom = listNavire[i].getNom();
-					// Verticale
+						// Verticale
 					if (listNavire[i].getPosition().getSens()) {
 						this.setMaGrille(x, y + j, nom);
 						// Horizontale
@@ -334,7 +324,139 @@ public class Joueur {
 			System.out.println("");
 		}
 	}
+	public void setBateauplacer(int typebateau, Position posNavire){
+		if (typebateau == 1) {
+			this.p1.setPosition(posNavire);
+			this.p1.setEstPose(true);
+		} else if (typebateau == 2) {
+			this.s1.setPosition(posNavire);
+			this.s1.setEstPose(true);
+		} else if (typebateau == 3) {
+			this.c1.setPosition(posNavire);
+			this.c1.setNom("CUI1");
+			this.c1.setEstPose(true);
+		} else if (typebateau == 4) {
+			this.c2.setPosition(posNavire);
+			this.c2.setNom("CUI2");
+			this.c2.setEstPose(true);
+		} else if (typebateau == 5) {
+			this.z1.setPosition(posNavire);
+			this.z1.setEstPose(true);
+		}
+			this.remplissage();
+			//this.displayMaGrille();
+	}
+	public void setBateauplacer(String typebateau, Position posNavire){
+		//"PorteAvion", "SousMarin", "CuirasséFurtif1", "CuirasséFurtif2","Zodiac"
+		if(this.voisinVerif(posNavire, typebateau)) {
+			if (typebateau.equals("PorteAvion")) {
+				this.p1.setPosition(posNavire);
+				this.p1.setEstPose(true);
+			} else if (typebateau.equals("SousMarin")) {
+				this.s1.setPosition(posNavire);
+				this.s1.setEstPose(true);
+			} else if (typebateau.equals("CuirasséFurtif1")) {
+				this.c1.setPosition(posNavire);
+				this.c1.setNom("CUI1");
+				this.c1.setEstPose(true);
+			} else if (typebateau.equals("CuirasséFurtif2")) {
+				this.c2.setPosition(posNavire);
+				this.c2.setNom("CUI2");
+				this.c2.setEstPose(true);
+			} else if (typebateau.equals("Zodiac")) {
+				this.z1.setPosition(posNavire);
+				this.z1.setEstPose(true);
+			}
+			this.remplissage();
+			//this.displayMaGrille();
+		}
+	}
+		public Boolean voisinVerif(Position pos, String typebateau){
+		//"PorteAvion", "SousMarin", "CuirasséFurtif1", "CuirasséFurtif2","Zodiac"
+		int taillebat = 0;
+		String raccourci = "";
+		if (typebateau.equals("PorteAvion")) {
+			taillebat = 5;
+			raccourci = "PORT";
+		} else if (typebateau.equals("SousMarin")) {
+			taillebat = 4;
+			raccourci = "SOUS";
+		} else if (typebateau.equals("CuirasséFurtif1")) {
+			taillebat = 3;
+			raccourci = "CUI1";
+		} else if (typebateau.equals("CuirasséFurtif2")) {
+			taillebat = 3;
+			raccourci = "CUI2";
+		} else if (typebateau.equals("Zodiac")) {
+			taillebat = 2;
+			raccourci = "ZODI";
+		}
+		Boolean verticale = pos.getSens();
+		int x = pos.getPosX();
+		int y = pos.getPosY();
+		Boolean valid = true;
 
+		if (verticale) {
+			if (y + taillebat > 10) {
+				valid = false;
+			} else {
+				valid = true;
+				for (int j = y; j < y + taillebat; j++) {
+					if (this.maGrille[x][j] != null && this.maGrille[x][j] != raccourci) {
+						valid = false;
+						break;
+					}
+				}
+			}
+		} else {
+			if (x + taillebat > 10) {
+				valid = false;
+
+			} else {
+				valid = true;
+				for (int i = x; i < x + taillebat; i++) {
+					if (this.maGrille[i][y] != null && this.maGrille[i][y] != raccourci) {
+
+						valid = false;
+						break;
+					}
+				}
+			}
+		}
+		if (!valid) {
+			return valid;
+		}
+		if (verticale) {
+			for (int i = x - 1; i <= x + 1; i++) {
+				for (int j = y - 1; j <= taillebat + y; j++) {
+					if (0 <= i && i < 10 && 0 <= j && j < 10) {
+						String cellule = this.maGrille[i][j];
+						if (cellule != null && cellule != raccourci) {
+							System.out.println(i + " " + j
+									+ "Le bateau que tu viens de placer est a cote d'un autre ! Replace le de nouveau");
+							valid = false;
+							return valid;
+						}
+					}
+				}
+			}
+		} else {
+			for (int j = y - 1; j <= y + 1; j++) {
+				for (int i = x - 1; i <= taillebat + x; i++) {
+					if (0 <= i && i < 10 && 0 <= j && j < 10) {
+						String cellule = this.maGrille[i][j];
+						if (cellule != null && cellule != raccourci) {
+							System.out.println(
+									"2Le bateau que tu viens de placer est a cote d'un autre ! Replace le de nouveau");
+							valid = false;
+							return valid;
+						}
+					}
+				}
+			}
+		}
+		return valid;
+	}
 	public void displayGrilleAdverse() {
 		System.out.println("\n\n Grille Adverse : ");
 		for (int j = 0; j < 10; j++) {
