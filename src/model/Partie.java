@@ -74,6 +74,12 @@ public class Partie {
 	public void setJ1doitplacerBat(Boolean bool){
 		j1DoitPlacerBateau = bool;
 	}
+	public void setJ1DoitTirer(Boolean bool){
+		j1DoitTirer = bool;
+	}
+	public void setJ2DoitTirer(Boolean bool){
+		j2DoitTirer = bool;
+	}
 	public boolean J2doitplacerBat(){
 		return j2DoitPlacerBateau;
 	}

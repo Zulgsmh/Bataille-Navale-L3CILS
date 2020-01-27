@@ -63,8 +63,8 @@ public class BatailleController {
             affichage.setContainer("plateau");
             //partie.placerBateauJ1();
             //partie.placerBateauJ2();
-            affichage.drawGrille1(partie.j1.maGrille);
-            affichage.drawGrille2(partie.j2.maGrille);
+            affichage.drawGrille1(partie.j1.maGrille, false);
+            affichage.drawGrille2(partie.j2.maGrille, false);
         }
     }
     class ValidNBListen implements ActionListener{
@@ -77,8 +77,7 @@ public class BatailleController {
         public void actionPerformed(ActionEvent e) {
             if(partie.J1doitplacerBat()){
             JButton parent = (JButton)e.getSource();
-            System.out.println(parent);
-            affichage.setSelectBateau(parent.getText());
+            affichage.setSelectBateau((Bateau) parent);
             }
         }
     }
@@ -86,8 +85,7 @@ public class BatailleController {
         public void actionPerformed(ActionEvent e) {
             if(partie.J2doitplacerBat()){
                 JButton parent = (JButton)e.getSource();
-                System.out.println(parent);
-                affichage.setSelectBateau(parent.getText());
+                affichage.setSelectBateau((Bateau) parent);
             }
         }
     }
@@ -95,8 +93,18 @@ public class BatailleController {
 
     class ListenForPlacement implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-            partie.setJ1doitplacerBat(false);
+            if (partie.J1doitplacerBat()){
+                partie.setJ1doitplacerBat(false);
             partie.setJ2doitplacetBat(true);
+            affichage.drawGrille1(partie.j1.maGrille, true);
+        }else if(partie.J2doitplacerBat()){
+                System.out.println("c'est l'heure du DUELLLLLLLL");
+                partie.setJ2doitplacetBat(false);
+                partie.setJ1DoitTirer(true);
+                JButton parent = (JButton)e.getSource();
+                parent.setVisible(false);
+                affichage.drawGrille2(partie.j2.maGrille, true);
+            }
         }
     }
 
@@ -107,36 +115,44 @@ public class BatailleController {
 
         public void mouseClicked(MouseEvent e) {
             cellule parent = (cellule)e.getSource();
-            System.out.println("Mouse Panel Pos: " + e.getX() + " " + e.getY() + "\n");
+//            System.out.println("Mouse Panel Pos: " + e.getX() + " " + e.getY() + "\n");
 
             //System.out.println("Mouse Screen Pos: " + e.getXOnScreen() + " " + e.getYOnScreen() + "\n");
-            System.out.println(parent.getx() + " " + parent.gety());
-            System.out.println("Mouse Button: " + e.getButton()  + "\n");
+//            System.out.println(parent.getx() + " " + parent.gety());
+//            System.out.println("Mouse Button: " + e.getButton()  + "\n");
             if (parent.getAppartient().equals("j1")){
-                System.out.println(partie.J1doitplacerBat() + " "+affichage.getSelectBateau());
+//                System.out.println(partie.J1doitplacerBat() + " "+affichage.getSelectBateau().getText());
                 if(partie.J1doitplacerBat() && affichage.getSelectBateau()!= null){
-                    String nomBat = affichage.getSelectBateau();
-                    Position pos = new Position(parent.getx(), parent.gety(), true);
+                    Boolean sens = affichage.getSelectBateau().getSens();
+                    String nomBat = affichage.getSelectBateau().getText();
+                    Position pos = new Position(parent.getx(), parent.gety(), sens);
                     partie.j1.setBateauplacer(nomBat, pos);
-                    affichage.drawGrille1(partie.j1.maGrille);
+                    affichage.drawGrille1(partie.j1.maGrille, false);
                 }
-                System.out.println("Grille1");
+//                System.out.println("Grille1");
                 if(partie.getJ1DoitTirer()) {
                     partie.j1.getShot(parent.getx() + 1, parent.gety() + 1);
-                    affichage.drawGrille1(partie.j1.maGrille);
+                    affichage.drawGrille1(partie.j1.maGrille, true);
+                    affichage.drawGrille1(partie.j1.maGrille, true);
+                    partie.setJ1DoitTirer(false);
+                    partie.setJ2DoitTirer(true);
                 }
             }else{
-                System.out.println(partie.J2doitplacerBat() + " "+affichage.getSelectBateau());
+//                System.out.println(partie.J2doitplacerBat() + " "+affichage.getSelectBateau().getText());
                 if(partie.J2doitplacerBat() && affichage.getSelectBateau()!= null){
-                    String nomBat = affichage.getSelectBateau();
-                    Position pos = new Position(parent.getx(), parent.gety(), true);
+                    Boolean sens = affichage.getSelectBateau().getSens();
+                    String nomBat = affichage.getSelectBateau().getText();
+                    Position pos = new Position(parent.getx(), parent.gety(), sens);
                     partie.j2.setBateauplacer(nomBat, pos);
-                    affichage.drawGrille2(partie.j2.maGrille);
+                    affichage.drawGrille2(partie.j2.maGrille, false);
                 }
-                System.out.println("Grille2");
+//                System.out.println("Grille2");
                 if(partie.getJ2DoitTirer()) {
                     partie.j2.getShot(parent.getx() + 1, parent.gety() + 1);
-                    affichage.drawGrille2(partie.j2.maGrille);
+                    affichage.drawGrille2(partie.j2.maGrille, true);
+                    affichage.drawGrille1(partie.j1.maGrille, true);
+                    partie.setJ1DoitTirer(true);
+                    partie.setJ2DoitTirer(false);
                 }
             }
 

@@ -1,13 +1,12 @@
 package view;
 import controller.BatailleController;
-import java.util.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.*;
-
+import java.util.*;
 public class Affichage extends JFrame {
     private CardLayout c = new CardLayout();
     private JPanel container = new JPanel();
@@ -47,10 +46,11 @@ public class Affichage extends JFrame {
     private JButton validerPlacementBateau = new JButton();
     private cellule[][] CelluleGrille1 = new cellule[10][10];
     private cellule[][] CelluleGrille2 = new cellule[10][10];
-    private JButton[] buttonBateauJ1 = new JButton[10];
-    private JButton[] buttonBateauJ2 = new JButton[10];
+    private Bateau[] buttonBateauJ1 = new Bateau[10];
+    private Bateau[] buttonBateauJ2 = new Bateau[10];
     private String[] bateauName = {"PorteAvion", "SousMarin", "CuirasséFurtif1", "CuirasséFurtif2","Zodiac"};
-    private String bateauSelect = "";
+    private Bateau bateauSelect = new Bateau("", true);
+    private Boolean sens = false;
 
     public Affichage(){
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -102,7 +102,6 @@ public class Affichage extends JFrame {
             for(int i = 0; i < 10; i++){
                 CelluleGrille2[i][j] = new cellule(i, j, "j2");
                 CelluleGrille2[i][j].setBorder(BorderFactory.createLineBorder(Color.black));
-                System.out.println(i+ " "+ j);
                 Grille2.add(CelluleGrille2[i][j]);
             }
         }
@@ -110,7 +109,14 @@ public class Affichage extends JFrame {
         listBateauJ1.setBackground(Color.GRAY);
         listBateauJ1.setPreferredSize( new Dimension( 150, 400 ) );
         for (int i = 0;i<10;i++) {
-            buttonBateauJ1[i] = new JButton (bateauName[i%5]);
+            Boolean vertical;
+            if(i%2==0){
+                vertical = true;
+            }else{
+                vertical = false;
+            }
+            buttonBateauJ1[i] = new Bateau ("j1",vertical);
+            buttonBateauJ1[i].setText(bateauName[(int)(i/2)]);
             listBateauJ1.add(buttonBateauJ1[i]);
         }
         listBateauJ1.setLayout (new BoxLayout (listBateauJ1, BoxLayout.Y_AXIS));
@@ -118,7 +124,14 @@ public class Affichage extends JFrame {
         listBateauJ2.setBackground(Color.GRAY);
         listBateauJ2.setPreferredSize( new Dimension( 150, 400 ) );
         for (int i = 0;i<10;i++) {
-            buttonBateauJ2[i] = new JButton (bateauName[i%5]);
+            Boolean vertical;
+            if(i%2==0){
+                vertical = true;
+            }else{
+                vertical = false;
+            }
+            buttonBateauJ2[i] = new Bateau ("j2",vertical);
+            buttonBateauJ2[i].setText(bateauName[(int)(i/2)]);
             listBateauJ2.add(buttonBateauJ2[i]);
         }
         listBateauJ2.setLayout (new BoxLayout (listBateauJ2, BoxLayout.Y_AXIS));
@@ -146,10 +159,10 @@ public class Affichage extends JFrame {
         c.show(container, card);
     }
 
-    public void setSelectBateau(String nom){
-        this.bateauSelect = nom;
+    public void setSelectBateau(Bateau bat){
+        this.bateauSelect = bat;
     }
-    public String getSelectBateau(){
+    public Bateau getSelectBateau(){
         return this.bateauSelect;
     }
     public void addjvjListener(ActionListener ListenForjvjButton){
@@ -209,39 +222,55 @@ public class Affichage extends JFrame {
         return Integer.parseInt(cb.getItemAt(cb.getSelectedIndex()).toString());
     }
 
-    public void drawGrille1(String[][] maGrille){
+    public void drawGrille1(String[][] maGrille, boolean hide){
         for (int i = 0; i < 10; i++){
             for (int j=0; j < 10; j++){
+                CelluleGrille1[i][j].setNom(maGrille[i][j]);
                 if(maGrille[i][j] == null){
                     CelluleGrille1[i][j].setColor(Color.CYAN);
                 }else if(maGrille[i][j].equals("PLOF")){
                 CelluleGrille1[i][j].setColor(Color.black);
-                CelluleGrille1[i][j].setNom(maGrille[i][j]);
                 }else if(maGrille[i][j].equals("SHOT")){
                     CelluleGrille1[i][j].setColor(Color.orange);
-                    CelluleGrille1[i][j].setNom(maGrille[i][j]);
-                }else{
-                    CelluleGrille1[i][j].setColor(Color.red);
-                    CelluleGrille1[i][j].setNom(maGrille[i][j]);
-                }
+                }else if (!hide) {
+                    if(maGrille[i][j].equals("PORT")){
+                        CelluleGrille1[i][j].setColor(Color.red);
+                    }else if(maGrille[i][j].equals("SOUS")){
+                        CelluleGrille1[i][j].setColor(Color.yellow);
+                    }else if(maGrille[i][j].equals("CUI1")){
+                        CelluleGrille1[i][j].setColor(Color.pink);
+                    }else if(maGrille[i][j].equals("CUI2")){
+                        CelluleGrille1[i][j].setColor(Color.MAGENTA);
+                    }else if(maGrille[i][j].equals("ZODI")){
+                        CelluleGrille1[i][j].setColor(Color.green);
+                    }
+                }else{CelluleGrille1[i][j].setColor(Color.CYAN);}
             }
         }
     }
-    public void drawGrille2(String[][] maGrille){
+    public void drawGrille2(String[][] maGrille, boolean hide){
         for (int i = 0; i < 10; i++){
-            for (int j=0; j < 10; j++){
-                if(maGrille[i][j] == null){
+            for (int j=0; j < 10; j++) {
+                CelluleGrille2[i][j].setNom(maGrille[i][j]);
+                if (maGrille[i][j] == null) {
                     CelluleGrille2[i][j].setColor(Color.CYAN);
-                }else if(maGrille[i][j].equals("PLOF")){
+                } else if (maGrille[i][j].equals("PLOF")) {
                     CelluleGrille2[i][j].setColor(Color.black);
-                    CelluleGrille2[i][j].setNom(maGrille[i][j]);
-                }else if(maGrille[i][j].equals("SHOT")){
+                } else if (maGrille[i][j].equals("SHOT")) {
                     CelluleGrille2[i][j].setColor(Color.orange);
-                    CelluleGrille2[i][j].setNom(maGrille[i][j]);
-                }else{
-                    CelluleGrille2[i][j].setColor(Color.red);
-                    CelluleGrille2[i][j].setNom(maGrille[i][j]);
-                }
+                }else if (!hide) {
+                    if (maGrille[i][j].equals("PORT")) {
+                        CelluleGrille2[i][j].setColor(Color.red);
+                    } else if (maGrille[i][j].equals("SOUS")) {
+                        CelluleGrille2[i][j].setColor(Color.yellow);
+                    } else if (maGrille[i][j].equals("CUI1")) {
+                        CelluleGrille2[i][j].setColor(Color.pink);
+                    } else if (maGrille[i][j].equals("CUI2")) {
+                        CelluleGrille2[i][j].setColor(Color.MAGENTA);
+                    } else if (maGrille[i][j].equals("ZODI")) {
+                        CelluleGrille2[i][j].setColor(Color.green);
+                    }
+                }else{CelluleGrille2[i][j].setColor(Color.CYAN);}
             }
         }
     }
