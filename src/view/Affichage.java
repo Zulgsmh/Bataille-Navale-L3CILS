@@ -170,11 +170,11 @@ public class Affichage extends JFrame {
         plateau.add(RandomBateau);
 
         //******************           CardLayout           ****************
-        container.add(Menu, "menu");
+        //container.add(Menu, "menu");
         container.add(NombreBateau, "nbBat");
-        container.add(Mode, "mode");
+       //container.add(Mode, "mode");
         container.add(plateau, "plateau");
-        c.show(container, "menu");
+        c.show(container, "nbBat");
         this.add(container);
         System.setProperty("marron", "0XA95B23");
         System.setProperty("orange", "0XFA5C00");
@@ -411,7 +411,7 @@ class BatailleController {
     }
     class ValidNBListen implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-            affichage.setContainer("mode");
+            affichage.setContainer("plateau");
             partie.nbBateau = affichage.getComboBoxNbBat();
         }
     }
@@ -456,11 +456,20 @@ class BatailleController {
         public void actionPerformed(ActionEvent e) {
             int nb = partie.getNbBateau();
             if (partie.J1doitplacerBat()) {
+                //vider la grille
+                for( int i =0 ; i < partie.j1.getListNavire().length ; i++ ){
+                    partie.j1.setListNavire(i);
+                }
+                partie.j1.initMaGrille();
                 partie.j1.initListeBateauPosable();
                 partie.j1.placerBateau(nb, true);
                 affichage.drawGrille1(partie.j1.maGrille, false);
             }
             else if (partie.J2doitplacerBat()) {
+                for( int i =0 ; i < partie.j2.getListNavire().length ; i++ ){
+                    partie.j2.setListNavire(i);
+                }
+                partie.j2.initMaGrille();
                 partie.j2.initListeBateauPosable();
                 partie.j2.placerBateau(nb, true);
                 affichage.drawGrille2(partie.j2.maGrille, false);

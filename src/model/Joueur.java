@@ -79,6 +79,13 @@ public class Joueur {
 	public void setMaGrille(int x, int y, String truc) {
 		this.maGrille[x][y] = truc;
 	}
+	public void initMaGrille(){
+		for (int i=0 ; i<0 ; i++){
+			for (int j=0 ; j<10 ; j++){
+				this.maGrille[i][j] = "" ;
+			}
+		}
+	}
 
 	public void clearMagrille() {
 		for (int row = 0; row < 10; row++) {
@@ -87,6 +94,8 @@ public class Joueur {
 			}
 		}
 	}
+
+
 
 	public String[][] getGrilleAdverse() {
 		return grilleAdverse;
@@ -507,4 +516,12 @@ public class Joueur {
 		}
 
 	}
+
+	public void setListNavire(int index){
+		this.listNavire[index].setPosition(null);
+	}
+	public Navire[] getListNavire(){
+		return this.listNavire;
+	}
+
 }
