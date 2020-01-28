@@ -40,12 +40,12 @@ public class Affichage extends JFrame {
 
     private  JOptionPane jop1;
 
-
+// page selection nombre de bateau de la partie
     private JPanel NombreBateau = new JPanel();
-
+    private JLabel phrase = new JLabel("Choisissez le nombre de bateau que vous souhaitez : ");
     private String num[]={"1","2","3","4","5"};
     private JComboBox cb=new JComboBox(num);
-    private JButton validNB = new JButton();
+    private JButton validNB = new JButton("C'est parti !");
 
 
 
@@ -93,6 +93,7 @@ public class Affichage extends JFrame {
 
 
         cb.setBounds(50, 50,100,400);
+        NombreBateau.add(phrase);
         NombreBateau.add(cb);
         NombreBateau.add(validNB);
 
@@ -526,9 +527,9 @@ class BatailleController {
                         if(partie.j1.getListNavire()[i].getEstPose()) {
                             System.out.println(partie.j1.getListNavire()[i].getNom());
                             System.out.println(partie.j1.getListNavire()[i].getVie());
-                            //Boîte du message d'information
+
                         }
-                    }
+                    }//Boîte du message d'information
                     if(partie.j1.getShot(parent.getx() + 1, parent.gety() + 1)){
                             affichage.setAfficherPopUpVictoire("J2");
                     }
@@ -548,7 +549,16 @@ class BatailleController {
                 }
 //                System.out.println("Grille2");
                 if(partie.getJ1DoitTirer()) {
-                    partie.j2.getShot(parent.getx() + 1, parent.gety() + 1);
+                    for(int i =0 ; i< partie.j2.getListNavire().length ; i++){
+                        if(partie.j2.getListNavire()[i].getEstPose()) {
+                            System.out.println(partie.j2.getListNavire()[i].getNom());
+                            System.out.println(partie.j2.getListNavire()[i].getVie());
+                            //Boîte du message d'information
+                        }
+                    }
+                    if(partie.j2.getShot(parent.getx() + 1, parent.gety() + 1)) {
+                        affichage.setAfficherPopUpVictoire("J1");
+                    }
                     affichage.drawGrille1(partie.j1.maGrille, true);
                     affichage.drawGrille2(partie.j2.maGrille, false);
                     partie.setJ1DoitTirer(false);
