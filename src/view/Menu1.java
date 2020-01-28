@@ -121,7 +121,6 @@ public class Menu1 extends JFrame {
                 frame.dispose();
 
 
-
             }
         });
         DEMO.addMouseListener(new MouseAdapter() {

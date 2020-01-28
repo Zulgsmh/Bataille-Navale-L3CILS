@@ -1,7 +1,7 @@
 package model;
 
 /**
- * 
+ *
  */
 public class Zodiac extends Navire {
 
@@ -9,25 +9,26 @@ public class Zodiac extends Navire {
      * Default constructor
      */
     public Zodiac() {
-    	this.setTaille(2);
-    	this.setVie(2);
+        this.setTaille(2);
+        this.setVie(2);
     }
 
     public int getTaille() {
-		return taille;
-	}
+        return taille;
+    }
 
-	public void setTaille(int taille) {
-		this.taille = taille;
-	}
+    public void setTaille(int taille) {
+        this.taille = taille;
+    }
 
-	/**
-     * 
+    /**
+     *
      */
     public int taille;
     public String nom = "ZODI";
+
     public String getNom() {
-    	return this.nom;
+        return this.nom;
     }
 
 }

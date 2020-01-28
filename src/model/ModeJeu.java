@@ -1,9 +1,7 @@
 package model;
 
-import java.util.*;
-
 /**
- * 
+ *
  */
 public abstract class ModeJeu {
 
@@ -14,13 +12,9 @@ public abstract class ModeJeu {
     }
 
     /**
-     * 
+     *
      */
     protected int idMode;
 
-
-   
-
-   
 
 }

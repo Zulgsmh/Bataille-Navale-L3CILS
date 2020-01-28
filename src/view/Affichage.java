@@ -1,8 +1,10 @@
 package view;
+
 import controller.BatailleController;
+
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import javax.swing.*;
 
 public class Affichage extends JFrame {
     private CardLayout c = new CardLayout();
@@ -16,7 +18,6 @@ public class Affichage extends JFrame {
     private JButton ovo = new JButton("OVO");
 
 
-
     private JPanel Mode = new JPanel();
 
     private JButton classique = new JButton("Classique");
@@ -25,13 +26,11 @@ public class Affichage extends JFrame {
     private JButton coderouge = new JButton("Code Rouge");
 
 
-
     private JPanel NombreBateau = new JPanel();
 
-    private String num[]={"1","2","3","4","5"};
-    private JComboBox cb=new JComboBox(num);
+    private String[] num = {"1", "2", "3", "4", "5"};
+    private JComboBox cb = new JComboBox(num);
     private JButton validNB = new JButton();
-
 
 
     private JPanel plateau = new JPanel();
@@ -45,13 +44,13 @@ public class Affichage extends JFrame {
     private Cellule[][] CelluleGrille2 = new Cellule[10][10];
     private Bateau[] buttonBateauJ1 = new Bateau[10];
     private Bateau[] buttonBateauJ2 = new Bateau[10];
-    private String[] bateauName = {"PorteAvion", "SousMarin", "CuirasséFurtif1", "CuirasséFurtif2","Zodiac"};
+    private String[] bateauName = {"PorteAvion", "SousMarin", "CuirasséFurtif1", "CuirasséFurtif2", "Zodiac"};
     private Bateau bateauSelect = new Bateau("", true);
     private Boolean sens = false;
 
-    public Affichage(){
+    public Affichage() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(1200,600);
+        this.setSize(1200, 600);
         container.setLayout(c);
 
         //*******************  MENU  ***********************
@@ -72,7 +71,7 @@ public class Affichage extends JFrame {
         //*******************  NombreBateau *******************
 
 
-        cb.setBounds(50, 50,100,400);
+        cb.setBounds(50, 50, 100, 400);
         NombreBateau.add(cb);
         NombreBateau.add(validNB);
 
@@ -81,10 +80,10 @@ public class Affichage extends JFrame {
 
         //définition de la grille1
         Grille1.setBackground(Color.black);
-        Grille1.setPreferredSize( new Dimension( 400, 400 ) );
-        Grille1.setLayout(new GridLayout(10,10));
-        for(int j = 0; j < 10; j++){
-            for(int i = 0; i < 10; i++){
+        Grille1.setPreferredSize(new Dimension(400, 400));
+        Grille1.setLayout(new GridLayout(10, 10));
+        for (int j = 0; j < 10; j++) {
+            for (int i = 0; i < 10; i++) {
                 CelluleGrille1[i][j] = new Cellule(i, j, "j1");
                 CelluleGrille1[i][j].setBorder(BorderFactory.createLineBorder(Color.black));
 
@@ -93,10 +92,10 @@ public class Affichage extends JFrame {
         }
         //définition de la grille2
         Grille2.setBackground(Color.BLUE);
-        Grille2.setPreferredSize( new Dimension( 400, 400 ) );
-        Grille2.setLayout(new GridLayout(10,10));
-        for(int j = 0; j < 10; j++){
-            for(int i = 0; i < 10; i++){
+        Grille2.setPreferredSize(new Dimension(400, 400));
+        Grille2.setLayout(new GridLayout(10, 10));
+        for (int j = 0; j < 10; j++) {
+            for (int i = 0; i < 10; i++) {
                 CelluleGrille2[i][j] = new Cellule(i, j, "j2");
                 CelluleGrille2[i][j].setBorder(BorderFactory.createLineBorder(Color.black));
                 Grille2.add(CelluleGrille2[i][j]);
@@ -104,37 +103,29 @@ public class Affichage extends JFrame {
         }
 
         listBateauJ1.setBackground(Color.GRAY);
-        listBateauJ1.setPreferredSize( new Dimension( 150, 400 ) );
-        for (int i = 0;i<10;i++) {
+        listBateauJ1.setPreferredSize(new Dimension(150, 400));
+        for (int i = 0; i < 10; i++) {
             Boolean vertical;
-            if(i%2==0){
-                vertical = true;
-            }else{
-                vertical = false;
-            }
-            buttonBateauJ1[i] = new Bateau ("j1",vertical);
-            buttonBateauJ1[i].setText(bateauName[(int)(i/2)]);
+            vertical = i % 2 == 0;
+            buttonBateauJ1[i] = new Bateau("j1", vertical);
+            buttonBateauJ1[i].setText(bateauName[i / 2]);
             listBateauJ1.add(buttonBateauJ1[i]);
         }
-        listBateauJ1.setLayout (new BoxLayout (listBateauJ1, BoxLayout.Y_AXIS));
+        listBateauJ1.setLayout(new BoxLayout(listBateauJ1, BoxLayout.Y_AXIS));
 
         listBateauJ2.setBackground(Color.GRAY);
-        listBateauJ2.setPreferredSize( new Dimension( 150, 400 ) );
-        for (int i = 0;i<10;i++) {
+        listBateauJ2.setPreferredSize(new Dimension(150, 400));
+        for (int i = 0; i < 10; i++) {
             Boolean vertical;
-            if(i%2==0){
-                vertical = true;
-            }else{
-                vertical = false;
-            }
-            buttonBateauJ2[i] = new Bateau ("j2",vertical);
-            buttonBateauJ2[i].setText(bateauName[(int)(i/2)]);
+            vertical = i % 2 == 0;
+            buttonBateauJ2[i] = new Bateau("j2", vertical);
+            buttonBateauJ2[i].setText(bateauName[i / 2]);
             listBateauJ2.add(buttonBateauJ2[i]);
         }
-        listBateauJ2.setLayout (new BoxLayout (listBateauJ2, BoxLayout.Y_AXIS));
+        listBateauJ2.setLayout(new BoxLayout(listBateauJ2, BoxLayout.Y_AXIS));
 
         validerPlacementBateau.setBackground(Color.green);
-        validerPlacementBateau.setPreferredSize(new Dimension(200,100));
+        validerPlacementBateau.setPreferredSize(new Dimension(200, 100));
         validerPlacementBateau.setText("VALIDER");
 
         plateau.add(listBateauJ1);
@@ -154,102 +145,119 @@ public class Affichage extends JFrame {
         System.setProperty("orange", "0XFA5C00");
 
     }
-    public void setContainer(String card){
+
+    public void setContainer(String card) {
         c.show(container, card);
     }
 
-    public void setSelectBateau(Bateau bat){
+    public void setSelectBateau(Bateau bat) {
         this.bateauSelect = bat;
     }
-    public Bateau getSelectBateau(){
+
+    public Bateau getSelectBateau() {
         return this.bateauSelect;
     }
-    public void addjvjListener(ActionListener ListenForjvjButton){
+
+    public void addjvjListener(ActionListener ListenForjvjButton) {
         jvj.addActionListener(ListenForjvjButton);
     }
-    public void addjvoListener(ActionListener ListenForjvoButton){
+
+    public void addjvoListener(ActionListener ListenForjvoButton) {
         jvo.addActionListener(ListenForjvoButton);
     }
-    public void addovoListener(ActionListener ListenForovoButton){
+
+    public void addovoListener(ActionListener ListenForovoButton) {
         ovo.addActionListener(ListenForovoButton);
     }
-    public void addValidNBListener(ActionListener ListenForValidNBButton){
+
+    public void addValidNBListener(ActionListener ListenForValidNBButton) {
         validNB.addActionListener(ListenForValidNBButton);
     }
-    public void addclassiqueListener(ActionListener ListenForclassiqueButton){
+
+    public void addclassiqueListener(ActionListener ListenForclassiqueButton) {
         classique.addActionListener(ListenForclassiqueButton);
     }
-    public void addradarListener(ActionListener ListenForradarButton){
+
+    public void addradarListener(ActionListener ListenForradarButton) {
         radar.addActionListener(ListenForradarButton);
     }
-    public void addartillerieListener(ActionListener ListenForartillerieButton){
+
+    public void addartillerieListener(ActionListener ListenForartillerieButton) {
         artillerie.addActionListener(ListenForartillerieButton);
     }
-    public void addcoderougeListener(ActionListener ListenForcoderougeButton){
+
+    public void addcoderougeListener(ActionListener ListenForcoderougeButton) {
         coderouge.addActionListener(ListenForcoderougeButton);
     }
-    public void addGrille1Listener(BatailleController.ListenForMouse lForMouse){
-        for(int i = 0; i < 10; i++) {
+
+    public void addGrille1Listener(BatailleController.ListenForMouse lForMouse) {
+        for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 CelluleGrille1[i][j].addMouseListener(lForMouse);
             }
         }
     }
-    public void addGrille2Listener(BatailleController.ListenForMouse lForMouse){
-        for(int i = 0; i < 10; i++) {
+
+    public void addGrille2Listener(BatailleController.ListenForMouse lForMouse) {
+        for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 CelluleGrille2[i][j].addMouseListener(lForMouse);
             }
         }
     }
-    public void addlistBateauJ1Listener(ActionListener ListenForBateauJ1){
-        for(int i = 0; i < 10; i++){
+
+    public void addlistBateauJ1Listener(ActionListener ListenForBateauJ1) {
+        for (int i = 0; i < 10; i++) {
             buttonBateauJ1[i].addActionListener(ListenForBateauJ1);
         }
     }
-    public void addlistBateauJ2Listener(ActionListener ListenForBateauJ1){
-        for(int i = 0; i < 10; i++){
+
+    public void addlistBateauJ2Listener(ActionListener ListenForBateauJ1) {
+        for (int i = 0; i < 10; i++) {
             buttonBateauJ2[i].addActionListener(ListenForBateauJ1);
         }
     }
 
-    public void addvaliderPlacementListener(ActionListener ListenForPlacement){
+    public void addvaliderPlacementListener(ActionListener ListenForPlacement) {
         validerPlacementBateau.addActionListener(ListenForPlacement);
     }
 
-    public int getComboBoxNbBat(){
+    public int getComboBoxNbBat() {
         return Integer.parseInt(cb.getItemAt(cb.getSelectedIndex()).toString());
     }
 
-    public void drawGrille1(String[][] maGrille, boolean hide){
-        for (int i = 0; i < 10; i++){
-            for (int j=0; j < 10; j++){
+    public void drawGrille1(String[][] maGrille, boolean hide) {
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
                 CelluleGrille1[i][j].setNom(maGrille[i][j]);
-                if(maGrille[i][j] == null){
+                if (maGrille[i][j] == null) {
                     CelluleGrille1[i][j].setColor(Color.CYAN);
-                }else if(maGrille[i][j].equals("PLOF")){
+                } else if (maGrille[i][j].equals("PLOF")) {
                     CelluleGrille1[i][j].setColor(Color.black);
-                }else if(maGrille[i][j].equals("SHOT")){
+                } else if (maGrille[i][j].equals("SHOT")) {
                     CelluleGrille1[i][j].setColor(Color.getColor("orange"));
-                }else if (!hide) {
-                    if(maGrille[i][j].equals("PORT")){
+                } else if (!hide) {
+                    if (maGrille[i][j].equals("PORT")) {
                         CelluleGrille1[i][j].setColor(Color.getColor("marron"));
-                    }else if(maGrille[i][j].equals("SOUS")){
+                    } else if (maGrille[i][j].equals("SOUS")) {
                         CelluleGrille1[i][j].setColor(Color.yellow);
-                    }else if(maGrille[i][j].equals("CUI1")){
+                    } else if (maGrille[i][j].equals("CUI1")) {
                         CelluleGrille1[i][j].setColor(Color.pink);
-                    }else if(maGrille[i][j].equals("CUI2")){
+                    } else if (maGrille[i][j].equals("CUI2")) {
                         CelluleGrille1[i][j].setColor(Color.MAGENTA);
-                    }else if(maGrille[i][j].equals("ZODI")){
+                    } else if (maGrille[i][j].equals("ZODI")) {
                         CelluleGrille1[i][j].setColor(Color.green);
                     }
-                }else{CelluleGrille1[i][j].setColor(Color.CYAN);}
+                } else {
+                    CelluleGrille1[i][j].setColor(Color.CYAN);
+                }
             }
         }
     }
-    public void drawGrille2(String[][] maGrille, boolean hide){
-        for (int i = 0; i < 10; i++){
-            for (int j=0; j < 10; j++) {
+
+    public void drawGrille2(String[][] maGrille, boolean hide) {
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
                 CelluleGrille2[i][j].setNom(maGrille[i][j]);
                 if (maGrille[i][j] == null) {
                     CelluleGrille2[i][j].setColor(Color.CYAN);
@@ -257,7 +265,7 @@ public class Affichage extends JFrame {
                     CelluleGrille2[i][j].setColor(Color.black);
                 } else if (maGrille[i][j].equals("SHOT")) {
                     CelluleGrille2[i][j].setColor(Color.getColor("orange"));
-                }else if (!hide) {
+                } else if (!hide) {
                     if (maGrille[i][j].equals("PORT")) {
                         CelluleGrille2[i][j].setColor(Color.getColor("marron"));
                     } else if (maGrille[i][j].equals("SOUS")) {
@@ -269,7 +277,9 @@ public class Affichage extends JFrame {
                     } else if (maGrille[i][j].equals("ZODI")) {
                         CelluleGrille2[i][j].setColor(Color.green);
                     }
-                }else{CelluleGrille2[i][j].setColor(Color.CYAN);}
+                } else {
+                    CelluleGrille2[i][j].setColor(Color.CYAN);
+                }
             }
         }
     }

@@ -1,7 +1,7 @@
 package model;
 
 /**
- * 
+ *
  */
 public class PorteAvion extends Navire {
 
@@ -14,21 +14,21 @@ public class PorteAvion extends Navire {
     }
 
     public int getTaille() {
-		return taille;
-	}
+        return taille;
+    }
 
-	public void setTaille(int taille) {
-		this.taille = taille;
-	}
+    public void setTaille(int taille) {
+        this.taille = taille;
+    }
 
-	/**
-     * 
+    /**
+     *
      */
     public int taille;
     private String nom = "PORT";
-    
+
     public String getNom() {
-    	return this.nom;
+        return this.nom;
     }
 
 }

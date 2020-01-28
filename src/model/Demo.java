@@ -1,7 +1,7 @@
 package model;
 
 /**
- * 
+ *
  */
 public class Demo extends ModeJeu {
 
@@ -9,7 +9,7 @@ public class Demo extends ModeJeu {
      * Default constructor
      */
     public Demo() {
-    	this.idMode=1;
+        this.idMode = 1;
     }
 
 }

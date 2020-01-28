@@ -1,9 +1,7 @@
 package model;
 
-import java.util.*;
-
 /**
- * 
+ *
  */
 public class BatailleNavale {
 
@@ -14,35 +12,34 @@ public class BatailleNavale {
     }
 
     /**
-     * 
+     *
      */
     protected Joueur joueur1;
 
     /**
-     * 
+     *
      */
     protected Joueur joueur2;
 
     /**
-     * 
+     *
      */
     protected boolean tourJ1;
 
     /**
-     * 
+     *
      */
-   // public int [][]grille1 = new int [10][10];
-    
+    // public int [][]grille1 = new int [10][10];
+
 
     /**
-     * 
+     *
      */
     //public int [][]grille2 = new int [10][10];
 
 
-
     /**
-     * 
+     *
      */
     public class MissionRadar extends BatailleNavale {
 
@@ -53,7 +50,7 @@ public class BatailleNavale {
         }
 
         /**
-         * 
+         *
          */
         public void radar() {
             // TODO implement here
@@ -62,7 +59,7 @@ public class BatailleNavale {
     }
 
     /**
-     * 
+     *
      */
     public class OperationArtillerie extends BatailleNavale {
 
@@ -73,7 +70,7 @@ public class BatailleNavale {
         }
 
         /**
-         * 
+         *
          */
         public void selection() {
             // TODO implement here
@@ -82,7 +79,7 @@ public class BatailleNavale {
     }
 
     /**
-     * 
+     *
      */
     public class AlerteRouge extends MissionRadar {
 

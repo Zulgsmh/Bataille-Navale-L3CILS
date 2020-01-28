@@ -1,9 +1,7 @@
 package model;
 
-import java.util.*;
-
 /**
- * 
+ *
  */
 public class Case {
 
@@ -14,7 +12,7 @@ public class Case {
     }
 
     /**
-     * 
+     *
      */
     private Position position;
 

@@ -1,6 +1,7 @@
 package view;
+
 import controller.BatailleController;
-import model.*;
+import model.Partie;
 
 public class Main {
 

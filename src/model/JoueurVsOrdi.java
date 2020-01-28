@@ -1,7 +1,7 @@
 package model;
 
 /**
- * 
+ *
  */
 public class JoueurVsOrdi extends ModeJeu {
 
@@ -9,7 +9,7 @@ public class JoueurVsOrdi extends ModeJeu {
      * Default constructor
      */
     public JoueurVsOrdi() {
-    	this.idMode=2;
+        this.idMode = 2;
     }
 
 }
