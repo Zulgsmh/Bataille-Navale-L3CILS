@@ -1,6 +1,7 @@
 package view;
 
 import controller.BatailleController;
+import model.Partie;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,9 +10,13 @@ import java.awt.event.ActionListener;
 public class Affichage extends JFrame {
     private CardLayout c = new CardLayout();
     private JPanel container = new JPanel();
+    Partie partie ;
+
+    JLabel label1 = new JLabel("");
 
 
     private JPanel Menu = new JPanel();
+
 
     private JButton jvj = new JButton("JVJ");
     private JButton jvo = new JButton("JVO");
@@ -35,6 +40,7 @@ public class Affichage extends JFrame {
 
     private JPanel plateau = new JPanel();
 
+
     private JPanel Grille1 = new JPanel();
     private JPanel Grille2 = new JPanel();
     private JPanel listBateauJ1 = new JPanel();
@@ -48,7 +54,9 @@ public class Affichage extends JFrame {
     private Bateau bateauSelect = new Bateau("", true);
     private Boolean sens = false;
 
-    public Affichage() {
+    public Affichage(Partie p) {
+        this.partie = p;
+
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1200, 600);
         container.setLayout(c);
@@ -67,6 +75,13 @@ public class Affichage extends JFrame {
         Mode.add(radar);
         Mode.add(artillerie);
         Mode.add(coderouge);
+
+
+        //*******************  TEXT *************************
+        plateau.add(label1);
+        label1.setLocation(200,600);
+
+
 
         //*******************  NombreBateau *******************
 
@@ -128,6 +143,8 @@ public class Affichage extends JFrame {
         validerPlacementBateau.setPreferredSize(new Dimension(200, 100));
         validerPlacementBateau.setText("VALIDER");
 
+        //*******************  Style Plateau de JEu ********************
+        plateau.setBackground(Color.GRAY);
         plateau.add(listBateauJ1);
         plateau.add(Grille1);
         plateau.add(Grille2);
@@ -282,6 +299,15 @@ public class Affichage extends JFrame {
                 }
             }
         }
+        if(partie.getJ1DoitTirer()) {
+            label1.setText("TOUR DE J1");
+        } else if(partie.getJ2DoitTirer()){
+            label1.setText("TOUR DE J2");
+
+        }
+
+
+
     }
 
 }

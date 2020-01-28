@@ -59,7 +59,7 @@
       <recent name="C:\Users\nathan\Desktop\Bataille-Navale-L3CILS\src\view" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main (1)">
+  <component name="RunManager" selected="Application.Main1">
     <configuration name="Main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="controller.Main" />
       <module name="ProjetBatailleNavaleL3CILS" />
@@ -143,17 +143,15 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main (1)" />
       <item itemvalue="Application.Main1" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.Main (2)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main (1)" />
+        <item itemvalue="Application.Main1" />
         <item itemvalue="Application.Main (2)" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main1" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -221,6 +219,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="204" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580206405224" />
+    <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1580221567827">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580221567827" />
     <state x="2731" y="444" key="#com.intellij.refactoring.turnRefsToSuper.TurnRefsToSuperDialog" timestamp="1579804502476">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -234,30 +236,30 @@
     </state>
     <state x="740" y="263" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580149583910" />
     <state x="2660" y="263" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579802095742" />
-    <state width="1877" height="242" key="GridCell.Tab.0.bottom" timestamp="1580208551062">
+    <state width="1877" height="242" key="GridCell.Tab.0.bottom" timestamp="1580223970417">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="242" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580208551062" />
+    <state width="1877" height="242" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580223970417" />
     <state width="1877" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579822808144" />
-    <state width="1877" height="242" key="GridCell.Tab.0.center" timestamp="1580208551061">
+    <state width="1877" height="242" key="GridCell.Tab.0.center" timestamp="1580223970416">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="242" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580208551061" />
+    <state width="1877" height="242" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580223970416" />
     <state width="1877" height="271" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579822808144" />
-    <state width="1877" height="242" key="GridCell.Tab.0.left" timestamp="1580208551061">
+    <state width="1877" height="242" key="GridCell.Tab.0.left" timestamp="1580223970416">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="242" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580208551061" />
+    <state width="1877" height="242" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580223970416" />
     <state width="1877" height="271" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579822808144" />
-    <state width="1877" height="242" key="GridCell.Tab.0.right" timestamp="1580208551061">
+    <state width="1877" height="242" key="GridCell.Tab.0.right" timestamp="1580223970416">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="242" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580208551061" />
+    <state width="1877" height="242" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580223970416" />
     <state width="1877" height="271" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579822808144" />
-    <state x="620" y="237" key="GuiDesigner.FormSource.Dialog" timestamp="1580207992020">
+    <state x="620" y="237" key="GuiDesigner.FormSource.Dialog" timestamp="1580218825918">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="620" y="237" key="GuiDesigner.FormSource.Dialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580207992020" />
+    <state x="620" y="237" key="GuiDesigner.FormSource.Dialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580218825918" />
     <state x="530" y="133" key="SettingsEditor" timestamp="1580208454766">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

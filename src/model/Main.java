@@ -30,6 +30,7 @@ public class Main {
         for (int i = 0; i < 1000; i++) {
             if (p.J1tirer()) {
                 System.out.println("Joueur 1 a GAGNE !");
+
                 break;
             }
             if (p.J2tirer()) {
