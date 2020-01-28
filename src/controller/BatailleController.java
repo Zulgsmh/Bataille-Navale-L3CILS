@@ -5,6 +5,7 @@ import model.Position;
 import view.Affichage;
 import view.Bateau;
 import view.Cellule;
+import view.Grille;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,26 +15,26 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class BatailleController {
-    private Affichage affichage;
+    private Grille affichage;
     private Partie partie;
 
-    public BatailleController(Affichage affichage, Partie partie) {
+    public BatailleController(Grille affichage, Partie partie) {
         this.affichage = affichage;
         this.partie = partie;
 
         //*****************            Menu           *****************
-        this.affichage.addjvjListener(new menuListener(false, false));
-        this.affichage.addjvoListener(new menuListener(false, true));
-        this.affichage.addovoListener(new menuListener(true, true));
+        //this.affichage.addjvjListener(new menuListener(false, false));
+        //this.affichage.addjvoListener(new menuListener(false, true));
+        //this.affichage.addovoListener(new menuListener(true, true));
 
         //*****************          NbBateau           *****************
         this.affichage.addValidNBListener(new ValidNBListen());
 
         //*****************          Mode           *****************
-        this.affichage.addclassiqueListener(new modeListener("classique"));
-        this.affichage.addradarListener(new modeListener("radar"));
-        this.affichage.addartillerieListener(new modeListener("artillerie"));
-        this.affichage.addcoderougeListener(new modeListener("coderouge"));
+        //this.affichage.addclassiqueListener(new modeListener("classique"));
+        //this.affichage.addradarListener(new modeListener("radar"));
+        //this.affichage.addartillerieListener(new modeListener("artillerie"));
+        //this.affichage.addcoderougeListener(new modeListener("coderouge"));
 
         //*****************          Plateau           *****************
         this.affichage.addGrille1Listener(new ListenForMouse());
@@ -56,7 +57,7 @@ public class BatailleController {
         public void actionPerformed(ActionEvent e) {
             partie.j1.setEstOrdi(this.j1);
             partie.j2.setEstOrdi(this.j2);
-            affichage.setContainer("nbBat");
+           // affichage.setContainer("nbBat");
         }
     }
 
@@ -69,7 +70,7 @@ public class BatailleController {
 
         public void actionPerformed(ActionEvent e) {
             partie.ModeJ = this.mode;
-            affichage.setContainer("plateau");
+            //affichage.setContainer("plateau");
             //partie.placerBateauJ1();
             //partie.placerBateauJ2();
             affichage.drawGrille1(partie.j1.maGrille, false);
@@ -79,8 +80,8 @@ public class BatailleController {
 
     class ValidNBListen implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            affichage.setContainer("mode");
-            partie.nbBateau = affichage.getComboBoxNbBat();
+            //affichage.setContainer("mode");
+            //partie.nbBateau = affichage.getComboBoxNbBat();
         }
     }
 

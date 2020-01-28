@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class Menu2 extends JFrame {
+public class Menu2 extends JPanel {
 
     private JButton ALERTEROUGEButton;
     private JPanel rootPanel;
@@ -20,8 +20,6 @@ public class Menu2 extends JFrame {
     public Menu2(Aff af) {
         setSize(800, 300);
         add(rootPanel);
-        this.setUndecorated(true);
-
 
         BATAILLENAVALEButton.addMouseListener(new MouseAdapter() {
             @Override

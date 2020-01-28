@@ -6,7 +6,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 
-public class Menu1 extends JFrame {
+public class Menu1 extends JPanel {
     Color purple = new Color(110, 74, 227);
     Color dRed = new Color(227, 64, 88);
     private JPanel rootPanel;
@@ -16,9 +16,11 @@ public class Menu1 extends JFrame {
     private JPanel img;
     private JTextField BATAILLENAVALETextField;
     private JButton xButton;
+    private Aff af;
 
     public Menu1(Aff af) {
-        this.setUndecorated(true);
+        this.af = af;
+
         setSize(0, 0);
         final JFrame frame = new JFrame("BATAILLE NAVALE");
 
@@ -35,7 +37,6 @@ public class Menu1 extends JFrame {
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
                 rootPanel.setVisible(true);
-                pack();
             }
         };
 
@@ -135,7 +136,6 @@ public class Menu1 extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                dispose();
                 frame.dispose();
             }
         });

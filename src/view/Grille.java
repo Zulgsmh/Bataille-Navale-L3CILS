@@ -7,30 +7,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class Affichage extends JFrame {
+public class Grille extends JPanel {
 
     private CardLayout c = new CardLayout();
-    private JPanel container = new JPanel();
+
     Partie partie ;
-
-    JLabel label1 = new JLabel("");
-    JLabel label2 = new JLabel("");
-
-    private JPanel Menu = new JPanel();
-
-
-    private JButton jvj = new JButton("JVJ");
-    private JButton jvo = new JButton("JVO");
-    private JButton ovo = new JButton("OVO");
-
-
-    private JPanel Mode = new JPanel();
-
-    private JButton classique = new JButton("Classique");
-    private JButton radar = new JButton("Radar");
-    private JButton artillerie = new JButton("artillerie");
-    private JButton coderouge = new JButton("Code Rouge");
-
 
     private JPanel NombreBateau = new JPanel();
 
@@ -55,35 +36,10 @@ public class Affichage extends JFrame {
     private Bateau bateauSelect = new Bateau("", true);
     private Boolean sens = false;
 
-    public Affichage(Partie p) {
+    public Grille(Partie p) {
+
         this.partie = p;
-
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1200, 600);
-        container.setLayout(c);
-
-        //*******************  MENU  ***********************
-
-
-        Menu.add(jvj);
-        Menu.add(jvo);
-        Menu.add(ovo);
-
-        //*******************  MODE *************************
-
-
-        Mode.add(classique);
-        Mode.add(radar);
-        Mode.add(artillerie);
-        Mode.add(coderouge);
-
-
-        //*******************  TEXT *************************
-
-        JPanel txtPanel = new JPanel();
-        plateau.add(txtPanel);
-        txtPanel.add(label1);
-        txtPanel.setLayout(new FlowLayout());
 
 
         //*******************  NombreBateau *******************
@@ -154,22 +110,7 @@ public class Affichage extends JFrame {
         plateau.add(listBateauJ2);
         plateau.add(validerPlacementBateau);
 
-        //******************           CardLayout           ****************
-        container.add(Menu, "menu");
-        container.add(NombreBateau, "nbBat");
-        container.add(Mode, "mode");
-        container.add(plateau, "plateau");
-        c.show(container, "menu");
-        this.add(container);
-        System.setProperty("marron", "0XA95B23");
-        System.setProperty("orange", "0XFA5C00");
 
-
-
-    }
-
-    public void setContainer(String card) {
-        c.show(container, card);
     }
 
     public void setSelectBateau(Bateau bat) {
@@ -180,36 +121,12 @@ public class Affichage extends JFrame {
         return this.bateauSelect;
     }
 
-    public void addjvjListener(ActionListener ListenForjvjButton) {
-        jvj.addActionListener(ListenForjvjButton);
-    }
 
-    public void addjvoListener(ActionListener ListenForjvoButton) {
-        jvo.addActionListener(ListenForjvoButton);
-    }
 
-    public void addovoListener(ActionListener ListenForovoButton) {
-        ovo.addActionListener(ListenForovoButton);
-    }
+
 
     public void addValidNBListener(ActionListener ListenForValidNBButton) {
         validNB.addActionListener(ListenForValidNBButton);
-    }
-
-    public void addclassiqueListener(ActionListener ListenForclassiqueButton) {
-        classique.addActionListener(ListenForclassiqueButton);
-    }
-
-    public void addradarListener(ActionListener ListenForradarButton) {
-        radar.addActionListener(ListenForradarButton);
-    }
-
-    public void addartillerieListener(ActionListener ListenForartillerieButton) {
-        artillerie.addActionListener(ListenForartillerieButton);
-    }
-
-    public void addcoderougeListener(ActionListener ListenForcoderougeButton) {
-        coderouge.addActionListener(ListenForcoderougeButton);
     }
 
     public void addGrille1Listener(BatailleController.ListenForMouse lForMouse) {
@@ -244,15 +161,7 @@ public class Affichage extends JFrame {
         validerPlacementBateau.addActionListener(ListenForPlacement);
     }
 
-    public int getComboBoxNbBat() {
-        return Integer.parseInt(cb.getItemAt(cb.getSelectedIndex()).toString());
-    }
-
     public void drawGrille1(String[][] maGrille, boolean hide) {
-
-        afficherTxt();
-
-
 
 
         for (int i = 0; i < 10; i++) {
@@ -314,11 +223,5 @@ public class Affichage extends JFrame {
 
 
     }
-    void afficherTxt(){
-        if(partie.getJ1DoitTirer()) {
-            label1.setText("TOUR DE J1");
-        } else if(partie.getJ2DoitTirer()){
-            label1.setText("TOUR DE J2");
-        }
-    }
 }
+
