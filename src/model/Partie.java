@@ -153,8 +153,9 @@ public class Partie {
 	public Boolean getJ2DoitTirer(){
 		return j2DoitTirer;
 	}
-	public Boolean J1tirer() {
 
+
+	public Boolean J1tirer() {
 		if(j1.getEstOrdi()){
 			System.out.println("J1 joue !");
 			int x=new Random().nextInt(10)+1;
@@ -246,10 +247,7 @@ public class Partie {
 			this.j2.displayGrilleAdverse();
 			this.j2.displayMaGrille();
 		}
-
 		return this.mort;
-
-
 	}
 
 	/**

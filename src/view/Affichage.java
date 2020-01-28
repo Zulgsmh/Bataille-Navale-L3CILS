@@ -38,6 +38,7 @@ public class Affichage extends JFrame {
     private JButton artillerie = new JButton("artillerie");
     private JButton coderouge = new JButton("Code Rouge");
 
+    private  JOptionPane jop1;
 
 
     private JPanel NombreBateau = new JPanel();
@@ -191,6 +192,25 @@ public class Affichage extends JFrame {
         return this.bateauSelect;
     }
     public JButton getRandomButton(){ return this.RandomBateau ; }
+
+    public void setAfficherPopUpVictoire(String gagnant){
+        jop1 = new JOptionPane() ;
+        jop1.showMessageDialog(null, "Victoire de " + gagnant , "Information",
+                JOptionPane.INFORMATION_MESSAGE);
+        // Récupérer les frames et les fermer TODO
+        RevenirMenu();
+    }
+
+    //Fonction changer de page après fin de partie
+    public void RevenirMenu(){
+        dispose();
+        Gui t1 = new Gui();
+        this.setContentPane(t1);
+        this.validate();
+    }
+
+    public JOptionPane getAfficherPopUpVictoire(){ return this.jop1 ; }
+
     public void addjvjListener(ActionListener ListenForjvjButton){
         jvj.addActionListener(ListenForjvjButton);
     }
@@ -459,8 +479,10 @@ class BatailleController {
                 //vider la grille
                 for( int i =0 ; i < partie.j1.getListNavire().length ; i++ ){
                     partie.j1.setListNavire(i);
+                    partie.j1.listNavire[i].setEstPose(false);
                 }
-                partie.j1.initMaGrille();
+
+               // partie.j1.initMaGrille();
                 partie.j1.initListeBateauPosable();
                 partie.j1.placerBateau(nb, true);
                 affichage.drawGrille1(partie.j1.maGrille, false);
@@ -469,7 +491,7 @@ class BatailleController {
                 for( int i =0 ; i < partie.j2.getListNavire().length ; i++ ){
                     partie.j2.setListNavire(i);
                 }
-                partie.j2.initMaGrille();
+               // partie.j2.initMaGrille();
                 partie.j2.initListeBateauPosable();
                 partie.j2.placerBateau(nb, true);
                 affichage.drawGrille2(partie.j2.maGrille, false);
@@ -500,7 +522,16 @@ class BatailleController {
                 }
 //                System.out.println("Grille1");
                 if(partie.getJ2DoitTirer()) {
-                    partie.j1.getShot(parent.getx() + 1, parent.gety() + 1);
+                    for(int i =0 ; i< partie.j1.getListNavire().length ; i++){
+                        if(partie.j1.getListNavire()[i].getEstPose()) {
+                            System.out.println(partie.j1.getListNavire()[i].getNom());
+                            System.out.println(partie.j1.getListNavire()[i].getVie());
+                            //Boîte du message d'information
+                        }
+                    }
+                    if(partie.j1.getShot(parent.getx() + 1, parent.gety() + 1)){
+                            affichage.setAfficherPopUpVictoire("J2");
+                    }
                     affichage.drawGrille2(partie.j2.maGrille, true);
                     affichage.drawGrille1(partie.j1.maGrille, false);
                     partie.setJ1DoitTirer(true);
