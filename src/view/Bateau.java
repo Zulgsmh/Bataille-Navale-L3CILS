@@ -1,7 +1,6 @@
 package view;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class Bateau extends JButton {
     private String equipe;

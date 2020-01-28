@@ -2,11 +2,8 @@ package view;
 import controller.BatailleController;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
 import javax.swing.*;
-import java.util.*;
+
 public class Affichage extends JFrame {
     private CardLayout c = new CardLayout();
     private JPanel container = new JPanel();
