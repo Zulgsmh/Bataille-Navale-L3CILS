@@ -54,6 +54,8 @@ public class Affichage extends JFrame {
     private JPanel Grille2 = new JPanel();
     private JPanel listBateauJ1 = new JPanel();
     private JPanel listBateauJ2 = new JPanel();
+    //creation bateau aleatoire:
+    private JButton RandomBateau = new JButton();
     private JButton validerPlacementBateau = new JButton();
     private cellule[][] CelluleGrille1 = new cellule[10][10];
     private cellule[][] CelluleGrille2 = new cellule[10][10];
@@ -62,6 +64,9 @@ public class Affichage extends JFrame {
     private String[] bateauName = {"PorteAvion", "SousMarin", "CuirasséFurtif1", "CuirasséFurtif2","Zodiac"};
     private Bateau bateauSelect = new Bateau("", true);
     private Boolean sens = false;
+
+
+
 
     public Affichage(){
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -151,11 +156,18 @@ public class Affichage extends JFrame {
         validerPlacementBateau.setPreferredSize(new Dimension(200,100));
         validerPlacementBateau.setText("VALIDER");
 
+        //Bouton bateau aleatoire:
+        RandomBateau.setBackground(Color.RED);
+        RandomBateau.setPreferredSize(new Dimension(200,100));
+        RandomBateau.setText("Bateau aléatoire");
+
         plateau.add(listBateauJ1);
         plateau.add(Grille1);
         plateau.add(Grille2);
         plateau.add(listBateauJ2);
         plateau.add(validerPlacementBateau);
+        //ajout du boutton bateau random au plateau
+        plateau.add(RandomBateau);
 
         //******************           CardLayout           ****************
         container.add(Menu, "menu");
@@ -178,6 +190,7 @@ public class Affichage extends JFrame {
     public Bateau getSelectBateau(){
         return this.bateauSelect;
     }
+    public JButton getRandomButton(){ return this.RandomBateau ; }
     public void addjvjListener(ActionListener ListenForjvjButton){
         jvj.addActionListener(ListenForjvjButton);
     }
@@ -229,6 +242,10 @@ public class Affichage extends JFrame {
 
     public void addvaliderPlacementListener(ActionListener ListenForPlacement){
         validerPlacementBateau.addActionListener(ListenForPlacement);
+    }
+
+    public void addRandomBateauListener(ActionListener ListenForRandomBateau){
+        RandomBateau.addActionListener(ListenForRandomBateau);
     }
 
     public int getComboBoxNbBat(){
@@ -360,7 +377,9 @@ class BatailleController {
         this.affichage.addlistBateauJ1Listener(new ListenForBateauJ1());
         this.affichage.addlistBateauJ2Listener(new ListenForBateauJ2());
         this.affichage.addvaliderPlacementListener(new ListenForPlacement());
+        this.affichage.addRandomBateauListener(new ListenForRandomBateau());
         //this.affichage.addcelluleListener(new cellulListener());
+
 
     }
 
@@ -422,11 +441,29 @@ class BatailleController {
                 affichage.drawGrille1(partie.j1.maGrille, true);
             }else if(partie.J2doitplacerBat()){
                 partie.setJ2doitplacetBat(false);
+                affichage.getRandomButton().setVisible(false);
                 partie.setJ1DoitTirer(true);
                 JButton parent = (JButton)e.getSource();
                 parent.setVisible(false);
                 affichage.drawGrille2(partie.j2.maGrille, true);
                 affichage.drawGrille1(partie.j1.maGrille, false);
+            }
+        }
+    }
+
+    // placer les bateau aléatoirement :
+    class ListenForRandomBateau implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            int nb = partie.getNbBateau();
+            if (partie.J1doitplacerBat()) {
+                partie.j1.initListeBateauPosable();
+                partie.j1.placerBateau(nb, true);
+                affichage.drawGrille1(partie.j1.maGrille, false);
+            }
+            else if (partie.J2doitplacerBat()) {
+                partie.j2.initListeBateauPosable();
+                partie.j2.placerBateau(nb, true);
+                affichage.drawGrille2(partie.j2.maGrille, false);
             }
         }
     }

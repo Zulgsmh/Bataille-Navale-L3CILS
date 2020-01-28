@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="635642d4-1886-4456-858c-53f14de0c40e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Joueur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Partie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Partie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Affichage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Affichage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,11 +182,12 @@
     <state x="181" y="43" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1360.728@0.0.1360.728" timestamp="1579802613544" />
     <state x="414" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579783457495" />
     <state x="2334" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579802927925" />
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1580150043062">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="574" y="208" key="#com.intellij.ide.util.MemberChooser" timestamp="1580214260900">
+      <screen x="0" y="23" width="1440" height="841" />
     </state>
     <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580150043062" />
     <state x="2685" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579794863362" />
+    <state x="574" y="208" key="#com.intellij.ide.util.MemberChooser/0.23.1440.841@0.23.1440.841" timestamp="1580214260900" />
     <state x="2609" y="312" key="#com.intellij.ide.util.TreeFileChooserDialog" timestamp="1579797236440">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -202,6 +205,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="204" y="6" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579785151472" />
+    <state x="458" y="197" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1580206625236">
+      <screen x="0" y="23" width="1440" height="841" />
+    </state>
+    <state x="458" y="197" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.841@0.23.1440.841" timestamp="1580206625236" />
     <state x="2731" y="444" key="#com.intellij.refactoring.turnRefsToSuper.TurnRefsToSuperDialog" timestamp="1579804502476">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -215,26 +222,30 @@
     </state>
     <state x="740" y="263" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580149583910" />
     <state x="2660" y="263" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579802095742" />
-    <state width="1877" height="242" key="GridCell.Tab.0.bottom" timestamp="1580150053310">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1398" height="274" key="GridCell.Tab.0.bottom" timestamp="1580216692957">
+      <screen x="0" y="23" width="1440" height="841" />
     </state>
     <state width="1877" height="242" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580150053310" />
     <state width="1877" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579822808144" />
-    <state width="1877" height="242" key="GridCell.Tab.0.center" timestamp="1580150053310">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1398" height="274" key="GridCell.Tab.0.bottom/0.23.1440.841@0.23.1440.841" timestamp="1580216692957" />
+    <state width="1398" height="274" key="GridCell.Tab.0.center" timestamp="1580216692956">
+      <screen x="0" y="23" width="1440" height="841" />
     </state>
     <state width="1877" height="242" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580150053310" />
     <state width="1877" height="271" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579822808144" />
-    <state width="1877" height="242" key="GridCell.Tab.0.left" timestamp="1580150053309">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1398" height="274" key="GridCell.Tab.0.center/0.23.1440.841@0.23.1440.841" timestamp="1580216692956" />
+    <state width="1398" height="274" key="GridCell.Tab.0.left" timestamp="1580216692956">
+      <screen x="0" y="23" width="1440" height="841" />
     </state>
     <state width="1877" height="242" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580150053309" />
     <state width="1877" height="271" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579822808144" />
-    <state width="1877" height="242" key="GridCell.Tab.0.right" timestamp="1580150053310">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1398" height="274" key="GridCell.Tab.0.left/0.23.1440.841@0.23.1440.841" timestamp="1580216692956" />
+    <state width="1398" height="274" key="GridCell.Tab.0.right" timestamp="1580216692957">
+      <screen x="0" y="23" width="1440" height="841" />
     </state>
     <state width="1877" height="242" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580150053310" />
     <state width="1877" height="271" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579822808144" />
+    <state width="1398" height="274" key="GridCell.Tab.0.right/0.23.1440.841@0.23.1440.841" timestamp="1580216692957" />
     <state x="733" y="123" key="SettingsEditor" timestamp="1580148189092">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -251,10 +262,11 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2652" y="413" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579797117936" />
-    <state x="667" y="161" width="586" height="717" key="find.popup" timestamp="1580149589220">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="500" y="153" width="667" height="580" key="find.popup" timestamp="1580209024841">
+      <screen x="0" y="23" width="1440" height="841" />
     </state>
     <state x="667" y="161" width="586" height="717" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580149589220" />
+    <state x="500" y="153" width="667" height="580" key="find.popup/0.23.1440.841@0.23.1440.841" timestamp="1580209024841" />
     <state x="342" y="137" key="new project wizard" timestamp="1579783342923">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -264,5 +276,10 @@
     </state>
     <state x="343" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1360.728@0.0.1360.728" timestamp="1579802699242" />
     <state x="2404" y="70" width="949" height="969" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579802862983" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ProjetBatailleNavaleL3CILS$Main__1_.ic" NAME="Main (1) Coverage Results" MODIFIED="1580216004327" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>view.*</FILTER>
+    </SUITE>
   </component>
 </project>

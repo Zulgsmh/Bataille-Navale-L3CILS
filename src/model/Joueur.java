@@ -25,6 +25,8 @@ public class Joueur {
 	 */
 	private int id;
 
+	private ArrayList listeBateauPosable ;
+
 	/**
 	 * 
 	 */
@@ -39,7 +41,9 @@ public class Joueur {
 	 * 
 	 */
 	public String[][] grilleAdverse = new String[10][10];
-
+	//initialisation bateau aléatoire du joueur
+	//public BateauAleatoire ba = new BateauAleatoire();
+	//initialisation bateau du joueur
 	public PorteAvion p1 = new PorteAvion();
 	public CuirasseFurtif c1 = new CuirasseFurtif();
 	public CuirasseFurtif c2 = new CuirasseFurtif();
@@ -165,7 +169,7 @@ public class Joueur {
 	/**
 	 * 
 	 */
-	public void placerBateau(int nbbateau) {
+	public void placerBateau(int nbbateau,boolean boutonAlea) {
 		int typebateau = 0;
 		int x = 0;
 		int y = 0;
@@ -182,6 +186,14 @@ public class Joueur {
 					x=new Random().nextInt(10);
 					y = new Random().nextInt(10);
 					dir = new Random().nextInt(2)+1;
+				}
+				else if(boutonAlea) {
+					System.out.println("dans bouton alea");
+					int r = new Random().nextInt(listeBateauPosable.size());
+					typebateau = (int)listeBateauPosable.get(r);
+					x = new Random().nextInt(10);
+					y = new Random().nextInt(10);
+					dir = new Random().nextInt(2) + 1;
 				}
 				else if(!this.estUnOrdi) {
 					System.out.print(
@@ -200,6 +212,7 @@ public class Joueur {
 				} else {
 					verticale = false;
 				}
+
 
 				int taillebat = 0;
 				switch (typebateau) {
@@ -285,9 +298,13 @@ public class Joueur {
 			}
 			Position posNavire = new Position(x, y, verticale);
 			setBateauplacer(typebateau, posNavire);
-
 		}
 	}
+
+
+
+
+
 	public void remplissage() {
 		this.clearMagrille();
 		for (int i = 0; i < listNavire.length; i++) {
@@ -324,24 +341,41 @@ public class Joueur {
 			System.out.println("");
 		}
 	}
+
+	public void setListeBateauPose(int typeBateau) {
+		//System.out.println(this.listeBateauPosable);
+		this.listeBateauPosable.remove(this.listeBateauPosable.indexOf(typeBateau));
+
+	}
+
+	public void initListeBateauPosable(){
+
+		this.listeBateauPosable = new ArrayList(Arrays.asList(1,2,3,4,5));
+	}
+
 	public void setBateauplacer(int typebateau, Position posNavire){
 		if (typebateau == 1) {
 			this.p1.setPosition(posNavire);
 			this.p1.setEstPose(true);
+			setListeBateauPose(1);
 		} else if (typebateau == 2) {
 			this.s1.setPosition(posNavire);
 			this.s1.setEstPose(true);
+			setListeBateauPose(2);
 		} else if (typebateau == 3) {
 			this.c1.setPosition(posNavire);
 			this.c1.setNom("CUI1");
 			this.c1.setEstPose(true);
+			setListeBateauPose(3);
 		} else if (typebateau == 4) {
 			this.c2.setPosition(posNavire);
 			this.c2.setNom("CUI2");
 			this.c2.setEstPose(true);
+			setListeBateauPose(4);
 		} else if (typebateau == 5) {
 			this.z1.setPosition(posNavire);
 			this.z1.setEstPose(true);
+			setListeBateauPose(5);
 		}
 			this.remplissage();
 			//this.displayMaGrille();

@@ -86,6 +86,7 @@ public class Partie {
 	public void setJ2doitplacetBat(Boolean bool){
 		j2DoitPlacerBateau = bool;
 	}
+
 	public void startBataille() {
 		System.out.println("Quelle mode voulez-vous: \n1)Joueur1 VS Joueur2  \n2)Joueur1 VS Ordinateur  \n3)Demo");
 		Scanner in = new Scanner(System.in);
@@ -129,17 +130,20 @@ public class Partie {
 	public void placerBateauJ1() {
 		// TODO implement here
 		System.out.println("Placement des bateau de j1");
-		this.j1.placerBateau(this.nbBateau);
+		this.j1.placerBateau(this.nbBateau,false);
 
 	}
+
 
 	public void placerBateauJ2() {
 		// TODO implement here
 		System.out.println("Placement des bateau de j2");
-		this.j2.placerBateau(this.nbBateau);
+		this.j2.placerBateau(this.nbBateau,false
+		);
 
 	}
 
+	public int getNbBateau(){return this.nbBateau ;}
 	/**
 	 * 
 	 */
