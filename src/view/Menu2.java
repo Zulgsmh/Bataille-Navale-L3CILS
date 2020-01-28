@@ -17,7 +17,7 @@ public class Menu2 extends JFrame {
     Color purple = new Color(110, 74, 227);
     Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
-    public Menu2() {
+    public Menu2(Aff af) {
         setSize(800, 300);
         add(rootPanel);
         this.setUndecorated(true);
@@ -118,11 +118,7 @@ public class Menu2 extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Menu1 g1 = new Menu1();
-                g1.setLocation(rootPanel.getLocation());
-                g1.setVisible(true);
 
-                dispose();
             }
         });
         BATAILLENAVALEButton.addMouseListener(new MouseAdapter() {

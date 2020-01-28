@@ -13,7 +13,7 @@ public class Affichage extends JFrame {
     Partie partie ;
 
     JLabel label1 = new JLabel("");
-
+    JLabel label2 = new JLabel("");
 
     private JPanel Menu = new JPanel();
 
@@ -78,9 +78,11 @@ public class Affichage extends JFrame {
 
 
         //*******************  TEXT *************************
-        plateau.add(label1);
-        label1.setLocation(200,600);
 
+        JPanel txtPanel = new JPanel();
+        plateau.add(txtPanel);
+        txtPanel.add(label1);
+        txtPanel.setLayout(new FlowLayout());
 
 
         //*******************  NombreBateau *******************
@@ -160,6 +162,8 @@ public class Affichage extends JFrame {
         this.add(container);
         System.setProperty("marron", "0XA95B23");
         System.setProperty("orange", "0XFA5C00");
+
+
 
     }
 
@@ -244,6 +248,12 @@ public class Affichage extends JFrame {
     }
 
     public void drawGrille1(String[][] maGrille, boolean hide) {
+
+        afficherTxt();
+
+
+
+
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 CelluleGrille1[i][j].setNom(maGrille[i][j]);
@@ -298,16 +308,16 @@ public class Affichage extends JFrame {
                     CelluleGrille2[i][j].setColor(Color.CYAN);
                 }
             }
+
         }
+
+
+    }
+    void afficherTxt(){
         if(partie.getJ1DoitTirer()) {
             label1.setText("TOUR DE J1");
         } else if(partie.getJ2DoitTirer()){
             label1.setText("TOUR DE J2");
-
         }
-
-
-
     }
-
 }

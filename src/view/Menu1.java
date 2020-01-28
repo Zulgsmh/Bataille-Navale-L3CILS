@@ -17,7 +17,7 @@ public class Menu1 extends JFrame {
     private JTextField BATAILLENAVALETextField;
     private JButton xButton;
 
-    public Menu1() {
+    public Menu1(Aff af) {
         this.setUndecorated(true);
         setSize(0, 0);
         final JFrame frame = new JFrame("BATAILLE NAVALE");
@@ -114,12 +114,6 @@ public class Menu1 extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Menu2 m1 = new Menu2();
-                m1.setLocation(frame.getX(), frame.getY());
-                m1.setVisible(true);
-                dispose();
-                frame.dispose();
-
 
             }
         });
@@ -127,25 +121,13 @@ public class Menu1 extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Menu2 m1 = new Menu2();
-                m1.setLocation(frame.getX(), frame.getY());
-                m1.setVisible(true);
-                dispose();
-                frame.dispose();
-
-
+                af.setContainer("menu2");
             }
         });
         UN.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Menu2 m1 = new Menu2();
-                m1.setLocation(frame.getX(), frame.getY());
-
-                m1.setVisible(true);
-                dispose();
-                frame.dispose();
 
             }
         });
