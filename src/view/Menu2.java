@@ -18,6 +18,7 @@ public class Menu2 extends JPanel {
     Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
     public Menu2(Aff af) {
+
         setSize(800, 300);
         add(rootPanel);
 

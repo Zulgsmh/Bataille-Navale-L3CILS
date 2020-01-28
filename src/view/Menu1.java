@@ -21,7 +21,7 @@ public class Menu1 extends JPanel {
     public Menu1(Aff af) {
         this.af = af;
 
-        setSize(0, 0);
+
         final JFrame frame = new JFrame("BATAILLE NAVALE");
 
 
