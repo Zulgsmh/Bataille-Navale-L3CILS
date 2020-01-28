@@ -138,10 +138,6 @@ public class ChoixMode extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Partie p = new Partie();
-                Affichage a = new Affichage();
-                BatailleController c = new BatailleController(a, p);
-                a.setVisible(true);
             }
         });
     }
