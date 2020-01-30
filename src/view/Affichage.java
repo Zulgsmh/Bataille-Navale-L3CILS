@@ -213,7 +213,7 @@ public class Affichage extends JFrame {
     //Fonction changer de page après fin de partie
     public void RevenirMenu(){
         dispose();
-        Gui t1 = new Gui();
+        Menu1 t1 = new Menu1();
         this.setContentPane(t1);
         this.validate();
     }
