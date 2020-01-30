@@ -23,6 +23,11 @@ public class Affichage extends JFrame {
     private JPanel container = new JPanel();
 
 
+    //couleurs arrière plan / boutons
+    Color violet = new Color(110,74,227);
+    Color violetF = new Color(42,0,51);
+
+
     private JPanel Menu = new JPanel();
 
     private JButton jvj = new JButton("JVJ");
@@ -51,6 +56,8 @@ public class Affichage extends JFrame {
 
     private JPanel plateau = new JPanel();
 
+
+
     private JPanel Grille1 = new JPanel();
     private JPanel Grille2 = new JPanel();
     private JPanel listBateauJ1 = new JPanel();
@@ -77,6 +84,7 @@ public class Affichage extends JFrame {
         //*******************  MENU  ***********************
 
 
+
         Menu.add(jvj);
         Menu.add(jvo);
         Menu.add(ovo);
@@ -99,6 +107,8 @@ public class Affichage extends JFrame {
 
 
         //*******************  Plateau de JEu ********************
+
+        plateau.setBackground(violetF);
 
         //définition de la grille1
         Grille1.setBackground(Color.black);
@@ -124,7 +134,8 @@ public class Affichage extends JFrame {
             }
         }
 
-        listBateauJ1.setBackground(Color.GRAY);
+        listBateauJ1.setBackground(Color.white);
+
         listBateauJ1.setPreferredSize( new Dimension( 150, 400 ) );
         for (int i = 0;i<10;i++) {
             Boolean vertical;
@@ -135,11 +146,15 @@ public class Affichage extends JFrame {
             }
             buttonBateauJ1[i] = new Bateau ("j1",vertical);
             buttonBateauJ1[i].setText(bateauName[(int)(i/2)]);
+            buttonBateauJ1[i].setBackground(violetF);
+            buttonBateauJ1[i].setForeground(Color.white);
+
+
             listBateauJ1.add(buttonBateauJ1[i]);
         }
         listBateauJ1.setLayout (new BoxLayout (listBateauJ1, BoxLayout.Y_AXIS));
 
-        listBateauJ2.setBackground(Color.GRAY);
+        listBateauJ2.setBackground(Color.white);
         listBateauJ2.setPreferredSize( new Dimension( 150, 400 ) );
         for (int i = 0;i<10;i++) {
             Boolean vertical;
@@ -150,6 +165,10 @@ public class Affichage extends JFrame {
             }
             buttonBateauJ2[i] = new Bateau ("j2",vertical);
             buttonBateauJ2[i].setText(bateauName[(int)(i/2)]);
+            buttonBateauJ2[i].setBackground(violetF);
+            buttonBateauJ2[i].setForeground(Color.white);
+
+
             listBateauJ2.add(buttonBateauJ2[i]);
         }
         listBateauJ2.setLayout (new BoxLayout (listBateauJ2, BoxLayout.Y_AXIS));
@@ -278,7 +297,7 @@ public class Affichage extends JFrame {
             for (int j=0; j < 10; j++){
                 CelluleGrille1[i][j].setNom(maGrille[i][j]);
                 if(maGrille[i][j] == null){
-                    CelluleGrille1[i][j].setColor(Color.CYAN);
+                    CelluleGrille1[i][j].setColor(violet);
                 }else if(maGrille[i][j].equals("PLOF")){
                     CelluleGrille1[i][j].setColor(Color.black);
                 }else if(maGrille[i][j].equals("SHOT")){
@@ -295,7 +314,7 @@ public class Affichage extends JFrame {
                     }else if(maGrille[i][j].equals("ZODI")){
                         CelluleGrille1[i][j].setColor(Color.green);
                     }
-                }else{CelluleGrille1[i][j].setColor(Color.CYAN);}
+                }else{CelluleGrille1[i][j].setColor(violet);}
             }
         }
     }
@@ -304,7 +323,7 @@ public class Affichage extends JFrame {
             for (int j=0; j < 10; j++) {
                 CelluleGrille2[i][j].setNom(maGrille[i][j]);
                 if (maGrille[i][j] == null) {
-                    CelluleGrille2[i][j].setColor(Color.CYAN);
+                    CelluleGrille2[i][j].setColor(violet);
                 } else if (maGrille[i][j].equals("PLOF")) {
                     CelluleGrille2[i][j].setColor(Color.black);
                 } else if (maGrille[i][j].equals("SHOT")) {
@@ -321,7 +340,7 @@ public class Affichage extends JFrame {
                     } else if (maGrille[i][j].equals("ZODI")) {
                         CelluleGrille2[i][j].setColor(Color.green);
                     }
-                }else{CelluleGrille2[i][j].setColor(Color.CYAN);}
+                }else{CelluleGrille2[i][j].setColor(violet);}
             }
         }
     }
@@ -329,6 +348,9 @@ public class Affichage extends JFrame {
 }
 
 class cellule extends JPanel {
+    Color violet = new Color(110,74,227);
+    Color violetF = new Color(42,0,51);
+
     private int x,y;
     private String nom = "";
     private String appartient;
@@ -336,7 +358,7 @@ class cellule extends JPanel {
         this.x = x;
         this.y = y;
         this.appartient = appart;
-        this.setBackground(Color.CYAN);
+        this.setBackground(violet);
 
     }
 
@@ -502,7 +524,8 @@ class BatailleController {
 
 
     public class ListenForMouse implements MouseListener {
-
+        Color violet = new Color(110,74,227);
+        Color violetF = new Color(42,0,51);
         // Called when a mouse button is clicked
 
         public void mouseClicked(MouseEvent e) {
@@ -575,8 +598,10 @@ class BatailleController {
         // the MouseListener
 
         public void mouseEntered(MouseEvent e) {
+            Color violet = new Color(110,74,227);
+            Color violetF = new Color(42,0,51);
             cellule parent = (cellule)e.getSource();
-            if (parent.getBackground().equals(Color.CYAN)) {
+            if (parent.getBackground().equals(violet)) {
                 boolean ciblerj2  = parent.getAppartient().equals("j2") && partie.getJ1DoitTirer();
                 boolean ciblerj1 = parent.getAppartient().equals("j1") && partie.getJ2DoitTirer();
                 if(ciblerj1 || ciblerj2){
@@ -591,10 +616,10 @@ class BatailleController {
         public void mouseExited(MouseEvent e) {
             JPanel parent = (JPanel)e.getSource();
             if (parent.getBackground().equals(Color.gray)) {
-                parent.setBackground(Color.CYAN);
+                parent.setBackground(violet);
             }
             if((partie.getJ1DoitTirer()||partie.getJ2DoitTirer() )&& parent.getBackground().equals(Color.red)){
-                parent.setBackground(Color.CYAN);
+                parent.setBackground(violet);
             }
         }
         // Mouse button pressed
