@@ -1,5 +1,6 @@
 package view;
 
+import controller.BatailleController;
 import model.Partie;
 
 import javax.swing.*;
