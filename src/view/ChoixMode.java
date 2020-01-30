@@ -22,8 +22,25 @@ public class ChoixMode extends JFrame {
 
     public ChoixMode() {
         setSize(800, 300);
-        add(rootPanel);
         this.setUndecorated(true);
+        final JFrame frame = new JFrame("BATAILLE NAVALE");
+
+
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                frame.setUndecorated(true);
+                frame.setBounds(0, 0, 800, 300);
+                frame.setContentPane(rootPanel);
+                Gui.FrameDragListener frameDragListener = new Gui.FrameDragListener(frame);
+                frame.addMouseListener(frameDragListener);
+                frame.addMouseMotionListener(frameDragListener);
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);
+                rootPanel.setVisible(true);
+                pack();
+            }
+        };
 
 
         BATAILLENAVALEButton.addMouseListener(new MouseAdapter() {
@@ -124,7 +141,7 @@ public class ChoixMode extends JFrame {
                 Gui g1 = new Gui();
                 g1.setLocation(rootPanel.getLocation());
                 g1.setVisible(true);
-
+                frame.dispose();
                 dispose();
             }
         });
@@ -143,8 +160,38 @@ public class ChoixMode extends JFrame {
                 Affichage a = new Affichage();
                 BatailleController c = new BatailleController(a, p);
                 a.setVisible(true);
+                frame.dispose();
+                dispose();
             }
         });
+        SwingUtilities.invokeLater(runnable);
+
+    }
+    public static class FrameDragListener extends MouseAdapter {
+
+        private final JFrame frame;
+        private Point mouseDownCompCoords = null;
+
+        public FrameDragListener(JFrame frame) {
+            this.frame = frame;
+        }
+
+        public void mouseReleased(MouseEvent e) {
+            mouseDownCompCoords = null;
+        }
+
+        public void mousePressed(MouseEvent e) {
+            mouseDownCompCoords = e.getPoint();
+            System.out.println(frame.getLocation());
+
+        }
+
+        public void mouseDragged(MouseEvent e) {
+            Point currCoords = e.getLocationOnScreen();
+            frame.setLocation(currCoords.x - mouseDownCompCoords.x, currCoords.y - mouseDownCompCoords.y);
+
+        }
+
     }
 
 }

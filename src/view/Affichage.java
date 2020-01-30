@@ -138,8 +138,7 @@ public class Affichage extends JFrame {
             buttonBateauJ1[i].setText(bateauName[(int)(i/2)]);
             buttonBateauJ1[i].setBackground(violetF);
             buttonBateauJ1[i].setForeground(Color.white);
-
-
+            
             listBateauJ1.add(buttonBateauJ1[i]);
         }
         listBateauJ1.setLayout (new BoxLayout (listBateauJ1, BoxLayout.Y_AXIS));
