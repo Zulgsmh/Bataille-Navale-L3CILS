@@ -8,6 +8,8 @@ import java.awt.event.MouseEvent;
 public class Menu3 extends  JFrame{
     final JFrame frame = new JFrame("BATAILLE NAVALE");
     private JPanel rootPanel;
+    private JComboBox comboBox1;
+    private JTextField NOMBREDEBATEAUXÀTextField;
     Color violet = new Color(110,74,227);
     Color violetF = new Color(42,0,51);
 
@@ -15,7 +17,7 @@ public class Menu3 extends  JFrame{
         @Override
         public void run() {
             frame.setUndecorated(true);
-            frame.setBounds(0, 0, 800, 300);
+            frame.setBounds(0, 0, 800, 200);
             frame.setContentPane(rootPanel);
             Menu1.FrameDragListener frameDragListener = new Menu1.FrameDragListener(frame);
             frame.addMouseListener(frameDragListener);
@@ -33,8 +35,6 @@ public class Menu3 extends  JFrame{
     public Menu3(){
         SwingUtilities.invokeLater(runnable);
         rootPanel.setBackground(violetF);
-       
-
     }
 
 
