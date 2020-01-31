@@ -104,7 +104,9 @@ public class Joueur {
 	public void setGrilleAdverse(String[][] grilleAdverse) {
 		this.grilleAdverse = grilleAdverse;
 	}
-
+    public void setGrilleAdverse(int x, int y, String truc) {
+        this.maGrille[x][y] = truc;
+    }
 	public void setGrilleAdverse(int x, int y) {
 		// DOTO : mettre condition de tire
 		System.out.println(this.grilleAdverse[x - 1][y - 1]);

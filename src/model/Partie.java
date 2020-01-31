@@ -67,6 +67,7 @@ public class Partie {
 	}
 	public boolean getTypeAR(){
 		return typeAR;
+<<<<<<< Updated upstream
 	}
 	public boolean J1doitplacerBat(){
 		return j1DoitPlacerBateau;
@@ -76,6 +77,8 @@ public class Partie {
 	}
 	public void setJ1DoitTirer(Boolean bool){
 		j1DoitTirer = bool;
+=======
+>>>>>>> Stashed changes
 	}
 	public void setJ2DoitTirer(Boolean bool){
 		j2DoitTirer = bool;
@@ -198,6 +201,40 @@ public class Partie {
 			this.j1.setGrilleAdverse(this.j2.maGrille);
 			this.j1.displayGrilleAdverse();
 			this.j1.displayMaGrille();
+
+			if (typeRadar) {
+				int rad = 0;
+				Boolean vue = false;
+				String cellule = "rien";
+				while (!vue){
+					for (int k = 0; k < 10; k++) {
+						for (int i = 0; i < 2 * k + 1; i++) {
+							for (int j = 0; j < 2 * k + 1; j++) {
+								if (x + i - k - 1 < 10 && x + i - k - 1 >= 0 && y + j - k - 1 < 10 && y + j - k - 1 >= 0) {
+									cellule = j1.maGrille[x + i - k - 1][y + j - k - 1];
+								}
+								if (cellule != null) {
+									if (cellule.equals("PORT")) {
+										System.out.println(cellule);
+										System.out.println("k :" + k);
+										rad = k;
+										vue = true;
+
+										break;
+									}
+								}
+							}
+							if (vue){
+								break;
+							}
+						}
+						if (vue){
+							break;
+						}
+					}
+					System.out.println("distance=" + rad);
+				}
+			}
 		}
 		return mort;
 	}
@@ -246,8 +283,50 @@ public class Partie {
 			this.j2.setGrilleAdverse(this.j1.maGrille);
 			this.j2.displayGrilleAdverse();
 			this.j2.displayMaGrille();
+<<<<<<< Updated upstream
 		}
 		return this.mort;
+=======
+			System.out.println("bien taype radar: " + typeRadar);
+
+			if (typeRadar) {
+				int rad = 0;
+				Boolean vue = false;
+				String cellule = "rien";
+				while (!vue){
+					for (int k = 0; k < 10; k++) {
+						for (int i = 0; i < 2 * k + 1; i++) {
+							for (int j = 0; j < 2 * k + 1; j++) {
+								if (x + i - k - 1 < 10 && x + i - k - 1 >= 0 && y + j - k - 1 < 10 && y + j - k - 1 >= 0) {
+									cellule = j1.maGrille[x + i - k - 1][y + j - k - 1];
+								}
+								if (cellule != null) {
+									if (cellule.equals("PORT")) {
+										System.out.println(cellule);
+										System.out.println("k :" + k);
+										rad = k;
+										vue = true;
+
+										break;
+									}
+								}
+							}
+							if (vue){
+								break;
+							}
+						}
+						if (vue){
+							break;
+						}
+					}
+					System.out.println("distance=" + rad);
+				}
+			}
+		}
+
+			return this.mort;
+
+>>>>>>> Stashed changes
 	}
 
 	/**
