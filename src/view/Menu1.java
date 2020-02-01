@@ -1,9 +1,14 @@
 package view;
 
+import controller.BatailleController;
+import controller.Menu1Controller;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 
 public class Menu1 extends JFrame {
@@ -39,127 +44,143 @@ public class Menu1 extends JFrame {
             }
         };
 
-
-        UN.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                super.mouseEntered(e);
-                UN.setBackground(Color.white);
-                UN.setForeground(Color.black);
-
-            }
-        });
-        UN.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseExited(MouseEvent e) {
-                super.mouseExited(e);
-                UN.setBackground(purple);
-                UN.setForeground(Color.white);
-
-            }
-        });
-        DEUX.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                super.mouseEntered(e);
-                DEUX.setBackground(Color.white);
-                DEUX.setForeground(Color.black);
-            }
-        });
-        DEUX.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseExited(MouseEvent e) {
-                super.mouseExited(e);
-                DEUX.setBackground(purple);
-                DEUX.setForeground(Color.white);
-            }
-        });
-        DEMO.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                super.mouseEntered(e);
-                DEMO.setBackground(Color.white);
-                DEMO.setForeground(Color.black);
-
-            }
-        });
-        DEMO.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseExited(MouseEvent e) {
-                super.mouseExited(e);
-                DEMO.setBackground(purple);
-                DEMO.setForeground(Color.white);
-
-            }
-        });
-        xButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                super.mouseEntered(e);
-                xButton.setBackground(Color.white);
-                xButton.setForeground(Color.black);
-
-            }
-        });
-        xButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseExited(MouseEvent e) {
-                super.mouseExited(e);
-                xButton.setBackground(dRed);
-                xButton.setForeground(Color.white);
-
-            }
-        });
-        DEUX.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                Menu2 m1 = new Menu2();
-                m1.setLocation(frame.getX(), frame.getY());
-                m1.setVisible(true);
-                dispose();
-                frame.dispose();
+//
+//        UN.addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mouseEntered(MouseEvent e) {
+//                super.mouseEntered(e);
+//                UN.setBackground(Color.white);
+//                UN.setForeground(Color.black);
+//
+//            }
+//        });
+//        UN.addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mouseExited(MouseEvent e) {
+//                super.mouseExited(e);
+//                UN.setBackground(purple);
+//                UN.setForeground(Color.white);
+//
+//            }
+//        });
+//        DEUX.addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mouseEntered(MouseEvent e) {
+//                super.mouseEntered(e);
+//                DEUX.setBackground(Color.white);
+//                DEUX.setForeground(Color.black);
+//            }
+//        });
+//        DEUX.addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mouseExited(MouseEvent e) {
+//                super.mouseExited(e);
+//                DEUX.setBackground(purple);
+//                DEUX.setForeground(Color.white);
+//            }
+//        });
+//        DEMO.addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mouseEntered(MouseEvent e) {
+//                super.mouseEntered(e);
+//                DEMO.setBackground(Color.white);
+//                DEMO.setForeground(Color.black);
+//
+//            }
+//        });
+//        DEMO.addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mouseExited(MouseEvent e) {
+//                super.mouseExited(e);
+//                DEMO.setBackground(purple);
+//                DEMO.setForeground(Color.white);
+//
+//            }
+//        });
+//        xButton.addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mouseEntered(MouseEvent e) {
+//                super.mouseEntered(e);
+//                xButton.setBackground(Color.white);
+//                xButton.setForeground(Color.black);
+//
+//            }
+//        });
+//        xButton.addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mouseExited(MouseEvent e) {
+//                super.mouseExited(e);
+//                xButton.setBackground(dRed);
+//                xButton.setForeground(Color.white);
+//
+//            }
+//        });
 
 
-            }
-        });
-        DEMO.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                Menu2 m1 = new Menu2();
-                m1.setLocation(frame.getX(), frame.getY());
-                m1.setVisible(true);
-                dispose();
-                frame.dispose();
-
-
-            }
-        });
-        UN.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                Menu2 m1 = new Menu2();
-                m1.setLocation(frame.getX(), frame.getY());
-                m1.setVisible(true);
-                dispose();
-                frame.dispose();
-
-            }
-        });
-        xButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                dispose();
-                frame.dispose();
-            }
-        });
+//
+//        DEUX.addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mouseClicked(MouseEvent e) {
+//                super.mouseClicked(e);
+//                Menu2 m1 = new Menu2();
+//                m1.setLocation(frame.getX(), frame.getY());
+//                m1.setVisible(true);
+//                dispose();
+//                frame.dispose();
+//
+//
+//            }
+//        });
+//        DEMO.addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mouseClicked(MouseEvent e) {
+//                super.mouseClicked(e);
+//                Menu2 m1 = new Menu2();
+//                m1.setLocation(frame.getX(), frame.getY());
+//                m1.setVisible(true);
+//                dispose();
+//                frame.dispose();
+//
+//
+//            }
+//        });
+//        UN.addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mouseClicked(MouseEvent e) {
+//                super.mouseClicked(e);
+//                Menu2 m1 = new Menu2();
+//                m1.setLocation(frame.getX(), frame.getY());
+//                m1.setVisible(true);
+//                dispose();
+//                frame.dispose();
+//
+//            }
+//        });
+//        xButton.addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mouseClicked(MouseEvent e) {
+//                super.mouseClicked(e);
+//                dispose();
+//                frame.dispose();
+//            }
+//        });
 
         SwingUtilities.invokeLater(runnable);
 
+
+
+
+
+
+
     }
+    public void addButtonMenu1Listener(MouseListener actionSourie){
+        UN.addMouseListener(actionSourie);
+        DEUX.addMouseListener(actionSourie);
+        DEMO.addMouseListener(actionSourie);
+    }
+
+
 
     public static class FrameDragListener extends MouseAdapter {
 

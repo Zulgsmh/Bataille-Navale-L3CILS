@@ -156,12 +156,8 @@ public class Menu2 extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Partie p = new Partie();
-                Affichage a = new Affichage();
-                BatailleController c = new BatailleController(a, p);
                 Menu3 m3 = new Menu3();
                 m3.setVisible(true);
-                a.setVisible(true);
                 frame.dispose();
                 dispose();
             }
