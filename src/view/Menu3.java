@@ -1,9 +1,12 @@
 package view;
 
+import controller.BatailleController;
 import model.Partie;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -12,6 +15,7 @@ public class Menu3 extends  JFrame{
     private JPanel rootPanel;
     private JComboBox comboBox1;
     private JTextField NOMBREDEBATEAUXÀTextField;
+    private JButton button1;
     private Partie p;
 
     Color violet = new Color(110,74,227);
@@ -42,6 +46,15 @@ public class Menu3 extends  JFrame{
         SwingUtilities.invokeLater(runnable);
 
         rootPanel.setBackground(violetF);
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Affichage a = new Affichage();
+                BatailleController c = new BatailleController(a, p);
+                a.setVisible(true);
+                frame.dispose();
+            }
+        });
     }
 
 
