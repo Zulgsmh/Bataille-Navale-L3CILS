@@ -180,11 +180,11 @@ public class Affichage extends JFrame {
         plateau.add(RandomBateau);
 
         //******************           CardLayout           ****************
-        //container.add(Menu, "menu");
+        container.add(Menu, "menu");
         container.add(NombreBateau, "nbBat");
-        //container.add(Mode, "mode");
+        container.add(Mode, "mode");
         container.add(plateau, "plateau");
-        c.show(container, "nbBat");
+        c.show(container, "menu");
         this.add(container);
         System.setProperty("marron", "0XA95B23");
         System.setProperty("orange", "0XFA5C00");

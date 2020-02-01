@@ -59,7 +59,10 @@ public class BatailleController {
     class modeListener implements ActionListener{
         String mode;
         modeListener(String mode){
-            this.mode = mode;
+            if(mode.equals("classique")){ partie.setTypeNormal(true);}
+            if(mode.equals("radar")){partie.setTypeRadar(true);}
+            if(mode.equals("artillerie")){partie.setTypeArti(true);}
+            if(mode.equals("coderouge")){partie.setTypeAR(true);}
         }
         public void actionPerformed(ActionEvent e) {
             partie.ModeJ = this.mode;
@@ -72,7 +75,7 @@ public class BatailleController {
     }
     class ValidNBListen implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-            affichage.setContainer("plateau");
+            affichage.setContainer("mode");
             partie.nbBateau = affichage.getComboBoxNbBat();
         }
     }
@@ -171,7 +174,7 @@ public class BatailleController {
 
                         }
                     }//Boîte du message d'information
-                    if(partie.j1.getShot(parent.getx() + 1, parent.gety() + 1)){
+                    if(partie.j1.getShot(parent.getx() + 1, parent.gety() + 1, partie.getTypeRadar())){
                         affichage.setAfficherPopUpVictoire("J2");
                     }
                     affichage.drawGrille2(partie.j2.maGrille, true);
@@ -197,7 +200,7 @@ public class BatailleController {
                             //Boîte du message d'information
                         }
                     }
-                    if(partie.j2.getShot(parent.getx() + 1, parent.gety() + 1)) {
+                    if(partie.j2.getShot(parent.getx() + 1, parent.gety() + 1, partie.getTypeRadar())) {
                         affichage.setAfficherPopUpVictoire("J1");
                     }
                     affichage.drawGrille1(partie.j1.maGrille, true);

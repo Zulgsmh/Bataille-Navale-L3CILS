@@ -67,7 +67,6 @@ public class Partie {
 	}
 	public boolean getTypeAR(){
 		return typeAR;
-<<<<<<< Updated upstream
 	}
 	public boolean J1doitplacerBat(){
 		return j1DoitPlacerBateau;
@@ -77,8 +76,6 @@ public class Partie {
 	}
 	public void setJ1DoitTirer(Boolean bool){
 		j1DoitTirer = bool;
-=======
->>>>>>> Stashed changes
 	}
 	public void setJ2DoitTirer(Boolean bool){
 		j2DoitTirer = bool;
@@ -163,7 +160,7 @@ public class Partie {
 			System.out.println("J1 joue !");
 			int x=new Random().nextInt(10)+1;
 			int y = new Random().nextInt(10)+1;
-			mort = this.j2.getShot(x, y);
+			mort = this.j2.getShot(x, y, true);
 			if (this.j2.getDejaCible()) {
 				this.j2.setDejaCible(false);
 				System.out.println("Tu as d�ja tir� ici mon khey !");
@@ -192,7 +189,7 @@ public class Partie {
 			int x = in.nextInt();
 			System.out.print("ou veux-tu tirer en y : ");
 			int y = in.nextInt();
-			mort = this.j2.getShot(x, y);
+			mort = this.j2.getShot(x, y, true);
 			if (this.j2.getDejaCible()) {
 				this.j2.setDejaCible(false);
 				System.out.println("Tu as d�ja tir� ici mon khey !");
@@ -246,7 +243,7 @@ public class Partie {
 			System.out.println("J2 joue !");
 			int x=new Random().nextInt(10)+1;
 			int y = new Random().nextInt(10)+1;
-			mort = this.j1.getShot(x, y);
+			mort = this.j1.getShot(x, y, true);
 			if (this.j1.getDejaCible()) {
 				this.j1.setDejaCible(false);
 				System.out.println("Tu as deja tire ici mon khey !");
@@ -266,67 +263,60 @@ public class Partie {
 		}
 		// TODO implement here
 		else if(!j2.getEstOrdi()) {
-			System.out.println("\n\n\n Tour de J2 :");
-			Scanner in = new Scanner(System.in);
-			System.out.print("ou veux-tu tirer en x : ");
-			String sx = in.nextLine();
-			System.out.print("ou veux-tu tirer en y : ");
-			String sy = in.nextLine();
-			int x = Integer.parseInt(sx);
-			int y = Integer.parseInt(sy);
-			mort = this.j1.getShot(x, y);
-			if (this.j1.getDejaCible()) {
-				this.j1.setDejaCible(false);
-				System.out.println("Tu as d�ja tir� ici mon khey !");
-				this.J2tirer();
-			}
-			this.j2.setGrilleAdverse(this.j1.maGrille);
-			this.j2.displayGrilleAdverse();
-			this.j2.displayMaGrille();
-<<<<<<< Updated upstream
-		}
+            System.out.println("\n\n\n Tour de J2 :");
+            Scanner in = new Scanner(System.in);
+            System.out.print("ou veux-tu tirer en x : ");
+            String sx = in.nextLine();
+            System.out.print("ou veux-tu tirer en y : ");
+            String sy = in.nextLine();
+            int x = Integer.parseInt(sx);
+            int y = Integer.parseInt(sy);
+            mort = this.j1.getShot(x, y, true);
+            if (this.j1.getDejaCible()) {
+                this.j1.setDejaCible(false);
+                System.out.println("Tu as d�ja tir� ici mon khey !");
+                this.J2tirer();
+            }
+            this.j2.setGrilleAdverse(this.j1.maGrille);
+            this.j2.displayGrilleAdverse();
+            this.j2.displayMaGrille();
+            System.out.println("bien taype radar: " + typeRadar);
+
+            if (typeRadar) {
+                int rad = 0;
+                Boolean vue = false;
+                String cellule = "rien";
+                while (!vue) {
+                    for (int k = 0; k < 10; k++) {
+                        for (int i = 0; i < 2 * k + 1; i++) {
+                            for (int j = 0; j < 2 * k + 1; j++) {
+                                if (x + i - k - 1 < 10 && x + i - k - 1 >= 0 && y + j - k - 1 < 10 && y + j - k - 1 >= 0) {
+                                    cellule = j1.maGrille[x + i - k - 1][y + j - k - 1];
+                                }
+                                if (cellule != null) {
+                                    if (cellule.equals("PORT")) {
+                                        System.out.println(cellule);
+                                        System.out.println("k :" + k);
+                                        rad = k;
+                                        vue = true;
+
+                                        break;
+                                    }
+                                }
+                            }
+                            if (vue) {
+                                break;
+                            }
+                        }
+                        if (vue) {
+                            break;
+                        }
+                    }
+                    System.out.println("distance=" + rad);
+                }
+            }
+        }
 		return this.mort;
-=======
-			System.out.println("bien taype radar: " + typeRadar);
-
-			if (typeRadar) {
-				int rad = 0;
-				Boolean vue = false;
-				String cellule = "rien";
-				while (!vue){
-					for (int k = 0; k < 10; k++) {
-						for (int i = 0; i < 2 * k + 1; i++) {
-							for (int j = 0; j < 2 * k + 1; j++) {
-								if (x + i - k - 1 < 10 && x + i - k - 1 >= 0 && y + j - k - 1 < 10 && y + j - k - 1 >= 0) {
-									cellule = j1.maGrille[x + i - k - 1][y + j - k - 1];
-								}
-								if (cellule != null) {
-									if (cellule.equals("PORT")) {
-										System.out.println(cellule);
-										System.out.println("k :" + k);
-										rad = k;
-										vue = true;
-
-										break;
-									}
-								}
-							}
-							if (vue){
-								break;
-							}
-						}
-						if (vue){
-							break;
-						}
-					}
-					System.out.println("distance=" + rad);
-				}
-			}
-		}
-
-			return this.mort;
-
->>>>>>> Stashed changes
 	}
 
 	/**
