@@ -34,6 +34,7 @@ public class Partie {
 	private Boolean typeRadar=false;
 	private Boolean typeArti=false;
 	private Boolean typeAR=false;
+	public Boolean J1VientDeToucher=false;
 
 
 
@@ -118,6 +119,9 @@ public class Partie {
 
 	}
 
+    public Boolean getJ1VientDeToucher(){return J1VientDeToucher;}
+    public void setJ1VientDeToucher(Boolean touche){J1VientDeToucher=touche;}
+
 	/**
 	 * 
 	 */
@@ -134,6 +138,9 @@ public class Partie {
 				System.out.println("Tu as d�ja tir� ici mon khey !");
 				this.J1tirer();
 			}
+			if (J1VientDeToucher){
+
+            }
 			this.j1.setGrilleAdverse(this.j2.maGrille);
 			this.j1.displayGrilleAdverse();
 			this.j1.displayMaGrille();

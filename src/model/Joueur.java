@@ -132,6 +132,7 @@ public class Joueur {
 			this.setMaGrille(x - 1, y - 1, "PLOF");
 		} else if (cellule.equals("PORT")) {
 			this.p1.setEstTouche(true);
+			p.setJ1VientDeToucher(true);
 			this.setMaGrille(x - 1, y - 1, "SHOT");
 		} else if (cellule.equals("SOUS")) {
 			this.s1.setEstTouche(true);
