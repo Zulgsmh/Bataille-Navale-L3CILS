@@ -110,7 +110,7 @@ public class BatailleController {
                 JButton parent = (JButton)e.getSource();
                 parent.setVisible(false);
                 affichage.drawGrille2(partie.j2.maGrille, true);
-                affichage.drawGrille1(partie.j1.maGrille, false);
+                affichage.drawGrille1(partie.j1.maGrille, true);
             }
         }
     }
@@ -178,7 +178,7 @@ public class BatailleController {
                         affichage.setAfficherPopUpVictoire("J2");
                     }
                     affichage.drawGrille2(partie.j2.maGrille, true);
-                    affichage.drawGrille1(partie.j1.maGrille, false);
+                    affichage.drawGrille1(partie.j1.maGrille, true);
                     partie.setJ1DoitTirer(true);
                     partie.setJ2DoitTirer(false);
                 }
@@ -204,7 +204,7 @@ public class BatailleController {
                         affichage.setAfficherPopUpVictoire("J1");
                     }
                     affichage.drawGrille1(partie.j1.maGrille, true);
-                    affichage.drawGrille2(partie.j2.maGrille, false);
+                    affichage.drawGrille2(partie.j2.maGrille, true);
                     partie.setJ1DoitTirer(false);
                     partie.setJ2DoitTirer(true);
                 }
