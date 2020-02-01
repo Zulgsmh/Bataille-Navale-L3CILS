@@ -16,15 +16,16 @@ public class Menu2 extends JFrame {
     private JButton OPERATIONARTILLERIEButton;
     private JButton MISSIONRADARButton;
     private JButton button1;
+    private Partie p;
 
     Color purple = new Color(110, 74, 227);
     Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
-    public Menu2() {
+    public Menu2(Partie p) {
         setSize(800, 300);
         this.setUndecorated(true);
         final JFrame frame = new JFrame("BATAILLE NAVALE");
-
+        this.p = p;
 
         Runnable runnable = new Runnable() {
             @Override
@@ -159,7 +160,7 @@ public class Menu2 extends JFrame {
                 Partie p = new Partie();
                 Affichage a = new Affichage();
                 BatailleController c = new BatailleController(a, p);
-                Menu3 m3 = new Menu3();
+                Menu3 m3 = new Menu3(p);
                 m3.setVisible(true);
                 a.setVisible(true);
                 frame.dispose();

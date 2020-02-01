@@ -1,5 +1,7 @@
 package view;
 
+import model.Partie;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -10,6 +12,8 @@ public class Menu3 extends  JFrame{
     private JPanel rootPanel;
     private JComboBox comboBox1;
     private JTextField NOMBREDEBATEAUXÀTextField;
+    private Partie p;
+
     Color violet = new Color(110,74,227);
     Color violetF = new Color(42,0,51);
 
@@ -32,8 +36,11 @@ public class Menu3 extends  JFrame{
 
     };
 
-    public Menu3(){
+    public Menu3(Partie p){
+        this.p = p;
+
         SwingUtilities.invokeLater(runnable);
+
         rootPanel.setBackground(violetF);
     }
 

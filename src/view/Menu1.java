@@ -1,7 +1,11 @@
 package view;
 
+import model.Partie;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -16,11 +20,14 @@ public class Menu1 extends JFrame {
     private JPanel img;
     private JTextField BATAILLENAVALETextField;
     private JButton xButton;
-
+    private Partie p;
     public Menu1() {
         this.setUndecorated(true);
         setSize(0, 0);
         final JFrame frame = new JFrame("BATAILLE NAVALE");
+        this.setLocationRelativeTo(null); //centre au milieu de l'ecran
+        this.setVisible(true);
+        p = new Partie();
 
 
         Runnable runnable = new Runnable() {
@@ -114,7 +121,7 @@ public class Menu1 extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Menu2 m1 = new Menu2();
+                Menu2 m1 = new Menu2(p);
                 m1.setLocation(frame.getX(), frame.getY());
                 m1.setVisible(true);
                 dispose();
@@ -127,7 +134,7 @@ public class Menu1 extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Menu2 m1 = new Menu2();
+                Menu2 m1 = new Menu2(p);
                 m1.setLocation(frame.getX(), frame.getY());
                 m1.setVisible(true);
                 dispose();
@@ -140,7 +147,7 @@ public class Menu1 extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Menu2 m1 = new Menu2();
+                Menu2 m1 = new Menu2(p);
                 m1.setLocation(frame.getX(), frame.getY());
                 m1.setVisible(true);
                 dispose();
@@ -159,6 +166,27 @@ public class Menu1 extends JFrame {
 
         SwingUtilities.invokeLater(runnable);
 
+        DEUX.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                p.j1.setEstOrdi(false);
+                p.j2.setEstOrdi(false);
+            }
+        });
+        UN.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                p.j1.setEstOrdi(false);
+                p.j2.setEstOrdi(true);
+            }
+        });
+        DEMO.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                p.j1.setEstOrdi(true);
+                p.j2.setEstOrdi(true);
+            }
+        });
     }
 
     public static class FrameDragListener extends MouseAdapter {

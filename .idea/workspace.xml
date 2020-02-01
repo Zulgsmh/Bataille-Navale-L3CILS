@@ -46,7 +46,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="project.propGUI" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -178,10 +178,10 @@
     <state x="181" y="43" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1360.728@0.0.1360.728" timestamp="1579802613544" />
     <state x="414" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579783457495" />
     <state x="2334" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579802927925" />
-    <state x="574" y="208" key="#com.intellij.ide.util.MemberChooser" timestamp="1580214260900">
-      <screen x="0" y="23" width="1440" height="841" />
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1580599635363">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580150043062" />
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580599635363" />
     <state x="2685" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579794863362" />
     <state x="574" y="208" key="#com.intellij.ide.util.MemberChooser/0.23.1440.841@0.23.1440.841" timestamp="1580214260900" />
     <state x="2609" y="312" key="#com.intellij.ide.util.TreeFileChooserDialog" timestamp="1579797236440">
@@ -213,10 +213,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2753" y="415" key="#com.intellij.uiDesigner.palette.ComponentItemDialog.OneOff/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579797564818" />
-    <state x="740" y="263" key="FileChooserDialogImpl" timestamp="1580149583910">
+    <state x="740" y="263" key="FileChooserDialogImpl" timestamp="1580599156098">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="263" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580149583910" />
+    <state x="740" y="263" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580599156098" />
     <state x="2660" y="263" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579802095742" />
     <state width="1317" height="232" key="GridCell.Tab.0.bottom" timestamp="1580587268598">
       <screen x="0" y="0" width="1360" height="728" />
@@ -250,11 +250,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="620" y="237" key="GuiDesigner.FormSource.Dialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580402635349" />
-    <state x="733" y="123" key="SettingsEditor" timestamp="1580148189092">
+    <state x="733" y="123" key="SettingsEditor" timestamp="1580599201139">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="320" y="0" key="SettingsEditor/0.0.1360.728@0.0.1360.728" timestamp="1579802709791" />
-    <state x="733" y="123" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580148189092" />
+    <state x="733" y="123" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580599201139" />
     <state x="2311" y="77" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579802895725" />
     <state x="388" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1580569571109">
       <screen x="0" y="0" width="1360" height="728" />
