@@ -144,6 +144,7 @@ public class Menu2 extends JFrame {
                 Menu1 g1 = new Menu1();
                 g1.setLocation(rootPanel.getLocation());
                 g1.setVisible(true);
+                p.setTypeNormal(true);
                 frame.dispose();
                 dispose();
             }

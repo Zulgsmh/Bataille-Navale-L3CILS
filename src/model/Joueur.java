@@ -231,7 +231,7 @@ public class Joueur {
                     y = new Random().nextInt(10);
                     dir = new Random().nextInt(2) + 1;
                 } else if (boutonAlea) {
-                    System.out.println("dans bouton alea");
+                    System.out.println("dans bouton alea : "+ listeBateauPosable);
                     int r = new Random().nextInt(listeBateauPosable.size());
                     typebateau = (int) listeBateauPosable.get(r);
                     x = new Random().nextInt(10);
@@ -383,6 +383,7 @@ public class Joueur {
 
     public void setListeBateauPose(int typeBateau) {
         System.out.println(this.listeBateauPosable);
+        System.out.println(typeBateau);
         this.listeBateauPosable.remove(this.listeBateauPosable.indexOf(typeBateau));
 
     }

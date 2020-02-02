@@ -8,6 +8,7 @@ import model.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.util.Random;
 
 public class BatailleController {
 
@@ -203,10 +204,32 @@ public class BatailleController {
                     if(partie.j2.getShot(parent.getx() + 1, parent.gety() + 1, partie.getTypeRadar())) {
                         affichage.setAfficherPopUpVictoire("J1");
                     }
+                    if(partie.j2.getEstOrdi()){
+                        partie.setJ1DoitTirer(false);
+                        try
+                        {
+                            Thread.sleep(1000);
+                            partie.ordiMove(partie.j1);
+                        }
+                        catch(InterruptedException ex)
+                        {
+                            Thread.currentThread().interrupt();
+                        }
+                        try
+                        {
+                            Thread.sleep(1000);
+                            partie.setJ1DoitTirer(true);
+                        }
+                        catch(InterruptedException ex)
+                        {
+                            Thread.currentThread().interrupt();
+                        }
+                    }else {
+                        partie.setJ1DoitTirer(false);
+                        partie.setJ2DoitTirer(true);
+                    }
                     affichage.drawGrille1(partie.j1.maGrille, true);
                     affichage.drawGrille2(partie.j2.maGrille, true);
-                    partie.setJ1DoitTirer(false);
-                    partie.setJ2DoitTirer(true);
                 }
             }
 

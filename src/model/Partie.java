@@ -319,6 +319,11 @@ public class Partie {
 		return this.mort;
 	}
 
+	public void ordiMove(Joueur player){
+		int x=new Random().nextInt(10)+1;
+		int y = new Random().nextInt(10)+1;
+		player.getShot(x, y, true);
+	}
 	/**
 	 * 
 	 */

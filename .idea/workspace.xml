@@ -3,15 +3,30 @@
   <component name="ChangeListManager">
     <list default="true" id="635642d4-1886-4456-858c-53f14de0c40e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Affichage.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view/Affichage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Menu3$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view/Menu3$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Menu3$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view/Menu3$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Menu3$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view/Menu3$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Menu3$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view/Menu3$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Menu3$FrameDragListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view/Menu3$FrameDragListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Menu3.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view/Menu3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Affichage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Affichage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Menu3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Menu3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/controller/BatailleController$ListenForBateauJ1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/controller/BatailleController$ListenForBateauJ1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/controller/BatailleController$ListenForBateauJ2.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/controller/BatailleController$ListenForBateauJ2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/controller/BatailleController$ListenForMouse.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/controller/BatailleController$ListenForMouse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/controller/BatailleController$ListenForMouseBateau.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/controller/BatailleController$ListenForMouseBateau.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/controller/BatailleController$ListenForPlacement.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/controller/BatailleController$ListenForPlacement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/controller/BatailleController$ListenForRandomBateau.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/controller/BatailleController$ListenForRandomBateau.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/controller/BatailleController$ValidNBListen.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/controller/BatailleController$ValidNBListen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/controller/BatailleController$menuListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/controller/BatailleController$menuListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/controller/BatailleController$modeListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/controller/BatailleController$modeListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/controller/BatailleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/controller/BatailleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/model/Joueur.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/model/Joueur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/model/Partie.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/model/Partie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/Menu2$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view/Menu2$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/Menu2$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view/Menu2$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/Menu2$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view/Menu2$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/Menu2$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view/Menu2$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/Menu2$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view/Menu2$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/Menu2$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view/Menu2$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/Menu2$FrameDragListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view/Menu2$FrameDragListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/view/Menu2.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view/Menu2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/BatailleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/BatailleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Joueur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Partie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Partie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Menu2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Menu2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,34 +242,34 @@
     </state>
     <state x="740" y="263" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580599156098" />
     <state x="2660" y="263" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579802095742" />
-    <state width="1877" height="155" key="GridCell.Tab.0.bottom" timestamp="1580658767076">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1317" height="189" key="GridCell.Tab.0.bottom" timestamp="1580660870470">
+      <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state width="1317" height="189" key="GridCell.Tab.0.bottom/0.0.1360.728@0.0.1360.728" timestamp="1580658398144" />
+    <state width="1317" height="189" key="GridCell.Tab.0.bottom/0.0.1360.728@0.0.1360.728" timestamp="1580660870469" />
     <state width="1877" height="155" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580658767076" />
     <state width="1877" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579822808144" />
     <state width="1877" height="155" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1580601075340" />
     <state width="1398" height="62" key="GridCell.Tab.0.bottom/0.23.1440.841@0.23.1440.841" timestamp="1580235970756" />
-    <state width="1877" height="155" key="GridCell.Tab.0.center" timestamp="1580658767076">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1317" height="189" key="GridCell.Tab.0.center" timestamp="1580660870469">
+      <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state width="1317" height="189" key="GridCell.Tab.0.center/0.0.1360.728@0.0.1360.728" timestamp="1580658398144" />
+    <state width="1317" height="189" key="GridCell.Tab.0.center/0.0.1360.728@0.0.1360.728" timestamp="1580660870469" />
     <state width="1877" height="155" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580658767076" />
     <state width="1877" height="271" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579822808144" />
     <state width="1877" height="155" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1580601075340" />
     <state width="1398" height="62" key="GridCell.Tab.0.center/0.23.1440.841@0.23.1440.841" timestamp="1580235970755" />
-    <state width="1877" height="155" key="GridCell.Tab.0.left" timestamp="1580658767076">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1317" height="189" key="GridCell.Tab.0.left" timestamp="1580660870469">
+      <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state width="1317" height="189" key="GridCell.Tab.0.left/0.0.1360.728@0.0.1360.728" timestamp="1580658398143" />
+    <state width="1317" height="189" key="GridCell.Tab.0.left/0.0.1360.728@0.0.1360.728" timestamp="1580660870469" />
     <state width="1877" height="155" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580658767076" />
     <state width="1877" height="271" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579822808144" />
     <state width="1877" height="155" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1580601075340" />
     <state width="1398" height="62" key="GridCell.Tab.0.left/0.23.1440.841@0.23.1440.841" timestamp="1580235970755" />
-    <state width="1877" height="155" key="GridCell.Tab.0.right" timestamp="1580658767076">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1317" height="189" key="GridCell.Tab.0.right" timestamp="1580660870469">
+      <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state width="1317" height="189" key="GridCell.Tab.0.right/0.0.1360.728@0.0.1360.728" timestamp="1580658398144" />
+    <state width="1317" height="189" key="GridCell.Tab.0.right/0.0.1360.728@0.0.1360.728" timestamp="1580660870469" />
     <state width="1877" height="155" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580658767076" />
     <state width="1877" height="271" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579822808144" />
     <state width="1877" height="155" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1580601075340" />
