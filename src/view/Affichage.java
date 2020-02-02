@@ -181,12 +181,12 @@ public class Affichage extends JFrame {
 
 
 
-        validerPlacementBateau.setBackground(Color.green);
+        validerPlacementBateau.setBackground(new Color(31,160,85));
         validerPlacementBateau.setPreferredSize(new Dimension(200,100));
         validerPlacementBateau.setText("VALIDER");
 
         //Bouton bateau aleatoire:
-        RandomBateau.setBackground(Color.RED);
+        RandomBateau.setBackground(new Color(139,0,0));
         RandomBateau.setPreferredSize(new Dimension(200,100));
         RandomBateau.setText("Bateau aléatoire");
 
@@ -233,8 +233,6 @@ public class Affichage extends JFrame {
     public void RevenirMenu(){
         dispose();
         Menu1 t1 = new Menu1();
-        this.setContentPane(t1);
-        this.validate();
     }
 
     public JOptionPane getAfficherPopUpVictoire(){ return this.jop1 ; }

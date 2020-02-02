@@ -53,6 +53,7 @@ public class Menu3 extends  JFrame{
                 BatailleController c = new BatailleController(a, p);
                 a.setVisible(true);
                 frame.dispose();
+                dispose();
             }
         });
 
