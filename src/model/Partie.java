@@ -63,7 +63,7 @@ public class Partie {
 		this.typeAR=b;
 	}
 	public boolean getTypeAR(){
-		return typeAr;
+		return typeAR;
 	}
 	public void startBataille() {
 		System.out.println("Quelle mode voulez-vous: \n1)Joueur1 VS Joueur2  \n2)Joueur1 VS Ordinateur  \n3)Demo");
@@ -86,16 +86,16 @@ public class Partie {
 		String sy = on.nextLine();
 		int y = Integer.parseInt(sy);
 		if(y==1) {
-			p.setTypeNormal(true);
+			this.setTypeNormal(true);
 		}
 		else if(y==2) {
-			p.setTypeRadar(true);
+			this.setTypeRadar(true);
 		}
 		else if(y==3){
-			p.setTypeArti(true);
+			this.setTypeArti(true);
 		}
 		else if(y==4){
-			p.setTypeAR(true);
+			this.setTypeAR(true);
 		}
 		System.out.println("COMBIEN DE BATEAU?");
 		this.nbBateau = in.nextInt();

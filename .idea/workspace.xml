@@ -2,47 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="635642d4-1886-4456-858c-53f14de0c40e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controller/BatailleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/Affichage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/cellule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/model/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/model/Partie.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/model/Partie.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$10.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$11.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$8.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode$9.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/ChoixMode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Gui$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Gui$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Gui$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Gui$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Gui$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Gui$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Gui$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Gui$8.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Gui$9.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Gui.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/Plateau.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Partie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Partie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ChoixMode.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ChoixMode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Gui.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Gui.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Plateau.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Plateau.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,6 +164,7 @@
       <option name="presentableId" value="Default" />
       <updated>1579781798975</updated>
       <workItem from="1580565320876" duration="1249000" />
+      <workItem from="1580647599625" duration="78000" />
     </task>
     <servers />
   </component>
