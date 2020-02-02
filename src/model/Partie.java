@@ -28,7 +28,7 @@ public class Partie {
 
 	public Joueur j1 = new Joueur();
 	public Joueur j2 = new Joueur();
-	public static int nbBateau=0;
+	public static int nbBateau=1;
 	public Boolean mort;
 	private Boolean typeNormal=false;
 	private Boolean typeRadar=false;

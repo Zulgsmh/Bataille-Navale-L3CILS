@@ -68,6 +68,7 @@ public class Affichage extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1200,600);
         container.setLayout(c);
+        this.setUndecorated(true);
 
         //*******************  MENU  ***********************
 
@@ -122,8 +123,6 @@ public class Affichage extends JFrame {
             }
         }
 
-        listBateauJ1.setBackground(Color.white);
-
 
 
         listBateauJ1.setPreferredSize( new Dimension( 150, 400 ) );
@@ -136,14 +135,18 @@ public class Affichage extends JFrame {
             }
             buttonBateauJ1[i] = new Bateau ("j1",vertical);
             buttonBateauJ1[i].setText(bateauName[(int)(i/2)]);
-            buttonBateauJ1[i].setBackground(violetF);
+            buttonBateauJ1[i].setBackground(violet);
             buttonBateauJ1[i].setForeground(Color.white);
             
             listBateauJ1.add(buttonBateauJ1[i]);
         }
-        listBateauJ1.setLayout (new BoxLayout (listBateauJ1, BoxLayout.Y_AXIS));
 
-        listBateauJ2.setBackground(Color.white);
+
+        listBateauJ1.setBackground(violetF);
+
+
+
+        listBateauJ2.setBackground(violetF);
         listBateauJ2.setPreferredSize( new Dimension( 150, 400 ) );
         for (int i = 0;i<10;i++) {
             Boolean vertical;
@@ -154,13 +157,18 @@ public class Affichage extends JFrame {
             }
             buttonBateauJ2[i] = new Bateau ("j2",vertical);
             buttonBateauJ2[i].setText(bateauName[(int)(i/2)]);
-            buttonBateauJ2[i].setBackground(violetF);
+            buttonBateauJ2[i].setBackground(violet);
             buttonBateauJ2[i].setForeground(Color.white);
 
 
             listBateauJ2.add(buttonBateauJ2[i]);
         }
-        listBateauJ2.setLayout (new BoxLayout (listBateauJ2, BoxLayout.Y_AXIS));
+
+        listBateauJ1.setLayout(new FlowLayout(FlowLayout.CENTER));
+        listBateauJ2.setLayout(new FlowLayout(FlowLayout.CENTER));
+
+
+
 
         validerPlacementBateau.setBackground(Color.green);
         validerPlacementBateau.setPreferredSize(new Dimension(200,100));
