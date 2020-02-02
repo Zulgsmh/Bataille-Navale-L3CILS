@@ -75,6 +75,13 @@ public class Menu3 extends  JFrame{
 
             }
         });
+        comboBox1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                p.nbBateau = comboBox1.getSelectedIndex()+1;
+
+            }
+        });
     }
 
 

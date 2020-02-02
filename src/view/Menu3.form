@@ -40,11 +40,11 @@
           <font name="Arial Black" size="26"/>
           <foreground color="-16777216"/>
           <model>
-            <item value="1 BATEAU"/>
-            <item value="2 BATEAUX"/>
-            <item value="3 BATEAUX"/>
-            <item value="4 BATEAUX"/>
-            <item value="5 BATEAUX"/>
+            <item value="UN BATEAU"/>
+            <item value="DEUX BATEAUX"/>
+            <item value="TROIS BATEAUX"/>
+            <item value="QUATRE BATEAUX"/>
+            <item value="CINQ BATEAUX"/>
           </model>
         </properties>
       </component>
