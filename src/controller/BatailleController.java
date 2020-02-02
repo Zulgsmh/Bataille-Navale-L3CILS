@@ -35,8 +35,8 @@ public class BatailleController {
         //*****************          Plateau           *****************
         this.affichage.addGrille1Listener(new ListenForMouse());
         this.affichage.addGrille2Listener(new ListenForMouse());
-        this.affichage.addlistBateauJ1Listener(new ListenForBateauJ1());
-        this.affichage.addlistBateauJ2Listener(new ListenForBateauJ2());
+        this.affichage.addlistBateauJ1Listener(new ListenForBateauJ1(), new ListenForMouseBateau());
+        this.affichage.addlistBateauJ2Listener(new ListenForBateauJ2(), new ListenForMouseBateau());
         this.affichage.addvaliderPlacementListener(new ListenForPlacement());
         this.affichage.addRandomBateauListener(new ListenForRandomBateau());
         //this.affichage.addcelluleListener(new cellulListener());
@@ -249,6 +249,37 @@ public class BatailleController {
         // Mouse button released
         public void mouseReleased(MouseEvent arg0) {
 
+        }
+    }
+    public class ListenForMouseBateau implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+
+        public void mouseEntered(MouseEvent e) {
+            Bateau parent = (Bateau)e.getSource();
+            parent.setBackground(Color.white);
+            parent.setForeground( new Color(110,74,227));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            Bateau parent = (Bateau)e.getSource();
+            parent.setBackground(new  Color(110,74,227));
+            parent.setForeground(Color.white);
         }
     }
 }

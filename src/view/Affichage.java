@@ -266,14 +266,16 @@ public class Affichage extends JFrame {
             }
         }
     }
-    public void addlistBateauJ1Listener(ActionListener ListenForBateauJ1){
+    public void addlistBateauJ1Listener(ActionListener ListenForBateauJ1, BatailleController.ListenForMouseBateau lForMouse){
         for(int i = 0; i < 10; i++){
             buttonBateauJ1[i].addActionListener(ListenForBateauJ1);
+            buttonBateauJ1[i].addMouseListener(lForMouse);
         }
     }
-    public void addlistBateauJ2Listener(ActionListener ListenForBateauJ1){
+    public void addlistBateauJ2Listener(ActionListener ListenForBateauJ2, BatailleController.ListenForMouseBateau lForMouse){
         for(int i = 0; i < 10; i++){
-            buttonBateauJ2[i].addActionListener(ListenForBateauJ1);
+            buttonBateauJ2[i].addActionListener(ListenForBateauJ2);
+            buttonBateauJ2[i].addMouseListener(lForMouse);
         }
     }
 
