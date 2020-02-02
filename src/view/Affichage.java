@@ -66,7 +66,7 @@ public class Affichage extends JFrame {
 
     public Affichage(){
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(1200,600);
+        this.setSize(1500,600);
         container.setLayout(c);
         this.setUndecorated(true);
 
@@ -125,7 +125,7 @@ public class Affichage extends JFrame {
 
 
 
-        listBateauJ1.setPreferredSize( new Dimension( 150, 400 ) );
+        listBateauJ1.setPreferredSize( new Dimension( 300, 500 ) );
         for (int i = 0;i<10;i++) {
             Boolean vertical;
             if(i%2==0){
@@ -137,6 +137,10 @@ public class Affichage extends JFrame {
             buttonBateauJ1[i].setText(bateauName[(int)(i/2)]);
             buttonBateauJ1[i].setBackground(violet);
             buttonBateauJ1[i].setForeground(Color.white);
+            buttonBateauJ1[i].setFocusable(false);
+            buttonBateauJ1[i].setFocusPainted(false);
+            buttonBateauJ1[i].setBorderPainted(false);
+            buttonBateauJ1[i].setFont(new Font("Arial Black",Font.PLAIN, 26));
             
             listBateauJ1.add(buttonBateauJ1[i]);
         }
@@ -147,7 +151,7 @@ public class Affichage extends JFrame {
 
 
         listBateauJ2.setBackground(violetF);
-        listBateauJ2.setPreferredSize( new Dimension( 150, 400 ) );
+        listBateauJ2.setPreferredSize( new Dimension( 300, 500 ) );
         for (int i = 0;i<10;i++) {
             Boolean vertical;
             if(i%2==0){
@@ -159,6 +163,13 @@ public class Affichage extends JFrame {
             buttonBateauJ2[i].setText(bateauName[(int)(i/2)]);
             buttonBateauJ2[i].setBackground(violet);
             buttonBateauJ2[i].setForeground(Color.white);
+            buttonBateauJ2[i].setFocusable(false);
+            buttonBateauJ2[i].setFocusPainted(false);
+            buttonBateauJ2[i].setBorderPainted(false);
+            buttonBateauJ2[i].setFont(new Font("Arial Black",Font.PLAIN, 26));
+
+
+
 
 
             listBateauJ2.add(buttonBateauJ2[i]);

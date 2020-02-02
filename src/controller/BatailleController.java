@@ -272,7 +272,7 @@ public class BatailleController {
         public void mouseEntered(MouseEvent e) {
             Bateau parent = (Bateau)e.getSource();
             parent.setBackground(Color.white);
-            parent.setForeground( new Color(110,74,227));
+            parent.setForeground(Color.black);
         }
 
         @Override

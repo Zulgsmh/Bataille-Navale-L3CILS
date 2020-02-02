@@ -10,7 +10,7 @@ public class Bateau extends JButton {
     Bateau(String equipe, Boolean sens){
         this.equipe = equipe;
         this.sens = sens;
-        this.setPreferredSize(new Dimension(150,40));
+        this.setPreferredSize(new Dimension(600,40));
     }
 
     public String getEquipe(){ return this.equipe; }
