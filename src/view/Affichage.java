@@ -71,7 +71,7 @@ public class Affichage extends JFrame {
 
         //*******************  MENU  ***********************
 
-
+        this.setLocationRelativeTo(null);
 
         Menu.add(jvj);
         Menu.add(jvo);

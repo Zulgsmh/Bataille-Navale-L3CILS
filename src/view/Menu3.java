@@ -15,7 +15,7 @@ public class Menu3 extends  JFrame{
     private JPanel rootPanel;
     private JComboBox comboBox1;
     private JTextField NOMBREDEBATEAUXÀTextField;
-    private JButton button1;
+    private JButton VALIDER;
     private Partie p;
 
     Color violet = new Color(110,74,227);
@@ -46,13 +46,33 @@ public class Menu3 extends  JFrame{
         SwingUtilities.invokeLater(runnable);
 
         rootPanel.setBackground(violetF);
-        button1.addActionListener(new ActionListener() {
+        VALIDER.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Affichage a = new Affichage();
                 BatailleController c = new BatailleController(a, p);
                 a.setVisible(true);
                 frame.dispose();
+            }
+        });
+
+
+        VALIDER.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                VALIDER.setBackground(Color.white);
+                VALIDER.setForeground(Color.black);
+
+            }
+        });
+        VALIDER.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                VALIDER.setBackground(violet);
+                VALIDER.setForeground(Color.white);
+
             }
         });
     }

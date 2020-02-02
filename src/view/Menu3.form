@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="view.Menu3">
-  <grid id="27dc6" binding="rootPanel" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="rootPanel" layout-manager="GridLayoutManager" row-count="2" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="666" height="124"/>
+      <xy x="20" y="20" width="666" height="169"/>
     </constraints>
     <properties>
       <background color="-14024653"/>
@@ -12,32 +12,54 @@
     <children>
       <component id="ed7cf" class="javax.swing.JTextField" binding="NOMBREDEBATEAUXÀTextField" default-binding="true">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+          <grid row="0" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
         <properties>
+          <background color="-1"/>
+          <caretColor color="-4473925"/>
           <editable value="false"/>
           <enabled value="true"/>
           <focusable value="false"/>
           <font name="Arial Black" size="26"/>
+          <foreground color="-16777216"/>
           <horizontalAlignment value="0"/>
           <opaque value="true"/>
+          <selectedTextColor color="-4473925"/>
           <text value="NOMBRE DE BATEAUX À PLACER :"/>
         </properties>
       </component>
       <component id="a3f43" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="ee902" class="javax.swing.JButton" binding="button1" default-binding="true">
-        <constraints>
-          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Button"/>
+          <background color="-1"/>
+          <focusable value="false"/>
+          <font name="Arial Black" size="26"/>
+          <foreground color="-16777216"/>
+          <model>
+            <item value="1 BATEAU"/>
+            <item value="2 BATEAUX"/>
+            <item value="3 BATEAUX"/>
+            <item value="4 BATEAUX"/>
+            <item value="5 BATEAUX"/>
+          </model>
+        </properties>
+      </component>
+      <component id="ee902" class="javax.swing.JButton" binding="VALIDER">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-9549085"/>
+          <borderPainted value="false"/>
+          <focusPainted value="false"/>
+          <focusable value="false"/>
+          <font name="Arial Black" size="26"/>
+          <foreground color="-1"/>
+          <text value="VALIDER"/>
         </properties>
       </component>
     </children>
