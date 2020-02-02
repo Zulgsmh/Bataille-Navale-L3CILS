@@ -5,6 +5,8 @@ import model.Partie;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -166,6 +168,36 @@ public class Menu2 extends JFrame {
         });
         SwingUtilities.invokeLater(runnable);
 
+        MISSIONRADARButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                p.setTypeRadar(true);
+                Menu3 m3 = new Menu3(p);
+                m3.setVisible(true);
+                frame.dispose();
+                dispose();
+            }
+        });
+        OPERATIONARTILLERIEButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                p.setTypeArti(true);
+                Menu3 m3 = new Menu3(p);
+                m3.setVisible(true);
+                frame.dispose();
+                dispose();
+            }
+        });
+        ALERTEROUGEButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                p.setTypeAR(true);
+                Menu3 m3 = new Menu3(p);
+                m3.setVisible(true);
+                frame.dispose();
+                dispose();
+            }
+        });
     }
     public static class FrameDragListener extends MouseAdapter {
 
