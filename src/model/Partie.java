@@ -30,11 +30,15 @@ public class Partie {
 	public Joueur j2 = new Joueur();
 	public int nbBateau=0;
 	public Boolean mort;
+	public Boolean touche;
 	private Boolean typeNormal=false;
 	private Boolean typeRadar=false;
 	private Boolean typeArti=false;
 	private Boolean typeAR=false;
-	public Boolean J1VientDeToucher=false;
+	private String[] direction ={"E","O","N","S"};
+	private int x1,y1,x2,y2;
+	private int x,y;
+
 
 
 
@@ -119,9 +123,6 @@ public class Partie {
 
 	}
 
-    public Boolean getJ1VientDeToucher(){return J1VientDeToucher;}
-    public void setJ1VientDeToucher(Boolean touche){J1VientDeToucher=touche;}
-
 	/**
 	 * 
 	 */
@@ -129,18 +130,46 @@ public class Partie {
 	public Boolean J1tirer() {
 
 		if(j1.getEstOrdi()){
-			System.out.println("J1 joue !");
-			int x=new Random().nextInt(10)+1;
-			int y = new Random().nextInt(10)+1;
-			mort = this.j2.getShot(x, y);
-			if (this.j2.getDejaCible()) {
-				this.j2.setDejaCible(false);
-				System.out.println("Tu as d�ja tir� ici mon khey !");
-				this.J1tirer();
+			if(!this.j1.getaTouche()) {
+				System.out.println("J1 joue !");
+				x = new Random().nextInt(10) + 1;
+				y = new Random().nextInt(10) + 1;
+				int index = new Random().nextInt(direction.length);
+				String dir = direction[index];
+				Boolean[] result = this.j2.getShot(x, y);
+				mort = result[0];
+				touche = result[1];
 			}
-			if (J1VientDeToucher){
-
-            }
+			else{
+				if (this.j1.getaTouche()) {
+					if (j1.getfirst()) {
+						j1.setfirst(false);
+						j1.setx1(x);
+						j1.sety1(y);
+					}
+					this.j1.setCompteur(this.j1.getCompteur() + 1);
+					System.out.println("ioehfuierhfuizehfui" + this.j1.getCompteur() + " " + this.j1.gety1());
+					this.j2.getShot(j1.getx1() + this.j1.getCompteur(), j1.gety1());
+				} else if (this.j1.getLeft()) {
+					this.j1.setCompteur(this.j1.getCompteur() + 1);
+					this.j2.getShot(j1.getx1() - this.j1.getCompteur(), j1.gety1());
+				} else if (this.j1.getUp()) {
+					this.j1.setCompteur(this.j1.getCompteur() + 1);
+					this.j2.getShot(j1.getx1(), j1.gety1() - this.j1.getCompteur());
+				} else if (this.j1.getDown()) {
+					this.j1.setCompteur(this.j1.getCompteur() + 1);
+					this.j2.getShot(j1.getx1(), j1.gety1() + this.j1.getCompteur());
+				} else {
+					Boolean[] result = this.j2.getShot(x, y);
+					mort = result[0];
+					touche = result[1];
+					if (this.j2.getDejaCible()) {
+						this.j2.setDejaCible(false);
+						System.out.println("Tu as d�ja tir� ici mon khey !");
+						this.J1tirer();
+					}
+				}
+			}
 			this.j1.setGrilleAdverse(this.j2.maGrille);
 			this.j1.displayGrilleAdverse();
 			this.j1.displayMaGrille();
@@ -164,7 +193,9 @@ public class Partie {
 			int x = in.nextInt();
 			System.out.print("ou veux-tu tirer en y : ");
 			int y = in.nextInt();
-			mort = this.j2.getShot(x, y);
+			Boolean[] result = this.j2.getShot(x,y);
+			mort = result[0];
+			touche= result[1];
 			if (this.j2.getDejaCible()) {
 				this.j2.setDejaCible(false);
 				System.out.println("Tu as d�ja tir� ici mon khey !");
@@ -184,7 +215,9 @@ public class Partie {
 			System.out.println("J2 joue !");
 			int x=new Random().nextInt(10)+1;
 			int y = new Random().nextInt(10)+1;
-			mort = this.j1.getShot(x, y);
+			Boolean[] result = this.j1.getShot(x,y);
+			mort = result[0];
+			touche= result[1];
 			if (this.j1.getDejaCible()) {
 				this.j1.setDejaCible(false);
 				System.out.println("Tu as deja tire ici mon khey !");
@@ -212,7 +245,9 @@ public class Partie {
 			String sy = in.nextLine();
 			int x = Integer.parseInt(sx);
 			int y = Integer.parseInt(sy);
-			mort = this.j1.getShot(x, y);
+			Boolean[] result = this.j1.getShot(x,y);
+			mort = result[0];
+			touche= result[1];
 			if (this.j1.getDejaCible()) {
 				this.j1.setDejaCible(false);
 				System.out.println("Tu as d�ja tir� ici mon khey !");

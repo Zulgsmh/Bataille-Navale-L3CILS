@@ -47,6 +47,18 @@ public class Joueur {
 	public Zodiac z1 = new Zodiac();
 	public Navire[] listNavire = { p1, c1, c2, s1, z1 };
 	public boolean dejaCible = false;
+	public Boolean JVientDeToucher=false;
+	public Boolean first = true;
+	static boolean aTouche=false;
+	private Boolean aPloof=false;
+	private Boolean up=false;
+	private Boolean down=false;
+	private Boolean left=false;
+	private Boolean right=false;
+	private int compteur=0;
+	private int x1;
+	private int y1;
+
 
 	public int getId() {
 		return id;
@@ -118,6 +130,31 @@ public class Joueur {
 		return estUnOrdi;
 	}
 
+	public Boolean getJVientDeToucher(){return JVientDeToucher;}
+	public void setJVientDeToucher(Boolean touche){JVientDeToucher=touche;}
+	public Boolean getaTouche(){return aTouche;}
+	public void setaTouche(Boolean ok){aTouche=ok;}
+	public Boolean getaPloof(){return aPloof;}
+	public void setaPloof(Boolean ok){aPloof=ok;}
+	public Boolean getLeft(){return left;}
+	public void setLeft(Boolean p){left=p;}
+	public Boolean getRight(){return right;}
+	public void setRight(Boolean p){right=p;}
+	public Boolean getUp(){return up;}
+	public void setUp(Boolean p){up=p;}
+	public Boolean getDown(){return down;}
+	public void setDown(Boolean p){down=p;}
+	public int getCompteur(){return compteur;}
+	public void setCompteur(int c){compteur=c;}
+	public Boolean getfirst(){return first;}
+	public void setfirst(Boolean c){first=c;}
+	public int getx1(){return x1;}
+	public void setx1(int c){x1=c;}
+	public int gety1(){return y1;}
+	public void sety1(int c){y1=c;}
+
+
+
 	/**
 	 * 
 	 */
@@ -125,40 +162,62 @@ public class Joueur {
 		// TODO implement here
 	}
 
-	public Boolean getShot(int x, int y) {
+	public Boolean[] getShot(int x, int y) {
+		System.out.println(x+" "+y);
 		String cellule = this.maGrille[x - 1][y - 1];
-		Boolean estMort = true;
+		boolean estMort = true;
 		if (cellule == null) {
 			this.setMaGrille(x - 1, y - 1, "PLOF");
-		} else if (cellule.equals("PORT")) {
-			this.p1.setEstTouche(true);
-//			this.p1.setJ1VientDeToucher(true);
-			this.setMaGrille(x - 1, y - 1, "SHOT");
-		} else if (cellule.equals("SOUS")) {
-			this.s1.setEstTouche(true);
-			this.setMaGrille(x - 1, y - 1, "SHOT");
-		} else if (cellule.equals("CUI1")) {
-			this.c1.setEstTouche(true);
-			this.setMaGrille(x - 1, y - 1, "SHOT");
-		} else if (cellule.equals("CUI2")) {
-			this.c2.setEstTouche(true);
-			this.setMaGrille(x - 1, y - 1, "SHOT");
-		} else if (cellule.equals("ZODI")) {
-			this.z1.setEstTouche(true);
-			this.setMaGrille(x - 1, y - 1, "SHOT");
-		} else if (cellule.equals("SHOT") || cellule.equals("PLOF")) {
-			this.dejaCible = true;
+			if(aTouche){
+				setaPloof(true);
+				setLeft(true);
+				setCompteur(0);
+				aTouche=false;
+			}
+			if(left){
+				setaPloof(true);
+				setUp(true);
+				left = false;
+			}
+			if(up){
+				setDown(true);
+				up = false;
+			}
+			if(down){
+				down = false;
+				first = true;
+			}
+		} else{
+			aTouche=true;
+			if (cellule.equals("PORT")) {
+				this.p1.setEstTouche(true);
+				this.setMaGrille(x - 1, y - 1, "SHOT");
+			} else if (cellule.equals("SOUS")) {
+				this.s1.setEstTouche(true);
+				this.setMaGrille(x - 1, y - 1, "SHOT");
+			} else if (cellule.equals("CUI1")) {
+				this.c1.setEstTouche(true);
+				this.setMaGrille(x - 1, y - 1, "SHOT");
+			} else if (cellule.equals("CUI2")) {
+				this.c2.setEstTouche(true);
+				this.setMaGrille(x - 1, y - 1, "SHOT");
+			} else if (cellule.equals("ZODI")) {
+				this.z1.setEstTouche(true);
+				this.setMaGrille(x - 1, y - 1, "SHOT");
+			} else if (cellule.equals("SHOT") || cellule.equals("PLOF")) {
+				this.dejaCible = true;
+			}
 		}
 		for (Navire bateau : this.listNavire) {
 			if (bateau.getEstPose()) {
 				System.out.println(bateau.getNom() + " " + bateau.getVie());
 				if (bateau.getVie() != 0) {
-					return estMort = false;
+					return new Boolean[]{false, false};
 				}
 			}
 		}
 
-		return estMort;
+		return new Boolean[]{estMort, aTouche};
 	}
 
 	/**
