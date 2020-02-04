@@ -168,6 +168,7 @@ public class Joueur {
     }
 
     public Boolean[] getShot(int x, int y, Boolean typeRadar) {
+        radar = 0;
         //System.out.println("dans getShot : "+x+" "+y);
         String cellule = this.maGrille[x - 1][y - 1];
         boolean estMort = true;
