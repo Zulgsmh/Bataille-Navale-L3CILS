@@ -249,31 +249,12 @@ public class Joueur {
             boolean valid = false;
             //this.displayMaGrille();
             while (!valid) {
-                if (this.estUnOrdi) {
-                    System.out.println("dans if ordi3");
-                    typebateau = new Random().nextInt(5) + 1;
-                    x = new Random().nextInt(10);
-                    y = new Random().nextInt(10);
-                    dir = new Random().nextInt(2) + 1;
-                } else if (boutonAlea) {
                     System.out.println("dans bouton alea : "+ listeBateauPosable);
                     int r = new Random().nextInt(listeBateauPosable.size());
                     typebateau = (int) listeBateauPosable.get(r);
                     x = new Random().nextInt(10);
                     y = new Random().nextInt(10);
                     dir = new Random().nextInt(2) + 1;
-                } else if (!this.estUnOrdi) {
-                    System.out.print(
-                            "quel bateau : \n 1)portes avion \n 2)sous-marin \n 3)cuirass�1 \n 4)cuirass�2 \n 5)zodiac\n");
-                    Scanner in = new Scanner(System.in);
-                    typebateau = in.nextInt();
-                    System.out.print("pos x :");
-                    x = in.nextInt() - 1;
-                    System.out.print("pos y :");
-                    y = in.nextInt() - 1;
-                    System.out.print("dir : \n 1)verticale \n 2)horizontale\n");
-                    dir = in.nextInt();
-                }
                 if (dir == 1) {
                     verticale = true;
                 } else {

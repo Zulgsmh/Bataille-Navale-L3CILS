@@ -137,6 +137,7 @@ public class BatailleController {
                     partie.j2.setListNavire(i);
                 }
                 // partie.j2.initMaGrille();
+                System.out.println("j2 doit placer ses bateau : "+nb);
                 partie.j2.initListeBateauPosable();
                 partie.j2.placerBateau(nb, true);
                 affichage.drawGrille2(partie.j2.maGrille, false);
