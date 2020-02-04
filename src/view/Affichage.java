@@ -148,15 +148,20 @@ public class Affichage extends JFrame {
         RandomBateau.setPreferredSize(new Dimension(200,100));
         RandomBateau.setText("Bateau aléatoire");
 
+        int size = 26;
+        Font f = new Font("Arial Black",Font.PLAIN, 26);
+
+
         infoTourJoueur.setBackground(new Color(81,255,0));
-        infoTourJoueur.setPreferredSize(new Dimension(300,100));
+        infoTourJoueur.setPreferredSize(new Dimension(500,100));
         infoTourJoueur.setText("J1 doit placer ses bateau");
         infoTourJoueur.setForeground(Color.white);
+        infoTourJoueur.setFont(f);
 
         infoRadarJoueur.setBackground(new Color(81,255,0));
-        infoRadarJoueur.setPreferredSize(new Dimension(300,100));
+        infoRadarJoueur.setPreferredSize(new Dimension(500,100));
         infoRadarJoueur.setForeground(Color.white);
-
+        infoRadarJoueur.setFont(f);
 
 
         plateau.add(listBateauJ1);
