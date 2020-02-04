@@ -37,6 +37,7 @@ public class Main {
 				break;
 			}
 		}
+		System.out.println("count : j1:"+p.getJ1tire() +"  j2:"+p.getJ2tire());
 	}
 
 }

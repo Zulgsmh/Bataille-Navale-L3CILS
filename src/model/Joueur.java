@@ -49,7 +49,7 @@ public class Joueur {
 	public boolean dejaCible = false;
 	public Boolean JVientDeToucher=false;
 	public Boolean first = true;
-	static boolean aTouche=false;
+	private Boolean aTouche=false;
 	private Boolean aPloof=false;
 	private Boolean up=false;
 	private Boolean down=false;
@@ -163,32 +163,15 @@ public class Joueur {
 	}
 
 	public Boolean[] getShot(int x, int y) {
-		System.out.println(x+" "+y);
+		//System.out.println("dans getShot : "+x+" "+y);
 		String cellule = this.maGrille[x - 1][y - 1];
 		boolean estMort = true;
 		if (cellule == null) {
 			this.setMaGrille(x - 1, y - 1, "PLOF");
-			if(aTouche){
-				setaPloof(true);
-				setLeft(true);
-				setCompteur(0);
-				aTouche=false;
+		} else {
+			if(cellule.equals("FLOP")|| cellule.equals("SHOT")){
+				dejaCible = true;
 			}
-			if(left){
-				setaPloof(true);
-				setUp(true);
-				left = false;
-			}
-			if(up){
-				setDown(true);
-				up = false;
-			}
-			if(down){
-				down = false;
-				first = true;
-			}
-		} else{
-			aTouche=true;
 			if (cellule.equals("PORT")) {
 				this.p1.setEstTouche(true);
 				this.setMaGrille(x - 1, y - 1, "SHOT");
@@ -204,10 +187,41 @@ public class Joueur {
 			} else if (cellule.equals("ZODI")) {
 				this.z1.setEstTouche(true);
 				this.setMaGrille(x - 1, y - 1, "SHOT");
-			} else if (cellule.equals("SHOT") || cellule.equals("PLOF")) {
-				this.dejaCible = true;
 			}
 		}
+		if(cellule == null|| cellule.equals("PLOF")|| cellule.equals("SHOT")){
+			setCompteur(0);
+			if(right){
+				System.out.println("right plouf");
+				setaPloof(true);
+				setRight(false);
+				setLeft(true);
+			}
+			else if(left){
+				System.out.println("left plouf");
+				setaPloof(true);
+				setUp(true);
+				left = false;
+			}
+			else if(up){
+				System.out.println("up plouf");
+				setDown(true);
+				up = false;
+			}
+			else if(down){
+				System.out.println("down plouf");
+				down = false;
+				first = true;
+				aTouche = false;
+			}
+		}else {
+			if (!aTouche) {
+				right = true;
+				aTouche = true;
+			}
+			System.out.println("J'ai touché ma gueule x : " + x + " y : " + y);
+		}
+
 		for (Navire bateau : this.listNavire) {
 			if (bateau.getEstPose()) {
 				System.out.println(bateau.getNom() + " " + bateau.getVie());
