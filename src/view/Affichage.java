@@ -2,6 +2,8 @@ package view;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import controller.BatailleController;
+import model.Joueur;
+
 import javax.swing.*;
 
 
@@ -16,32 +18,9 @@ public class Affichage extends JFrame {
     Color violetF = new Color(42,0,51);
 
 
-    private JPanel Menu = new JPanel();
-
-    private JButton jvj = new JButton("JVJ");
-    private JButton jvo = new JButton("JVO");
-    private JButton ovo = new JButton("OVO");
-
-
-
-    private JPanel Mode = new JPanel();
-
-    private JButton classique = new JButton("Classique");
-    private JButton radar = new JButton("Radar");
-    private JButton artillerie = new JButton("artillerie");
-    private JButton coderouge = new JButton("Code Rouge");
-
     private  JOptionPane jop1;
 
-    // page selection nombre de bateau de la partie
-    private JPanel NombreBateau = new JPanel();
-    private JLabel phrase = new JLabel("Choisissez le nombre de bateau que vous souhaitez : ");
-    private String num[]={"1","2","3","4","5"};
-    private JComboBox cb=new JComboBox(num);
-    private JButton validNB = new JButton("C'est parti !");
-
-
-
+// Tout ce qui est ajouté dans le plateau
     private JPanel plateau = new JPanel();
 
 
@@ -60,6 +39,9 @@ public class Affichage extends JFrame {
     private String[] bateauName = {"PorteAvion", "SousMarin", "CuirasséFurtif1", "CuirasséFurtif2","Zodiac"};
     private Bateau bateauSelect = new Bateau("", true);
     private Boolean sens = false;
+//info tour joueur
+    private JLabel infoTourJoueur = new JLabel();
+    private JLabel infoRadarJoueur = new JLabel("...",SwingConstants.CENTER);
 
 
 
@@ -166,13 +148,28 @@ public class Affichage extends JFrame {
         RandomBateau.setPreferredSize(new Dimension(200,100));
         RandomBateau.setText("Bateau aléatoire");
 
+        infoTourJoueur.setBackground(new Color(81,255,0));
+        infoTourJoueur.setPreferredSize(new Dimension(300,100));
+        infoTourJoueur.setText("J1 doit placer ses bateau");
+        infoTourJoueur.setForeground(Color.white);
+
+        infoRadarJoueur.setBackground(new Color(81,255,0));
+        infoRadarJoueur.setPreferredSize(new Dimension(300,100));
+        infoRadarJoueur.setForeground(Color.white);
+
+
+
         plateau.add(listBateauJ1);
         plateau.add(Grille1);
         plateau.add(Grille2);
         plateau.add(listBateauJ2);
+        //info sur qui joue
+        plateau.add(infoTourJoueur);
         plateau.add(validerPlacementBateau);
         //ajout du boutton bateau random au plateau
         plateau.add(RandomBateau);
+        plateau.add(infoRadarJoueur);
+
 
         //******************           CardLayout           ****************
 //        container.add(Menu, "menu");
@@ -213,30 +210,7 @@ public class Affichage extends JFrame {
 
     public JOptionPane getAfficherPopUpVictoire(){ return this.jop1 ; }
 
-    public void addjvjListener(ActionListener ListenForjvjButton){
-        jvj.addActionListener(ListenForjvjButton);
-    }
-    public void addjvoListener(ActionListener ListenForjvoButton){
-        jvo.addActionListener(ListenForjvoButton);
-    }
-    public void addovoListener(ActionListener ListenForovoButton){
-        ovo.addActionListener(ListenForovoButton);
-    }
-    public void addValidNBListener(ActionListener ListenForValidNBButton){
-        validNB.addActionListener(ListenForValidNBButton);
-    }
-    public void addclassiqueListener(ActionListener ListenForclassiqueButton){
-        classique.addActionListener(ListenForclassiqueButton);
-    }
-    public void addradarListener(ActionListener ListenForradarButton){
-        radar.addActionListener(ListenForradarButton);
-    }
-    public void addartillerieListener(ActionListener ListenForartillerieButton){
-        artillerie.addActionListener(ListenForartillerieButton);
-    }
-    public void addcoderougeListener(ActionListener ListenForcoderougeButton){
-        coderouge.addActionListener(ListenForcoderougeButton);
-    }
+
     public void addGrille1Listener(BatailleController.ListenForMouse lForMouse){
         for(int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
@@ -271,10 +245,14 @@ public class Affichage extends JFrame {
     public void addRandomBateauListener(ActionListener ListenForRandomBateau){
         RandomBateau.addActionListener(ListenForRandomBateau);
     }
-
-    public int getComboBoxNbBat(){
-        return Integer.parseInt(cb.getItemAt(cb.getSelectedIndex()).toString());
+    public void setInfoTourJoueur(String text){
+        infoTourJoueur.setText(text);
     }
+    public void setInfoRadarJoueur(String text){
+        infoRadarJoueur.setText(text);
+    }
+
+
 
     public void drawGrille1(String[][] maGrille, boolean hide){
         for (int i = 0; i < 10; i++){

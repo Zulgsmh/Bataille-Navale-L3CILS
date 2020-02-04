@@ -2,6 +2,8 @@ package model;
 import java.util.*;
 
 import model.*;
+import view.Affichage;
+
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -167,6 +169,10 @@ public class Partie {
 				this.j2.setDejaCible(false);
 				System.out.println("Tu as d�ja tir� ici mon khey !");
 				this.J1tirer();
+				//Set le Jlabel
+				if(this.J1tirer()){
+
+				}
 			}
 			this.j1.setGrilleAdverse(this.j2.maGrille);
 			this.j1.displayGrilleAdverse();

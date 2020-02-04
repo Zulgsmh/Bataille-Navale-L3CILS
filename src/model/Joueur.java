@@ -59,7 +59,11 @@ public class Joueur {
     private int compteur=0;
     private int x1;
     private int y1;
+    private int radar = 0 ;
 
+    public int getRadar(){
+        return radar;
+    }
 
     public int getId() {
         return id;
@@ -200,6 +204,8 @@ public class Joueur {
                         }
                     }
                     System.out.println("distance=" + rad);
+                    radar=rad;
+
                 }
             }
         } else {

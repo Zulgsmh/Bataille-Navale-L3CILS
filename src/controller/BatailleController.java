@@ -51,6 +51,7 @@ public class BatailleController {
                 partie.setJ1doitplacerBat(false);
                 partie.setJ2doitplacetBat(true);
                 affichage.drawGrille1(partie.j1.maGrille, true);
+                affichage.setInfoTourJoueur("J2 doit placer ses bateaux");
             }else if(partie.J2doitplacerBat()){
                 partie.setJ2doitplacetBat(false);
                 affichage.getRandomButton().setVisible(false);
@@ -59,6 +60,7 @@ public class BatailleController {
                 parent.setVisible(false);
                 affichage.drawGrille2(partie.j2.maGrille, true);
                 affichage.drawGrille1(partie.j1.maGrille, true);
+                affichage.setInfoTourJoueur("J1 doit tirer");
             }
         }
     }
@@ -109,6 +111,7 @@ public class BatailleController {
                 }
 //                System.out.println("Grille1");
                 if(partie.getJ2DoitTirer()) {
+                    affichage.setInfoTourJoueur("J1 doit tirer");
                     for(int i =0 ; i< partie.j1.getListNavire().length ; i++){
                         if(partie.j1.getListNavire()[i].getEstPose()) {
                             System.out.println(partie.j1.getListNavire()[i].getNom());
@@ -119,6 +122,7 @@ public class BatailleController {
                     if(partie.j1.getShot(parent.getx() + 1, parent.gety() + 1, partie.getTypeRadar())[0]){
                         affichage.setAfficherPopUpVictoire("J2");
                     }
+                    affichage.setInfoRadarJoueur(" Distance d'un bateau : "+partie.j1.getRadar()+" case(s) ");
                     affichage.drawGrille2(partie.j2.maGrille, true);
                     affichage.drawGrille1(partie.j1.maGrille, true);
                     partie.setJ1DoitTirer(true);
@@ -135,6 +139,7 @@ public class BatailleController {
                 }
 //                System.out.println("Grille2");
                 if(partie.getJ1DoitTirer()) {
+                    affichage.setInfoTourJoueur("J2 doit tirer");
                     for(int i =0 ; i< partie.j2.getListNavire().length ; i++){
                         if(partie.j2.getListNavire()[i].getEstPose()) {
                             System.out.println(partie.j2.getListNavire()[i].getNom());
@@ -145,6 +150,7 @@ public class BatailleController {
                     if(partie.j2.getShot(parent.getx() + 1, parent.gety() + 1, partie.getTypeRadar())[0]) {
                         affichage.setAfficherPopUpVictoire("J1");
                     }
+                    affichage.setInfoRadarJoueur(" Distance d'un bateau : "+partie.j2.getRadar()+" case(s) ");
                     if(partie.j2.getEstOrdi()){
                         System.out.println("j2 est un ordi");
                         Thread t = new Thread() {
