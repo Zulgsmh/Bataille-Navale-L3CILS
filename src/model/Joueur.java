@@ -163,12 +163,45 @@ public class Joueur {
         // TODO implement here
     }
 
-    public Boolean[] getShot(int x, int y, Boolean radar) {
+    public Boolean[] getShot(int x, int y, Boolean typeRadar) {
         //System.out.println("dans getShot : "+x+" "+y);
         String cellule = this.maGrille[x - 1][y - 1];
         boolean estMort = true;
         if (cellule == null) {
             this.setMaGrille(x - 1, y - 1, "PLOF");
+            if (typeRadar) {
+                int rad = 0;
+                Boolean vue = false;
+                String cellules = "rien";
+                while (!vue){
+                    for (int k = 0; k < 10; k++) {
+                        for (int i = 0; i < 2 * k + 1; i++) {
+                            for (int j = 0; j < 2 * k + 1; j++) {
+                                if (x + i - k - 1 < 10 && x + i - k - 1 >= 0 && y + j - k - 1 < 10 && y + j - k - 1 >= 0) {
+                                    cellules = this.maGrille[x + i - k - 1][y + j - k - 1];
+                                }
+                                if (cellules != null) {
+                                    if (!cellules.equals("PLOF")) {
+                                        System.out.println(cellules);
+                                        System.out.println("k :" + k);
+                                        rad = k;
+                                        vue = true;
+
+                                        break;
+                                    }
+                                }
+                            }
+                            if (vue){
+                                break;
+                            }
+                        }
+                        if (vue){
+                            break;
+                        }
+                    }
+                    System.out.println("distance=" + rad);
+                }
+            }
         } else {
             if(cellule.equals("FLOP")|| cellule.equals("SHOT")){
                 dejaCible = true;

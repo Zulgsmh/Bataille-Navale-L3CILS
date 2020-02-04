@@ -19,20 +19,6 @@ public class BatailleController {
         this.affichage = affichage;
         this.partie = partie;
 
-//        //*****************            Menu           *****************
-//        this.affichage.addjvjListener(new menuListener(false,false));
-//        this.affichage.addjvoListener(new menuListener(false, true));
-//        this.affichage.addovoListener(new menuListener(true, true));
-//
-//        //*****************          NbBateau           *****************
-//        this.affichage.addValidNBListener(new ValidNBListen());
-//
-//        //*****************          Mode           *****************
-//        this.affichage.addclassiqueListener(new modeListener("classique"));
-//        this.affichage.addradarListener(new modeListener("radar"));
-//        this.affichage.addartillerieListener(new modeListener("artillerie"));
-//        this.affichage.addcoderougeListener(new modeListener("coderouge"));
-
         //*****************          Plateau           *****************
         this.affichage.addGrille1Listener(new ListenForMouse());
         this.affichage.addGrille2Listener(new ListenForMouse());
@@ -40,46 +26,8 @@ public class BatailleController {
         this.affichage.addlistBateauJ2Listener(new ListenForBateauJ2(), new ListenForMouseBateau());
         this.affichage.addvaliderPlacementListener(new ListenForPlacement());
         this.affichage.addRandomBateauListener(new ListenForRandomBateau());
-        //this.affichage.addcelluleListener(new cellulListener());
-
-
     }
 
-//    class menuListener implements ActionListener{
-//        boolean j1, j2;
-//        menuListener(Boolean j1, Boolean j2){
-//            this.j1 = j1;
-//            this.j2 = j2;
-//        }
-//        public void actionPerformed(ActionEvent e) {
-//            partie.j1.setEstOrdi(this.j1);
-//            partie.j2.setEstOrdi(this.j2);
-//            affichage.setContainer("nbBat");
-//        }
-//    }
-//    class modeListener implements ActionListener{
-//        String mode;
-//        modeListener(String mode){
-//            if(mode.equals("classique")){ partie.setTypeNormal(true);}
-//            if(mode.equals("radar")){partie.setTypeRadar(true);}
-//            if(mode.equals("artillerie")){partie.setTypeArti(true);}
-//            if(mode.equals("coderouge")){partie.setTypeAR(true);}
-//        }
-//        public void actionPerformed(ActionEvent e) {
-//            partie.ModeJ = this.mode;
-//            affichage.setContainer("plateau");
-//            //partie.placerBateauJ1();
-//            //partie.placerBateauJ2();
-//            affichage.drawGrille1(partie.j1.maGrille, false);
-//            affichage.drawGrille2(partie.j2.maGrille, false);
-//        }
-//    }
-//    class ValidNBListen implements ActionListener{
-//        public void actionPerformed(ActionEvent e) {
-//            affichage.setContainer("mode");
-//            partie.nbBateau = affichage.getComboBoxNbBat();
-//        }
-//    }
     class ListenForBateauJ1 implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             if(partie.J1doitplacerBat()){
@@ -96,7 +44,6 @@ public class BatailleController {
             }
         }
     }
-
 
     class ListenForPlacement implements ActionListener{
         public void actionPerformed(ActionEvent e) {
@@ -145,7 +92,6 @@ public class BatailleController {
         }
     }
 
-
     public class ListenForMouse implements MouseListener {
         Color violet = new Color(110,74,227);
         Color violetF = new Color(42,0,51);
@@ -153,13 +99,7 @@ public class BatailleController {
 
         public void mouseClicked(MouseEvent e) {
             Cellule parent = (Cellule)e.getSource();
-//            System.out.println("Mouse Panel Pos: " + e.getX() + " " + e.getY() + "\n");
-
-            //System.out.println("Mouse Screen Pos: " + e.getXOnScreen() + " " + e.getYOnScreen() + "\n");
-//            System.out.println(parent.getx() + " " + parent.gety());
-//            System.out.println("Mouse Button: " + e.getButton()  + "\n");
             if (parent.getAppartient().equals("j1")){
-//                System.out.println(partie.J1doitplacerBat() + " "+affichage.getSelectBateau().getText());
                 if(partie.J1doitplacerBat() && affichage.getSelectBateau()!= null){
                     Boolean sens = affichage.getSelectBateau().getSens();
                     String nomBat = affichage.getSelectBateau().getText();
@@ -237,14 +177,7 @@ public class BatailleController {
                     affichage.drawGrille2(partie.j2.maGrille, true);
                 }
             }
-
-            // System.out.println("Mouse Clicks: " + e.getClickCount()  + "\n");
-
         }
-
-        // Called when the mouse enters the component assigned
-
-        // the MouseListener
 
         public void mouseEntered(MouseEvent e) {
             Color violet = new Color(110,74,227);
@@ -257,10 +190,7 @@ public class BatailleController {
                     parent.setBackground(Color.red);
                 }else{ parent.setBackground(Color.gray);}
             }
-            //parent.revalidate();
         }
-        // Called when the mouse leaves the component assigned
-        // the MouseListener
 
         public void mouseExited(MouseEvent e) {
             JPanel parent = (JPanel)e.getSource();
