@@ -318,7 +318,7 @@ public class Affichage extends JFrame {
 
 
 
-    public void radar(int tirX, int tirY, int dist) {
+    public void radar(int tirX, int tirY, int dist, Color c) {
 
         System.out.println("tire en X : " + tirX);
         System.out.println("tire en Y : " + tirY);
@@ -328,7 +328,7 @@ public class Affichage extends JFrame {
         for(int x = tirX-dist; x <= tirX+dist; x++){
             for(int y = tirY-dist; y <= tirY+dist; y++){
                 if (x >= 0 && x < 10 && y >= 0 && y < 10 && dist != 0) {
-                        CelluleGrille2[x][y].setColor(Color.CYAN);
+                        CelluleGrille2[x][y].setColor(c);
                 }
             }
         }

@@ -152,26 +152,25 @@ public class BatailleController {
 //                System.out.println("Grille2");
                 if(partie.getJ1DoitTirer()) {
                     affichage.setInfoTourJoueur("J2 doit tirer");
-                    for(int i =0 ; i< partie.j2.getListNavire().length ; i++){
-                        if(partie.j2.getListNavire()[i].getEstPose()) {
+                    for (int i = 0; i < partie.j2.getListNavire().length; i++) {
+                        if (partie.j2.getListNavire()[i].getEstPose()) {
                             System.out.println(partie.j2.getListNavire()[i].getNom());
                             System.out.println(partie.j2.getListNavire()[i].getVie());
                             //Boîte du message d'information
                         }
                     }
-                    if(partie.j2.getShot(parent.getx() + 1, parent.gety() + 1, partie.getTypeRadar())[0]) {
+                    if (partie.j2.getShot(parent.getx() + 1, parent.gety() + 1, partie.getTypeRadar())[0]) {
                         affichage.setAfficherPopUpVictoire("J1");
                     }
-                    affichage.setInfoRadarJoueur(" Distance d'un bateau : "+partie.j2.getRadar()+" case(s) ");
-                    if(partie.j2.getEstOrdi()){
+                    affichage.setInfoRadarJoueur(" Distance d'un bateau : " + partie.j2.getRadar() + " case(s) ");
+                    if (partie.j2.getEstOrdi()) {
                         System.out.println("j2 est un ordi");
                         Thread t = new Thread() {
                             public void run() {
-                                try
-                                {
+                                try {
                                     partie.setJ1DoitTirer(false);
                                     Thread.sleep(500);
-                                    if(partie.ordiMove(partie.j1)){
+                                    if (partie.ordiMove(partie.j1)) {
                                         affichage.drawGrille1(partie.j1.maGrille, false);
                                         affichage.drawGrille2(partie.j2.maGrille, false);
                                         affichage.setAfficherPopUpVictoire("de l'ordi");
@@ -181,26 +180,49 @@ public class BatailleController {
 
 
                                     partie.setJ1DoitTirer(true);
-                                }
-                                catch(InterruptedException ex)
-                                {
+                                } catch (InterruptedException ex) {
                                     Thread.currentThread().interrupt();
                                 }
                             }
                         };
                         t.start();
-                    }else {
+                    } else {
                         partie.setJ1DoitTirer(false);
                         partie.setJ2DoitTirer(true);
                     }
                     affichage.drawGrille1(partie.j1.maGrille, false);
                     affichage.drawGrille2(partie.j2.maGrille, false);
-                    System.out.println("Suis je bien dans l'affichage du radar ^^ ? : " +parent.getx() + " "+ parent.gety() +" "+ partie.j2.getRadar());
-                    affichage.radar(parent.getx(),parent.gety(),partie.j2.getRadar()-1);
+//                    System.out.println("Suis je bien dans l'affichage du radar ^^ ? : " +parent.getx() + " "+ parent.gety() +" "+ partie.j2.getRadar());
+//                    affichage.radar(parent.getx(),parent.gety(),partie.j2.getRadar()-1);
+
+                    int parcour = 0;
+                    vague(parent, parcour);
+
                 }
             }
         }
+        public void vague(Cellule parent, int i){
+            affichage.radar(parent.getx(),parent.gety(),i, Color.cyan);
+            affichage.radar(parent.getx(),parent.gety(),i-1, violet);
+            affichage.drawGrille1(partie.j1.maGrille, false);
+            affichage.drawGrille2(partie.j2.maGrille, false);
+            if(i < partie.j2.getRadar()-1) {
+                setTimeout(() -> vague(parent,i+1), 250);
 
+            }
+        }
+
+        public void setTimeout(Runnable runnable, int delay){
+            new Thread(() -> {
+                try {
+                    Thread.sleep(delay);
+                    runnable.run();
+                }
+                catch (Exception e){
+                    System.err.println(e);
+                }
+            }).start();
+        }
         public void mouseEntered(MouseEvent e) {
             Color violet = new Color(110,74,227);
             Color violetF = new Color(42,0,51);
