@@ -175,7 +175,7 @@ public class BatailleController {
 
                         }
                     }//Boîte du message d'information
-                    if(partie.j1.getShot(parent.getx() + 1, parent.gety() + 1, partie.getTypeRadar())){
+                    if(partie.j1.getShot(parent.getx() + 1, parent.gety() + 1, partie.getTypeRadar())[0]){
                         affichage.setAfficherPopUpVictoire("J2");
                     }
                     affichage.drawGrille2(partie.j2.maGrille, true);
@@ -201,29 +201,12 @@ public class BatailleController {
                             //Boîte du message d'information
                         }
                     }
-                    if(partie.j2.getShot(parent.getx() + 1, parent.gety() + 1, partie.getTypeRadar())) {
+                    if(partie.j2.getShot(parent.getx() + 1, parent.gety() + 1, partie.getTypeRadar())[0]) {
                         affichage.setAfficherPopUpVictoire("J1");
                     }
                     if(partie.j2.getEstOrdi()){
-                        partie.setJ1DoitTirer(false);
-                        try
-                        {
-                            Thread.sleep(1000);
-                            partie.ordiMove(partie.j1);
-                        }
-                        catch(InterruptedException ex)
-                        {
-                            Thread.currentThread().interrupt();
-                        }
-                        try
-                        {
-                            Thread.sleep(1000);
-                            partie.setJ1DoitTirer(true);
-                        }
-                        catch(InterruptedException ex)
-                        {
-                            Thread.currentThread().interrupt();
-                        }
+                        System.out.println("j2 est un ordi");
+                        partie.ordiMove(partie.j1);
                     }else {
                         partie.setJ1DoitTirer(false);
                         partie.setJ2DoitTirer(true);

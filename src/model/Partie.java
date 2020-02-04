@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 
+ *
  */
 public class Partie {
 
@@ -17,19 +17,20 @@ public class Partie {
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	public int idPartie;
 
 	/**
-	 * 
+	 *
 	 */
 	public String ModeJ;
 
 	public Joueur j1 = new Joueur();
 	public Joueur j2 = new Joueur();
-	public static int nbBateau=1;
+	public int nbBateau=1;
 	public Boolean mort;
+	public Boolean touche;
 	private Boolean typeNormal=false;
 	private Boolean typeRadar=false;
 	private Boolean typeAR=false;
@@ -42,7 +43,7 @@ public class Partie {
 
 
 	/**
-	 * 
+	 *
 	 */
 	public void setTypeNormal(Boolean b){
 		this.typeNormal=b;
@@ -92,7 +93,7 @@ public class Partie {
 		Scanner in = new Scanner(System.in);
 		String sx = in.nextLine();
 		int x = Integer.parseInt(sx);
-		if(x==2) {	
+		if(x==2) {
 			j2.setEstOrdi(true);
 		}
 		else if(x==3) {
@@ -125,7 +126,7 @@ public class Partie {
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	public void placerBateauJ1() {
 		// TODO implement here
@@ -138,14 +139,13 @@ public class Partie {
 	public void placerBateauJ2() {
 		// TODO implement here
 		System.out.println("Placement des bateau de j2");
-		this.j2.placerBateau(this.nbBateau,false
-		);
+		this.j2.placerBateau(this.nbBateau,false);
 
 	}
 
 	public int getNbBateau(){return this.nbBateau ;}
 	/**
-	 * 
+	 *
 	 */
 	public Boolean getJ1DoitTirer(){
 		return j1DoitTirer;
@@ -160,7 +160,9 @@ public class Partie {
 			System.out.println("J1 joue !");
 			int x=new Random().nextInt(10)+1;
 			int y = new Random().nextInt(10)+1;
-			mort = this.j2.getShot(x, y, true);
+			Boolean[] result = this.j2.getShot(x, y, false);
+			mort = result[0];
+			touche = result[1];
 			if (this.j2.getDejaCible()) {
 				this.j2.setDejaCible(false);
 				System.out.println("Tu as d�ja tir� ici mon khey !");
@@ -189,7 +191,9 @@ public class Partie {
 			int x = in.nextInt();
 			System.out.print("ou veux-tu tirer en y : ");
 			int y = in.nextInt();
-			mort = this.j2.getShot(x, y, true);
+			Boolean[] result = this.j2.getShot(x, y, false);
+			mort = result[0];
+			touche = result[1];
 			if (this.j2.getDejaCible()) {
 				this.j2.setDejaCible(false);
 				System.out.println("Tu as d�ja tir� ici mon khey !");
@@ -243,7 +247,9 @@ public class Partie {
 			System.out.println("J2 joue !");
 			int x=new Random().nextInt(10)+1;
 			int y = new Random().nextInt(10)+1;
-			mort = this.j1.getShot(x, y, true);
+			Boolean[] result = this.j2.getShot(x, y, false);
+			mort = result[0];
+			touche = result[1];
 			if (this.j1.getDejaCible()) {
 				this.j1.setDejaCible(false);
 				System.out.println("Tu as deja tire ici mon khey !");
@@ -271,7 +277,9 @@ public class Partie {
             String sy = in.nextLine();
             int x = Integer.parseInt(sx);
             int y = Integer.parseInt(sy);
-            mort = this.j1.getShot(x, y, true);
+			Boolean[] result = this.j2.getShot(x, y, false);
+			mort = result[0];
+			touche = result[1];
             if (this.j1.getDejaCible()) {
                 this.j1.setDejaCible(false);
                 System.out.println("Tu as d�ja tir� ici mon khey !");
@@ -320,16 +328,92 @@ public class Partie {
 	}
 
 	public void ordiMove(Joueur player){
-		int x=new Random().nextInt(10)+1;
-		int y = new Random().nextInt(10)+1;
-		player.getShot(x, y, true);
+			System.out.println("j1 joue !");
+			if(!player.getaTouche()) {
+				int x = new Random().nextInt(10) + 1;
+				int y = new Random().nextInt(10) + 1;
+				System.out.println(player.getMaGrille()[x-1][y-1]);
+				while(true) {
+					x = new Random().nextInt(10) + 1;
+					y = new Random().nextInt(10) + 1;
+					if(player.getMaGrille()[x-1][y-1]==null){break;}
+					if(!player.getMaGrille()[x-1][y-1].equals("PLOF")&&!player.getMaGrille()[x-1][y-1].equals("SHOT")){break;}
+				}
+				player.setx1(x);
+				player.sety1(y);
+				System.out.println("aléa généré x:"+x+" y : "+y);
+				Boolean[] result = player.getShot(x, y, false);
+				mort = result[0];
+				touche = result[1];
+			}else{
+				player.setCompteur(player.getCompteur()+1);
+				System.out.println("Je veux coulé ce bateau de ses morts x:"+player.getx1()+" y : "+player.gety1());
+				System.out.println("right :"+player.getRight());
+				System.out.println("left :"+player.getLeft());
+				System.out.println("up :"+player.getUp());
+				System.out.println("down :"+player.getDown());
+				System.out.println("atouche :"+player.getaTouche());
+				if(player.getRight()){
+					if(player.getx1()+player.getCompteur()>0 && player.getx1()+player.getCompteur()<11) {
+						Boolean[] result = player.getShot(player.getx1() + player.getCompteur(), player.gety1(), false);
+						mort = result[0];
+						touche = result[1];
+					}else {
+						player.setCompteur(0);
+						player.setRight(false);
+						player.setLeft(true);
+					}
+				}else if(player.getLeft()){
+					if(player.getx1()-player.getCompteur()>0 && player.getx1()-player.getCompteur()<11) {
+						Boolean[] result = player.getShot(player.getx1()-player.getCompteur(), player.gety1(), false);
+						mort = result[0];
+						touche = result[1];
+					}else{
+						player.setCompteur(0);
+						player.setLeft(false);
+						player.setUp(true);
+					}
+				}else if(player.getUp()){
+					System.out.println("DANS UP");
+					if(player.gety1()+player.getCompteur()>0 && player.gety1()+player.getCompteur()<11) {
+						Boolean[] result = player.getShot(player.getx1(), player.gety1()+player.getCompteur(), false);
+						mort = result[0];
+						touche = result[1];
+					}else{
+						player.setCompteur(0);
+						player.setUp(false);
+						player.setDown(true);
+					}
+				}else if(player.getDown()){
+					if(player.gety1()-player.getCompteur()>0 && player.gety1()-player.getCompteur()<11) {
+						Boolean[] result = player.getShot(player.getx1(), player.gety1()-player.getCompteur(), false);
+						mort = result[0];
+						touche = result[1];
+					}else{
+						player.setCompteur(0);
+						player.setDown(false);
+						player.setaTouche(false);
+					}
+				}
+			}
+			j1.setGrilleAdverse(player.maGrille);
+//			j1.displayGrilleAdverse();
+//			j1.displayMaGrille();
+			try
+			{
+				Thread.sleep(10);
+			}
+			catch(InterruptedException ex)
+			{
+				Thread.currentThread().interrupt();
+			}
 	}
 	/**
-	 * 
+	 *
 	 */
 
 	/**
-	 * 
+	 *
 	 */
 	public void stopBataille() {
 		// TODO implement here
