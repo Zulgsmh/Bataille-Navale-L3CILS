@@ -70,30 +70,6 @@ public class Affichage extends JFrame {
         container.setLayout(c);
         this.setUndecorated(true);
 
-        //*******************  MENU  ***********************
-
-        this.setLocationRelativeTo(null);
-
-        Menu.add(jvj);
-        Menu.add(jvo);
-        Menu.add(ovo);
-
-        //*******************  MODE *************************
-
-
-        Mode.add(classique);
-        Mode.add(radar);
-        Mode.add(artillerie);
-        Mode.add(coderouge);
-
-        //*******************  NombreBateau *******************
-
-
-        cb.setBounds(50, 50,100,400);
-        NombreBateau.add(phrase);
-        NombreBateau.add(cb);
-        NombreBateau.add(validNB);
-
 
         //*******************  Plateau de JEu ********************
 
