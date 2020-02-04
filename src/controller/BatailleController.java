@@ -19,19 +19,19 @@ public class BatailleController {
         this.affichage = affichage;
         this.partie = partie;
 
-        //*****************            Menu           *****************
-        this.affichage.addjvjListener(new menuListener(false,false));
-        this.affichage.addjvoListener(new menuListener(false, true));
-        this.affichage.addovoListener(new menuListener(true, true));
-
-        //*****************          NbBateau           *****************
-        this.affichage.addValidNBListener(new ValidNBListen());
-
-        //*****************          Mode           *****************
-        this.affichage.addclassiqueListener(new modeListener("classique"));
-        this.affichage.addradarListener(new modeListener("radar"));
-        this.affichage.addartillerieListener(new modeListener("artillerie"));
-        this.affichage.addcoderougeListener(new modeListener("coderouge"));
+//        //*****************            Menu           *****************
+//        this.affichage.addjvjListener(new menuListener(false,false));
+//        this.affichage.addjvoListener(new menuListener(false, true));
+//        this.affichage.addovoListener(new menuListener(true, true));
+//
+//        //*****************          NbBateau           *****************
+//        this.affichage.addValidNBListener(new ValidNBListen());
+//
+//        //*****************          Mode           *****************
+//        this.affichage.addclassiqueListener(new modeListener("classique"));
+//        this.affichage.addradarListener(new modeListener("radar"));
+//        this.affichage.addartillerieListener(new modeListener("artillerie"));
+//        this.affichage.addcoderougeListener(new modeListener("coderouge"));
 
         //*****************          Plateau           *****************
         this.affichage.addGrille1Listener(new ListenForMouse());
@@ -45,41 +45,41 @@ public class BatailleController {
 
     }
 
-    class menuListener implements ActionListener{
-        boolean j1, j2;
-        menuListener(Boolean j1, Boolean j2){
-            this.j1 = j1;
-            this.j2 = j2;
-        }
-        public void actionPerformed(ActionEvent e) {
-            partie.j1.setEstOrdi(this.j1);
-            partie.j2.setEstOrdi(this.j2);
-            affichage.setContainer("nbBat");
-        }
-    }
-    class modeListener implements ActionListener{
-        String mode;
-        modeListener(String mode){
-            if(mode.equals("classique")){ partie.setTypeNormal(true);}
-            if(mode.equals("radar")){partie.setTypeRadar(true);}
-            if(mode.equals("artillerie")){partie.setTypeArti(true);}
-            if(mode.equals("coderouge")){partie.setTypeAR(true);}
-        }
-        public void actionPerformed(ActionEvent e) {
-            partie.ModeJ = this.mode;
-            affichage.setContainer("plateau");
-            //partie.placerBateauJ1();
-            //partie.placerBateauJ2();
-            affichage.drawGrille1(partie.j1.maGrille, false);
-            affichage.drawGrille2(partie.j2.maGrille, false);
-        }
-    }
-    class ValidNBListen implements ActionListener{
-        public void actionPerformed(ActionEvent e) {
-            affichage.setContainer("mode");
-            partie.nbBateau = affichage.getComboBoxNbBat();
-        }
-    }
+//    class menuListener implements ActionListener{
+//        boolean j1, j2;
+//        menuListener(Boolean j1, Boolean j2){
+//            this.j1 = j1;
+//            this.j2 = j2;
+//        }
+//        public void actionPerformed(ActionEvent e) {
+//            partie.j1.setEstOrdi(this.j1);
+//            partie.j2.setEstOrdi(this.j2);
+//            affichage.setContainer("nbBat");
+//        }
+//    }
+//    class modeListener implements ActionListener{
+//        String mode;
+//        modeListener(String mode){
+//            if(mode.equals("classique")){ partie.setTypeNormal(true);}
+//            if(mode.equals("radar")){partie.setTypeRadar(true);}
+//            if(mode.equals("artillerie")){partie.setTypeArti(true);}
+//            if(mode.equals("coderouge")){partie.setTypeAR(true);}
+//        }
+//        public void actionPerformed(ActionEvent e) {
+//            partie.ModeJ = this.mode;
+//            affichage.setContainer("plateau");
+//            //partie.placerBateauJ1();
+//            //partie.placerBateauJ2();
+//            affichage.drawGrille1(partie.j1.maGrille, false);
+//            affichage.drawGrille2(partie.j2.maGrille, false);
+//        }
+//    }
+//    class ValidNBListen implements ActionListener{
+//        public void actionPerformed(ActionEvent e) {
+//            affichage.setContainer("mode");
+//            partie.nbBateau = affichage.getComboBoxNbBat();
+//        }
+//    }
     class ListenForBateauJ1 implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             if(partie.J1doitplacerBat()){
@@ -207,7 +207,7 @@ public class BatailleController {
                     }
                     if(partie.j2.getEstOrdi()){
                         System.out.println("j2 est un ordi");
-                        partie.ordiMove(partie.j1);
+                       if(partie.ordiMove(partie.j1)){affichage.setAfficherPopUpVictoire("de l'ordi");}
                     }else {
                         partie.setJ1DoitTirer(false);
                         partie.setJ2DoitTirer(true);

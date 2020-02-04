@@ -327,7 +327,7 @@ public class Partie {
 		return this.mort;
 	}
 
-	public void ordiMove(Joueur player){
+	public Boolean ordiMove(Joueur player){
 			System.out.println("j1 joue !");
 			if(!player.getaTouche()) {
 				int x = new Random().nextInt(10) + 1;
@@ -407,6 +407,7 @@ public class Partie {
 			{
 				Thread.currentThread().interrupt();
 			}
+			return mort;
 	}
 	/**
 	 *
