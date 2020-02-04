@@ -399,14 +399,6 @@ public class Partie {
 			j1.setGrilleAdverse(player.maGrille);
 //			j1.displayGrilleAdverse();
 //			j1.displayMaGrille();
-			try
-			{
-				Thread.sleep(10);
-			}
-			catch(InterruptedException ex)
-			{
-				Thread.currentThread().interrupt();
-			}
 			return mort;
 	}
 	/**

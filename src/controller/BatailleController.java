@@ -207,7 +207,28 @@ public class BatailleController {
                     }
                     if(partie.j2.getEstOrdi()){
                         System.out.println("j2 est un ordi");
-                       if(partie.ordiMove(partie.j1)){affichage.setAfficherPopUpVictoire("de l'ordi");}
+                        Thread t = new Thread() {
+                            public void run() {
+                                try
+                                {
+                                    partie.setJ1DoitTirer(false);
+                                    Thread.sleep(500);
+                                    if(partie.ordiMove(partie.j1)){
+                                        affichage.drawGrille1(partie.j1.maGrille, true);
+                                        affichage.drawGrille2(partie.j2.maGrille, true);
+                                        affichage.setAfficherPopUpVictoire("de l'ordi");
+                                    }
+                                    affichage.drawGrille1(partie.j1.maGrille, true);
+                                    affichage.drawGrille2(partie.j2.maGrille, true);
+                                    partie.setJ1DoitTirer(true);
+                                }
+                                catch(InterruptedException ex)
+                                {
+                                    Thread.currentThread().interrupt();
+                                }
+                            }
+                        };
+                        t.start();
                     }else {
                         partie.setJ1DoitTirer(false);
                         partie.setJ2DoitTirer(true);
