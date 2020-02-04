@@ -50,7 +50,7 @@ public class BatailleController {
             if (partie.J1doitplacerBat()){
                 partie.setJ1doitplacerBat(false);
                 partie.setJ2doitplacetBat(true);
-                affichage.drawGrille1(partie.j1.maGrille, true);
+                affichage.drawGrille1(partie.j1.maGrille, false);
                 affichage.setInfoTourJoueur("J2 doit placer ses bateaux");
             }else if(partie.J2doitplacerBat()){
                 partie.setJ2doitplacetBat(false);
@@ -58,8 +58,8 @@ public class BatailleController {
                 partie.setJ1DoitTirer(true);
                 JButton parent = (JButton)e.getSource();
                 parent.setVisible(false);
-                affichage.drawGrille2(partie.j2.maGrille, true);
-                affichage.drawGrille1(partie.j1.maGrille, true);
+                affichage.drawGrille2(partie.j2.maGrille, false);
+                affichage.drawGrille1(partie.j1.maGrille, false);
                 affichage.setInfoTourJoueur("J1 doit tirer");
             }
         }
@@ -101,6 +101,11 @@ public class BatailleController {
 
         public void mouseClicked(MouseEvent e) {
             Cellule parent = (Cellule)e.getSource();
+
+
+
+
+
             if (parent.getAppartient().equals("j1")){
                 if(partie.J1doitplacerBat() && affichage.getSelectBateau()!= null){
                     Boolean sens = affichage.getSelectBateau().getSens();
@@ -123,8 +128,15 @@ public class BatailleController {
                         affichage.setAfficherPopUpVictoire("J2");
                     }
                     affichage.setInfoRadarJoueur(" Distance d'un bateau : "+partie.j1.getRadar()+" case(s) ");
-                    affichage.drawGrille2(partie.j2.maGrille, true);
-                    affichage.drawGrille1(partie.j1.maGrille, true);
+                    affichage.drawGrille2(partie.j2.maGrille, false);
+                    affichage.drawGrille1(partie.j1.maGrille, false);
+
+
+
+
+
+
+
                     partie.setJ1DoitTirer(true);
                     partie.setJ2DoitTirer(false);
                 }
@@ -160,12 +172,14 @@ public class BatailleController {
                                     partie.setJ1DoitTirer(false);
                                     Thread.sleep(500);
                                     if(partie.ordiMove(partie.j1)){
-                                        affichage.drawGrille1(partie.j1.maGrille, true);
-                                        affichage.drawGrille2(partie.j2.maGrille, true);
+                                        affichage.drawGrille1(partie.j1.maGrille, false);
+                                        affichage.drawGrille2(partie.j2.maGrille, false);
                                         affichage.setAfficherPopUpVictoire("de l'ordi");
                                     }
-                                    affichage.drawGrille1(partie.j1.maGrille, true);
-                                    affichage.drawGrille2(partie.j2.maGrille, true);
+                                    affichage.drawGrille1(partie.j1.maGrille, false);
+                                    affichage.drawGrille2(partie.j2.maGrille, false);
+
+
                                     partie.setJ1DoitTirer(true);
                                 }
                                 catch(InterruptedException ex)
@@ -179,8 +193,10 @@ public class BatailleController {
                         partie.setJ1DoitTirer(false);
                         partie.setJ2DoitTirer(true);
                     }
-                    affichage.drawGrille1(partie.j1.maGrille, true);
-                    affichage.drawGrille2(partie.j2.maGrille, true);
+                    affichage.drawGrille1(partie.j1.maGrille, false);
+                    affichage.drawGrille2(partie.j2.maGrille, false);
+                    System.out.println("Suis je bien dans l'affichage du radar ^^ ? : " +parent.getx() + " "+ parent.gety() +" "+ partie.j2.getRadar());
+                    affichage.radar(parent.getx(),parent.gety(),partie.j2.getRadar()-1);
                 }
             }
         }

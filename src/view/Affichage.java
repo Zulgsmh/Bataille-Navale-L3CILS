@@ -281,30 +281,51 @@ public class Affichage extends JFrame {
         }
     }
     public void drawGrille2(String[][] maGrille, boolean hide){
-        for (int i = 0; i < 10; i++){
-            for (int j=0; j < 10; j++) {
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
                 CelluleGrille2[i][j].setNom(maGrille[i][j]);
-                if (maGrille[i][j] == null) {
-                    CelluleGrille2[i][j].setColor(violet);
-                } else if (maGrille[i][j].equals("PLOF")) {
-                    CelluleGrille2[i][j].setColor(Color.black);
-                } else if (maGrille[i][j].equals("SHOT")) {
-                    CelluleGrille2[i][j].setColor(Color.getColor("orange"));
-                }else if (!hide) {
-                    if (maGrille[i][j].equals("PORT")) {
-                        CelluleGrille2[i][j].setColor(Color.getColor("marron"));
-                    } else if (maGrille[i][j].equals("SOUS")) {
-                        CelluleGrille2[i][j].setColor(Color.yellow);
-                    } else if (maGrille[i][j].equals("CUI1")) {
-                        CelluleGrille2[i][j].setColor(Color.pink);
-                    } else if (maGrille[i][j].equals("CUI2")) {
-                        CelluleGrille2[i][j].setColor(Color.MAGENTA);
-                    } else if (maGrille[i][j].equals("ZODI")) {
-                        CelluleGrille2[i][j].setColor(Color.green);
+                if (CelluleGrille2[i][j].getBackground() != Color.cyan) {
+                    if (maGrille[i][j] == null) {
+                        CelluleGrille2[i][j].setColor(violet);
+                    } else if (maGrille[i][j].equals("PLOF")) {
+                        CelluleGrille2[i][j].setColor(Color.black);
+                    } else if (maGrille[i][j].equals("SHOT")) {
+                        CelluleGrille2[i][j].setColor(Color.getColor("orange"));
+                    } else if (!hide) {
+                        if (maGrille[i][j].equals("PORT")) {
+                            CelluleGrille2[i][j].setColor(Color.getColor("marron"));
+                        } else if (maGrille[i][j].equals("SOUS")) {
+                            CelluleGrille2[i][j].setColor(Color.yellow);
+                        } else if (maGrille[i][j].equals("CUI1")) {
+                            CelluleGrille2[i][j].setColor(Color.pink);
+                        } else if (maGrille[i][j].equals("CUI2")) {
+                            CelluleGrille2[i][j].setColor(Color.MAGENTA);
+                        } else if (maGrille[i][j].equals("ZODI")) {
+                            CelluleGrille2[i][j].setColor(Color.green);
+                        }
+                    } else {
+                        CelluleGrille2[i][j].setColor(violet);
                     }
-                }else{CelluleGrille2[i][j].setColor(violet);}
+                }
             }
         }
     }
 
+
+
+    public void radar(int tirX, int tirY, int dist) {
+
+        System.out.println("tire en X : " + tirX);
+        System.out.println("tire en Y : " + tirY);
+        System.out.println("distance : " + dist);
+
+
+        for(int x = tirX-dist; x <= tirX+dist; x++){
+            for(int y = tirY-dist; y <= tirY+dist; y++){
+                if (x >= 0 && x < 10 && y >= 0 && y < 10 && dist != 0) {
+                        CelluleGrille2[x][y].setColor(Color.CYAN);
+                }
+            }
+        }
+    }
 }
