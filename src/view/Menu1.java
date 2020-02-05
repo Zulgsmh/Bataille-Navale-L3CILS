@@ -1,6 +1,8 @@
 package view;
 
+import controller.BatailleController;
 import model.Partie;
+import view.plateau.Affichage;
 
 import javax.swing.*;
 import java.awt.*;
@@ -136,8 +138,11 @@ public class Menu1 extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Demo m1 = new Demo();
+                Affichage a = new Affichage(true);
+                BatailleController c = new BatailleController(a, p);
+                a.setVisible(true);
                 frame.dispose();
+                dispose();
 
 
             }
@@ -212,4 +217,7 @@ public class Menu1 extends JFrame {
         }
 
     }
+
+
+
 }

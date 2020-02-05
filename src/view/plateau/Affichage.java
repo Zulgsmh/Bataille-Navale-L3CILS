@@ -33,18 +33,30 @@ public class Affichage extends JFrame {
     private final JLabel infoTourJoueur = new JLabel();
     private final JLabel infoRadarJoueur = new JLabel("...",SwingConstants.CENTER);
 
+    private final JLabel infoDemo = new JLabel();
+
+    private boolean demo;
 
 
 
-    public Affichage(){
+    public Affichage(boolean demo){
 
 
+
+
+
+
+        this.demo = demo;
         this.setUndecorated(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1500,600);
         this.setLocationRelativeTo(null);
 
         container.setLayout(c);
+
+
+
+
 
         //*******************  Plateau de JEu ********************
 
@@ -167,6 +179,47 @@ public class Affichage extends JFrame {
         this.add(container);
         System.setProperty("marron", "0XA95B23");
         System.setProperty("orange", "0XFA5C00");
+
+
+
+
+        //*******************  Partie Demo ********************
+
+
+
+        if(this.demo == true) {
+            validerPlacementBateau.setVisible(false);
+            RandomBateau.setVisible(false);
+
+            buttonBateauJ1[0].setVisible(false);
+            buttonBateauJ2[0].setVisible(false);
+            buttonBateauJ1[1].setVisible(false);
+            buttonBateauJ2[1].setVisible(false);
+            buttonBateauJ1[2].setVisible(false);
+            buttonBateauJ2[2].setVisible(false);
+            buttonBateauJ1[3].setVisible(false);
+            buttonBateauJ2[3].setVisible(false);
+            buttonBateauJ1[4].setVisible(false);
+            buttonBateauJ2[4].setVisible(false);
+            buttonBateauJ1[5].setVisible(false);
+            buttonBateauJ2[5].setVisible(false);
+            buttonBateauJ1[6].setVisible(false);
+            buttonBateauJ2[6].setVisible(false);
+            buttonBateauJ1[7].setVisible(false);
+            buttonBateauJ2[7].setVisible(false);
+            buttonBateauJ1[8].setVisible(false);
+            buttonBateauJ2[8].setVisible(false);
+            buttonBateauJ1[9].setVisible(false);
+            buttonBateauJ2[9].setVisible(false);
+            infoRadarJoueur.setVisible(false);
+            infoTourJoueur.setVisible(false);
+
+            infoDemo.setText("BIENVENUE DANS LA DEMO DU JEUX");
+            infoDemo.setFont(f);
+            infoDemo.setForeground(Color.white);
+            plateau.add(infoDemo);
+
+        }
 
     }
     public void setContainer(String card){
@@ -310,4 +363,5 @@ public class Affichage extends JFrame {
             }
         }
     }
+
 }

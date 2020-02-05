@@ -53,7 +53,7 @@ public class Menu3 extends  JFrame{
         VALIDER.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Affichage a = new Affichage();
+                Affichage a = new Affichage(false);
                 BatailleController c = new BatailleController(a, p);
                 a.setVisible(true);
                 frame.dispose();
