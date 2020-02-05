@@ -32,8 +32,8 @@ public class Affichage extends JFrame {
 //info tour joueur
     private final JLabel infoTourJoueur = new JLabel();
     private final JLabel infoRadarJoueur = new JLabel("...",SwingConstants.CENTER);
+    public static final JLabel infoDemo = new JLabel();
 
-    private final JLabel infoDemo = new JLabel();
 
     private boolean demo;
 
@@ -214,11 +214,12 @@ public class Affichage extends JFrame {
             infoRadarJoueur.setVisible(false);
             infoTourJoueur.setVisible(false);
 
-            infoDemo.setText("BIENVENUE DANS LA DEMO DU JEUX");
             infoDemo.setFont(f);
             infoDemo.setForeground(Color.white);
             plateau.add(infoDemo);
-
+            BatailleController.demoNext mml = new BatailleController.demoNext();
+            container.addMouseListener(mml);
+            plateau.addMouseListener(mml);
         }
 
     }
@@ -293,7 +294,6 @@ public class Affichage extends JFrame {
     }
 
 
-
     public void drawGrille1(String[][] maGrille, boolean hide){
         for (int i = 0; i < 10; i++){
             for (int j=0; j < 10; j++){
@@ -362,6 +362,14 @@ public class Affichage extends JFrame {
                 }
             }
         }
+    }
+
+    public static void demo(int nbClick){
+
+        if(nbClick == 0){
+            infoDemo.setText("BIENVENUE DANS LA DEMO DU JEUX");
+        }
+
     }
 
 }

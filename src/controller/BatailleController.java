@@ -49,7 +49,32 @@ public class BatailleController {
             }
         }
     }
+    public static class demoNext implements MouseListener {
+        private int nbClick = 0;
+        @Override
+        public void mouseClicked(MouseEvent arg0) {
+            //Put the code you want here
+            //...
+            //...
+            System.out.println(nbClick);
+            nbClick++;
 
+            Affichage.demo(nbClick);
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent arg0) { }
+
+        @Override
+        public void mouseExited(MouseEvent arg0) { }
+
+        @Override
+        public void mousePressed(MouseEvent arg0) { }
+
+        @Override
+        public void mouseReleased(MouseEvent arg0) { }
+    }
     class ListenForPlacement implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             if (partie.J1doitplacerBat()){
