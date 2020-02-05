@@ -2,9 +2,9 @@ package controller;
 
 import model.Partie;
 import model.Position;
-import view.Affichage;
-import view.Bateau;
-import view.Cellule;
+import view.plateau.Affichage;
+import view.plateau.Bateau;
+import view.plateau.Cellule;
 
 import javax.swing.*;
 import java.awt.*;

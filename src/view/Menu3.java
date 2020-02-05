@@ -2,6 +2,7 @@ package view;
 
 import controller.BatailleController;
 import model.Partie;
+import view.plateau.Affichage;
 
 import javax.swing.*;
 import java.awt.*;

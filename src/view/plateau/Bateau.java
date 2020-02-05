@@ -1,4 +1,4 @@
-package view;
+package view.plateau;
 
 import javax.swing.*;
 import java.awt.*;

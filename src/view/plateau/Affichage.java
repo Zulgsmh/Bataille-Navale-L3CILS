@@ -1,7 +1,8 @@
-package view;
+package view.plateau;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import controller.BatailleController;
+import view.Menu1;
 
 import javax.swing.*;
 
