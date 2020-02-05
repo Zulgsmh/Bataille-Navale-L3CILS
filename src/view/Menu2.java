@@ -1,6 +1,5 @@
 package view;
 
-import controller.BatailleController;
 import model.Partie;
 
 import javax.swing.*;
@@ -18,16 +17,15 @@ public class Menu2 extends JFrame {
     private JButton OPERATIONARTILLERIEButton;
     private JButton MISSIONRADARButton;
     private JButton button1;
-    private Partie p;
 
-    Color purple = new Color(110, 74, 227);
+    final Color violet = new Color(110, 74, 227);
+
     Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
     public Menu2(Partie p) {
         setSize(800, 300);
         this.setUndecorated(true);
         final JFrame frame = new JFrame("BATAILLE NAVALE");
-        this.p = p;
 
         Runnable runnable = new Runnable() {
             @Override
@@ -60,7 +58,7 @@ public class Menu2 extends JFrame {
             @Override
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
-                BATAILLENAVALEButton.setBackground(purple);
+                BATAILLENAVALEButton.setBackground(violet);
                 BATAILLENAVALEButton.setForeground(Color.white);
 
             }
@@ -78,7 +76,7 @@ public class Menu2 extends JFrame {
             @Override
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
-                OPERATIONARTILLERIEButton.setBackground(purple);
+                OPERATIONARTILLERIEButton.setBackground(violet);
                 OPERATIONARTILLERIEButton.setForeground(Color.white);
 
             }
@@ -96,7 +94,7 @@ public class Menu2 extends JFrame {
             @Override
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
-                MISSIONRADARButton.setBackground(purple);
+                MISSIONRADARButton.setBackground(violet);
                 MISSIONRADARButton.setForeground(Color.white);
 
             }
@@ -114,7 +112,7 @@ public class Menu2 extends JFrame {
             @Override
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
-                ALERTEROUGEButton.setBackground(purple);
+                ALERTEROUGEButton.setBackground(violet);
                 ALERTEROUGEButton.setForeground(Color.white);
 
             }
@@ -132,7 +130,7 @@ public class Menu2 extends JFrame {
             @Override
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
-                button1.setBackground(purple);
+                button1.setBackground(violet);
                 button1.setForeground(Color.white);
 
             }
@@ -215,8 +213,6 @@ public class Menu2 extends JFrame {
 
         public void mousePressed(MouseEvent e) {
             mouseDownCompCoords = e.getPoint();
-            System.out.println(frame.getLocation());
-
         }
 
         public void mouseDragged(MouseEvent e) {

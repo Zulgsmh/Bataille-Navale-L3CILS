@@ -25,10 +25,10 @@ public class PorteAvion extends Navire {
      * 
      */
     public int taille;
-    private String nom = "PORT";
-    
+
     public String getNom() {
-    	return this.nom;
+        String nom = "PORT";
+        return nom;
     }
 
 }

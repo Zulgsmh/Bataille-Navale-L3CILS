@@ -1,19 +1,24 @@
 package controller;
+
+import model.Partie;
+import model.Position;
+import view.Affichage;
+import view.Bateau;
+import view.Cellule;
+
+import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import view.*;
-import model.*;
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.util.Random;
 
 public class BatailleController {
 
-    private Affichage affichage;
-    private Partie partie;
+    private final Affichage affichage;
+    private final Partie partie;
+    public final Color violet = new Color(110,74,227);
+    public Color violetF = new Color(42,0,51);
 
     public BatailleController(Affichage affichage, Partie partie){
         this.affichage = affichage;
@@ -65,7 +70,9 @@ public class BatailleController {
         }
     }
 
-    // placer les bateau aléatoirement :
+    //*****************          Bateaux posé aléatoirement           *****************
+
+
     class ListenForRandomBateau implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             int nb = partie.getNbBateau();
@@ -78,7 +85,7 @@ public class BatailleController {
 
                 // partie.j1.initMaGrille();
                 partie.j1.initListeBateauPosable();
-                partie.j1.placerBateau(nb, true);
+                partie.j1.placerBateau(nb);
                 affichage.drawGrille1(partie.j1.maGrille, false);
             }
             else if (partie.J2doitplacerBat()) {
@@ -88,15 +95,14 @@ public class BatailleController {
                 // partie.j2.initMaGrille();
                 System.out.println("j2 doit placer ses bateau : "+nb);
                 partie.j2.initListeBateauPosable();
-                partie.j2.placerBateau(nb, true);
+                partie.j2.placerBateau(nb);
                 affichage.drawGrille2(partie.j2.maGrille, false);
             }
         }
     }
 
     public class ListenForMouse implements MouseListener {
-        Color violet = new Color(110,74,227);
-        Color violetF = new Color(42,0,51);
+
         // Called when a mouse button is clicked
 
         public void mouseClicked(MouseEvent e) {
@@ -114,7 +120,6 @@ public class BatailleController {
                     partie.j1.setBateauplacer(nomBat, pos);
                     affichage.drawGrille1(partie.j1.maGrille, false);
                 }
-//                System.out.println("Grille1");
                 if(partie.getJ2DoitTirer()) {
                     affichage.setInfoTourJoueur("J1 doit tirer");
                     for(int i =0 ; i< partie.j1.getListNavire().length ; i++){
@@ -130,18 +135,10 @@ public class BatailleController {
                     affichage.setInfoRadarJoueur(" Distance d'un bateau : "+partie.j1.getRadar()+" case(s) ");
                     affichage.drawGrille2(partie.j2.maGrille, false);
                     affichage.drawGrille1(partie.j1.maGrille, false);
-
-
-
-
-
-
-
                     partie.setJ1DoitTirer(true);
                     partie.setJ2DoitTirer(false);
                 }
             }else{
-//                System.out.println(partie.J2doitplacerBat() + " "+affichage.getSelectBateau().getText());
                 if(partie.J2doitplacerBat() && affichage.getSelectBateau()!= null){
                     Boolean sens = affichage.getSelectBateau().getSens();
                     String nomBat = affichage.getSelectBateau().getText();
@@ -149,7 +146,6 @@ public class BatailleController {
                     partie.j2.setBateauplacer(nomBat, pos);
                     affichage.drawGrille2(partie.j2.maGrille, false);
                 }
-//                System.out.println("Grille2");
                 if(partie.getJ1DoitTirer()) {
                     affichage.setInfoTourJoueur("J2 doit tirer");
                     for (int i = 0; i < partie.j2.getListNavire().length; i++) {
@@ -192,8 +188,9 @@ public class BatailleController {
                     }
                     affichage.drawGrille1(partie.j1.maGrille, false);
                     affichage.drawGrille2(partie.j2.maGrille, false);
-//                    System.out.println("Suis je bien dans l'affichage du radar ^^ ? : " +parent.getx() + " "+ parent.gety() +" "+ partie.j2.getRadar());
-//                    affichage.radar(parent.getx(),parent.gety(),partie.j2.getRadar()-1);
+
+
+                    //******************           effet de vague dans le mode mission radar           ****************
 
                     int parcour = 0;
                     vague(parent, parcour);
@@ -253,6 +250,9 @@ public class BatailleController {
 
         }
     }
+
+    //*****************          Style des bouttons du Plateau           *****************
+
     public class ListenForMouseBateau implements MouseListener {
 
         @Override

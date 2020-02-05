@@ -25,7 +25,7 @@ public class SousMarinNucleaire extends Navire {
      * 
      */
     public int taille;
-    public String nom = "SOUS";
+    public final String nom = "SOUS";
     public String getNom() {
     	return this.nom;
     }

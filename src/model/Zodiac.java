@@ -25,7 +25,7 @@ public class Zodiac extends Navire {
      * 
      */
     public int taille;
-    public String nom = "ZODI";
+    public final String nom = "ZODI";
     public String getNom() {
     	return this.nom;
     }

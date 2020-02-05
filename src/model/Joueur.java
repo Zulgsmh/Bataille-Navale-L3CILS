@@ -40,13 +40,13 @@ public class Joueur {
      */
     public String[][] grilleAdverse = new String[10][10];
 
-    public PorteAvion p1 = new PorteAvion();
-    private ArrayList listeBateauPosable;
-    public CuirasseFurtif c1 = new CuirasseFurtif();
-    public CuirasseFurtif c2 = new CuirasseFurtif();
-    public SousMarinNucleaire s1 = new SousMarinNucleaire();
-    public Zodiac z1 = new Zodiac();
-    public Navire[] listNavire = { p1, c1, c2, s1, z1 };
+    public final PorteAvion p1 = new PorteAvion();
+    private ArrayList<Integer> listeBateauPosable;
+    public final CuirasseFurtif c1 = new CuirasseFurtif();
+    public final CuirasseFurtif c2 = new CuirasseFurtif();
+    public final SousMarinNucleaire s1 = new SousMarinNucleaire();
+    public final Zodiac z1 = new Zodiac();
+    public final Navire[] listNavire = { p1, c1, c2, s1, z1 };
     public boolean dejaCible = false;
     public Boolean JVientDeToucher=false;
     public Boolean first = true;
@@ -111,7 +111,6 @@ public class Joueur {
 
     public void setGrilleAdverse(int x, int y) {
         // DOTO : mettre condition de tire
-        System.out.println(this.grilleAdverse[x - 1][y - 1]);
         String cellule = this.grilleAdverse[x - 1][y - 1];
 
         this.grilleAdverse[x - 1][y - 1] = "PLOF";
@@ -169,7 +168,6 @@ public class Joueur {
 
     public Boolean[] getShot(int x, int y, Boolean typeRadar) {
         radar = 0;
-        //System.out.println("dans getShot : "+x+" "+y);
         String cellule = this.maGrille[x - 1][y - 1];
         boolean estMort = true;
         if (cellule == null) {
@@ -187,8 +185,6 @@ public class Joueur {
                                 }
                                 if (cellules != null) {
                                     if (!cellules.equals("PLOF")) {
-                                        System.out.println(cellules);
-                                        System.out.println("k :" + k);
                                         rad = k;
                                         vue = true;
 
@@ -204,7 +200,6 @@ public class Joueur {
                             break;
                         }
                     }
-                    System.out.println("distance=" + rad);
                     radar=rad;
 
                 }
@@ -233,24 +228,20 @@ public class Joueur {
         if(cellule == null|| cellule.equals("PLOF")|| cellule.equals("SHOT")){
             setCompteur(0);
             if(right){
-                System.out.println("right plouf");
                 setaPloof(true);
                 setRight(false);
                 setLeft(true);
             }
             else if(left){
-                System.out.println("left plouf");
                 setaPloof(true);
                 setUp(true);
                 left = false;
             }
             else if(up){
-                System.out.println("up plouf");
                 setDown(true);
                 up = false;
             }
             else if(down){
-                System.out.println("down plouf");
                 down = false;
                 first = true;
                 aTouche = false;
@@ -260,12 +251,10 @@ public class Joueur {
                 right = true;
                 aTouche = true;
             }
-            System.out.println("J'ai touché ma gueule x : " + x + " y : " + y);
         }
 
         for (Navire bateau : this.listNavire) {
             if (bateau.getEstPose()) {
-                System.out.println(bateau.getNom() + " " + bateau.getVie());
                 if (bateau.getVie() != 0) {
                     return new Boolean[]{false, false};
                 }
@@ -278,7 +267,7 @@ public class Joueur {
     /**
      *
      */
-    public void placerBateau(int nbbateau, boolean boutonAlea) {
+    public void placerBateau(int nbbateau) {
         int typebateau = 0;
         int x = 0;
         int y = 0;
@@ -289,17 +278,12 @@ public class Joueur {
             boolean valid = false;
             //this.displayMaGrille();
             while (!valid) {
-                    System.out.println("dans bouton alea : "+ listeBateauPosable);
                     int r = new Random().nextInt(listeBateauPosable.size());
-                    typebateau = (int) listeBateauPosable.get(r);
+                    typebateau = listeBateauPosable.get(r);
                     x = new Random().nextInt(10);
                     y = new Random().nextInt(10);
                     dir = new Random().nextInt(2) + 1;
-                if (dir == 1) {
-                    verticale = true;
-                } else {
-                    verticale = false;
-                }
+                verticale = dir == 1;
 
 
                 int taillebat = 0;
@@ -346,7 +330,6 @@ public class Joueur {
                     }
                 }
                 if (!valid) {
-                    System.out.println("INVALIDE Replacer le bateau");
                 }
                 if (verticale) {
                     for (int i = x - 1; i <= x + 1; i++) {
@@ -389,9 +372,7 @@ public class Joueur {
         }
     }
     public void setListeBateauPose(int typeBateau) {
-        System.out.println(this.listeBateauPosable);
-        System.out.println(typeBateau);
-        this.listeBateauPosable.remove(this.listeBateauPosable.indexOf(typeBateau));
+        this.listeBateauPosable.remove((Integer) typeBateau);
 
     }
     public void setBateauplacer(int typebateau, Position posNavire) {
@@ -555,7 +536,6 @@ public class Joueur {
     }
 
     public void displayMaGrille() {
-        System.out.println("\n\n MaGrille : ");
         for (int j = 0; j < 10; j++) {
             for (int i = 0; i < 10; i++) {
                 String maCase = "";
@@ -564,14 +544,11 @@ public class Joueur {
                 } else {
                     maCase = " ---- ";
                 }
-                System.out.print(maCase);
             }
-            System.out.println("");
         }
     }
 
     public void displayGrilleAdverse() {
-        System.out.println("\n\n Grille Adverse : ");
         for (int j = 0; j < 10; j++) {
             for (int i = 0; i < 10; i++) {
                 String maCase = "";
@@ -580,9 +557,7 @@ public class Joueur {
                 } else {
                     maCase = " ---- ";
                 }
-                System.out.print(maCase);
             }
-            System.out.println("");
         }
 
     }
@@ -593,6 +568,6 @@ public class Joueur {
         this.listNavire[index].setPosition(null);
     }
     public void initListeBateauPosable() {
-        this.listeBateauPosable = new ArrayList(Arrays.asList(1, 2, 3, 4, 5));
+        this.listeBateauPosable = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
     }
 }

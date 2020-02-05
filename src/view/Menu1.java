@@ -11,8 +11,9 @@ import java.awt.event.MouseEvent;
 
 
 public class Menu1 extends JFrame {
-    Color purple = new Color(110, 74, 227);
-    Color dRed = new Color(227, 64, 88);
+
+    private final Color violet = new Color(110, 74, 227);
+    private final Color dRed = new Color(227, 64, 88);
     private JPanel rootPanel;
     private JButton DEMO;
     private JButton UN;
@@ -20,8 +21,10 @@ public class Menu1 extends JFrame {
     private JPanel img;
     private JTextField BATAILLENAVALETextField;
     private JButton xButton;
-    private Partie p;
+    private final Partie p;
+
     public Menu1() {
+
         this.setUndecorated(true);
         setSize(0, 0);
         final JFrame frame = new JFrame("BATAILLE NAVALE");
@@ -39,8 +42,8 @@ public class Menu1 extends JFrame {
                 FrameDragListener frameDragListener = new FrameDragListener(frame);
                 frame.addMouseListener(frameDragListener);
                 frame.addMouseMotionListener(frameDragListener);
-                frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
+                frame.setLocationRelativeTo(null);
                 rootPanel.setVisible(true);
                 pack();
             }
@@ -60,7 +63,7 @@ public class Menu1 extends JFrame {
             @Override
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
-                UN.setBackground(purple);
+                UN.setBackground(violet);
                 UN.setForeground(Color.white);
 
             }
@@ -77,7 +80,7 @@ public class Menu1 extends JFrame {
             @Override
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
-                DEUX.setBackground(purple);
+                DEUX.setBackground(violet);
                 DEUX.setForeground(Color.white);
             }
         });
@@ -94,7 +97,7 @@ public class Menu1 extends JFrame {
             @Override
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
-                DEMO.setBackground(purple);
+                DEMO.setBackground(violet);
                 DEMO.setForeground(Color.white);
 
             }
@@ -122,7 +125,6 @@ public class Menu1 extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 Menu2 m1 = new Menu2(p);
-                m1.setLocation(frame.getX(), frame.getY());
                 m1.setVisible(true);
                 dispose();
                 frame.dispose();
@@ -135,7 +137,6 @@ public class Menu1 extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 Menu2 m1 = new Menu2(p);
-                m1.setLocation(frame.getX(), frame.getY());
                 m1.setVisible(true);
                 dispose();
                 frame.dispose();
@@ -148,7 +149,6 @@ public class Menu1 extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 Menu2 m1 = new Menu2(p);
-                m1.setLocation(frame.getX(), frame.getY());
                 m1.setVisible(true);
                 dispose();
                 frame.dispose();
@@ -194,6 +194,7 @@ public class Menu1 extends JFrame {
         private final JFrame frame;
         private Point mouseDownCompCoords = null;
 
+
         public FrameDragListener(JFrame frame) {
             this.frame = frame;
         }
@@ -204,8 +205,6 @@ public class Menu1 extends JFrame {
 
         public void mousePressed(MouseEvent e) {
             mouseDownCompCoords = e.getPoint();
-            System.out.println(frame.getLocation());
-
         }
 
         public void mouseDragged(MouseEvent e) {

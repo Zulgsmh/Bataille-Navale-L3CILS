@@ -11,37 +11,40 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class Menu3 extends  JFrame{
+
     final JFrame frame = new JFrame("BATAILLE NAVALE");
     private JPanel rootPanel;
     private JComboBox comboBox1;
     private JTextField NOMBREDEBATEAUXÀTextField;
     private JButton VALIDER;
-    private Partie p;
 
-    Color violet = new Color(110,74,227);
-    Color violetF = new Color(42,0,51);
-
-    Runnable runnable = new Runnable() {
-        @Override
-        public void run() {
-            frame.setUndecorated(true);
-            frame.setBounds(0, 0, 800, 200);
-            frame.setContentPane(rootPanel);
-            Menu1.FrameDragListener frameDragListener = new Menu1.FrameDragListener(frame);
-            frame.addMouseListener(frameDragListener);
-            frame.addMouseMotionListener(frameDragListener);
-            frame.setLocationRelativeTo(null);
-            frame.setVisible(true);
-            rootPanel.setVisible(true);
-            pack();
-        }
+    final Color violet = new Color(110,74,227);
+    final Color violetF = new Color(42,0,51);
 
 
-
-    };
 
     public Menu3(Partie p){
-        this.p = p;
+
+        final Runnable runnable = new Runnable() {
+            @Override
+
+            public void run() {
+                frame.setUndecorated(true);
+                frame.setBounds(0, 0, 800, 200);
+                frame.setContentPane(rootPanel);
+                Menu1.FrameDragListener frameDragListener = new Menu1.FrameDragListener(frame);
+                frame.addMouseListener(frameDragListener);
+                frame.addMouseMotionListener(frameDragListener);
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);
+                rootPanel.setVisible(true);
+                pack();
+            }
+
+
+
+        };
+
 
         SwingUtilities.invokeLater(runnable);
 
@@ -101,8 +104,6 @@ public class Menu3 extends  JFrame{
 
         public void mousePressed(MouseEvent e) {
             mouseDownCompCoords = e.getPoint();
-            System.out.println(frame.getLocation());
-
         }
 
         public void mouseDragged(MouseEvent e) {

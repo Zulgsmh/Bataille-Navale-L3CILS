@@ -4,12 +4,12 @@ import javax.swing.*;
 
 
 public class Cellule extends JPanel {
-    Color violet = new Color(110,74,227);
+    final Color violet = new Color(110,74,227);
     Color violetF = new Color(42,0,51);
 
-    private int x,y;
-    private String nom = "";
-    private String appartient;
+    private final int x;
+    private final int y;
+    private final String appartient;
     Cellule(int x, int y, String appart){
         this.x = x;
         this.y = y;
@@ -32,6 +32,5 @@ public class Cellule extends JPanel {
         this.setBackground(color);
     }
     public void setNom(String nom){
-        this.nom = nom;
     }
 }

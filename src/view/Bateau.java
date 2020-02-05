@@ -4,8 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Bateau extends JButton {
-    private String equipe;
-    private Boolean sens;
+    private final String equipe;
+    private final Boolean sens;
 
     Bateau(String equipe, Boolean sens){
         this.equipe = equipe;

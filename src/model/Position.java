@@ -1,7 +1,5 @@
 package model;
 
-import java.util.*;
-
 /**
  * 
  */
@@ -57,7 +55,7 @@ public class Position {
 
 
     /**
-     * 
+     *
      */
     public void flipToHoriztontal() {
         // TODO implement here

@@ -2,97 +2,90 @@ package view;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import controller.BatailleController;
-import model.Joueur;
 
 import javax.swing.*;
 
 
 
 public class Affichage extends JFrame {
-    private CardLayout c = new CardLayout();
-    private JPanel container = new JPanel();
+    private final CardLayout c = new CardLayout();
+    private final JPanel container = new JPanel();
 
 
     //couleurs arrière plan / boutons
-    Color violet = new Color(110,74,227);
-    Color violetF = new Color(42,0,51);
-
+    private final Color violet = new Color(110,74,227);
+    private int size = 26;
 
     private  JOptionPane jop1;
 
-// Tout ce qui est ajouté dans le plateau
-    private JPanel plateau = new JPanel();
 
-
-
-    private JPanel Grille1 = new JPanel();
-    private JPanel Grille2 = new JPanel();
-    private JPanel listBateauJ1 = new JPanel();
-    private JPanel listBateauJ2 = new JPanel();
     //creation bateau aleatoire:
-    private JButton RandomBateau = new JButton();
-    private JButton validerPlacementBateau = new JButton();
-    private Cellule[][] CelluleGrille1 = new Cellule[10][10];
-    private Cellule[][] CelluleGrille2 = new Cellule[10][10];
-    private Bateau[] buttonBateauJ1 = new Bateau[10];
-    private Bateau[] buttonBateauJ2 = new Bateau[10];
-    private String[] bateauName = {"PorteAvion", "SousMarin", "CuirasséFurtif1", "CuirasséFurtif2","Zodiac"};
+    private final JButton RandomBateau = new JButton();
+    private final JButton validerPlacementBateau = new JButton();
+    private final Cellule[][] CelluleGrille1 = new Cellule[10][10];
+    private final Cellule[][] CelluleGrille2 = new Cellule[10][10];
+    private final Bateau[] buttonBateauJ1 = new Bateau[10];
+    private final Bateau[] buttonBateauJ2 = new Bateau[10];
     private Bateau bateauSelect = new Bateau("", true);
     private Boolean sens = false;
 //info tour joueur
-    private JLabel infoTourJoueur = new JLabel();
-    private JLabel infoRadarJoueur = new JLabel("...",SwingConstants.CENTER);
+    private final JLabel infoTourJoueur = new JLabel();
+    private final JLabel infoRadarJoueur = new JLabel("...",SwingConstants.CENTER);
 
 
 
 
     public Affichage(){
+
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1500,600);
-        container.setLayout(c);
         this.setUndecorated(true);
+        this.setLocationRelativeTo(null);
 
+        container.setLayout(c);
 
         //*******************  Plateau de JEu ********************
 
+        // Tout ce qui est ajouté dans le plateau
+        JPanel plateau = new JPanel();
+        Color violetF = new Color(42, 0, 51);
         plateau.setBackground(violetF);
 
         //définition de la grille1
-        Grille1.setBackground(Color.black);
-        Grille1.setPreferredSize( new Dimension( 400, 400 ) );
-        Grille1.setLayout(new GridLayout(10,10));
+        JPanel grille1 = new JPanel();
+        grille1.setBackground(Color.black);
+        grille1.setPreferredSize( new Dimension( 400, 400 ) );
+        grille1.setLayout(new GridLayout(10,10));
         for(int j = 0; j < 10; j++){
             for(int i = 0; i < 10; i++){
                 CelluleGrille1[i][j] = new Cellule(i, j, "j1");
                 CelluleGrille1[i][j].setBorder(BorderFactory.createLineBorder(Color.black));
-
-                Grille1.add(CelluleGrille1[i][j]);
+                grille1.add(CelluleGrille1[i][j]);
             }
         }
         //définition de la grille2
-        Grille2.setBackground(Color.BLUE);
-        Grille2.setPreferredSize( new Dimension( 400, 400 ) );
-        Grille2.setLayout(new GridLayout(10,10));
+        JPanel grille2 = new JPanel();
+        grille2.setBackground(Color.BLUE);
+        grille2.setPreferredSize( new Dimension( 400, 400 ) );
+        grille2.setLayout(new GridLayout(10,10));
         for(int j = 0; j < 10; j++){
             for(int i = 0; i < 10; i++){
                 CelluleGrille2[i][j] = new Cellule(i, j, "j2");
                 CelluleGrille2[i][j].setBorder(BorderFactory.createLineBorder(Color.black));
-                Grille2.add(CelluleGrille2[i][j]);
+                grille2.add(CelluleGrille2[i][j]);
             }
         }
 
 
-
+        JPanel listBateauJ1 = new JPanel();
         listBateauJ1.setPreferredSize( new Dimension( 300, 500 ) );
-        for (int i = 0;i<10;i++) {
+        String[] bateauName = {"PorteAvion", "SousMarin", "CuirasséFurtif1", "CuirasséFurtif2", "Zodiac"};
+
+        for (int i = 0; i<10; i++) {
             Boolean vertical;
-            if(i%2==0){
-                vertical = true;
-            }else{
-                vertical = false;
-            }
+            vertical = i % 2 == 0;
             buttonBateauJ1[i] = new Bateau ("j1",vertical);
-            buttonBateauJ1[i].setText(bateauName[(int)(i/2)]);
+            buttonBateauJ1[i].setText(bateauName[i/2]);
             buttonBateauJ1[i].setBackground(violet);
             buttonBateauJ1[i].setForeground(Color.white);
             buttonBateauJ1[i].setFocusable(false);
@@ -105,31 +98,21 @@ public class Affichage extends JFrame {
 
 
         listBateauJ1.setBackground(violetF);
-
-
-
+        JPanel listBateauJ2 = new JPanel();
         listBateauJ2.setBackground(violetF);
         listBateauJ2.setPreferredSize( new Dimension( 300, 500 ) );
+
         for (int i = 0;i<10;i++) {
             Boolean vertical;
-            if(i%2==0){
-                vertical = true;
-            }else{
-                vertical = false;
-            }
+            vertical = i % 2 == 0;
             buttonBateauJ2[i] = new Bateau ("j2",vertical);
-            buttonBateauJ2[i].setText(bateauName[(int)(i/2)]);
+            buttonBateauJ2[i].setText(bateauName[i/2]);
             buttonBateauJ2[i].setBackground(violet);
             buttonBateauJ2[i].setForeground(Color.white);
             buttonBateauJ2[i].setFocusable(false);
             buttonBateauJ2[i].setFocusPainted(false);
             buttonBateauJ2[i].setBorderPainted(false);
             buttonBateauJ2[i].setFont(new Font("Arial Black",Font.PLAIN, 26));
-
-
-
-
-
             listBateauJ2.add(buttonBateauJ2[i]);
         }
 
@@ -148,14 +131,14 @@ public class Affichage extends JFrame {
         RandomBateau.setPreferredSize(new Dimension(200,100));
         RandomBateau.setText("Bateau aléatoire");
 
-        int size = 26;
-        Font f = new Font("Arial Black",Font.PLAIN, 26);
+
 
 
         infoTourJoueur.setBackground(new Color(81,255,0));
         infoTourJoueur.setPreferredSize(new Dimension(500,100));
         infoTourJoueur.setText("J1 doit placer ses bateau");
         infoTourJoueur.setForeground(Color.white);
+        Font f = new Font("Arial Black", Font.PLAIN, 26);
         infoTourJoueur.setFont(f);
 
         infoRadarJoueur.setBackground(new Color(81,255,0));
@@ -163,10 +146,9 @@ public class Affichage extends JFrame {
         infoRadarJoueur.setForeground(Color.white);
         infoRadarJoueur.setFont(f);
 
-
         plateau.add(listBateauJ1);
-        plateau.add(Grille1);
-        plateau.add(Grille2);
+        plateau.add(grille1);
+        plateau.add(grille2);
         plateau.add(listBateauJ2);
         //info sur qui joue
         plateau.add(infoTourJoueur);
@@ -177,9 +159,7 @@ public class Affichage extends JFrame {
 
 
         //******************           CardLayout           ****************
-//        container.add(Menu, "menu");
-//        container.add(NombreBateau, "nbBat");
-//        container.add(Mode, "mode");
+
         container.add(plateau, "plateau");
         c.show(container, "plateau");
         this.add(container);
@@ -201,7 +181,7 @@ public class Affichage extends JFrame {
 
     public void setAfficherPopUpVictoire(String gagnant){
         jop1 = new JOptionPane() ;
-        jop1.showMessageDialog(null, "Victoire de " + gagnant , "Information",
+        JOptionPane.showMessageDialog(null, "Victoire de " + gagnant , "Information",
                 JOptionPane.INFORMATION_MESSAGE);
         // Récupérer les frames et les fermer TODO
         RevenirMenu();
@@ -319,11 +299,6 @@ public class Affichage extends JFrame {
 
 
     public void radar(int tirX, int tirY, int dist, Color c) {
-
-        System.out.println("tire en X : " + tirX);
-        System.out.println("tire en Y : " + tirY);
-        System.out.println("distance : " + dist);
-
 
         for(int x = tirX-dist; x <= tirX+dist; x++){
             for(int y = tirY-dist; y <= tirY+dist; y++){
