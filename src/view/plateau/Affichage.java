@@ -38,9 +38,10 @@ public class Affichage extends JFrame {
 
     public Affichage(){
 
+
+        this.setUndecorated(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1500,600);
-        this.setUndecorated(true);
         this.setLocationRelativeTo(null);
 
         container.setLayout(c);

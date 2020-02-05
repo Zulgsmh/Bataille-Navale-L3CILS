@@ -137,8 +137,6 @@ public class Menu1 extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 Demo m1 = new Demo();
-                m1.setVisible(true);
-                dispose();
                 frame.dispose();
 
 
