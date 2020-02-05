@@ -50,7 +50,7 @@ public class BatailleController {
         }
     }
     public static class demoNext implements MouseListener {
-        private int nbClick = 0;
+        private int nbClick = -1;
         @Override
         public void mouseClicked(MouseEvent arg0) {
             //Put the code you want here
@@ -60,6 +60,7 @@ public class BatailleController {
             nbClick++;
 
             Affichage.demo(nbClick);
+
 
         }
 

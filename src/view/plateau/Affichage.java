@@ -25,7 +25,7 @@ public class Affichage extends JFrame {
     private final JButton validerPlacementBateau = new JButton();
     private final Cellule[][] CelluleGrille1 = new Cellule[10][10];
     private final Cellule[][] CelluleGrille2 = new Cellule[10][10];
-    private final Bateau[] buttonBateauJ1 = new Bateau[10];
+    private static final Bateau[] buttonBateauJ1 = new Bateau[10];
     private final Bateau[] buttonBateauJ2 = new Bateau[10];
     private Bateau bateauSelect = new Bateau("", true);
     private Boolean sens = false;
@@ -368,6 +368,19 @@ public class Affichage extends JFrame {
 
         if(nbClick == 0){
             infoDemo.setText("BIENVENUE DANS LA DEMO DU JEUX");
+        } else if (nbClick == 1) {
+            infoDemo.setText("VOICI LES DEUX GRILLES SUR LESQUELS VOUS ALLEZ PLACER VOS BATEAUX");
+        } else if (nbClick == 2) {
+            infoDemo.setText("POUR PLACER VOS BATEAUX APPUYER SUR CE BOUTON ET CLIQUER SUR LA GRILLE DE GAUCHE");
+            buttonBateauJ1[0].setVisible(true);
+        }else if (nbClick == 3) {
+            infoDemo.setText("BRAVO ! VOUS VENEZ DE PLACER VOTRE PORTE AVION !");
+        }else if (nbClick == 4) {
+            infoDemo.setText("POUR LE PLACER HORIZONTALEMENT CLIQUER SUR LE BOUTON JUSTE EN DESSOUS");
+            buttonBateauJ1[0].setVisible(false);
+            buttonBateauJ1[1].setVisible(true);
+            
+
         }
 
     }
