@@ -76,20 +76,53 @@ public class BatailleController {
     }
     class ListenForPlacement implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-            if (partie.J1doitplacerBat()){
-                partie.setJ1doitplacerBat(false);
-                partie.setJ2doitplacetBat(true);
-                affichage.drawGrille1(partie.j1.maGrille, true);
-                affichage.setInfoTourJoueur("J2 doit placer ses bateaux");
-            }else if(partie.J2doitplacerBat()){
-                partie.setJ2doitplacetBat(false);
-                affichage.getRandomButton().setVisible(false);
-                partie.setJ1DoitTirer(true);
-                JButton parent = (JButton)e.getSource();
-                parent.setVisible(false);
-                affichage.drawGrille2(partie.j2.maGrille, true);
-                affichage.drawGrille1(partie.j1.maGrille, true);
-                affichage.setInfoTourJoueur("J1 doit tirer");
+            if (affichage.getDemo()) {
+                if(partie.J1doitplacerBat()){
+                    partie.setJ2doitplacetBat(true);
+                    partie.setJ1doitplacerBat(false);
+
+                } else if (partie.J2doitplacerBat()) {
+                    partie.setJ2doitplacetBat(false);
+                    partie.setJ1doitplacerBat(false);
+                    partie.setJ1DoitTirer(true);
+                    affichage.drawGrille2(partie.j2.maGrille,true);
+                }
+            } else {
+                if (partie.J1doitplacerBat()) {
+                    if (partie.j2.getEstOrdi()) {
+                        int nb = partie.getNbBateau();
+                        for (int i = 0; i < partie.j2.getListNavire().length; i++) {
+                            partie.j2.setListNavire(i);
+                        }
+                        // partie.j2.initMaGrille();
+                        System.out.println("j2 doit placer ses bateau : " + nb);
+                        partie.j2.initListeBateauPosable();
+                        partie.j2.placerBateau(nb);
+                        affichage.drawGrille2(partie.j2.maGrille, true);
+                        partie.setJ2doitplacetBat(false);
+                        partie.setJ1doitplacerBat(false);
+                        partie.setJ1DoitTirer(true);
+                        affichage.setValiderPlacementBateau(false);
+                        affichage.setRandomBateau(false);
+
+
+                    } else {
+                        partie.setJ1doitplacerBat(false);
+                        partie.setJ2doitplacetBat(true);
+                        affichage.drawGrille1(partie.j1.maGrille, true);
+                        affichage.setInfoTourJoueur("J2 doit placer ses bateaux");
+                    }
+                } else if (partie.J2doitplacerBat()) {
+                    partie.setJ2doitplacetBat(false);
+                    affichage.getRandomButton().setVisible(false);
+                    partie.setJ1DoitTirer(true);
+                    JButton parent = (JButton) e.getSource();
+                    parent.setVisible(false);
+                    affichage.drawGrille2(partie.j2.maGrille, true);
+                    affichage.drawGrille1(partie.j1.maGrille, true);
+                    affichage.setInfoTourJoueur("J1 doit tirer");
+
+                }
             }
         }
     }
@@ -99,6 +132,7 @@ public class BatailleController {
 
     class ListenForRandomBateau implements ActionListener {
         public void actionPerformed(ActionEvent e) {
+
             int nb = partie.getNbBateau();
             if (partie.J1doitplacerBat()) {
                 //vider la grille
@@ -161,6 +195,11 @@ public class BatailleController {
                     affichage.drawGrille1(partie.j1.maGrille, true);
                     partie.setJ1DoitTirer(true);
                     partie.setJ2DoitTirer(false);
+
+
+                    int parcour = 0;
+                    vague(parent, parcour, false);
+
                 }
             }else{
                 if(partie.J2doitplacerBat() && affichage.getSelectBateau()!= null){
@@ -216,20 +255,31 @@ public class BatailleController {
 
                     //******************           effet de vague dans le mode mission radar           ****************
 
-                    int parcour = 0;
-                    vague(parent, parcour);
+                        int parcour = 0;
+                        vague(parent, parcour, true);
+
 
                 }
+
+
             }
+
         }
-        public void vague(Cellule parent, int i){
-            affichage.radar(parent.getx(),parent.gety(),i, Color.cyan);
-            affichage.radar(parent.getx(),parent.gety(),i-1, violet);
+        public void vague(Cellule parent, int i, boolean quiTir){
+            affichage.radar(parent.getx(),parent.gety(),i, Color.cyan,quiTir);
+            affichage.radar(parent.getx(),parent.gety(),i-1, violet, quiTir);
             affichage.drawGrille1(partie.j1.maGrille, true);
             affichage.drawGrille2(partie.j2.maGrille, true);
-            if(i < partie.j2.getRadar()-1) {
-                setTimeout(() -> vague(parent,i+1), 250);
 
+            if(quiTir) {
+                if (i < partie.j2.getRadar() - 1) {
+                    setTimeout(() -> vague(parent, i + 1, quiTir), 250);
+
+                }
+            } else {
+                if (i < partie.j1.getRadar() - 1) {
+                    setTimeout(() -> vague(parent, i + 1, quiTir), 250);
+                }
             }
         }
 

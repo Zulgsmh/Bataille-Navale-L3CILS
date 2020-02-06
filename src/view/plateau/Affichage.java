@@ -232,7 +232,6 @@ public class Affichage extends JFrame {
             infoDemo.setText("BIENVENUE DANS LA DEMO >>>");
             grille1.setVisible(false);
             grille2.setVisible(false);
-
         }
 
 
@@ -267,7 +266,9 @@ public class Affichage extends JFrame {
 
     public JOptionPane getAfficherPopUpVictoire(){ return this.jop1 ; }
 
-
+    public boolean getDemo(){
+        return demo;
+    }
     public void addGrille1Listener(BatailleController.ListenForMouse lForMouse){
         for(int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
@@ -316,27 +317,32 @@ public class Affichage extends JFrame {
 
     public void drawGrille1(String[][] maGrille, boolean hide){
         for (int i = 0; i < 10; i++){
-            for (int j=0; j < 10; j++){
+            for (int j=0; j < 10; j++) {
                 CelluleGrille1[i][j].setNom(maGrille[i][j]);
-                if(maGrille[i][j] == null){
-                    CelluleGrille1[i][j].setColor(violet);
-                }else if(maGrille[i][j].equals("PLOF")){
-                    CelluleGrille1[i][j].setColor(Color.black);
-                }else if(maGrille[i][j].equals("SHOT")){
-                    CelluleGrille1[i][j].setColor(Color.getColor("orange"));
-                }else if (!hide) {
-                    if(maGrille[i][j].equals("PORT")){
-                        CelluleGrille1[i][j].setColor(Color.getColor("marron"));
-                    }else if(maGrille[i][j].equals("SOUS")){
-                        CelluleGrille1[i][j].setColor(Color.yellow);
-                    }else if(maGrille[i][j].equals("CUI1")){
-                        CelluleGrille1[i][j].setColor(Color.pink);
-                    }else if(maGrille[i][j].equals("CUI2")){
-                        CelluleGrille1[i][j].setColor(Color.MAGENTA);
-                    }else if(maGrille[i][j].equals("ZODI")){
-                        CelluleGrille1[i][j].setColor(Color.green);
+                if (CelluleGrille1[i][j].getBackground() != Color.cyan) {
+
+                    if (maGrille[i][j] == null) {
+                        CelluleGrille1[i][j].setColor(violet);
+                    } else if (maGrille[i][j].equals("PLOF")) {
+                        CelluleGrille1[i][j].setColor(Color.black);
+                    } else if (maGrille[i][j].equals("SHOT")) {
+                        CelluleGrille1[i][j].setColor(Color.getColor("orange"));
+                    } else if (!hide) {
+                        if (maGrille[i][j].equals("PORT")) {
+                            CelluleGrille1[i][j].setColor(Color.getColor("marron"));
+                        } else if (maGrille[i][j].equals("SOUS")) {
+                            CelluleGrille1[i][j].setColor(Color.yellow);
+                        } else if (maGrille[i][j].equals("CUI1")) {
+                            CelluleGrille1[i][j].setColor(Color.pink);
+                        } else if (maGrille[i][j].equals("CUI2")) {
+                            CelluleGrille1[i][j].setColor(Color.MAGENTA);
+                        } else if (maGrille[i][j].equals("ZODI")) {
+                            CelluleGrille1[i][j].setColor(Color.green);
+                        }
+                    } else {
+                        CelluleGrille1[i][j].setColor(violet);
                     }
-                }else{CelluleGrille1[i][j].setColor(violet);}
+                }
             }
         }
     }
@@ -373,15 +379,32 @@ public class Affichage extends JFrame {
 
 
 
-    public void radar(int tirX, int tirY, int dist, Color c) {
+    public void radar(int tirX, int tirY, int dist, Color c, boolean g) {
 
         for(int x = tirX-dist; x <= tirX+dist; x++){
             for(int y = tirY-dist; y <= tirY+dist; y++){
                 if (x >= 0 && x < 10 && y >= 0 && y < 10 && dist != 0) {
+                    System.out.println(g);
+                    if (g) {
                         CelluleGrille2[x][y].setColor(c);
+
+                    } else {
+                        CelluleGrille1[x][y].setColor(c);
+                    }
                 }
             }
         }
+
+
+
+
+    }
+
+    public void setValiderPlacementBateau(boolean b){
+        validerPlacementBateau.setVisible(b);
+    }
+    public  void setRandomBateau (boolean b){
+        RandomBateau.setVisible(b);
     }
 
     public void demo(int nbClick){

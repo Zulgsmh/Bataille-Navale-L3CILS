@@ -186,7 +186,7 @@ public class Menu1 extends JFrame {
         DEMO.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                p.j1.setEstOrdi(true);
+                p.j1.setEstOrdi(false);
                 p.j2.setEstOrdi(true);
             }
         });
