@@ -227,11 +227,12 @@ public class Affichage extends JFrame {
             infoTourJoueur.setVisible(false);
             infoDemo.setFont(f);
             infoDemo.setForeground(Color.white);
+            BatailleController.demoNext mml = new BatailleController.demoNext();
+            container.addMouseListener(mml);
+            plateau.addMouseListener(mml);
         }
 
-        BatailleController.demoNext mml = new BatailleController.demoNext();
-        container.addMouseListener(mml);
-        plateau.addMouseListener(mml);
+
 
     }
     public void setContainer(String card){
