@@ -167,7 +167,7 @@ public class Affichage extends JFrame {
         infoTourJoueur.setPreferredSize(new Dimension(500,100));
         infoTourJoueur.setText("J1 doit placer ses bateau");
         infoTourJoueur.setForeground(Color.white);
-        Font f = new Font("Arial Black", Font.PLAIN, 26);
+        Font f = new Font("Arial Black", Font.PLAIN, 20);
         infoTourJoueur.setFont(f);
 
         infoRadarJoueur.setBackground(new Color(81,255,0));
