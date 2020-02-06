@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="635642d4-1886-4456-858c-53f14de0c40e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/model/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Joueur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/BatailleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/BatailleController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

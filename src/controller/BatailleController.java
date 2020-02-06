@@ -162,6 +162,7 @@ public class BatailleController {
 
             if(!partie.j1.getEtat0()) {
                 partie.j1.setEtat0(true);
+                partie.j1.getEtat1(false);
                 baisageDeDaronne(0,true);
             }
             else{
