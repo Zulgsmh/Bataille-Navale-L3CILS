@@ -395,42 +395,43 @@ public class Affichage extends JFrame {
         }
     }
 
-    public void demo(int nbClick){
+    public void demo(int nbClick) {
+        if (demo) {
+            if (nbClick == 0) {
+                infoDemo.setText("BIENVENUE DANS LA DEMO DU JEUX");
+            } else if (nbClick == 1) {
+                infoDemo.setText("VOICI LES DEUX GRILLES SUR LESQUELS VOUS ALLEZ PLACER VOS BATEAUX");
+            } else if (nbClick == 2) {
+                infoDemo.setText("POUR PLACER VOS BATEAUX APPUYER SUR CE BOUTON ET CLIQUER SUR LA GRILLE DE GAUCHE");
+                buttonBateauJ1[0].setVisible(true);
+            } else if (nbClick == 3) {
+                infoDemo.setText("BRAVO ! VOUS VENEZ DE PLACER VOTRE PORTE AVION !");
+            } else if (nbClick == 4) {
+                infoDemo.setText("POUR LE PLACER HORIZONTALEMENT CLIQUER SUR LE BOUTON JUSTE EN DESSOUS");
+                container.revalidate();
+                buttonBateauJ1[0].setVisible(true);
+                buttonBateauJ1[1].setVisible(true);
+                listBateauJ1.add(RandomBateau);
+                listBateauJ2.add(validerPlacementBateau);
+            } else if (nbClick == 5) {
 
-        if(nbClick == 0){
-            infoDemo.setText("BIENVENUE DANS LA DEMO DU JEUX");
-        } else if (nbClick == 1) {
-            infoDemo.setText("VOICI LES DEUX GRILLES SUR LESQUELS VOUS ALLEZ PLACER VOS BATEAUX");
-        } else if (nbClick == 2) {
-            infoDemo.setText("POUR PLACER VOS BATEAUX APPUYER SUR CE BOUTON ET CLIQUER SUR LA GRILLE DE GAUCHE");
-            buttonBateauJ1[0].setVisible(true);
-        }else if (nbClick == 3) {
-            infoDemo.setText("BRAVO ! VOUS VENEZ DE PLACER VOTRE PORTE AVION !");
-        }else if (nbClick == 4) {
-            infoDemo.setText("POUR LE PLACER HORIZONTALEMENT CLIQUER SUR LE BOUTON JUSTE EN DESSOUS");
-            container.revalidate();
-            buttonBateauJ1[0].setVisible(true);
-            buttonBateauJ1[1].setVisible(true);
-            listBateauJ1.add(RandomBateau);
-            listBateauJ2.add(validerPlacementBateau);
-        }else if (nbClick == 5) {
+                infoDemo.setText("TU VALIDE ENSUITE LE PLACEMENT DE TON BATEAU AVEC CE BOUTON");
+                validerPlacementBateau.setVisible(true);
+                buttonBateauJ1[0].setVisible(false);
+                buttonBateauJ1[1].setVisible(false);
 
-            infoDemo.setText("TU VALIDE ENSUITE LE PLACEMENT DE TON BATEAU AVEC CE BOUTON");
-            validerPlacementBateau.setVisible(true);
-            buttonBateauJ1[0].setVisible(false);
-            buttonBateauJ1[1].setVisible(false);
+            } else if (nbClick == 6) {
 
-        }else if (nbClick == 6) {
+                infoDemo.setText("TU PEUX AUSSI LES PLACER ALEATOIREMENT !");
 
-            infoDemo.setText("TU PEUX AUSSI LES PLACER ALEATOIREMENT !");
+                RandomBateau.setVisible(true);
 
-            RandomBateau.setVisible(true);
+            } else if (nbClick == 7) {
+                infoDemo.setText("MAINTENANT ESSAIE DE TIRER SUR TON ADVERSAIRE !");
 
-        }else if (nbClick == 7) {
-            infoDemo.setText("MAINTENANT ESSAIE DE TIRER SUR TON ADVERSAIRE !");
-            
+            }
+
         }
-
     }
 
 }
