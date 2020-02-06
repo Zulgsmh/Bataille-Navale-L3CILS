@@ -31,7 +31,7 @@ public class Menu1 extends JFrame {
         setSize(0, 0);
         final JFrame frame = new JFrame("BATAILLE NAVALE");
         this.setLocationRelativeTo(null); //centre au milieu de l'ecran
-        this.setVisible(false);
+        this.setVisible(true);
         p = new Partie();
 
 
@@ -186,7 +186,7 @@ public class Menu1 extends JFrame {
         DEMO.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                p.j1.setEstOrdi(false);
+                p.j1.setEstOrdi(true);
                 p.j2.setEstOrdi(true);
             }
         });

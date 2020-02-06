@@ -23,11 +23,9 @@ public class Menu2 extends JFrame {
     Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
     public Menu2(Partie p) {
+        setSize(800, 300);
         this.setUndecorated(true);
-        setSize(0, 0);
         final JFrame frame = new JFrame("BATAILLE NAVALE");
-        this.setLocationRelativeTo(null); //centre au milieu de l'ecran
-        this.setVisible(false);
 
         Runnable runnable = new Runnable() {
             @Override
