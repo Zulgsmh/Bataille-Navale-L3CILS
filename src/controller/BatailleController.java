@@ -98,15 +98,12 @@ public class BatailleController {
     public void baisageDeDaronne(int i,Boolean vecteur) {
         System.out.println("Etat 0:   "+partie.j1.getEtat0()+"Etat 1:    "+partie.j1.getEtat1());
         if (partie.getJ1DoitTirer()) {
-            System.out.println("tri thuan fume des tubes ");
 
             if (partie.j1.getEtat0()) {
-                System.out.println("tri thuan fume des joints ");
 
                 int x = 0;
                 affichage.drawGrille1(partie.j1.maGrille,true);
                 affichage.getCelluleGrille1()[x][i].setBackground(Color.red);
-//                setTimeout(() ->baisageDeDaronne(i+1,true),250);
 
                 if(i>8) {
                     vecteur = false;
@@ -115,20 +112,18 @@ public class BatailleController {
                     vecteur=true;
                 }
                 if (!vecteur) {
-                    setTimeout(() -> baisageDeDaronne(i - 1, false), 250);
+                    setTimeout(() -> baisageDeDaronne(i - 1, false), 200);
                 }
                 else{
-                    setTimeout(()->baisageDeDaronne(i+1,true),250);
+                    setTimeout(()->baisageDeDaronne(i+1,true),200);
                 }
+                int poseI=i;
             }
             else if (partie.j1.getEtat1()) {
-
-                System.out.println("tri thuan fume des joints ");
 
                 int y = 0;
                 affichage.drawGrille1(partie.j1.maGrille,true);
                 affichage.getCelluleGrille1()[i][y].setBackground(Color.red);
-//                setTimeout(() ->baisageDeDaronne(i+1,true),250);
 
                 if(i>8) {
                     vecteur = false;
@@ -137,10 +132,10 @@ public class BatailleController {
                     vecteur=true;
                 }
                 if (!vecteur) {
-                    setTimeout(() -> baisageDeDaronne(i - 1, false), 250);
+                    setTimeout(() -> baisageDeDaronne(i - 1, false), 200);
                 }
                 else{
-                    setTimeout(()->baisageDeDaronne(i+1,true),250);
+                    setTimeout(()->baisageDeDaronne(i+1,true),200);
                 }
             }
         }
@@ -162,12 +157,13 @@ public class BatailleController {
 
             if(!partie.j1.getEtat0()) {
                 partie.j1.setEtat0(true);
+                partie.j1.setEtat1(false);
                 baisageDeDaronne(0,true);
+                partie.j1.setPoseXarti(poseI);
             }
             else{
                 partie.j1.setEtat1(true);
                 partie.j1.setEtat0(false);
-                baisageDeDaronne(0,true);
             }
         }
     }
