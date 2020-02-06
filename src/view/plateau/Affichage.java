@@ -40,6 +40,8 @@ public class Affichage extends JFrame {
     private JPanel listBateauJ2 = new JPanel();
     public JFrame frame;
     private boolean demo;
+    public JPanel grille1;
+    public JPanel grille2;
 
     public Partie p;
 
@@ -74,7 +76,7 @@ public class Affichage extends JFrame {
         plateau.setBackground(violetF);
 
         //définition de la grille1
-        JPanel grille1 = new JPanel();
+        grille1 = new JPanel();
         grille1.setBackground(Color.black);
         grille1.setPreferredSize( new Dimension( 400, 400 ) );
         grille1.setLayout(new GridLayout(10,10));
@@ -86,7 +88,7 @@ public class Affichage extends JFrame {
             }
         }
         //définition de la grille2
-        JPanel grille2 = new JPanel();
+        grille2 = new JPanel();
         grille2.setBackground(Color.BLUE);
         grille2.setPreferredSize( new Dimension( 400, 400 ) );
         grille2.setLayout(new GridLayout(10,10));
@@ -227,6 +229,10 @@ public class Affichage extends JFrame {
             infoTourJoueur.setVisible(false);
             infoDemo.setFont(f);
             infoDemo.setForeground(Color.white);
+            plateau.add(infoDemo);
+            infoDemo.setText("BIENVENUE DANS LA DEMO >>>");
+            grille1.setVisible(false);
+            grille2.setVisible(false);
 
         }
 
@@ -381,17 +387,18 @@ public class Affichage extends JFrame {
 
     public void demo(int nbClick){
 
-        if(nbClick == 0){
-            infoDemo.setText("BIENVENUE DANS LA DEMO DU JEUX");
-        } else if (nbClick == 1) {
-            infoDemo.setText("VOICI LES DEUX GRILLES SUR LESQUELS VOUS ALLEZ PLACER VOS BATEAUX");
+
+        if (nbClick == 1) {
+            infoDemo.setText("VOICI LES DEUX GRILLES >>>");
+            grille1.setVisible(true);
+            grille2.setVisible(true);
         } else if (nbClick == 2) {
-            infoDemo.setText("POUR PLACER VOS BATEAUX APPUYER SUR CE BOUTON ET CLIQUER SUR LA GRILLE DE GAUCHE");
+            infoDemo.setText("POUR PLACER VOS BATEAUX APPUYER SUR CE BOUTON ET CLIQUER SUR LA GRILLE DE GAUCHE >>>");
             buttonBateauJ1[0].setVisible(true);
         }else if (nbClick == 3) {
-            infoDemo.setText("BRAVO ! VOUS VENEZ DE PLACER VOTRE PORTE AVION !");
+            infoDemo.setText("BRAVO ! VOUS VENEZ DE PLACER VOTRE PORTE AVION ! >>>");
         }else if (nbClick == 4) {
-            infoDemo.setText("POUR LE PLACER HORIZONTALEMENT CLIQUER SUR LE BOUTON JUSTE EN DESSOUS");
+            infoDemo.setText("POUR LE PLACER HORIZONTALEMENT CLIQUER SUR LE BOUTON JUSTE EN DESSOUS >>>");
             container.revalidate();
             buttonBateauJ1[0].setVisible(true);
             buttonBateauJ1[1].setVisible(true);
@@ -399,19 +406,18 @@ public class Affichage extends JFrame {
             listBateauJ2.add(validerPlacementBateau);
         }else if (nbClick == 5) {
 
-            infoDemo.setText("TU VALIDE ENSUITE LE PLACEMENT DE TON BATEAU AVEC CE BOUTON");
+            infoDemo.setText("TU VALIDE ENSUITE LE PLACEMENT DE TON BATEAU AVEC CE BOUTON >>>");
             validerPlacementBateau.setVisible(true);
             buttonBateauJ1[0].setVisible(false);
             buttonBateauJ1[1].setVisible(false);
 
         }else if (nbClick == 6) {
 
-            infoDemo.setText("TU PEUX AUSSI LES PLACER ALEATOIREMENT !");
-
+            infoDemo.setText("TU PEUX AUSSI LES PLACER ALEATOIREMENT ! >>>");
             RandomBateau.setVisible(true);
 
         }else if (nbClick == 7) {
-            infoDemo.setText("MAINTENANT ESSAIE DE TIRER SUR TON ADVERSAIRE !");
+            infoDemo.setText("MAINTENANT ESSAIE DE TIRER SUR TON ADVERSAIRE ! >>>");
             
         }
 

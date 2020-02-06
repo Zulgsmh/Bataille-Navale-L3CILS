@@ -55,9 +55,9 @@ public class BatailleController {
         @Override
         public void mouseClicked(MouseEvent arg0) {
 
-
-            affichage.demo(nbClick);
             nbClick++;
+            affichage.demo(nbClick);
+
 
 
         }
