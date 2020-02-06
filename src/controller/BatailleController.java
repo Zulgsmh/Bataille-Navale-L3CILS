@@ -95,42 +95,80 @@ public class BatailleController {
         }
     }
 
+    public void baisageDeDaronne(int i,Boolean vecteur) {
+        System.out.println("Etat 0:   "+partie.j1.getEtat0()+"Etat 1:    "+partie.j1.getEtat1());
+        if (partie.getJ1DoitTirer()) {
+            System.out.println("tri thuan fume des tubes ");
+
+            if (partie.j1.getEtat0()) {
+                System.out.println("tri thuan fume des joints ");
+
+                int x = 0;
+                affichage.drawGrille1(partie.j1.maGrille,true);
+                affichage.getCelluleGrille1()[x][i].setBackground(Color.red);
+//                setTimeout(() ->baisageDeDaronne(i+1,true),250);
+
+                if(i>8) {
+                    vecteur = false;
+                }
+                if(i<1){
+                    vecteur=true;
+                }
+                if (!vecteur) {
+                    setTimeout(() -> baisageDeDaronne(i - 1, false), 250);
+                }
+                else{
+                    setTimeout(()->baisageDeDaronne(i+1,true),250);
+                }
+            }
+            else if (partie.j1.getEtat1()) {
+
+                System.out.println("tri thuan fume des joints ");
+
+                int y = 0;
+                affichage.drawGrille1(partie.j1.maGrille,true);
+                affichage.getCelluleGrille1()[i][y].setBackground(Color.red);
+//                setTimeout(() ->baisageDeDaronne(i+1,true),250);
+
+                if(i>8) {
+                    vecteur = false;
+                }
+                if(i<1){
+                    vecteur=true;
+                }
+                if (!vecteur) {
+                    setTimeout(() -> baisageDeDaronne(i - 1, false), 250);
+                }
+                else{
+                    setTimeout(()->baisageDeDaronne(i+1,true),250);
+                }
+            }
+        }
+    }
+    public void setTimeout(Runnable runnable, int delay){
+        new Thread(() -> {
+            try {
+                Thread.sleep(delay);
+                runnable.run();
+            }
+            catch (Exception e){
+                System.err.println(e);
+            }
+        }).start();
+    }
+
     class ListenForArtiellerie implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-           if(partie.getJ1DoitTirer()){
-               System.out.println("tri thuan fume des tubes ");
-               if(partie.getTypeArti()){
-                   partie.j1.setEtat0(true);
-               }
-                if(partie.j1.getEtat0()){
-                    System.out.println("tri thuan fume des joints ");
-//                    try{
-                        for(int i=0;i<10;i++) {
-                            int x=0;
-                            affichage.getCelluleGrille1()[x][i].setBackground(Color.red);
-                        }
-                        for(int j=9;j>=0;j--){
-                            int x=0;
-                            affichage.getCelluleGrille1()[x][j].setBackground(Color.red);
-                        }
-                        partie.j1.setEtat1(true);
 
-//                    }
-//                    catch{
-//
-//                    }
-                }
-                if(partie.j1.getEtat1()) {
-                    for (int i = 0; i < 10; i++) {
-                        int y = 0;
-                        affichage.getCelluleGrille1()[i][y].setBackground(Color.red);
-                    }
-                    for (int j = 9; j >= 0; j--) {
-                        int y = 0;
-                        affichage.getCelluleGrille1()[j][y].setBackground(Color.red);
-                    }
-                }
-           }
+            if(!partie.j1.getEtat0()) {
+                partie.j1.setEtat0(true);
+                baisageDeDaronne(0,true);
+            }
+            else{
+                partie.j1.setEtat1(true);
+                partie.j1.setEtat0(false);
+                baisageDeDaronne(0,true);
+            }
         }
     }
 
