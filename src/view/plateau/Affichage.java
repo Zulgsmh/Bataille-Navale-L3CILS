@@ -33,7 +33,7 @@ public class Affichage extends JFrame {
     private Boolean sens = false;
 //info tour joueur
     private final JLabel infoTourJoueur = new JLabel();
-    private final JLabel infoRadarJoueur = new JLabel("...",SwingConstants.CENTER);
+    private final JLabel infoRadarJoueur = new JLabel(" ",SwingConstants.CENTER);
     public final JLabel infoDemo = new JLabel();
     public Font f = new Font("Arial Black",Font.PLAIN,26);
     private JPanel listBateauJ1 = new JPanel();
@@ -311,7 +311,7 @@ public class Affichage extends JFrame {
         infoTourJoueur.setText(text);
     }
     public void setInfoRadarJoueur(String text){
-        infoRadarJoueur.setText(text);
+        infoRadarJoueur.setText(" ");
     }
 
 
