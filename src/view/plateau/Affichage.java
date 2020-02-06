@@ -2,6 +2,8 @@ package view.plateau;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import controller.BatailleController;
+import model.Partie;
+import model.Position;
 import view.Menu1;
 
 import javax.swing.*;
@@ -10,7 +12,7 @@ import javax.swing.*;
 
 public class Affichage extends JFrame {
     private final CardLayout c = new CardLayout();
-    private final JPanel container = new JPanel();
+    private static final JPanel container = new JPanel();
 
 
     //couleurs arrière plan / boutons
@@ -21,8 +23,8 @@ public class Affichage extends JFrame {
 
 
     //creation bateau aleatoire:
-    private final JButton RandomBateau = new JButton();
-    private final JButton validerPlacementBateau = new JButton();
+    private static final JButton RandomBateau = new JButton();
+    private static final JButton validerPlacementBateau = new JButton();
     private final Cellule[][] CelluleGrille1 = new Cellule[10][10];
     private final Cellule[][] CelluleGrille2 = new Cellule[10][10];
     private static final Bateau[] buttonBateauJ1 = new Bateau[10];
@@ -33,19 +35,25 @@ public class Affichage extends JFrame {
     private final JLabel infoTourJoueur = new JLabel();
     private final JLabel infoRadarJoueur = new JLabel("...",SwingConstants.CENTER);
     public static final JLabel infoDemo = new JLabel();
-
-
+    public Font f = new Font("Arial Black",Font.PLAIN,26);
+    private static JPanel listBateauJ1 = new JPanel();
+    private static JPanel listBateauJ2 = new JPanel();
+    public static JFrame frame;
     private boolean demo;
 
+    public static Partie p;
 
-
-    public Affichage(boolean demo){
-
-
+    public Affichage(boolean demo, Partie p){
 
 
 
 
+        frame = new JFrame();
+
+        frame.add(container);
+
+
+        this.p = p;
         this.demo = demo;
         this.setUndecorated(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -91,7 +99,6 @@ public class Affichage extends JFrame {
         }
 
 
-        JPanel listBateauJ1 = new JPanel();
         listBateauJ1.setPreferredSize( new Dimension( 300, 500 ) );
         String[] bateauName = {"PorteAvion", "SousMarin", "CuirasséFurtif1", "CuirasséFurtif2", "Zodiac"};
 
@@ -112,7 +119,6 @@ public class Affichage extends JFrame {
 
 
         listBateauJ1.setBackground(violetF);
-        JPanel listBateauJ2 = new JPanel();
         listBateauJ2.setBackground(violetF);
         listBateauJ2.setPreferredSize( new Dimension( 300, 500 ) );
 
@@ -139,11 +145,18 @@ public class Affichage extends JFrame {
         validerPlacementBateau.setBackground(new Color(31,160,85));
         validerPlacementBateau.setPreferredSize(new Dimension(200,100));
         validerPlacementBateau.setText("VALIDER");
+        validerPlacementBateau.setFont(f);
+        validerPlacementBateau.setForeground(Color.white);
+        validerPlacementBateau.setFocusable(false);
 
         //Bouton bateau aleatoire:
         RandomBateau.setBackground(new Color(139,0,0));
         RandomBateau.setPreferredSize(new Dimension(200,100));
-        RandomBateau.setText("Bateau aléatoire");
+        RandomBateau.setText("RANDOM");
+        RandomBateau.setFont(f);
+        RandomBateau.setForeground(Color.white);
+        RandomBateau.setFocusable(false);
+
 
 
 
@@ -169,6 +182,7 @@ public class Affichage extends JFrame {
         plateau.add(validerPlacementBateau);
         //ajout du boutton bateau random au plateau
         plateau.add(RandomBateau);
+        plateau.add(infoDemo);
         plateau.add(infoRadarJoueur);
 
 
@@ -186,11 +200,9 @@ public class Affichage extends JFrame {
         //*******************  Partie Demo ********************
 
 
-
         if(this.demo == true) {
             validerPlacementBateau.setVisible(false);
             RandomBateau.setVisible(false);
-
             buttonBateauJ1[0].setVisible(false);
             buttonBateauJ2[0].setVisible(false);
             buttonBateauJ1[1].setVisible(false);
@@ -213,14 +225,13 @@ public class Affichage extends JFrame {
             buttonBateauJ2[9].setVisible(false);
             infoRadarJoueur.setVisible(false);
             infoTourJoueur.setVisible(false);
-
             infoDemo.setFont(f);
             infoDemo.setForeground(Color.white);
-            plateau.add(infoDemo);
-            BatailleController.demoNext mml = new BatailleController.demoNext();
-            container.addMouseListener(mml);
-            plateau.addMouseListener(mml);
         }
+
+        BatailleController.demoNext mml = new BatailleController.demoNext();
+        container.addMouseListener(mml);
+        plateau.addMouseListener(mml);
 
     }
     public void setContainer(String card){
@@ -377,10 +388,37 @@ public class Affichage extends JFrame {
             infoDemo.setText("BRAVO ! VOUS VENEZ DE PLACER VOTRE PORTE AVION !");
         }else if (nbClick == 4) {
             infoDemo.setText("POUR LE PLACER HORIZONTALEMENT CLIQUER SUR LE BOUTON JUSTE EN DESSOUS");
-            buttonBateauJ1[0].setVisible(false);
+            container.revalidate();
+            buttonBateauJ1[0].setVisible(true);
             buttonBateauJ1[1].setVisible(true);
-            
+            listBateauJ1.add(RandomBateau);
+            listBateauJ2.add(validerPlacementBateau);
+        }else if (nbClick == 5) {
 
+            infoDemo.setText("TU VALIDE ENSUITE LE PLACEMENT DE TON BATEAU AVEC CE BOUTON");
+            validerPlacementBateau.setVisible(true);
+            buttonBateauJ1[0].setVisible(false);
+            buttonBateauJ1[1].setVisible(false);
+
+        }else if (nbClick == 6) {
+
+            infoDemo.setText("TU PEUX AUSSI LES PLACER ALEATOIREMENT !");
+
+            RandomBateau.setVisible(true);
+
+        }else if (nbClick == 7) {
+            infoDemo.setText("MAINTENANT ESSAIE DE TIRER SUR TON ADVERSAIRE !");
+
+
+        }else if (nbClick == 8) {
+            if(p.j2.getaTouche()){
+                infoDemo.setText("BRAVO !");
+            } else {
+                infoDemo.setText("PAS LOINS ! MAIS TU FERAS MIEU EN JEU !");
+            }
+        } else  if (nbClick == 9) {
+            Menu1 m = new Menu1();
+            frame.dispose();
         }
 
     }
