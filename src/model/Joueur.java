@@ -63,6 +63,22 @@ public class Joueur {
     private boolean etat0=false;
     private boolean etat1=false;
     private boolean etat2=false;
+    private boolean etatStart=true;
+    private int poseXarti=0;
+    private int poseYarti=0;
+
+    public int getPoseXarti(){
+        return poseXarti;
+    }
+    public void setPoseXarti(int p){
+        this.poseXarti=p;
+    }
+    public int getPoseYarti(){
+        return poseYarti;
+    }
+    public void setPoseYarti(int p){
+        this.poseYarti=p;
+    }
 
     public int getRadar(){
         return radar;
@@ -165,6 +181,8 @@ public class Joueur {
     public void setEtat1(Boolean e){etat1=e;}
     public Boolean getEtat2(){return etat2;}
     public void setEtat2(Boolean e){etat2=e;}
+    public Boolean getEtatStart(){return etatStart;}
+    public void setEtatStart(Boolean e){etatStart=e;}
 
 
 
