@@ -60,9 +60,6 @@ public class Joueur {
     private int x1;
     private int y1;
     private int radar = 0 ;
-    private boolean etat0=false;
-    private boolean etat1=false;
-    private boolean etat2=false;
 
     public int getRadar(){
         return radar;
@@ -159,12 +156,6 @@ public class Joueur {
     public void setx1(int c){x1=c;}
     public int gety1(){return y1;}
     public void sety1(int c){y1=c;}
-    public Boolean getEtat0(){return etat0;}
-    public void setEtat0(Boolean e){etat0=e;}
-    public Boolean getEtat1(){return etat1;}
-    public void setEtat1(Boolean e){etat1=e;}
-    public Boolean getEtat2(){return etat2;}
-    public void setEtat2(Boolean e){etat2=e;}
 
 
 

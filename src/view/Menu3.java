@@ -31,6 +31,11 @@ public class Menu3 extends  JFrame{
         final JFrame frame = new JFrame("BATAILLE NAVALE");
         this.setLocationRelativeTo(null); //centre au milieu de l'ecran
         this.setVisible(false);
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> parent of 0fbfe45... FUSION
         final Runnable runnable = new Runnable() {
             @Override
 
