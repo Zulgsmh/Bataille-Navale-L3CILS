@@ -50,16 +50,13 @@ public class BatailleController {
         }
     }
     public static class demoNext implements MouseListener {
-        private int nbClick = -1;
+        private int nbClick = 0;
         @Override
         public void mouseClicked(MouseEvent arg0) {
-            //Put the code you want here
-            //...
-            //...
-            System.out.println(nbClick);
-            nbClick++;
+
 
             Affichage.demo(nbClick);
+            nbClick++;
 
 
         }
@@ -81,7 +78,7 @@ public class BatailleController {
             if (partie.J1doitplacerBat()){
                 partie.setJ1doitplacerBat(false);
                 partie.setJ2doitplacetBat(true);
-                affichage.drawGrille1(partie.j1.maGrille, false);
+                affichage.drawGrille1(partie.j1.maGrille, true);
                 affichage.setInfoTourJoueur("J2 doit placer ses bateaux");
             }else if(partie.J2doitplacerBat()){
                 partie.setJ2doitplacetBat(false);
@@ -89,8 +86,8 @@ public class BatailleController {
                 partie.setJ1DoitTirer(true);
                 JButton parent = (JButton)e.getSource();
                 parent.setVisible(false);
-                affichage.drawGrille2(partie.j2.maGrille, false);
-                affichage.drawGrille1(partie.j1.maGrille, false);
+                affichage.drawGrille2(partie.j2.maGrille, true);
+                affichage.drawGrille1(partie.j1.maGrille, true);
                 affichage.setInfoTourJoueur("J1 doit tirer");
             }
         }
@@ -159,8 +156,8 @@ public class BatailleController {
                         affichage.setAfficherPopUpVictoire("J2");
                     }
                     affichage.setInfoRadarJoueur(" Distance d'un bateau : "+partie.j1.getRadar()+" case(s) ");
-                    affichage.drawGrille2(partie.j2.maGrille, false);
-                    affichage.drawGrille1(partie.j1.maGrille, false);
+                    affichage.drawGrille2(partie.j2.maGrille, true);
+                    affichage.drawGrille1(partie.j1.maGrille, true);
                     partie.setJ1DoitTirer(true);
                     partie.setJ2DoitTirer(false);
                 }
@@ -193,12 +190,12 @@ public class BatailleController {
                                     partie.setJ1DoitTirer(false);
                                     Thread.sleep(500);
                                     if (partie.ordiMove(partie.j1)) {
-                                        affichage.drawGrille1(partie.j1.maGrille, false);
-                                        affichage.drawGrille2(partie.j2.maGrille, false);
-                                        affichage.setAfficherPopUpVictoire("de l'ordi");
+                                        affichage.drawGrille1(partie.j1.maGrille, true);
+                                        affichage.drawGrille2(partie.j2.maGrille, true);
+                                        affichage.setAfficherPopUpVictoire("l'ordi");
                                     }
-                                    affichage.drawGrille1(partie.j1.maGrille, false);
-                                    affichage.drawGrille2(partie.j2.maGrille, false);
+                                    affichage.drawGrille1(partie.j1.maGrille, true);
+                                    affichage.drawGrille2(partie.j2.maGrille, true);
 
 
                                     partie.setJ1DoitTirer(true);
@@ -212,8 +209,8 @@ public class BatailleController {
                         partie.setJ1DoitTirer(false);
                         partie.setJ2DoitTirer(true);
                     }
-                    affichage.drawGrille1(partie.j1.maGrille, false);
-                    affichage.drawGrille2(partie.j2.maGrille, false);
+                    affichage.drawGrille1(partie.j1.maGrille, true);
+                    affichage.drawGrille2(partie.j2.maGrille, true);
 
 
                     //******************           effet de vague dans le mode mission radar           ****************
@@ -227,8 +224,8 @@ public class BatailleController {
         public void vague(Cellule parent, int i){
             affichage.radar(parent.getx(),parent.gety(),i, Color.cyan);
             affichage.radar(parent.getx(),parent.gety(),i-1, violet);
-            affichage.drawGrille1(partie.j1.maGrille, false);
-            affichage.drawGrille2(partie.j2.maGrille, false);
+            affichage.drawGrille1(partie.j1.maGrille, true);
+            affichage.drawGrille2(partie.j2.maGrille, true);
             if(i < partie.j2.getRadar()-1) {
                 setTimeout(() -> vague(parent,i+1), 250);
 

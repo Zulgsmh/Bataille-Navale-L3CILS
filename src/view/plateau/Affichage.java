@@ -409,17 +409,7 @@ public class Affichage extends JFrame {
 
         }else if (nbClick == 7) {
             infoDemo.setText("MAINTENANT ESSAIE DE TIRER SUR TON ADVERSAIRE !");
-
-
-        }else if (nbClick == 8) {
-            if(p.j2.getaTouche()){
-                infoDemo.setText("BRAVO !");
-            } else {
-                infoDemo.setText("PAS LOINS ! MAIS TU FERAS MIEU EN JEU !");
-            }
-        } else  if (nbClick == 9) {
-            Menu1 m = new Menu1();
-            frame.dispose();
+            
         }
 
     }
