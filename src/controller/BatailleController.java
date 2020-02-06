@@ -96,7 +96,56 @@ public class BatailleController {
     }
 
     public void baisageDeDaronne(int i,Boolean vecteur) {
-        if (partie.getJ1DoitTirer()) {
+         if(partie.getJ1DoitTirer()){
+
+            if (partie.j2.getEtat0()) {
+
+                int x = 0;
+                affichage.drawGrille1(partie.j2.maGrille,true);
+                affichage.getCelluleGrille1()[x][i].setBackground(Color.red);
+
+                if(i>8) {
+                    vecteur = false;
+                }
+                if(i<1){
+                    vecteur=true;
+                }
+                if (!vecteur) {
+                    partie.j2.setPoseXarti(i);
+                    setTimeout(() -> baisageDeDaronne(i - 1, false), 200);
+                }
+                else{
+                    partie.j2.setPoseXarti(i);
+                    setTimeout(()->baisageDeDaronne(i+1,true),200);
+                }
+            }
+            else if (partie.j2.getEtat1()) {
+
+                int y = 0;
+                affichage.drawGrille1(partie.j2.maGrille,true);
+                affichage.getCelluleGrille1()[i][partie.j2.getPoseXarti()].setBackground(Color.red);
+
+                if(i>8) {
+                    vecteur = false;
+                }
+                if(i<1){
+                    vecteur=true;
+                }
+                if (!vecteur) {
+                    partie.j2.setPoseYarti(i);
+                    setTimeout(() -> baisageDeDaronne(i - 1, false), 200);
+                }
+                else{
+                    partie.j2.setPoseYarti(i);
+                    setTimeout(()->baisageDeDaronne(i+1,true),200);
+                }
+            }
+            else if(partie.j2.getEtat2()){
+                partie.j2.getShot(partie.j2.getPoseYarti()+1,partie.j2.getPoseXarti()+1,false);
+                affichage.drawGrille1(partie.j2.maGrille,true);
+            }
+         }
+        else{
 
             if (partie.j1.getEtat0()) {
 
@@ -161,7 +210,34 @@ public class BatailleController {
     class ListenForArtiellerie implements ActionListener{
         public void actionPerformed(ActionEvent e) {
 
-            if(partie.j1.getEtatStart()) {
+            if(partie.j2.getEtatStart()) {
+                partie.j2.setPoseXarti(0);
+                partie.j2.setPoseYarti(0);
+                partie.j2.setEtat0(true);
+                partie.j2.setEtat1(false);
+                partie.j2.setEtat2(false);
+                partie.j2.setEtatStart(false);
+                baisageDeDaronne(0,true);
+            }
+            else if(partie.j2.getEtat0()){
+                partie.j2.setEtat1(true);
+                partie.j2.setEtat0(false);
+                partie.j2.setEtat2(false);
+                partie.j2.setEtatStart(false);
+            }
+            else if(partie.j2.getEtat1()){
+                partie.j2.setEtat1(false);
+                partie.j2.setEtat0(false);
+                partie.j2.setEtat2(true);
+                partie.j2.setEtatStart(false);
+            }
+            else if (partie.j2.getEtat2()){
+                partie.j2.setEtat1(false);
+                partie.j2.setEtat0(false);
+                partie.j2.setEtat2(false);
+                partie.j2.setEtatStart(true);
+            }
+            else if(partie.j1.getEtatStart()) {
                 partie.j1.setPoseXarti(0);
                 partie.j1.setPoseYarti(0);
                 partie.j1.setEtat0(true);
