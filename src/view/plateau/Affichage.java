@@ -59,7 +59,7 @@ public class Affichage extends JFrame {
         this.demo = demo;
         this.setUndecorated(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(1500,500);
+        this.setSize(1300,500);
         this.setLocationRelativeTo(null);
 
         container.setLayout(c);
@@ -101,7 +101,7 @@ public class Affichage extends JFrame {
         }
 
 
-        listBateauJ1.setPreferredSize( new Dimension( 300, 400 ) );
+        listBateauJ1.setPreferredSize( new Dimension( 200, 400 ) );
         String[] bateauName = {"PorteAvion", "SousMarin", "CuirasséFurtif1", "CuirasséFurtif2", "Zodiac"};
 
         for (int i = 0; i<10; i++) {
@@ -122,7 +122,7 @@ public class Affichage extends JFrame {
 
         listBateauJ1.setBackground(violetF);
         listBateauJ2.setBackground(violetF);
-        listBateauJ2.setPreferredSize( new Dimension( 300, 400 ) );
+        listBateauJ2.setPreferredSize( new Dimension( 200, 400 ) );
 
         for (int i = 0;i<10;i++) {
             Boolean vertical;
