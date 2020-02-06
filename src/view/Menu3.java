@@ -90,7 +90,7 @@ public class Menu3 extends  JFrame{
     }
 
 
-    public static class FrameDragListener extends MouseAdapter {
+    public class FrameDragListener extends MouseAdapter {
 
         private final JFrame frame;
         private Point mouseDownCompCoords = null;

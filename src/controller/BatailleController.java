@@ -31,6 +31,7 @@ public class BatailleController {
         this.affichage.addlistBateauJ2Listener(new ListenForBateauJ2(), new ListenForMouseBateau());
         this.affichage.addvaliderPlacementListener(new ListenForPlacement());
         this.affichage.addRandomBateauListener(new ListenForRandomBateau());
+        this.affichage.addDemoListener(new demoNext());
     }
 
     class ListenForBateauJ1 implements ActionListener{
@@ -49,13 +50,13 @@ public class BatailleController {
             }
         }
     }
-    public static class demoNext implements MouseListener {
+    public class demoNext implements MouseListener {
         private int nbClick = 0;
         @Override
         public void mouseClicked(MouseEvent arg0) {
 
 
-            Affichage.demo(nbClick);
+            affichage.demo(nbClick);
             nbClick++;
 
 

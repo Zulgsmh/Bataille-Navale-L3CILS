@@ -12,7 +12,7 @@ import javax.swing.*;
 
 public class Affichage extends JFrame {
     private final CardLayout c = new CardLayout();
-    private static final JPanel container = new JPanel();
+    private final JPanel container = new JPanel();
 
 
     //couleurs arrière plan / boutons
@@ -23,25 +23,25 @@ public class Affichage extends JFrame {
 
 
     //creation bateau aleatoire:
-    private static final JButton RandomBateau = new JButton();
-    private static final JButton validerPlacementBateau = new JButton();
+    private final JButton RandomBateau = new JButton();
+    private final JButton validerPlacementBateau = new JButton();
     private final Cellule[][] CelluleGrille1 = new Cellule[10][10];
     private final Cellule[][] CelluleGrille2 = new Cellule[10][10];
-    private static final Bateau[] buttonBateauJ1 = new Bateau[10];
+    private final Bateau[] buttonBateauJ1 = new Bateau[10];
     private final Bateau[] buttonBateauJ2 = new Bateau[10];
     private Bateau bateauSelect = new Bateau("", true);
     private Boolean sens = false;
 //info tour joueur
     private final JLabel infoTourJoueur = new JLabel();
     private final JLabel infoRadarJoueur = new JLabel("...",SwingConstants.CENTER);
-    public static final JLabel infoDemo = new JLabel();
+    public final JLabel infoDemo = new JLabel();
     public Font f = new Font("Arial Black",Font.PLAIN,26);
-    private static JPanel listBateauJ1 = new JPanel();
-    private static JPanel listBateauJ2 = new JPanel();
-    public static JFrame frame;
+    private JPanel listBateauJ1 = new JPanel();
+    private JPanel listBateauJ2 = new JPanel();
+    public JFrame frame;
     private boolean demo;
 
-    public static Partie p;
+    public Partie p;
 
     public Affichage(boolean demo, Partie p){
 
@@ -227,9 +227,7 @@ public class Affichage extends JFrame {
             infoTourJoueur.setVisible(false);
             infoDemo.setFont(f);
             infoDemo.setForeground(Color.white);
-            BatailleController.demoNext mml = new BatailleController.demoNext();
-            container.addMouseListener(mml);
-            plateau.addMouseListener(mml);
+
         }
 
 
@@ -258,6 +256,7 @@ public class Affichage extends JFrame {
     //Fonction changer de page après fin de partie
     public void RevenirMenu(){
         dispose();
+        setVisible(false);
         Menu1 t1 = new Menu1();
     }
 
@@ -293,6 +292,10 @@ public class Affichage extends JFrame {
 
     public void addvaliderPlacementListener(ActionListener ListenForPlacement){
         validerPlacementBateau.addActionListener(ListenForPlacement);
+    }
+    public void addDemoListener(BatailleController.demoNext mml) {
+        container.addMouseListener(mml);
+//        plateau.addMouseListener(mml);
     }
 
     public void addRandomBateauListener(ActionListener ListenForRandomBateau){
@@ -376,7 +379,7 @@ public class Affichage extends JFrame {
         }
     }
 
-    public static void demo(int nbClick){
+    public void demo(int nbClick){
 
         if(nbClick == 0){
             infoDemo.setText("BIENVENUE DANS LA DEMO DU JEUX");
