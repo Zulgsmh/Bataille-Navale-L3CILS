@@ -109,16 +109,26 @@ public class BatailleController {
                             int x=0;
                             affichage.getCelluleGrille1()[x][i].setBackground(Color.red);
                         }
-                        for(int j=10;j>=0;j--){
+                        for(int j=9;j>=0;j--){
                             int x=0;
                             affichage.getCelluleGrille1()[x][j].setBackground(Color.red);
                         }
-
+                        partie.j1.setEtat1(true);
 
 //                    }
 //                    catch{
 //
 //                    }
+                }
+                if(partie.j1.getEtat1()) {
+                    for (int i = 0; i < 10; i++) {
+                        int y = 0;
+                        affichage.getCelluleGrille1()[i][y].setBackground(Color.red);
+                    }
+                    for (int j = 9; j >= 0; j--) {
+                        int y = 0;
+                        affichage.getCelluleGrille1()[j][y].setBackground(Color.red);
+                    }
                 }
            }
         }
