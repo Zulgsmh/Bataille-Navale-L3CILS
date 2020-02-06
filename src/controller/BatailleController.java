@@ -159,7 +159,7 @@ public class BatailleController {
                 partie.j1.setEtat0(true);
                 partie.j1.setEtat1(false);
                 baisageDeDaronne(0,true);
-                partie.j1.setPoseXarti(poseI);
+//                partie.j1.setPoseXarti(poseI);
             }
             else{
                 partie.j1.setEtat1(true);

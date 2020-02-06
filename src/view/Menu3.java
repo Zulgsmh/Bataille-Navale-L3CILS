@@ -26,6 +26,11 @@ public class Menu3 extends  JFrame{
 
     public Menu3(Partie p){
 
+        this.setUndecorated(true);
+        setSize(0, 0);
+        final JFrame frame = new JFrame("BATAILLE NAVALE");
+        this.setLocationRelativeTo(null); //centre au milieu de l'ecran
+        this.setVisible(false);
         final Runnable runnable = new Runnable() {
             @Override
 
