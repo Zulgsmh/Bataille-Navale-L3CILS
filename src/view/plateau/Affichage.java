@@ -33,9 +33,9 @@ public class Affichage extends JFrame {
     private Boolean sens = false;
 //info tour joueur
     private final JLabel infoTourJoueur = new JLabel();
-    private final JLabel infoRadarJoueur = new JLabel("...",SwingConstants.CENTER);
+    private final JLabel infoRadarJoueur = new JLabel(" ",SwingConstants.CENTER);
     public final JLabel infoDemo = new JLabel();
-    public Font f = new Font("Arial Black",Font.PLAIN,26);
+    public Font f = new Font("Arial Black",Font.PLAIN,20);
     private JPanel listBateauJ1 = new JPanel();
     private JPanel listBateauJ2 = new JPanel();
     public JFrame frame;
@@ -59,7 +59,7 @@ public class Affichage extends JFrame {
         this.demo = demo;
         this.setUndecorated(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(1500,600);
+        this.setSize(1300,600);
         this.setLocationRelativeTo(null);
 
         container.setLayout(c);
@@ -101,7 +101,7 @@ public class Affichage extends JFrame {
         }
 
 
-        listBateauJ1.setPreferredSize( new Dimension( 300, 500 ) );
+        listBateauJ1.setPreferredSize( new Dimension( 200, 500 ) );
         String[] bateauName = {"PorteAvion", "SousMarin", "CuirasséFurtif1", "CuirasséFurtif2", "Zodiac"};
 
         for (int i = 0; i<10; i++) {
@@ -114,7 +114,7 @@ public class Affichage extends JFrame {
             buttonBateauJ1[i].setFocusable(false);
             buttonBateauJ1[i].setFocusPainted(false);
             buttonBateauJ1[i].setBorderPainted(false);
-            buttonBateauJ1[i].setFont(new Font("Arial Black",Font.PLAIN, 26));
+            buttonBateauJ1[i].setFont(f);
             
             listBateauJ1.add(buttonBateauJ1[i]);
         }
@@ -122,7 +122,7 @@ public class Affichage extends JFrame {
 
         listBateauJ1.setBackground(violetF);
         listBateauJ2.setBackground(violetF);
-        listBateauJ2.setPreferredSize( new Dimension( 300, 500 ) );
+        listBateauJ2.setPreferredSize( new Dimension( 200, 500 ) );
 
         for (int i = 0;i<10;i++) {
             Boolean vertical;
@@ -134,7 +134,7 @@ public class Affichage extends JFrame {
             buttonBateauJ2[i].setFocusable(false);
             buttonBateauJ2[i].setFocusPainted(false);
             buttonBateauJ2[i].setBorderPainted(false);
-            buttonBateauJ2[i].setFont(new Font("Arial Black",Font.PLAIN, 26));
+            buttonBateauJ2[i].setFont(f);
             listBateauJ2.add(buttonBateauJ2[i]);
         }
 
@@ -311,7 +311,7 @@ public class Affichage extends JFrame {
         infoTourJoueur.setText(text);
     }
     public void setInfoRadarJoueur(String text){
-        infoRadarJoueur.setText(text);
+        infoRadarJoueur.setText("");
     }
 
 
