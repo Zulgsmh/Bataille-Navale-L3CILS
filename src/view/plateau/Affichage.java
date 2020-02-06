@@ -326,7 +326,11 @@ public class Affichage extends JFrame {
                     } else if (maGrille[i][j].equals("PLOF")) {
                         CelluleGrille1[i][j].setColor(Color.black);
                     } else if (maGrille[i][j].equals("SHOT")) {
+
+
+
                         CelluleGrille1[i][j].setColor(Color.getColor("orange"));
+
                     } else if (!hide) {
                         if (maGrille[i][j].equals("PORT")) {
                             CelluleGrille1[i][j].setColor(Color.getColor("marron"));

@@ -31,7 +31,7 @@ public class Menu1 extends JFrame {
         setSize(0, 0);
         final JFrame frame = new JFrame("BATAILLE NAVALE");
         this.setLocationRelativeTo(null); //centre au milieu de l'ecran
-        this.setVisible(true);
+        this.setVisible(false);
         p = new Partie();
 
 
