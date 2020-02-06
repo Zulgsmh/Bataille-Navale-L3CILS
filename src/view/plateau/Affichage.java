@@ -42,7 +42,7 @@ public class Affichage extends JFrame {
     private boolean demo;
     public JPanel grille1;
     public JPanel grille2;
-
+    private JButton artillerie= new JButton();
     public Partie p;
 
     public Affichage(boolean demo, Partie p){
@@ -143,13 +143,22 @@ public class Affichage extends JFrame {
 
 
 
-
+    //Bouton valider placement bateau
         validerPlacementBateau.setBackground(new Color(31,160,85));
         validerPlacementBateau.setPreferredSize(new Dimension(200,100));
         validerPlacementBateau.setText("VALIDER");
         validerPlacementBateau.setFont(f);
         validerPlacementBateau.setForeground(Color.white);
         validerPlacementBateau.setFocusable(false);
+
+        //Bouton artillerie
+        artillerie.setBackground(new Color(160, 134, 43));
+        artillerie.setPreferredSize(new Dimension(200,100));
+        artillerie.setText("ARTILLERIE");
+        artillerie.setFont(f);
+        artillerie.setForeground(Color.white);
+        artillerie.setFocusable(false);
+
 
         //Bouton bateau aleatoire:
         RandomBateau.setBackground(new Color(139,0,0));
@@ -182,6 +191,7 @@ public class Affichage extends JFrame {
         //info sur qui joue
         plateau.add(infoTourJoueur);
         plateau.add(validerPlacementBateau);
+        plateau.add(artillerie);
         //ajout du boutton bateau random au plateau
         plateau.add(RandomBateau);
         plateau.add(infoDemo);
@@ -240,7 +250,8 @@ public class Affichage extends JFrame {
     public void setContainer(String card){
         c.show(container, card);
     }
-
+    public Cellule[][] getCelluleGrille1(){return CelluleGrille1;}
+    public Cellule[][] getCelluleGrille2(){return CelluleGrille2;}
     public void setSelectBateau(Bateau bat){
         this.bateauSelect = bat;
     }
@@ -298,6 +309,9 @@ public class Affichage extends JFrame {
 
     public void addvaliderPlacementListener(ActionListener ListenForPlacement){
         validerPlacementBateau.addActionListener(ListenForPlacement);
+    }
+    public void addartillerieListener(ActionListener ListenForArtillerie){
+        artillerie.addActionListener(ListenForArtillerie);
     }
     public void addDemoListener(BatailleController.demoNext mml) {
         container.addMouseListener(mml);

@@ -32,6 +32,7 @@ public class BatailleController {
         this.affichage.addvaliderPlacementListener(new ListenForPlacement());
         this.affichage.addRandomBateauListener(new ListenForRandomBateau());
         this.affichage.addDemoListener(new demoNext());
+        this.affichage.addartillerieListener(new ListenForArtiellerie());
     }
 
     class ListenForBateauJ1 implements ActionListener{
@@ -126,7 +127,185 @@ public class BatailleController {
             }
         }
     }
+    public void baisageDeDaronne(int i,Boolean vecteur) {
+        if(partie.getJ2DoitTirer()){
 
+            if (partie.j2.getEtat0()) {
+
+                int x = 0;
+                affichage.drawGrille1(partie.j1.maGrille,true);
+                affichage.getCelluleGrille1()[x][i].setBackground(Color.red);
+
+                if(i>8) {
+                    vecteur = false;
+                }
+                if(i<1){
+                    vecteur=true;
+                }
+                if (!vecteur) {
+                    partie.j2.setPoseXarti(i);
+                    setTimeout(() -> baisageDeDaronne(i - 1, false), 200);
+                }
+                else{
+                    partie.j2.setPoseXarti(i);
+                    setTimeout(()->baisageDeDaronne(i+1,true),200);
+                }
+            }
+            else if (partie.j2.getEtat1()) {
+
+                int y = 0;
+                affichage.drawGrille1(partie.j1.maGrille,true);
+                affichage.getCelluleGrille1()[i][partie.j2.getPoseXarti()].setBackground(Color.red);
+
+                if(i>8) {
+                    vecteur = false;
+                }
+                if(i<1){
+                    vecteur=true;
+                }
+                if (!vecteur) {
+                    partie.j2.setPoseYarti(i);
+                    setTimeout(() -> baisageDeDaronne(i - 1, false), 200);
+                }
+                else{
+                    partie.j2.setPoseYarti(i);
+                    setTimeout(()->baisageDeDaronne(i+1,true),200);
+                }
+            }
+            else if(partie.j2.getEtat2()){
+                System.out.println("dans etat2 ");
+                partie.setJ1DoitTirer(true);
+                partie.setJ2DoitTirer(false);
+                partie.j2.setEtatStart(false);
+                partie.j1.setEtatStart(true);
+                partie.j1.getShot(partie.j2.getPoseYarti()+1,partie.j2.getPoseXarti()+1,false);
+                affichage.drawGrille1(partie.j1.maGrille,true);
+            }
+        }
+        else{
+
+            if (partie.j1.getEtat0()) {
+                System.out.println("dans état 0");
+                int x = 0;
+                affichage.drawGrille2(partie.j2.maGrille,true);
+                affichage.getCelluleGrille2()[x][i].setBackground(Color.red);
+
+                if(i>8) {
+                    vecteur = false;
+                }
+                if(i<1){
+                    vecteur=true;
+                }
+                if (!vecteur) {
+                    partie.j1.setPoseXarti(i);
+                    setTimeout(() -> baisageDeDaronne(i - 1, false), 200);
+                }
+                else{
+                    partie.j1.setPoseXarti(i);
+                    setTimeout(()->baisageDeDaronne(i+1,true),200);
+                }
+            }
+            else if (partie.j1.getEtat1()) {
+
+                int y = 0;
+                affichage.drawGrille2(partie.j2.maGrille,true);
+                affichage.getCelluleGrille2()[i][partie.j1.getPoseXarti()].setBackground(Color.red);
+
+                if(i>8) {
+                    vecteur = false;
+                }
+                if(i<1){
+                    vecteur=true;
+                }
+                if (!vecteur) {
+                    partie.j1.setPoseYarti(i);
+                    setTimeout(() -> baisageDeDaronne(i - 1, false), 200);
+                }
+                else{
+                    partie.j1.setPoseYarti(i);
+                    setTimeout(()->baisageDeDaronne(i+1,true),200);
+                }
+            }
+            else if(partie.j1.getEtat2()){
+                partie.setJ1DoitTirer(false);
+                partie.setJ2DoitTirer(true);
+                partie.j1.setEtatStart(false);
+                partie.j2.setEtatStart(true);
+                partie.j2.getShot(partie.j1.getPoseYarti()+1,partie.j1.getPoseXarti()+1,false);
+                affichage.drawGrille2(partie.j2.maGrille,true);
+            }
+        }
+    }
+    public void setTimeout(Runnable runnable, int delay){
+        new Thread(() -> {
+            try {
+                Thread.sleep(delay);
+                runnable.run();
+            }
+            catch (Exception e){
+                System.err.println(e);
+            }
+        }).start();
+    }
+
+    class ListenForArtiellerie implements ActionListener{
+        public void actionPerformed(ActionEvent e) {
+
+            if(partie.j2.getEtatStart()) {
+                partie.j2.setPoseXarti(0);
+                partie.j2.setPoseYarti(0);
+                partie.j2.setEtat0(true);
+                partie.j2.setEtat1(false);
+                partie.j2.setEtat2(false);
+                partie.j2.setEtatStart(false);
+                baisageDeDaronne(0,true);
+            }
+            else if(partie.j2.getEtat0()){
+                partie.j2.setEtat1(true);
+                partie.j2.setEtat0(false);
+                partie.j2.setEtat2(false);
+                partie.j2.setEtatStart(false);
+            }
+            else if(partie.j2.getEtat1()){
+                partie.j2.setEtat1(false);
+                partie.j2.setEtat0(false);
+                partie.j2.setEtat2(true);
+                partie.j2.setEtatStart(false);
+            }
+            else if (partie.j2.getEtat2()){
+                partie.j2.setEtat1(false);
+                partie.j2.setEtat0(false);
+                partie.j2.setEtat2(false);
+            }
+            else if(partie.j1.getEtatStart()) {
+                System.out.println("DANS JE QUI TIRE");
+                partie.j1.setPoseXarti(0);
+                partie.j1.setPoseYarti(0);
+                partie.j1.setEtat0(true);
+                partie.j1.setEtat1(false);
+                partie.j1.setEtat2(false);
+                partie.j1.setEtatStart(false);
+                baisageDeDaronne(0,true);
+            }
+            else if(partie.j1.getEtat0()){
+                partie.j1.setEtat1(true);
+                partie.j1.setEtat0(false);
+                partie.j1.setEtat2(false);
+                partie.j1.setEtatStart(false);
+            }
+            else if(partie.j1.getEtat1()){
+                partie.j1.setEtat1(false);
+                partie.j1.setEtat0(false);
+                partie.j1.setEtat2(true);
+                partie.j1.setEtatStart(false);
+            }
+            else if (partie.j1.getEtat2()){
+                partie.j1.setEtat1(false);
+                partie.j1.setEtat0(false);
+                partie.j1.setEtat2(false);
+            }
+        }
+    }
     //*****************          Bateaux posé aléatoirement           *****************
 
 
