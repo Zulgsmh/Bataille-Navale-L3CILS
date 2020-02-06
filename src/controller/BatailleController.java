@@ -32,6 +32,7 @@ public class BatailleController {
         this.affichage.addvaliderPlacementListener(new ListenForPlacement());
         this.affichage.addRandomBateauListener(new ListenForRandomBateau());
         this.affichage.addDemoListener(new demoNext());
+        this.affichage.addartillerieListener(new ListenForArtiellerie());
     }
 
     class ListenForBateauJ1 implements ActionListener{
@@ -91,6 +92,35 @@ public class BatailleController {
                 affichage.drawGrille1(partie.j1.maGrille, true);
                 affichage.setInfoTourJoueur("J1 doit tirer");
             }
+        }
+    }
+
+    class ListenForArtiellerie implements ActionListener{
+        public void actionPerformed(ActionEvent e) {
+           if(partie.getJ1DoitTirer()){
+               System.out.println("tri thuan fume des tubes ");
+               if(partie.getTypeArti()){
+                   partie.j1.setEtat0(true);
+               }
+                if(partie.j1.getEtat0()){
+                    System.out.println("tri thuan fume des joints ");
+//                    try{
+                        for(int i=0;i<10;i++) {
+                            int x=0;
+                            affichage.getCelluleGrille1()[x][i].setBackground(Color.red);
+                        }
+                        for(int j=10;j>=0;j--){
+                            int x=0;
+                            affichage.getCelluleGrille1()[x][j].setBackground(Color.red);
+                        }
+
+
+//                    }
+//                    catch{
+//
+//                    }
+                }
+           }
         }
     }
 

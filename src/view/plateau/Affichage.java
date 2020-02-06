@@ -27,6 +27,7 @@ public class Affichage extends JFrame {
     private final JButton validerPlacementBateau = new JButton();
     private final Cellule[][] CelluleGrille1 = new Cellule[10][10];
     private final Cellule[][] CelluleGrille2 = new Cellule[10][10];
+    private final Cellule[][] Cellulej1=new Cellule[0][0];
     private final Bateau[] buttonBateauJ1 = new Bateau[10];
     private final Bateau[] buttonBateauJ2 = new Bateau[10];
     private Bateau bateauSelect = new Bateau("", true);
@@ -40,6 +41,7 @@ public class Affichage extends JFrame {
     private JPanel listBateauJ2 = new JPanel();
     public JFrame frame;
     private boolean demo;
+    private JButton artillerie= new JButton();
 
     public Partie p;
 
@@ -140,7 +142,7 @@ public class Affichage extends JFrame {
         listBateauJ2.setLayout(new FlowLayout(FlowLayout.CENTER));
 
 
-
+        //Bouton placement bateau
 
         validerPlacementBateau.setBackground(new Color(31,160,85));
         validerPlacementBateau.setPreferredSize(new Dimension(200,100));
@@ -148,6 +150,14 @@ public class Affichage extends JFrame {
         validerPlacementBateau.setFont(f);
         validerPlacementBateau.setForeground(Color.white);
         validerPlacementBateau.setFocusable(false);
+
+        //Bouton artillerie
+        artillerie.setBackground(new Color(160, 134, 43));
+        artillerie.setPreferredSize(new Dimension(200,100));
+        artillerie.setText("ARTILLERIE");
+        artillerie.setFont(f);
+        artillerie.setForeground(Color.white);
+        artillerie.setFocusable(false);
 
         //Bouton bateau aleatoire:
         RandomBateau.setBackground(new Color(139,0,0));
@@ -180,7 +190,8 @@ public class Affichage extends JFrame {
         //info sur qui joue
         plateau.add(infoTourJoueur);
         plateau.add(validerPlacementBateau);
-        //ajout du boutton bateau random au plateau
+        plateau.add(artillerie);
+        //ajout du bouton bateau random au plateau
         plateau.add(RandomBateau);
         plateau.add(infoDemo);
         plateau.add(infoRadarJoueur);
@@ -244,6 +255,8 @@ public class Affichage extends JFrame {
         return this.bateauSelect;
     }
     public JButton getRandomButton(){ return this.RandomBateau ; }
+    public Cellule[][] getCelluleGrille1(){return CelluleGrille1;}
+    public Cellule[][] getCelluleGrille2(){return CelluleGrille2;}
 
     public void setAfficherPopUpVictoire(String gagnant){
         jop1 = new JOptionPane() ;
@@ -292,6 +305,9 @@ public class Affichage extends JFrame {
 
     public void addvaliderPlacementListener(ActionListener ListenForPlacement){
         validerPlacementBateau.addActionListener(ListenForPlacement);
+    }
+    public void addartillerieListener(ActionListener ListenForArtillerie){
+        artillerie.addActionListener(ListenForArtillerie);
     }
     public void addDemoListener(BatailleController.demoNext mml) {
         container.addMouseListener(mml);
