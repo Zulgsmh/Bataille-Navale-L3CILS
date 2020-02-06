@@ -162,11 +162,16 @@ public class BatailleController {
 
             if(!partie.j1.getEtat0()) {
                 partie.j1.setEtat0(true);
+<<<<<<< HEAD
                 baisageDeDaronne(0,true);
 <<<<<<< HEAD
 //                partie.j1.setPoseXarti(poseI);
 =======
 >>>>>>> parent of d5b53cd... Merge remote-tracking branch 'origin/DoubleModeArtillerie' into bouton-bateau-aleatoire
+=======
+                partie.j1.getEtat1(false);
+                baisageDeDaronne(0,true);
+>>>>>>> parent of 1037574... TEST
             }
             else{
                 partie.j1.setEtat1(true);
