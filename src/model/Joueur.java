@@ -63,17 +63,11 @@ public class Joueur {
     private boolean etat0=false;
     private boolean etat1=false;
     private boolean etat2=false;
-    private int poseXarti=0;
 
     public int getRadar(){
         return radar;
     }
-    public int getPoseXarti(){
-        return poseXarti;
-    }
-    public void setPoseXarti(int p){
-        poseXarti=p;
-    }
+
     public int getId() {
         return id;
     }
