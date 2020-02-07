@@ -128,64 +128,8 @@ public class BatailleController {
         }
     }
     public void baisageDeDaronne(int i,Boolean vecteur) {
-        if(partie.getJ2DoitTirer()){
 
-            if (partie.j2.getEtat0()) {
-
-                int x = 0;
-                affichage.drawGrille1(partie.j1.maGrille,true);
-                affichage.getCelluleGrille1()[x][i].setBackground(Color.red);
-
-                if(i>8) {
-                    vecteur = false;
-                }
-                if(i<1){
-                    vecteur=true;
-                }
-                if (!vecteur) {
-                    partie.j2.setPoseXarti(i);
-                    setTimeout(() -> baisageDeDaronne(i - 1, false), 200);
-                }
-                else{
-                    partie.j2.setPoseXarti(i);
-                    setTimeout(()->baisageDeDaronne(i+1,true),200);
-                }
-            }
-            else if (partie.j2.getEtat1()) {
-
-                int y = 0;
-                affichage.drawGrille1(partie.j1.maGrille,true);
-                affichage.getCelluleGrille1()[i][partie.j2.getPoseXarti()].setBackground(Color.red);
-
-                if(i>8) {
-                    vecteur = false;
-                }
-                if(i<1){
-                    vecteur=true;
-                }
-                if (!vecteur) {
-                    partie.j2.setPoseYarti(i);
-                    setTimeout(() -> baisageDeDaronne(i - 1, false), 200);
-                }
-                else{
-                    partie.j2.setPoseYarti(i);
-                    setTimeout(()->baisageDeDaronne(i+1,true),200);
-                }
-            }
-            else if(partie.j2.getEtat2()){
-                System.out.println("dans etat2 ");
-                partie.setJ1DoitTirer(true);
-                partie.setJ2DoitTirer(false);
-                partie.j2.setEtatStart(false);
-                partie.j1.setEtatStart(true);
-                partie.j1.getShot(partie.j2.getPoseYarti()+1,partie.j2.getPoseXarti()+1,true);
-                if(partie.getTypeAR()){
-                    vague(affichage.getCelluleGrille1()[partie.j2.getPoseYarti()][partie.j2.getPoseXarti()], 0, false);
-                }
-                affichage.drawGrille1(partie.j1.maGrille,true);
-            }
-        }
-        else{
+        if(partie.getJ1DoitTirer()){
 
             if (partie.j1.getEtat0()) {
                 System.out.println("dans état 0");
@@ -245,6 +189,63 @@ public class BatailleController {
                 partie.j2.setEtatStart(true);
             }
         }
+        else if(partie.getJ2DoitTirer()){
+            if (partie.j2.getEtat0()) {
+
+                int x = 0;
+                affichage.drawGrille1(partie.j1.maGrille,true);
+                affichage.getCelluleGrille1()[x][i].setBackground(Color.red);
+
+                if(i>8) {
+                    vecteur = false;
+                }
+                if(i<1){
+                    vecteur=true;
+                }
+                if (!vecteur) {
+                    partie.j2.setPoseXarti(i);
+                    setTimeout(() -> baisageDeDaronne(i - 1, false), 200);
+                }
+                else{
+                    partie.j2.setPoseXarti(i);
+                    setTimeout(()->baisageDeDaronne(i+1,true),200);
+                }
+            }
+            else if (partie.j2.getEtat1()) {
+
+                int y = 0;
+                affichage.drawGrille1(partie.j1.maGrille,true);
+                affichage.getCelluleGrille1()[i][partie.j2.getPoseXarti()].setBackground(Color.red);
+
+                if(i>8) {
+                    vecteur = false;
+                }
+                if(i<1){
+                    vecteur=true;
+                }
+                if (!vecteur) {
+                    partie.j2.setPoseYarti(i);
+                    setTimeout(() -> baisageDeDaronne(i - 1, false), 200);
+                }
+                else{
+                    partie.j2.setPoseYarti(i);
+                    setTimeout(()->baisageDeDaronne(i+1,true),200);
+                }
+            }
+            else if(partie.j2.getEtat2()){
+                System.out.println("dans etat2 ");
+                partie.setJ1DoitTirer(true);
+                partie.setJ2DoitTirer(false);
+                partie.j2.setEtatStart(false);
+                partie.j1.setEtatStart(true);
+                partie.j1.getShot(partie.j2.getPoseYarti()+1,partie.j2.getPoseXarti()+1,true);
+                if(partie.getTypeAR()){
+                    vague(affichage.getCelluleGrille1()[partie.j2.getPoseYarti()][partie.j2.getPoseXarti()], 0, false);
+                }
+                affichage.drawGrille1(partie.j1.maGrille,true);
+            }
+
+        }
     }
     public void setTimeout(Runnable runnable, int delay){
         new Thread(() -> {
@@ -260,7 +261,6 @@ public class BatailleController {
 
     class ListenForArtiellerie implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-
 
             if(partie.j1.getEtatStart()) {
                 System.out.println("DANS JE QUI TIRE");
@@ -288,6 +288,37 @@ public class BatailleController {
                 partie.j1.setEtat1(false);
                 partie.j1.setEtat0(false);
                 partie.j1.setEtat2(false);
+            }else if(partie.j2.getEstOrdi()){
+                partie.j1.setEtatStart(true);
+                partie.j2.setEtatStart(false);
+                partie.j2.setEtat1(false);
+                partie.j2.setEtat0(false);
+                partie.j2.setEtat2(false);
+                partie.j1.setEtat0(false);
+                partie.j1.setEtat1(false);
+                partie.j1.setEtat2(false);
+                System.out.println("j2 est un ordi");
+                Thread t = new Thread() {
+                    public void run() {
+                        try {
+                            partie.setJ1DoitTirer(false);
+                            Thread.sleep(500);
+                            if (partie.ordiMove(partie.j1)) {
+                                affichage.drawGrille1(partie.j1.maGrille, true);
+                                affichage.drawGrille2(partie.j2.maGrille, true);
+                                affichage.setAfficherPopUpVictoire("l'ordi");
+                            }
+                            affichage.drawGrille1(partie.j1.maGrille, true);
+                            affichage.drawGrille2(partie.j2.maGrille, true);
+
+
+                            partie.setJ1DoitTirer(true);
+                        } catch (InterruptedException ex) {
+                            Thread.currentThread().interrupt();
+                        }
+                    }
+                };
+                t.start();
             }else if(partie.j2.getEtatStart()) {
                 partie.j2.setPoseXarti(0);
                 partie.j2.setPoseYarti(0);
