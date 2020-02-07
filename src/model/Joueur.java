@@ -227,6 +227,7 @@ public class Joueur {
                             break;
                         }
                     }
+                    System.out.println("TAILLE DU RADAR "+ rad);
                     radar=rad;
 
                 }
@@ -279,7 +280,9 @@ public class Joueur {
                 aTouche = true;
             }
         }
-
+        for (Navire bateau : this.listNavire) {
+        System.out.println(bateau.getNom() +  " " + bateau.getVie());
+        }
         for (Navire bateau : this.listNavire) {
             if (bateau.getEstPose()) {
                 if (bateau.getVie() != 0) {

@@ -158,7 +158,9 @@ public class Affichage extends JFrame {
         artillerie.setFont(f);
         artillerie.setForeground(Color.white);
         artillerie.setFocusable(false);
-
+        if(!p.getTypeArti() && !p.getTypeAR()) {
+            artillerie.setVisible(false);
+        }
 
         //Bouton bateau aleatoire:
         RandomBateau.setBackground(new Color(139,0,0));
@@ -402,8 +404,8 @@ public class Affichage extends JFrame {
         for(int x = tirX-dist; x <= tirX+dist; x++){
             for(int y = tirY-dist; y <= tirY+dist; y++){
                 if (x >= 0 && x < 10 && y >= 0 && y < 10 && dist != 0) {
-                    System.out.println(g);
                     if (g) {
+                        System.out.println("radar x :"+x+ " y : " + y);
                         CelluleGrille2[x][y].setColor(c);
 
                     } else {

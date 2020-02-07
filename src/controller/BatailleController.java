@@ -178,7 +178,10 @@ public class BatailleController {
                 partie.setJ2DoitTirer(false);
                 partie.j2.setEtatStart(false);
                 partie.j1.setEtatStart(true);
-                partie.j1.getShot(partie.j2.getPoseYarti()+1,partie.j2.getPoseXarti()+1,false);
+                partie.j1.getShot(partie.j2.getPoseYarti()+1,partie.j2.getPoseXarti()+1,true);
+                if(partie.getTypeAR()){
+                    vague(affichage.getCelluleGrille1()[partie.j2.getPoseYarti()][partie.j2.getPoseXarti()], 0, false);
+                }
                 affichage.drawGrille1(partie.j1.maGrille,true);
             }
         }
@@ -229,10 +232,17 @@ public class BatailleController {
             else if(partie.j1.getEtat2()){
                 partie.setJ1DoitTirer(false);
                 partie.setJ2DoitTirer(true);
+
+                partie.j2.getShot(partie.j1.getPoseYarti()+1,partie.j1.getPoseXarti()+1,true);
+                //affichage.drawGrille2(partie.j2.maGrille,true);
+                if(partie.getTypeAR()){
+                    System.out.println(partie.j2.getRadar());
+                    System.out.println("POS : "+partie.j1.getPoseYarti() +"  "+partie.j1.getPoseXarti());
+                    System.out.println("BOUTON : "+affichage.getCelluleGrille2()[partie.j1.getPoseYarti()][partie.j1.getPoseXarti()]);
+                    vague(affichage.getCelluleGrille2()[partie.j1.getPoseYarti()][partie.j1.getPoseXarti()], 0, true);
+                }
                 partie.j1.setEtatStart(false);
                 partie.j2.setEtatStart(true);
-                partie.j2.getShot(partie.j1.getPoseYarti()+1,partie.j1.getPoseXarti()+1,false);
-                affichage.drawGrille2(partie.j2.maGrille,true);
             }
         }
     }
@@ -251,33 +261,8 @@ public class BatailleController {
     class ListenForArtiellerie implements ActionListener{
         public void actionPerformed(ActionEvent e) {
 
-            if(partie.j2.getEtatStart()) {
-                partie.j2.setPoseXarti(0);
-                partie.j2.setPoseYarti(0);
-                partie.j2.setEtat0(true);
-                partie.j2.setEtat1(false);
-                partie.j2.setEtat2(false);
-                partie.j2.setEtatStart(false);
-                baisageDeDaronne(0,true);
-            }
-            else if(partie.j2.getEtat0()){
-                partie.j2.setEtat1(true);
-                partie.j2.setEtat0(false);
-                partie.j2.setEtat2(false);
-                partie.j2.setEtatStart(false);
-            }
-            else if(partie.j2.getEtat1()){
-                partie.j2.setEtat1(false);
-                partie.j2.setEtat0(false);
-                partie.j2.setEtat2(true);
-                partie.j2.setEtatStart(false);
-            }
-            else if (partie.j2.getEtat2()){
-                partie.j2.setEtat1(false);
-                partie.j2.setEtat0(false);
-                partie.j2.setEtat2(false);
-            }
-            else if(partie.j1.getEtatStart()) {
+
+            if(partie.j1.getEtatStart()) {
                 System.out.println("DANS JE QUI TIRE");
                 partie.j1.setPoseXarti(0);
                 partie.j1.setPoseYarti(0);
@@ -303,6 +288,31 @@ public class BatailleController {
                 partie.j1.setEtat1(false);
                 partie.j1.setEtat0(false);
                 partie.j1.setEtat2(false);
+            }else if(partie.j2.getEtatStart()) {
+                partie.j2.setPoseXarti(0);
+                partie.j2.setPoseYarti(0);
+                partie.j2.setEtat0(true);
+                partie.j2.setEtat1(false);
+                partie.j2.setEtat2(false);
+                partie.j2.setEtatStart(false);
+                baisageDeDaronne(0,true);
+            }
+            else if(partie.j2.getEtat0()){
+                partie.j2.setEtat1(true);
+                partie.j2.setEtat0(false);
+                partie.j2.setEtat2(false);
+                partie.j2.setEtatStart(false);
+            }
+            else if(partie.j2.getEtat1()){
+                partie.j2.setEtat1(false);
+                partie.j2.setEtat0(false);
+                partie.j2.setEtat2(true);
+                partie.j2.setEtatStart(false);
+            }
+            else if (partie.j2.getEtat2()){
+                partie.j2.setEtat1(false);
+                partie.j2.setEtat0(false);
+                partie.j2.setEtat2(false);
             }
         }
     }
@@ -444,35 +454,6 @@ public class BatailleController {
             }
 
         }
-        public void vague(Cellule parent, int i, boolean quiTir){
-            affichage.radar(parent.getx(),parent.gety(),i, Color.cyan,quiTir);
-            affichage.radar(parent.getx(),parent.gety(),i-1, violet, quiTir);
-            affichage.drawGrille1(partie.j1.maGrille, true);
-            affichage.drawGrille2(partie.j2.maGrille, true);
-
-            if(quiTir) {
-                if (i < partie.j2.getRadar() - 1) {
-                    setTimeout(() -> vague(parent, i + 1, quiTir), 250);
-
-                }
-            } else {
-                if (i < partie.j1.getRadar() - 1) {
-                    setTimeout(() -> vague(parent, i + 1, quiTir), 250);
-                }
-            }
-        }
-
-        public void setTimeout(Runnable runnable, int delay){
-            new Thread(() -> {
-                try {
-                    Thread.sleep(delay);
-                    runnable.run();
-                }
-                catch (Exception e){
-                    System.err.println(e);
-                }
-            }).start();
-        }
         public void mouseEntered(MouseEvent e) {
             Color violet = new Color(110,74,227);
             Color violetF = new Color(42,0,51);
@@ -502,6 +483,27 @@ public class BatailleController {
         public void mouseReleased(MouseEvent arg0) {
 
         }
+    }
+
+    public void vague(Cellule parent, int i, boolean quiTir){
+        System.out.println("DANS LA VAGUE getradar :" + partie.j2.getRadar());
+        System.out.println(parent.getx()+ " - "+parent.gety());
+        affichage.radar(parent.getx(),parent.gety(),i, Color.cyan,quiTir);
+        affichage.radar(parent.getx(),parent.gety(),i-1, violet, quiTir);
+        affichage.drawGrille1(partie.j1.maGrille, true);
+        affichage.drawGrille2(partie.j2.maGrille, true);
+
+        if(quiTir) {
+            if (i < partie.j2.getRadar() - 1) {
+                setTimeout(() -> vague(parent, i + 1, quiTir), 250);
+
+            }
+        } else {
+            if (i < partie.j1.getRadar() - 1) {
+                setTimeout(() -> vague(parent, i + 1, quiTir), 250);
+            }
+        }
+
     }
 
     //*****************          Style des bouttons du Plateau           *****************
